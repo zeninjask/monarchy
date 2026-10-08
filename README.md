@@ -12,4 +12,4 @@ Current bugs:
 Ender Obscurous crashes
 Antithisus skill crashes
 Irons and spells ponder not working
-Add AppleSkin, IPN, Backpacked
+Add AppleSkin, IPN, Backpacked. Framework
