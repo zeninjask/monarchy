@@ -11,4 +11,5 @@ Paste these arguments into the 'java arguments' of your preferred launcher:
 Current bugs:
 Ender Obscurous crashes
 Antithisus skill crashes
-IRons and spells ponder not working
+Irons and spells ponder not working
+Add AppleSkin, IPN
