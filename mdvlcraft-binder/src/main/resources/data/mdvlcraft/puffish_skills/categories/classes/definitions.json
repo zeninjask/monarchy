@@ -252,7 +252,7 @@
   "assassin": {
     "title": "Assassin",
     "description": "Daggers, backstabs and vanishing acts. Key: Echoing Strikes, Acupuncture, Bonebreaker.",
-    "extra_description": "Opens the Assassin tab. You can pick 2 archetypes in total.",
+    "extra_description": "Opens the Assassin tab. You can pick 2 archetypes in total. Also teaches Precise Parry (Epic Fight passive): parrying at the perfect moment grants strong buffs and empowers your next attack.",
     "icon": {
       "type": "texture",
       "data": {
@@ -270,12 +270,20 @@
       }
     },
     "size": 1.5,
-    "cost": 1
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "mdvlcraft:epicfight_skill",
+        "data": {
+          "skill": "efn:precise_parry"
+        }
+      }
+    ]
   },
   "phantom": {
     "title": "Phantom",
     "description": "Rapier duelling, dodges and ripostes. Key: Evasion, Slow, Invisibility.",
-    "extra_description": "Opens the Phantom tab. You can pick 2 archetypes in total.",
+    "extra_description": "Opens the Phantom tab. You can pick 2 archetypes in total. Also teaches Precise Parry (Epic Fight passive): parrying at the perfect moment grants strong buffs and empowers your next attack.",
     "icon": {
       "type": "texture",
       "data": {
@@ -293,12 +301,20 @@
       }
     },
     "size": 1.5,
-    "cost": 1
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "mdvlcraft:epicfight_skill",
+        "data": {
+          "skill": "efn:precise_parry"
+        }
+      }
+    ]
   },
   "scout": {
     "title": "Scout",
     "description": "Mobility, ender magic and far sight. Key: Cleanse, Haste, Planar Sight.",
-    "extra_description": "Opens the Scout tab. You can pick 2 archetypes in total.",
+    "extra_description": "Opens the Scout tab. You can pick 2 archetypes in total. Also teaches Precise Parry (Epic Fight passive): parrying at the perfect moment grants strong buffs and empowers your next attack.",
     "icon": {
       "type": "texture",
       "data": {
@@ -316,12 +332,20 @@
       }
     },
     "size": 1.5,
-    "cost": 1
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "mdvlcraft:epicfight_skill",
+        "data": {
+          "skill": "efn:precise_parry"
+        }
+      }
+    ]
   },
   "thief": {
     "title": "Thief",
     "description": "Luck, plunder and Boogie Woogie swaps. Key: Boogie Woogie, Block Clap, Scapegoat.",
-    "extra_description": "Opens the Thief tab. You can pick 2 archetypes in total.",
+    "extra_description": "Opens the Thief tab. You can pick 2 archetypes in total. Also teaches Precise Parry (Epic Fight passive): parrying at the perfect moment grants strong buffs and empowers your next attack.",
     "icon": {
       "type": "texture",
       "data": {
@@ -339,7 +363,15 @@
       }
     },
     "size": 1.5,
-    "cost": 1
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "mdvlcraft:epicfight_skill",
+        "data": {
+          "skill": "efn:precise_parry"
+        }
+      }
+    ]
   },
   "ranger": {
     "title": "Ranger",

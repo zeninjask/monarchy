@@ -30,7 +30,8 @@
     "epicfight.ColliderMixin",
     "wom.ReuseableEventsMixin",
     "villagerecruits.VillageAutoBuilderMixin",
-    "villagerecruits.VillageBuilderManagerMixin"
+    "villagerecruits.VillageBuilderManagerMixin",
+    "efn.EFNParryingSkillMixin"
   ],
   "client": [
     "cursedfate.CursedfateModKeyMappingsMixin",
@@ -44,7 +45,8 @@
     "swordsoaring.SwordSoaringKeyMappingsMixin",
     "epicfight.AnimationEventMixin",
     "efn.EFNKeyMappingsMixin",
-    "puffish.ConnectionBatchedRendererMixin"
+    "puffish.ConnectionBatchedRendererMixin",
+    "epicfight.SkillBookScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

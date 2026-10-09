@@ -1,0 +1,49 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "wom:satsujin",
+      "required": false
+    },
+    {
+      "id": "wom:evil_tachi",
+      "required": false
+    },
+    {
+      "id": "wom:netherite_tachi",
+      "required": false
+    },
+    {
+      "id": "efn:yamato_dmc",
+      "required": false
+    },
+    {
+      "id": "efn:yamato_dmc4",
+      "required": false
+    },
+    {
+      "id": "efn:hf_murasama",
+      "required": false
+    },
+    {
+      "id": "efn:air_tachi",
+      "required": false
+    },
+    {
+      "id": "efn:co_tachi",
+      "required": false
+    },
+    {
+      "id": "cursedfate:split_soul_katana",
+      "required": false
+    },
+    {
+      "id": "cursedfate:mutual_love_katana_weapon",
+      "required": false
+    },
+    {
+      "id": "irons_spellbooks:obsidian_katana",
+      "required": false
+    }
+  ]
+}

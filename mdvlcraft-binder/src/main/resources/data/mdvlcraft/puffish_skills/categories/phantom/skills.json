@@ -325,10 +325,10 @@
     "y": 542,
     "definition": "might_1"
   },
-  "babylonian_armory": {
+  "all_eyes_on_you": {
     "x": 398,
     "y": 523,
-    "definition": "babylonian_armory"
+    "definition": "all_eyes_on_you"
   },
   "constitution_4": {
     "x": 426,
@@ -2134,5 +2134,10 @@
     "x": 212,
     "y": -641,
     "definition": "mending_17"
+  },
+  "doppelganger": {
+    "x": 139,
+    "y": 551,
+    "definition": "doppelganger"
   }
 }

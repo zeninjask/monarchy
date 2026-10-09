@@ -4,9 +4,11 @@ import com.mdvlcraft.binder.ability.AbilityReward;
 import com.mdvlcraft.binder.attribute.BinderAttributes;
 import com.mdvlcraft.binder.client.ClientAbilitySetup;
 import com.mdvlcraft.binder.client.ClientContentSetup;
+import com.mdvlcraft.binder.combat.BinderEffects;
 import com.mdvlcraft.binder.compat.issponder.PreviewCasts;
 import com.mdvlcraft.binder.config.BinderConfig;
 import com.mdvlcraft.binder.content.DisabledContentSetup;
+import com.mdvlcraft.binder.doppelganger.DoppelgangerSetup;
 import com.mdvlcraft.binder.epicskill.EpicSkillReward;
 import com.mdvlcraft.binder.integration.CataclysmIntegration;
 import com.mdvlcraft.binder.integration.EpicFightIntegration;
@@ -34,6 +36,8 @@ public final class MDVLBinder {
         context.registerConfig(Type.COMMON, BinderConfig.SPEC);
         DisabledContentSetup.register(modBus);
         BinderAttributes.register(modBus);
+        BinderEffects.register(modBus);
+        DoppelgangerSetup.register(modBus);
         modBus.addListener(MDVLBinder::onCommonSetup);
         if (FMLEnvironment.dist == Dist.CLIENT) {
             ClientContentSetup.register(modBus);

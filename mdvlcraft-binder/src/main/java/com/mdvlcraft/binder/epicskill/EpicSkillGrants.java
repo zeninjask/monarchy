@@ -11,6 +11,7 @@ import yesman.epicfight.gameasset.EpicFightSkills;
 import yesman.epicfight.network.EpicFightNetworkManager;
 import yesman.epicfight.network.server.SPAddLearnedSkill;
 import yesman.epicfight.network.server.SPRemoveSkillAndLearn;
+import yesman.epicfight.api.data.reloader.SkillManager;
 import yesman.epicfight.skill.Skill;
 import yesman.epicfight.skill.SkillContainer;
 import yesman.epicfight.skill.SkillSlot;
@@ -20,6 +21,10 @@ import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
 import yesman.epicfight.world.capabilities.skill.CapabilitySkill;
 
 public final class EpicSkillGrants {
+    private static final String SOULSLIKE_DODGE = "efn:efn_dodge";
+    private static final String SOULSLIKE_STEP = "efn:efn_step";
+    /** Nightfall's "Parry - Absolute Deflection", which every class gets. */
+    private static final String ABSOLUTE_DEFLECTION = "efn:efn_parry";
     private static final Set<Skill> TREE_SKILLS = new HashSet<>();
     private static final Map<UUID, Set<EpicSkillReward>> ACTIVE = new HashMap<>();
     private static final Set<UUID> DIRTY = new HashSet<>();
@@ -84,14 +89,37 @@ public final class EpicSkillGrants {
                 }
             }
 
-            for (Skill basic : new Skill[]{EpicFightSkills.ROLL, EpicFightSkills.STEP, EpicFightSkills.GUARD, EpicFightSkills.PARRYING}) {
-                if (!skills.hasLearned(basic)) {
+            Skill dodge = orElse(SOULSLIKE_DODGE, EpicFightSkills.ROLL);
+            Skill step = orElse(SOULSLIKE_STEP, EpicFightSkills.STEP);
+            Skill deflection = SkillManager.getSkill(ABSOLUTE_DEFLECTION);
+            for (Skill basic : new Skill[]{dodge, step, EpicFightSkills.GUARD, EpicFightSkills.PARRYING, deflection}) {
+                if (basic != null && !skills.hasLearned(basic)) {
                     learn(player, skills, basic);
                 }
             }
 
-            equipIfEmpty(patch, SkillSlots.DODGE, EpicFightSkills.ROLL);
+            // Everyone used to get Roll and Step; the souls-like versions replace them, in the dodge slot too
+            replace(player, patch, skills, granted, EpicFightSkills.ROLL, dodge);
+            replace(player, patch, skills, granted, EpicFightSkills.STEP, step);
+            equipIfEmpty(patch, SkillSlots.DODGE, dodge);
             equipIfEmpty(patch, SkillSlots.GUARD, EpicFightSkills.GUARD);
+        }
+    }
+
+    private static Skill orElse(String id, Skill fallback) {
+        Skill skill = SkillManager.getSkill(id);
+        return skill != null ? skill : fallback;
+    }
+
+    private static void replace(ServerPlayer player, ServerPlayerPatch patch, CapabilitySkill skills, Set<Skill> granted, Skill old, Skill replacement) {
+        if (old == replacement || granted.contains(old) || !skills.hasLearned(old)) {
+            return;
+        }
+
+        SkillContainer equipped = skills.getSkillContainer(old);
+        forget(player, patch, skills, old);
+        if (equipped != null && equipped.getSkill() == null) {
+            EpicSkillEquip.apply(patch, equipped, replacement);
         }
     }
 

@@ -3,7 +3,9 @@ package com.mdvlcraft.binder.mixin;
 import com.mdvlcraft.binder.client.SpellPreviews;
 import java.util.Optional;
 import javax.annotation.Nullable;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.puffish.skillsmod.api.Skill.State;
 import net.puffish.skillsmod.client.config.ClientFrameConfig;
@@ -25,6 +27,7 @@ import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -129,5 +132,20 @@ public abstract class SkillsScreenMixin {
     )
     private int mdvlcraft$titleText(int colour) {
         return -1512206;
+    }
+
+    /** Skill tooltips show the node's point cost after its title. */
+    @Redirect(
+        method = {"lambda$drawContentWithCategory$21"},
+        at = @At(
+            value = "INVOKE",
+            target = "Lnet/puffish/skillsmod/client/config/skill/ClientSkillDefinitionConfig;title()Lnet/minecraft/network/chat/Component;"
+        ),
+        require = 0
+    )
+    private Component mdvlcraft$titleWithCost(ClientSkillDefinitionConfig definition) {
+        int cost = definition.cost();
+        String key = cost == 0 ? "screen.mdvlcraft.skills.cost_free" : cost == 1 ? "screen.mdvlcraft.skills.cost_one" : "screen.mdvlcraft.skills.cost";
+        return Component.empty().append(definition.title()).append(Component.translatable(key, cost).withStyle(ChatFormatting.GOLD));
     }
 }

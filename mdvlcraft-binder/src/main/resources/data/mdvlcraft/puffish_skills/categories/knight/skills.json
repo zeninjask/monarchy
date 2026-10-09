@@ -2159,5 +2159,10 @@
     "x": -837,
     "y": -2,
     "definition": "readiness_22"
+  },
+  "gravity_stomp": {
+    "x": -1134,
+    "y": 160,
+    "definition": "gravity_stomp"
   }
 }

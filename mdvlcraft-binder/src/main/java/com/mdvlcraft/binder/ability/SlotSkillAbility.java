@@ -24,7 +24,8 @@ public enum SlotSkillAbility implements Ability {
     MYRIAD_BLADES("myriad_blades", "sword_soaring:wan_jian_gui_zong", 35, "sword_soaring:textures/gui/skills/sword_controller/wan_jian_gui_zong.png"),
     BABYLONIAN_ARMORY("babylonian_armory", "sword_soaring:babylon", 35, "sword_soaring:textures/gui/skills/sword_controller/babylon.png"),
     CELESTIAL_ARRAY("celestial_array", "sword_soaring:rain_sword", 30, "sword_soaring:textures/gui/skills/sword_controller/rain_sword.png"),
-    SOUL_HUNT("soul_hunt", "efn:execution", 20, "efn:textures/gui/skills/efn_arts/execution.png");
+    SOUL_HUNT("soul_hunt", "efn:execution", 20, "efn:textures/gui/skills/efn_arts/execution.png"),
+    GRAVITY_STOMP("gravity_stomp", "efn:stomp", 15, "efn:textures/gui/skills/efn_arts/stomp.png");
 
     private final ResourceLocation id;
     private final String skillId;

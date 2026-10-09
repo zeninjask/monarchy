@@ -12470,5 +12470,35 @@
     },
     "size": 0.75,
     "extra_description": "Twig bonus (every archetype has a few of these)."
+  },
+  "buster_parade": {
+    "title": "Dread Full Buster",
+    "description": "Teaches Dread Full Buster, an Epic Fight Guard skill: wind up your weapon for 1 to 2 s, then release a mighty blow that ignores guard and knocks out a target caught blocking or attacking. Equip it in the Combat Skills box of the abilities screen",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "wom:textures/gui/skills/guard/buster_parade.png"
+      }
+    },
+    "rewards": [
+      {
+        "type": "mdvlcraft:epicfight_skill",
+        "data": {
+          "skill": "wom:buster_parade"
+        }
+      }
+    ],
+    "cost": 3,
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_excluded.png"
+      }
+    },
+    "size": 2.0
   }
 }

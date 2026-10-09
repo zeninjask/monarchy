@@ -99,5 +99,18 @@
   "mdvlcraft.ponder.sloop_building.text_3": "Then add three more planks to each frame until it is fully planked",
   "mdvlcraft.ponder.sloop_building.text_4": "Place four cleats on the corner frames shown, each pair facing outwards across the hull",
   "mdvlcraft.ponder.sloop_building.text_5": "The hull becomes a sloop under construction. Look at it to see what it needs next, and right-click it with that: stripped logs for the keel, planks for the deck, more stripped logs for bowsprit, mast and boom",
-  "mdvlcraft.ponder.sloop_building.text_6": "Then white wool for the mainsail and jib, fences for both railings, an anchor, and leads for the rigging"
+  "mdvlcraft.ponder.sloop_building.text_6": "Then white wool for the mainsail and jib, fences for both railings, an anchor, and leads for the rigging",
+  "effect.mdvlcraft.sealed": "Sealed",
+  "screen.mdvlcraft.skills.cost": " (%s points)",
+  "screen.mdvlcraft.skills.cost_one": " (%s point)",
+  "screen.mdvlcraft.skills.cost_free": " (free)",
+  "ability.mdvlcraft.gravity_stomp": "Gravity Stomp",
+  "ability.mdvlcraft.gravity_stomp.desc": "Stomp the ground, hitting everything around you. Also uses stamina and has its own cooldown.",
+  "entity.mdvlcraft.doppelganger": "Doppelganger",
+  "ability.mdvlcraft.doppelganger": "Doppelganger",
+  "ability.mdvlcraft.doppelganger.desc": "Summon a double of yourself that fights at your side and repeats your attacks. Cast again while looking at an enemy to teleport behind it; sneak and cast to dismiss the double.",
+  "ability.mdvlcraft.doppelganger.upkeep": "%s mana per second while summoned",
+  "ability.mdvlcraft.doppelganger.no_target": "Look at a creature to teleport to it (sneak to dismiss your double)",
+  "ability.mdvlcraft.doppelganger.no_room": "No room to teleport behind that creature",
+  "ability.mdvlcraft.doppelganger.out_of_mana": "Your doppelganger fades: out of mana"
 }

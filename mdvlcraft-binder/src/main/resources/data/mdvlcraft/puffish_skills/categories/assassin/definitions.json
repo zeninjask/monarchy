@@ -5691,7 +5691,7 @@
   },
   "blood_step": {
     "title": "Blood Step",
-    "description": "Unlocks Blood Step (Level 2) (24 mana, 18 s cooldown) on the ability wheel. Hold the Ponder key (W) here to preview it",
+    "description": "Unlocks Blood Step (Level 5) (42 mana, 18 s cooldown) on the ability wheel. Hold the Ponder key (W) here to preview it",
     "icon": {
       "type": "item",
       "data": {
@@ -5703,7 +5703,7 @@
         "type": "mdvlcraft:ability",
         "data": {
           "ability": "irons_spellbooks:blood_step",
-          "level": 2
+          "level": 5
         }
       }
     ],
@@ -6569,25 +6569,24 @@
     },
     "size": 1.5
   },
-  "celestial_array": {
-    "title": "Celestial Array: Purge",
-    "description": "Unlocks Celestial Array: Purge (30 mana, its Epic Fight skill's own cooldown) on the ability wheel",
+  "spider_techniques": {
+    "title": "Spider Techniques",
+    "description": "Teaches Spider Techniques, an Epic Fight Mobility skill: hold sprint and jump at a wall to run along it, and leap from wall to wall. Equip it in the Combat Skills box of the abilities screen",
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "sword_soaring:textures/gui/skills/sword_controller/rain_sword.png"
+        "texture": "wom:textures/gui/skills/mover/spider_techniques.png"
       }
     },
     "rewards": [
       {
-        "type": "mdvlcraft:ability",
+        "type": "mdvlcraft:epicfight_skill",
         "data": {
-          "ability": "mdvlcraft:celestial_array",
-          "level": 1
+          "skill": "wom:spider_techniques"
         }
       }
     ],
-    "cost": 5,
+    "cost": 3,
     "frame": {
       "type": "texture",
       "data": {
@@ -6598,8 +6597,7 @@
         "excluded": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_excluded.png"
       }
     },
-    "size": 2.0,
-    "extra_description": "Sword Soaring's sword domain on the ability wheel; has its own cooldown."
+    "size": 2.0
   },
   "movement_speed_6": {
     "title": "Fleet 6",
@@ -11809,5 +11807,35 @@
     },
     "size": 0.75,
     "extra_description": "Twig bonus (every archetype has a few of these)."
+  },
+  "shadow_step": {
+    "title": "Shadow Step",
+    "description": "Teaches Shadow Step, an Epic Fight Dodge skill: sink into the shadows and dash faster than light, immune to physical attacks meanwhile. Equip it in the Combat Skills box of the abilities screen",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "wom:textures/gui/skills/dodge/shadow_step.png"
+      }
+    },
+    "rewards": [
+      {
+        "type": "mdvlcraft:epicfight_skill",
+        "data": {
+          "skill": "wom:shadow_step"
+        }
+      }
+    ],
+    "cost": 3,
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_excluded.png"
+      }
+    },
+    "size": 2.0
   }
 }

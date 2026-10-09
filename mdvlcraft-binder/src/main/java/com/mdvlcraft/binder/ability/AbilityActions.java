@@ -1,5 +1,6 @@
 package com.mdvlcraft.binder.ability;
 
+import com.mdvlcraft.binder.doppelganger.Doppelgangers;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.magic.SpellSelectionManager;
 import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
@@ -47,6 +48,8 @@ public final class AbilityActions {
                     slotSkill.cast(player);
                 } else if (ability.get() instanceof StanceAbility) {
                     Stances.press(player);
+                } else if (ability.get() instanceof DoppelgangerAbility) {
+                    Doppelgangers.press(player);
                 }
             }
         }

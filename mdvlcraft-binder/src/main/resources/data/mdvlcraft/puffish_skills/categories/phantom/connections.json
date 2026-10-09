@@ -259,10 +259,10 @@
       ],
       [
         "focus_3",
-        "babylonian_armory"
+        "all_eyes_on_you"
       ],
       [
-        "babylonian_armory",
+        "all_eyes_on_you",
         "constitution_4"
       ],
       [
@@ -1658,7 +1658,7 @@
         "hearty_20"
       ],
       [
-        "babylonian_armory",
+        "all_eyes_on_you",
         "might_18"
       ],
       [
@@ -1895,11 +1895,15 @@
       ],
       [
         "attack_speed_7",
-        "babylonian_armory"
+        "all_eyes_on_you"
       ],
       [
         "meditation_14",
         "movement_speed_7"
+      ],
+      [
+        "focus_2",
+        "doppelganger"
       ]
     ]
   }

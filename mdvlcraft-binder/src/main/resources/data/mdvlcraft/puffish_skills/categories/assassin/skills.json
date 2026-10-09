@@ -1005,10 +1005,10 @@
     "y": -24,
     "definition": "backstab_damage_6"
   },
-  "celestial_array": {
+  "spider_techniques": {
     "x": -969,
     "y": -56,
-    "definition": "celestial_array"
+    "definition": "spider_techniques"
   },
   "movement_speed_6": {
     "x": -986,
@@ -1799,5 +1799,10 @@
     "x": -887,
     "y": 249,
     "definition": "footing_13"
+  },
+  "shadow_step": {
+    "x": -156,
+    "y": 570,
+    "definition": "shadow_step"
   }
 }

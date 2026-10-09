@@ -2174,5 +2174,10 @@
     "x": -1085,
     "y": 76,
     "definition": "vitality_22"
+  },
+  "avatar_of_might": {
+    "x": 221,
+    "y": -235,
+    "definition": "avatar_of_might"
   }
 }

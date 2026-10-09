@@ -241,7 +241,7 @@
   },
   "mdvlcraft:ice/frost_step": {
     "spell": "irons_spellbooks:frost_step",
-    "level": 3
+    "level": 5
   },
   "mdvlcraft:ice/icicle": {
     "spell": "irons_spellbooks:icicle",
@@ -261,7 +261,7 @@
   },
   "mdvlcraft:assassin/blood_step": {
     "spell": "irons_spellbooks:blood_step",
-    "level": 2
+    "level": 5
   },
   "mdvlcraft:assassin/invisibility": {
     "spell": "irons_spellbooks:invisibility",
@@ -417,6 +417,10 @@
   },
   "mdvlcraft:cursed/devour": {
     "spell": "irons_spellbooks:devour",
+    "level": 3
+  },
+  "mdvlcraft:cursed/wither_skull": {
+    "spell": "irons_spellbooks:wither_skull",
     "level": 3
   }
 }

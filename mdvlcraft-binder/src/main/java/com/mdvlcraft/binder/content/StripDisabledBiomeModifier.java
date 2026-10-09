@@ -18,7 +18,7 @@ public final class StripDisabledBiomeModifier implements BiomeModifier {
     public void modify(Holder<Biome> biome, Phase phase, Builder builder) {
         if (phase == Phase.REMOVE) {
             for (MobCategory category : builder.getMobSpawnSettings().getSpawnerTypes()) {
-                builder.getMobSpawnSettings().getSpawner(category).removeIf(spawner -> DisabledContent.isDisabled(spawner.type));
+                builder.getMobSpawnSettings().getSpawner(category).removeIf(spawner -> DisabledContent.isDisabled(spawner.type) || DisabledContent.isSpawnBlocked(spawner.type));
             }
         }
     }

@@ -1804,5 +1804,10 @@
     "x": -773,
     "y": -299,
     "definition": "might_15"
+  },
+  "wither_skull": {
+    "x": -424,
+    "y": -352,
+    "definition": "wither_skull"
   }
 }

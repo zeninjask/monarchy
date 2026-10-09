@@ -6942,7 +6942,7 @@
   },
   "frost_step": {
     "title": "Frost Step",
-    "description": "Unlocks Frost Step (Level 3) (15 mana, 18 s cooldown) on the ability wheel. Hold the Ponder key (W) here to preview it",
+    "description": "Unlocks Frost Step (Level 5) (21 mana, 18 s cooldown) on the ability wheel. Hold the Ponder key (W) here to preview it",
     "icon": {
       "type": "item",
       "data": {
@@ -6954,7 +6954,7 @@
         "type": "mdvlcraft:ability",
         "data": {
           "ability": "irons_spellbooks:frost_step",
-          "level": 3
+          "level": 5
         }
       }
     ],

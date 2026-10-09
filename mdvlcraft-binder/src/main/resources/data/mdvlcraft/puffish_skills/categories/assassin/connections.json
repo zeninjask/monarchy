@@ -803,10 +803,10 @@
       ],
       [
         "movement_speed_4",
-        "celestial_array"
+        "spider_techniques"
       ],
       [
-        "celestial_array",
+        "spider_techniques",
         "movement_speed_6"
       ],
       [
@@ -1198,7 +1198,7 @@
         "bounce_14"
       ],
       [
-        "celestial_array",
+        "spider_techniques",
         "meditation_8"
       ],
       [
@@ -1563,7 +1563,7 @@
       ],
       [
         "backstab_damage_5",
-        "celestial_array"
+        "spider_techniques"
       ],
       [
         "attack_speed_6",
@@ -1636,6 +1636,10 @@
       [
         "hearty_5",
         "protection_shred_mastery_2"
+      ],
+      [
+        "endurance_8",
+        "shadow_step"
       ]
     ]
   }

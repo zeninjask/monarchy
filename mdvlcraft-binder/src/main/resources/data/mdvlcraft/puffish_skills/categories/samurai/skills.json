@@ -2019,5 +2019,10 @@
     "x": -67,
     "y": -802,
     "definition": "swiftness_15"
+  },
+  "parry_master": {
+    "x": -160,
+    "y": -737,
+    "definition": "parry_master"
   }
 }

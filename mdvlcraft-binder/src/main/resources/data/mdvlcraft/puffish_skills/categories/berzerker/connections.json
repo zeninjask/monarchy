@@ -1712,6 +1712,10 @@
       [
         "axe_damage_3",
         "bounce_5"
+      ],
+      [
+        "punishment_kick",
+        "buster_parade"
       ]
     ]
   }

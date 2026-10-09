@@ -14285,5 +14285,35 @@
     },
     "size": 0.75,
     "extra_description": "Twig bonus (every archetype has a few of these)."
+  },
+  "avatar_of_might": {
+    "title": "Avatar of Might",
+    "description": "Teaches Avatar of Might, an Epic Fight Identity skill: hold sneak for 2 s to release a shockwave that pushes enemies away and makes you briefly immune to stuns. Equip it in the Combat Skills box of the abilities screen",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "wom:textures/gui/skills/identity/avatar_of_might.png"
+      }
+    },
+    "rewards": [
+      {
+        "type": "mdvlcraft:epicfight_skill",
+        "data": {
+          "skill": "wom:avatar_of_might"
+        }
+      }
+    ],
+    "cost": 3,
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_mage_challenge_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_mage_challenge_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_mage_challenge_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_mage_challenge_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_mage_challenge_excluded.png"
+      }
+    },
+    "size": 2.0
   }
 }

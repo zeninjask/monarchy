@@ -1,9 +1,12 @@
 package com.mdvlcraft.binder.content;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.Set;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.Merchant;
@@ -20,12 +23,26 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
     modid = "mdvlcraft"
 )
 public final class ContentEvents {
+    /** Ways a mob appears without anyone asking for it; summons, spawn eggs and commands are left alone. */
+    static final Set<MobSpawnType> AMBIENT_SPAWNS = EnumSet.of(
+        MobSpawnType.NATURAL,
+        MobSpawnType.CHUNK_GENERATION,
+        MobSpawnType.STRUCTURE,
+        MobSpawnType.SPAWNER,
+        MobSpawnType.PATROL,
+        MobSpawnType.EVENT,
+        MobSpawnType.REINFORCEMENT,
+        MobSpawnType.JOCKEY
+    );
+
     private ContentEvents() {
     }
 
     @SubscribeEvent
     public static void onFinalizeSpawn(FinalizeSpawn event) {
-        if (event.getSpawnType() == MobSpawnType.NATURAL && DisabledContent.isDisabled(event.getEntity().getType())) {
+        EntityType<?> type = event.getEntity().getType();
+        if (event.getSpawnType() == MobSpawnType.NATURAL && DisabledContent.isDisabled(type)
+            || AMBIENT_SPAWNS.contains(event.getSpawnType()) && DisabledContent.isSpawnBlocked(type)) {
             event.setSpawnCancelled(true);
         }
     }

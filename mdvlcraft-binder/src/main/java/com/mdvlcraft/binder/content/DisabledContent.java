@@ -15,6 +15,8 @@ import yesman.epicfight.world.item.SkillBookItem;
 
 public final class DisabledContent {
     public static final Set<String> NAMESPACES = Set.of("irons_spellbooks", "cursedfate");
+    /** Mods whose mobs never spawn on their own (natural, chunk generation, spawners, structures, ...). */
+    private static final Set<String> NO_SPAWN_NAMESPACES = Set.of("cursedfate", "wom");
     private static final Set<ResourceLocation> FORBIDDEN_ITEMS = Set.of(
         ResourceLocation.fromNamespaceAndPath("irons_spellbooks", "scroll_forge"),
         ResourceLocation.fromNamespaceAndPath("irons_spellbooks", "inscription_table"),
@@ -31,6 +33,12 @@ public final class DisabledContent {
 
     public static boolean isDisabled(EntityType<?> type) {
         return isDisabled(ForgeRegistries.ENTITY_TYPES.getKey(type));
+    }
+
+    /** Mobs that must not spawn on their own; they can still be summoned by abilities and commands. */
+    public static boolean isSpawnBlocked(EntityType<?> type) {
+        ResourceLocation id = ForgeRegistries.ENTITY_TYPES.getKey(type);
+        return id != null && NO_SPAWN_NAMESPACES.contains(id.getNamespace());
     }
 
     public static boolean isForbidden(Item item) {

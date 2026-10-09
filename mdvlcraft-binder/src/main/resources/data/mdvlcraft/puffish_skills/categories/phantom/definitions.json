@@ -2133,25 +2133,24 @@
     "size": 0.75,
     "extra_description": "Twig bonus (every archetype has a few of these)."
   },
-  "babylonian_armory": {
-    "title": "Babylonian Armory",
-    "description": "Unlocks Babylonian Armory (35 mana, its Epic Fight skill's own cooldown) on the ability wheel",
+  "all_eyes_on_you": {
+    "title": "All Eyes on You",
+    "description": "Teaches All Eyes on You, an Epic Fight Identity skill: blocking or dodging 4 different attacks makes you slowly regenerate stamina and innate power for 8 s. Equip it in the Combat Skills box of the abilities screen",
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "sword_soaring:textures/gui/skills/sword_controller/babylon.png"
+        "texture": "wom:textures/gui/skills/identity/all_eyes_on_you.png"
       }
     },
     "rewards": [
       {
-        "type": "mdvlcraft:ability",
+        "type": "mdvlcraft:epicfight_skill",
         "data": {
-          "ability": "mdvlcraft:babylonian_armory",
-          "level": 1
+          "skill": "wom:all_eyes_on_you"
         }
       }
     ],
-    "cost": 5,
+    "cost": 3,
     "frame": {
       "type": "texture",
       "data": {
@@ -2162,8 +2161,7 @@
         "excluded": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_excluded.png"
       }
     },
-    "size": 2.0,
-    "extra_description": "Sword Soaring's rain of blades on the ability wheel; has its own cooldown."
+    "size": 2.0
   },
   "constitution_4": {
     "title": "Constitution 4",
@@ -14002,5 +14000,37 @@
     },
     "size": 0.75,
     "extra_description": "Twig bonus (every archetype has a few of these)."
+  },
+  "doppelganger": {
+    "title": "Doppelganger",
+    "description": "Unlocks Doppelganger (1 mana per second while summoned) on the ability wheel",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/ability/doppelganger.png"
+      }
+    },
+    "rewards": [
+      {
+        "type": "mdvlcraft:ability",
+        "data": {
+          "ability": "mdvlcraft:doppelganger",
+          "level": 1
+        }
+      }
+    ],
+    "cost": 5,
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_excluded.png"
+      }
+    },
+    "size": 2.0,
+    "extra_description": "Summons a double of yourself that fights beside you and copies your attacks. Cast again while looking at an enemy to teleport behind it; sneak and cast to dismiss the double."
   }
 }

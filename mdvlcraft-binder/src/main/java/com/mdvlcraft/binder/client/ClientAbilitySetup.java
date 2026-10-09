@@ -1,5 +1,6 @@
 package com.mdvlcraft.binder.client;
 
+import com.mdvlcraft.binder.client.doppelganger.DoppelgangerClientSetup;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.client.event.ClientPlayerNetworkEvent.LoggingOut;
@@ -18,6 +19,7 @@ public final class ClientAbilitySetup {
         modBus.addListener(AbilityKeys::onRegisterKeys);
         modBus.addListener(ClientAbilitySetup::onRegisterOverlays);
         modBus.addListener(ClientAbilitySetup::onClientSetup);
+        DoppelgangerClientSetup.register(modBus);
         MinecraftForge.EVENT_BUS.addListener(AbilityKeys::onClientTick);
         MinecraftForge.EVENT_BUS.addListener(ClientAbilitySetup::onLoggingOut);
         MinecraftForge.EVENT_BUS.addListener(SlateGui::onTooltipColour);

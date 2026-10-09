@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import com.mdvlcraft.binder.combat.KatanaWeapons;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.damagesource.DamageSource;
@@ -68,7 +69,7 @@ public final class AttributeEffects {
         double bonus = 0.0;
         if (category == WeaponCategories.GREATSWORD) {
             bonus += value(attacker, BinderAttributes.GREATSWORD_DAMAGE);
-        } else if (category == WeaponCategories.UCHIGATANA || category == WeaponCategories.TACHI) {
+        } else if (KatanaWeapons.isKatana(category, attacker.getMainHandItem())) {
             bonus += value(attacker, BinderAttributes.KATANA_DAMAGE);
         } else if (category == WeaponCategories.DAGGER) {
             bonus += value(attacker, BinderAttributes.DAGGER_DAMAGE);
