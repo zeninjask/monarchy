@@ -1102,7 +1102,7 @@
   },
   "second_breath_2": {
     "title": "Second Breath 2",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -1114,7 +1114,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -1427,7 +1427,7 @@
   },
   "endurance_1": {
     "title": "Endurance 1",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -1439,7 +1439,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -1942,7 +1942,7 @@
   },
   "endurance_2": {
     "title": "Endurance 2",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -1954,7 +1954,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -3030,7 +3030,7 @@
   },
   "second_breath_1": {
     "title": "Second Breath 1",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -3042,7 +3042,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -4670,37 +4670,6 @@
     "size": 1.5,
     "extra_description": "Core bonus (every archetype has this spoke)."
   },
-  "blood_slash": {
-    "title": "Blood Slash",
-    "description": "Unlocks Blood Slash (Level 2) (18 mana, 15 s cooldown) on the ability wheel. Hold the Ponder key (W) here to preview it",
-    "icon": {
-      "type": "item",
-      "data": {
-        "item": "minecraft:redstone"
-      }
-    },
-    "rewards": [
-      {
-        "type": "mdvlcraft:ability",
-        "data": {
-          "ability": "irons_spellbooks:blood_slash",
-          "level": 2
-        }
-      }
-    ],
-    "cost": 2,
-    "frame": {
-      "type": "texture",
-      "data": {
-        "locked": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_locked.png",
-        "available": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_available.png",
-        "affordable": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_affordable.png",
-        "unlocked": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_unlocked.png",
-        "excluded": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_excluded.png"
-      }
-    },
-    "size": 2.0
-  },
   "bounce_1": {
     "title": "Bounce 1",
     "description": "+1% Jump Height",
@@ -4833,40 +4802,9 @@
     "size": 1.5,
     "extra_description": "Core bonus (every archetype has this spoke)."
   },
-  "volt_strike": {
-    "title": "Volt Strike",
-    "description": "Unlocks Volt Strike (Level 3) (24 mana, 15 s cooldown) on the ability wheel. Hold the Ponder key (W) here to preview it",
-    "icon": {
-      "type": "item",
-      "data": {
-        "item": "minecraft:feather"
-      }
-    },
-    "rewards": [
-      {
-        "type": "mdvlcraft:ability",
-        "data": {
-          "ability": "irons_spellbooks:volt_strike",
-          "level": 3
-        }
-      }
-    ],
-    "cost": 2,
-    "frame": {
-      "type": "texture",
-      "data": {
-        "locked": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_locked.png",
-        "available": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_available.png",
-        "affordable": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_affordable.png",
-        "unlocked": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_unlocked.png",
-        "excluded": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_excluded.png"
-      }
-    },
-    "size": 2.0
-  },
   "second_breath_3": {
     "title": "Second Breath 3",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -4878,7 +4816,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -5550,7 +5488,7 @@
   },
   "second_breath_5": {
     "title": "Second Breath 5",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -5562,7 +5500,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -5942,7 +5880,7 @@
   },
   "endurance_9": {
     "title": "Endurance 9",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -5954,7 +5892,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -6074,7 +6012,7 @@
   },
   "second_breath_6": {
     "title": "Second Breath 6",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -6086,7 +6024,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -7251,7 +7189,7 @@
   },
   "endurance_3": {
     "title": "Endurance 3",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -7263,7 +7201,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -7346,7 +7284,7 @@
   },
   "endurance_4": {
     "title": "Endurance 4",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -7358,7 +7296,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -7441,7 +7379,7 @@
   },
   "second_breath_4": {
     "title": "Second Breath 4",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -7453,7 +7391,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -8024,7 +7962,7 @@
   },
   "endurance_5": {
     "title": "Endurance 5",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -8036,7 +7974,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -8152,37 +8090,6 @@
     },
     "size": 1.5
   },
-  "flaming_strike": {
-    "title": "Flaming Strike",
-    "description": "Unlocks Flaming Strike (Level 3) (36 mana, 22.5 s cooldown) on the ability wheel. Hold the Ponder key (W) here to preview it",
-    "icon": {
-      "type": "item",
-      "data": {
-        "item": "minecraft:blaze_powder"
-      }
-    },
-    "rewards": [
-      {
-        "type": "mdvlcraft:ability",
-        "data": {
-          "ability": "irons_spellbooks:flaming_strike",
-          "level": 3
-        }
-      }
-    ],
-    "cost": 2,
-    "frame": {
-      "type": "texture",
-      "data": {
-        "locked": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_locked.png",
-        "available": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_available.png",
-        "affordable": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_affordable.png",
-        "unlocked": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_unlocked.png",
-        "excluded": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_excluded.png"
-      }
-    },
-    "size": 2.0
-  },
   "footing_4": {
     "title": "Footing 4",
     "description": "+1% Knockback Resistance",
@@ -8250,7 +8157,7 @@
   },
   "endurance_6": {
     "title": "Endurance 6",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -8262,7 +8169,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -8315,7 +8222,7 @@
   },
   "endurance_7": {
     "title": "Endurance 7",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -8327,7 +8234,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -9067,7 +8974,7 @@
   },
   "endurance_8": {
     "title": "Endurance 8",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -9079,7 +8986,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -9265,7 +9172,7 @@
   },
   "second_breath_7": {
     "title": "Second Breath 7",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -9277,7 +9184,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -9628,7 +9535,7 @@
   },
   "endurance_10": {
     "title": "Endurance 10",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -9640,7 +9547,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -9925,7 +9832,7 @@
   },
   "endurance_11": {
     "title": "Endurance 11",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -9937,7 +9844,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -10156,7 +10063,7 @@
   },
   "endurance_12": {
     "title": "Endurance 12",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -10168,7 +10075,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -10552,7 +10459,7 @@
   },
   "endurance_13": {
     "title": "Endurance 13",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -10564,7 +10471,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -10585,7 +10492,7 @@
   },
   "second_breath_8": {
     "title": "Second Breath 8",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -10597,7 +10504,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -10651,7 +10558,7 @@
   },
   "endurance_14": {
     "title": "Endurance 14",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -10663,7 +10570,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -11344,7 +11251,7 @@
   },
   "second_breath_9": {
     "title": "Second Breath 9",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -11356,7 +11263,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -11476,7 +11383,7 @@
   },
   "second_breath_10": {
     "title": "Second Breath 10",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -11488,7 +11395,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -11575,7 +11482,7 @@
   },
   "second_breath_11": {
     "title": "Second Breath 11",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -11587,7 +11494,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -11905,7 +11812,7 @@
   },
   "second_breath_12": {
     "title": "Second Breath 12",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -11917,7 +11824,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -12070,7 +11977,7 @@
   },
   "endurance_16": {
     "title": "Endurance 16",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -12082,7 +11989,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -12400,7 +12307,7 @@
   },
   "second_breath_14": {
     "title": "Second Breath 14",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -12412,7 +12319,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -12532,7 +12439,7 @@
   },
   "endurance_17": {
     "title": "Endurance 17",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -12544,7 +12451,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -12598,7 +12505,7 @@
   },
   "second_breath_15": {
     "title": "Second Breath 15",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -12610,7 +12517,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -12697,7 +12604,7 @@
   },
   "endurance_18": {
     "title": "Endurance 18",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -12709,7 +12616,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -12796,7 +12703,7 @@
   },
   "second_breath_16": {
     "title": "Second Breath 16",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -12808,7 +12715,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -12829,7 +12736,7 @@
   },
   "endurance_19": {
     "title": "Endurance 19",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -12841,7 +12748,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -12994,7 +12901,7 @@
   },
   "endurance_20": {
     "title": "Endurance 20",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -13006,7 +12913,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -13126,7 +13033,7 @@
   },
   "second_breath_17": {
     "title": "Second Breath 17",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -13138,7 +13045,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -13241,37 +13148,6 @@
       }
     ],
     "cost": 3,
-    "frame": {
-      "type": "texture",
-      "data": {
-        "locked": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_locked.png",
-        "available": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_available.png",
-        "affordable": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_affordable.png",
-        "unlocked": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_unlocked.png",
-        "excluded": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_excluded.png"
-      }
-    },
-    "size": 2.0
-  },
-  "blink": {
-    "title": "Blink",
-    "description": "Unlocks Blink (Level 2) (4 mana, 3 s cooldown) on the ability wheel. Hold the Ponder key (W) here to preview it",
-    "icon": {
-      "type": "texture",
-      "data": {
-        "texture": "traveloptics:textures/gui/spell_icons/blink.png"
-      }
-    },
-    "rewards": [
-      {
-        "type": "mdvlcraft:ability",
-        "data": {
-          "ability": "traveloptics:blink",
-          "level": 2
-        }
-      }
-    ],
-    "cost": 2,
     "frame": {
       "type": "texture",
       "data": {

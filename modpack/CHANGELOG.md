@@ -5,6 +5,15 @@
 Source changes only: the packs have not been built or tested in game. `python3 modpack/check_packs.py`
 checks both packs statically (required dependencies and versions per side, client/server version match).
 
+### Skill trees
+
+- **Stamina bonuses doubled** in every tree: Endurance +0.5 Max Stamina (was +0.25), Evasion Training
+  +1 (was +0.5), Evasion Training Mastery +2 (was +1); Second Breath +2% Stamina Regen (was +1%),
+  Recovery +10% (was +5%), Recovery Mastery +20% (was +10%).
+- **Samurai has no spells any more**: Blood Slash, Volt Strike, Flaming Strike and Blink are removed
+  (their neighbouring nodes are joined so nothing is cut off; points spent on them are refunded). Its
+  techniques (Stance, Blitz, Surprise Attack, Myriad Blades) stay.
+
 ### T.O Magic 'n Extras spells
 
 - **T.O Magic 'n Extras 5.5.0** (Iron's Spells addon, CurseForge, shipped in `modpack/mods`) is installed only
@@ -18,7 +27,7 @@ checks both packs statically (required dependencies and versions per side, clien
     are removed, and their advancements are hidden.
 - Spells, on the ability wheel through the skill trees like Iron's spells (mana ×0.6, cooldown ×1.5, as
   for Iron's own spells):
-  - Berzerker: Blood Howl III. Assassin: Spectral Blink II. Samurai: Blink II. Phantom: Blackout I.
+  - Berzerker: Blood Howl III. Assassin: Spectral Blink II. Phantom: Blackout I.
   - Wanderer: Ashen Breath V. Knight: Lingering Strain II. Druid: Aerial Collapse II.
   - Flame: Annihilation I, Meteor Storm III, Lava Bomb II. Ice: Cursed Blast I, Halberd Horizon III.
   - Necromancy: Cursed Revenants III, Axe Of The Doomed I.

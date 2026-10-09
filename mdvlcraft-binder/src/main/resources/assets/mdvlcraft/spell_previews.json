@@ -15,18 +15,6 @@
     "spell": "irons_spellbooks:fortify",
     "level": 3
   },
-  "mdvlcraft:samurai/blood_slash": {
-    "spell": "irons_spellbooks:blood_slash",
-    "level": 2
-  },
-  "mdvlcraft:samurai/volt_strike": {
-    "spell": "irons_spellbooks:volt_strike",
-    "level": 3
-  },
-  "mdvlcraft:samurai/flaming_strike": {
-    "spell": "irons_spellbooks:flaming_strike",
-    "level": 3
-  },
   "mdvlcraft:berzerker/heartstop": {
     "spell": "irons_spellbooks:heartstop",
     "level": 1
@@ -429,10 +417,6 @@
   },
   "mdvlcraft:assassin/spectral_blink": {
     "spell": "traveloptics:spectral_blink",
-    "level": 2
-  },
-  "mdvlcraft:samurai/blink": {
-    "spell": "traveloptics:blink",
     "level": 2
   },
   "mdvlcraft:phantom/blackout": {

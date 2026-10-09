@@ -715,11 +715,6 @@
     "y": 142,
     "definition": "constitution_4"
   },
-  "blood_slash": {
-    "x": 415,
-    "y": 188,
-    "definition": "blood_slash"
-  },
   "bounce_1": {
     "x": 468,
     "y": 212,
@@ -739,11 +734,6 @@
     "x": 410,
     "y": 240,
     "definition": "constitution_5"
-  },
-  "volt_strike": {
-    "x": 512,
-    "y": 168,
-    "definition": "volt_strike"
   },
   "second_breath_3": {
     "x": 559,
@@ -1249,11 +1239,6 @@
     "x": -525,
     "y": 432,
     "definition": "damage_reflection_7"
-  },
-  "flaming_strike": {
-    "x": -576,
-    "y": 417,
-    "definition": "flaming_strike"
   },
   "footing_4": {
     "x": -635,
@@ -2024,10 +2009,5 @@
     "x": -160,
     "y": -737,
     "definition": "parry_master"
-  },
-  "blink": {
-    "x": -320,
-    "y": 316,
-    "definition": "blink"
   }
 }

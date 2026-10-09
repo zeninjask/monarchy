@@ -66,7 +66,7 @@
   },
   "staminar_1": {
     "title": "Evasion Training 1",
-    "description": "+0.5 Max Stamina",
+    "description": "+1 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -78,7 +78,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.5,
+          "value": 1.0,
           "operation": "addition"
         }
       }
@@ -99,7 +99,7 @@
   },
   "second_breath_2": {
     "title": "Second Breath 2",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -111,7 +111,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -132,7 +132,7 @@
   },
   "staminar_2": {
     "title": "Evasion Training 2",
-    "description": "+0.5 Max Stamina",
+    "description": "+1 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -144,7 +144,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.5,
+          "value": 1.0,
           "operation": "addition"
         }
       }
@@ -198,7 +198,7 @@
   },
   "staminar_3": {
     "title": "Evasion Training 3",
-    "description": "+0.5 Max Stamina",
+    "description": "+1 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -210,7 +210,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.5,
+          "value": 1.0,
           "operation": "addition"
         }
       }
@@ -330,7 +330,7 @@
   },
   "staminar_mastery_1": {
     "title": "Evasion Training Mastery I",
-    "description": "+1 Max Stamina",
+    "description": "+2 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -342,7 +342,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 1,
+          "value": 2,
           "operation": "addition"
         }
       }
@@ -396,7 +396,7 @@
   },
   "staminar_4": {
     "title": "Evasion Training 4",
-    "description": "+0.5 Max Stamina",
+    "description": "+1 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -408,7 +408,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.5,
+          "value": 1.0,
           "operation": "addition"
         }
       }
@@ -528,7 +528,7 @@
   },
   "staminar_5": {
     "title": "Evasion Training 5",
-    "description": "+0.5 Max Stamina",
+    "description": "+1 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -540,7 +540,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.5,
+          "value": 1.0,
           "operation": "addition"
         }
       }
@@ -592,7 +592,7 @@
   },
   "second_breath_3": {
     "title": "Second Breath 3",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -604,7 +604,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -625,7 +625,7 @@
   },
   "staminar_6": {
     "title": "Evasion Training 6",
-    "description": "+0.5 Max Stamina",
+    "description": "+1 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -637,7 +637,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.5,
+          "value": 1.0,
           "operation": "addition"
         }
       }
@@ -757,7 +757,7 @@
   },
   "staminar_mastery_2": {
     "title": "Evasion Training Mastery II",
-    "description": "+1 Max Stamina",
+    "description": "+2 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -769,7 +769,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 1,
+          "value": 2,
           "operation": "addition"
         }
       }
@@ -823,7 +823,7 @@
   },
   "staminar_7": {
     "title": "Evasion Training 7",
-    "description": "+0.5 Max Stamina",
+    "description": "+1 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -835,7 +835,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.5,
+          "value": 1.0,
           "operation": "addition"
         }
       }
@@ -920,7 +920,7 @@
   },
   "staminar_8": {
     "title": "Evasion Training 8",
-    "description": "+0.5 Max Stamina",
+    "description": "+1 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -932,7 +932,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.5,
+          "value": 1.0,
           "operation": "addition"
         }
       }
@@ -986,7 +986,7 @@
   },
   "staminar_9": {
     "title": "Evasion Training 9",
-    "description": "+0.5 Max Stamina",
+    "description": "+1 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -998,7 +998,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.5,
+          "value": 1.0,
           "operation": "addition"
         }
       }
@@ -1118,7 +1118,7 @@
   },
   "staminar_mastery_3": {
     "title": "Evasion Training Mastery III",
-    "description": "+1 Max Stamina",
+    "description": "+2 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -1130,7 +1130,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 1,
+          "value": 2,
           "operation": "addition"
         }
       }
@@ -1777,7 +1777,7 @@
   },
   "endurance_3": {
     "title": "Endurance 3",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -1789,7 +1789,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -2590,7 +2590,7 @@
   },
   "second_breath_4": {
     "title": "Second Breath 4",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -2602,7 +2602,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -3305,7 +3305,7 @@
   },
   "second_breath_1": {
     "title": "Second Breath 1",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -3317,7 +3317,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -3501,7 +3501,7 @@
   },
   "endurance_1": {
     "title": "Endurance 1",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -3513,7 +3513,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -3823,7 +3823,7 @@
   },
   "second_breath_5": {
     "title": "Second Breath 5",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -3835,7 +3835,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -4275,7 +4275,7 @@
   },
   "second_breath_6": {
     "title": "Second Breath 6",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -4287,7 +4287,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -4899,7 +4899,7 @@
   },
   "endurance_2": {
     "title": "Endurance 2",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -4911,7 +4911,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -6500,7 +6500,7 @@
   },
   "second_breath_7": {
     "title": "Second Breath 7",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -6512,7 +6512,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -6764,7 +6764,7 @@
   },
   "second_breath_8": {
     "title": "Second Breath 8",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -6776,7 +6776,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -6962,7 +6962,7 @@
   },
   "second_breath_9": {
     "title": "Second Breath 9",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -6974,7 +6974,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -7325,7 +7325,7 @@
   },
   "second_breath_10": {
     "title": "Second Breath 10",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -7337,7 +7337,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -7886,7 +7886,7 @@
   },
   "endurance_4": {
     "title": "Endurance 4",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -7898,7 +7898,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -8117,7 +8117,7 @@
   },
   "endurance_5": {
     "title": "Endurance 5",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -8129,7 +8129,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -8579,7 +8579,7 @@
   },
   "endurance_6": {
     "title": "Endurance 6",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -8591,7 +8591,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -8810,7 +8810,7 @@
   },
   "endurance_7": {
     "title": "Endurance 7",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -8822,7 +8822,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -8909,7 +8909,7 @@
   },
   "endurance_8": {
     "title": "Endurance 8",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -8921,7 +8921,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -9074,7 +9074,7 @@
   },
   "endurance_9": {
     "title": "Endurance 9",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -9086,7 +9086,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -9866,7 +9866,7 @@
   },
   "second_breath_11": {
     "title": "Second Breath 11",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -9878,7 +9878,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -9998,7 +9998,7 @@
   },
   "endurance_10": {
     "title": "Endurance 10",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -10010,7 +10010,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -10163,7 +10163,7 @@
   },
   "second_breath_12": {
     "title": "Second Breath 12",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -10175,7 +10175,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -10493,7 +10493,7 @@
   },
   "endurance_11": {
     "title": "Endurance 11",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -10505,7 +10505,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -10526,7 +10526,7 @@
   },
   "second_breath_13": {
     "title": "Second Breath 13",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -10538,7 +10538,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -10823,7 +10823,7 @@
   },
   "endurance_12": {
     "title": "Endurance 12",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -10835,7 +10835,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -11054,7 +11054,7 @@
   },
   "endurance_13": {
     "title": "Endurance 13",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -11066,7 +11066,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -11087,7 +11087,7 @@
   },
   "second_breath_14": {
     "title": "Second Breath 14",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -11099,7 +11099,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -11450,7 +11450,7 @@
   },
   "endurance_14": {
     "title": "Endurance 14",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -11462,7 +11462,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }
@@ -11912,7 +11912,7 @@
   },
   "second_breath_15": {
     "title": "Second Breath 15",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -11924,7 +11924,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -12275,7 +12275,7 @@
   },
   "second_breath_16": {
     "title": "Second Breath 16",
-    "description": "+1% Stamina Regen",
+    "description": "+2% Stamina Regen",
     "icon": {
       "type": "texture",
       "data": {
@@ -12287,7 +12287,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:stamina_regen",
-          "value": 0.01,
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -12770,7 +12770,7 @@
   },
   "endurance_15": {
     "title": "Endurance 15",
-    "description": "+0.25 Max Stamina",
+    "description": "+0.5 Max Stamina",
     "icon": {
       "type": "texture",
       "data": {
@@ -12782,7 +12782,7 @@
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "epicfight:staminar",
-          "value": 0.25,
+          "value": 0.5,
           "operation": "addition"
         }
       }

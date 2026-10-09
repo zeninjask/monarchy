@@ -570,14 +570,6 @@
         "constitution_4"
       ],
       [
-        "constitution_4",
-        "blood_slash"
-      ],
-      [
-        "blood_slash",
-        "bounce_1"
-      ],
-      [
         "meditation_6",
         "constitution_mastery_ii"
       ],
@@ -588,14 +580,6 @@
       [
         "might_1",
         "constitution_5"
-      ],
-      [
-        "bounce_1",
-        "volt_strike"
-      ],
-      [
-        "volt_strike",
-        "second_breath_3"
       ],
       [
         "might_1",
@@ -996,14 +980,6 @@
       [
         "footing_3",
         "damage_reflection_7"
-      ],
-      [
-        "damage_reflection_7",
-        "flaming_strike"
-      ],
-      [
-        "flaming_strike",
-        "footing_4"
       ],
       [
         "footing_4",
@@ -1810,8 +1786,16 @@
         "parry_master"
       ],
       [
-        "stance",
-        "blink"
+        "constitution_4",
+        "bounce_1"
+      ],
+      [
+        "bounce_1",
+        "second_breath_3"
+      ],
+      [
+        "damage_reflection_7",
+        "footing_4"
       ]
     ]
   }

@@ -46,7 +46,7 @@
   },
   "samurai": {
     "title": "Samurai",
-    "description": "Katanas, swift strikes and rewarding parries. Key: Stance, Flaming Strike, Blitz.",
+    "description": "Katanas, swift strikes and rewarding parries. Key: Stance, Blitz, Surprise Attack.",
     "extra_description": "Opens the Samurai tab. You can pick 2 archetypes in total.",
     "icon": {
       "type": "texture",
