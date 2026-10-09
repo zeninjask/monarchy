@@ -1,0 +1,458 @@
+{
+  "warrior": {
+    "title": "Warrior",
+    "description": "Melee combat: armour, weapons and endurance.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/class/warrior.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_warrior_root_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_warrior_root_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_warrior_root_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_warrior_root_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_warrior_root_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 0
+  },
+  "knight": {
+    "title": "Knight",
+    "description": "Heavy armour, resistances and greatswords. Key: Shield, Fortify, Impact Guard.",
+    "extra_description": "Opens the Knight tab. You can pick 2 archetypes in total.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/archetype/knight.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_warrior_goal_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_warrior_goal_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_warrior_goal_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_warrior_goal_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_warrior_goal_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 1
+  },
+  "samurai": {
+    "title": "Samurai",
+    "description": "Katanas, swift strikes and rewarding parries. Key: Stance, Flaming Strike, Blitz.",
+    "extra_description": "Opens the Samurai tab. You can pick 2 archetypes in total.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/archetype/samurai.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_warrior_goal_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_warrior_goal_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_warrior_goal_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_warrior_goal_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_warrior_goal_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 1
+  },
+  "berzerker": {
+    "title": "Berzerker",
+    "description": "Raw damage, axes and bloodlust. Key: Fang Strike, Heartstop, Burning Dash.",
+    "extra_description": "Opens the Berzerker tab. You can pick 2 archetypes in total.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/archetype/berzerker.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_warrior_goal_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_warrior_goal_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_warrior_goal_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_warrior_goal_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_warrior_goal_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 1
+  },
+  "mage": {
+    "title": "Mage",
+    "description": "Spellcasting: mana, casting speed and arcane study.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/class/mage.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_mage_root_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_mage_root_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_mage_root_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_mage_root_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_mage_root_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 0
+  },
+  "holy": {
+    "title": "Holy",
+    "description": "Healing and radiant light. Key: Guiding Bolt, Heal, Blessing Of Life.",
+    "extra_description": "Opens the Holy tab. You can pick 2 archetypes in total.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/archetype/holy.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_mage_goal_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_mage_goal_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_mage_goal_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_mage_goal_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_mage_goal_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 1
+  },
+  "flame": {
+    "title": "Flame",
+    "description": "Fire spells and fast cooldowns. Key: Firebolt, Fire Breath, Magma Bomb.",
+    "extra_description": "Opens the Flame tab. You can pick 2 archetypes in total.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/archetype/flame.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_mage_goal_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_mage_goal_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_mage_goal_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_mage_goal_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_mage_goal_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 1
+  },
+  "lightning": {
+    "title": "Lightning",
+    "description": "Lightning spells and casting on the move. Key: Electrocute, Ball Lightning, Chain Lightning.",
+    "extra_description": "Opens the Lightning tab. You can pick 2 archetypes in total.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/archetype/lightning.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_mage_goal_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_mage_goal_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_mage_goal_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_mage_goal_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_mage_goal_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 1
+  },
+  "necromancy": {
+    "title": "Necromancy",
+    "description": "Blood magic and the risen dead. Key: Wither Skull, Blood Slash, Ray Of Siphoning.",
+    "extra_description": "Opens the Necromancy tab. You can pick 2 archetypes in total.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/archetype/necromancy.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_mage_goal_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_mage_goal_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_mage_goal_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_mage_goal_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_mage_goal_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 1
+  },
+  "ice": {
+    "title": "Ice",
+    "description": "Frost spells and magical warding. Key: Icicle, Cone Of Cold, Frost Step.",
+    "extra_description": "Opens the Ice tab. You can pick 2 archetypes in total.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/archetype/ice.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_mage_goal_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_mage_goal_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_mage_goal_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_mage_goal_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_mage_goal_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 1
+  },
+  "rogue": {
+    "title": "Rogue",
+    "description": "Speed, precision and trickery.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/class/rogue.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_rogue_root_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_rogue_root_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_rogue_root_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_rogue_root_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_rogue_root_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 0
+  },
+  "assassin": {
+    "title": "Assassin",
+    "description": "Daggers, backstabs and vanishing acts. Key: Echoing Strikes, Acupuncture, Bonebreaker.",
+    "extra_description": "Opens the Assassin tab. You can pick 2 archetypes in total.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/archetype/assassin.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_rogue_goal_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_rogue_goal_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_rogue_goal_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_rogue_goal_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_rogue_goal_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 1
+  },
+  "phantom": {
+    "title": "Phantom",
+    "description": "Rapier duelling, dodges and ripostes. Key: Evasion, Slow, Invisibility.",
+    "extra_description": "Opens the Phantom tab. You can pick 2 archetypes in total.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/archetype/phantom.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_rogue_goal_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_rogue_goal_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_rogue_goal_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_rogue_goal_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_rogue_goal_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 1
+  },
+  "scout": {
+    "title": "Scout",
+    "description": "Mobility, ender magic and far sight. Key: Cleanse, Haste, Planar Sight.",
+    "extra_description": "Opens the Scout tab. You can pick 2 archetypes in total.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/archetype/scout.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_rogue_goal_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_rogue_goal_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_rogue_goal_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_rogue_goal_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_rogue_goal_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 1
+  },
+  "thief": {
+    "title": "Thief",
+    "description": "Luck, plunder and Boogie Woogie swaps. Key: Boogie Woogie, Block Clap, Scapegoat.",
+    "extra_description": "Opens the Thief tab. You can pick 2 archetypes in total.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/archetype/thief.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_rogue_goal_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_rogue_goal_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_rogue_goal_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_rogue_goal_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_rogue_goal_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 1
+  },
+  "ranger": {
+    "title": "Ranger",
+    "description": "The wilds: speed, agility, endurance, a predator's strike and stranger arts.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/class/ranger.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_ranger_root_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_ranger_root_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_ranger_root_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_ranger_root_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_ranger_root_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 0
+  },
+  "wanderer": {
+    "title": "Wanderer",
+    "description": "Long journeys: food, sure footing and a loyal horse. Key: Summon Horse, Counterspell, Summon Polar Bear.",
+    "extra_description": "Opens the Wanderer tab. You can pick 2 archetypes in total.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/archetype/wanderer.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_ranger_goal_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_ranger_goal_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_ranger_goal_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_ranger_goal_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_ranger_goal_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 1
+  },
+  "stalker": {
+    "title": "Stalker",
+    "description": "Bows, crossbows, arrow volleys and poison arrows. Key: Arrow Volley, Poison Arrow, Fire Arrow.",
+    "extra_description": "Opens the Stalker tab. You can pick 2 archetypes in total.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/archetype/stalker.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_ranger_goal_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_ranger_goal_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_ranger_goal_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_ranger_goal_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_ranger_goal_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 1
+  },
+  "druid": {
+    "title": "Druid",
+    "description": "Nature magic and the land's healing. Key: Acid Orb, Root, Firefly Swarm.",
+    "extra_description": "Opens the Druid tab. You can pick 2 archetypes in total.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/archetype/druid.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_ranger_goal_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_ranger_goal_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_ranger_goal_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_ranger_goal_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_ranger_goal_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 1
+  },
+  "cursed": {
+    "title": "Cursed",
+    "description": "Shrine techniques: Dismantle, Cleave and the Malevolent Shrine (closed, then open). Key: Dismantle, Cleave, Malevolent Shrine.",
+    "extra_description": "Opens the Cursed tab. You can pick 2 archetypes in total.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/archetype/cursed.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_ranger_goal_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_ranger_goal_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_ranger_goal_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_ranger_goal_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_ranger_goal_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 1
+  }
+}

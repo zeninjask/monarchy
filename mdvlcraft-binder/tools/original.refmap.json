@@ -1,0 +1,48 @@
+{
+  "mappings": {
+    "com/mdvlcraft/binder/mixin/ItemStackMixin": {
+      "is(Lnet/minecraft/tags/TagKey;)Z": "Lnet/minecraft/world/item/ItemStack;m_204117_(Lnet/minecraft/tags/TagKey;)Z"
+    },
+    "com/mdvlcraft/binder/mixin/GuiGraphicsMixin": {
+      "fill(Lnet/minecraft/client/renderer/RenderType;IIIIII)V": "Lnet/minecraft/client/gui/GuiGraphics;m_285795_(Lnet/minecraft/client/renderer/RenderType;IIIIII)V",
+      "drawString(Lnet/minecraft/client/gui/Font;Ljava/lang/String;IIIZ)I": "Lnet/minecraft/client/gui/GuiGraphics;m_280056_(Lnet/minecraft/client/gui/Font;Ljava/lang/String;IIIZ)I",
+      "drawString(Lnet/minecraft/client/gui/Font;Lnet/minecraft/util/FormattedCharSequence;IIIZ)I": "Lnet/minecraft/client/gui/GuiGraphics;m_280649_(Lnet/minecraft/client/gui/Font;Lnet/minecraft/util/FormattedCharSequence;IIIZ)I"
+    },
+    "com/mdvlcraft/binder/mixin/AbstractButtonMixin": {
+      "renderWidget": "m_87963_(Lnet/minecraft/client/gui/GuiGraphics;IIF)V"
+    },
+    "com/mdvlcraft/binder/mixin/ServerAdvancementManagerMixin": {
+      "apply(Ljava/util/Map;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)V": "Lnet/minecraft/server/ServerAdvancementManager;m_5787_(Ljava/util/Map;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)V"
+    },
+    "com/mdvlcraft/binder/mixin/LevelMixin": {
+      "setBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;II)Z": "Lnet/minecraft/world/level/Level;m_6933_(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;II)Z"
+    },
+    "com/mdvlcraft/binder/mixin/RecipeManagerMixin": {
+      "apply(Ljava/util/Map;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)V": "Lnet/minecraft/world/item/crafting/RecipeManager;m_5787_(Ljava/util/Map;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)V"
+    }
+  },
+  "data": {
+    "searge": {
+      "com/mdvlcraft/binder/mixin/ItemStackMixin": {
+        "is(Lnet/minecraft/tags/TagKey;)Z": "Lnet/minecraft/world/item/ItemStack;m_204117_(Lnet/minecraft/tags/TagKey;)Z"
+      },
+      "com/mdvlcraft/binder/mixin/GuiGraphicsMixin": {
+        "fill(Lnet/minecraft/client/renderer/RenderType;IIIIII)V": "Lnet/minecraft/client/gui/GuiGraphics;m_285795_(Lnet/minecraft/client/renderer/RenderType;IIIIII)V",
+        "drawString(Lnet/minecraft/client/gui/Font;Ljava/lang/String;IIIZ)I": "Lnet/minecraft/client/gui/GuiGraphics;m_280056_(Lnet/minecraft/client/gui/Font;Ljava/lang/String;IIIZ)I",
+        "drawString(Lnet/minecraft/client/gui/Font;Lnet/minecraft/util/FormattedCharSequence;IIIZ)I": "Lnet/minecraft/client/gui/GuiGraphics;m_280649_(Lnet/minecraft/client/gui/Font;Lnet/minecraft/util/FormattedCharSequence;IIIZ)I"
+      },
+      "com/mdvlcraft/binder/mixin/AbstractButtonMixin": {
+        "renderWidget": "m_87963_(Lnet/minecraft/client/gui/GuiGraphics;IIF)V"
+      },
+      "com/mdvlcraft/binder/mixin/ServerAdvancementManagerMixin": {
+        "apply(Ljava/util/Map;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)V": "Lnet/minecraft/server/ServerAdvancementManager;m_5787_(Ljava/util/Map;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)V"
+      },
+      "com/mdvlcraft/binder/mixin/LevelMixin": {
+        "setBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;II)Z": "Lnet/minecraft/world/level/Level;m_6933_(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;II)Z"
+      },
+      "com/mdvlcraft/binder/mixin/RecipeManagerMixin": {
+        "apply(Ljava/util/Map;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)V": "Lnet/minecraft/world/item/crafting/RecipeManager;m_5787_(Ljava/util/Map;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)V"
+      }
+    }
+  }
+}

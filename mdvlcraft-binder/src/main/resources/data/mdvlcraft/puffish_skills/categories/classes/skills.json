@@ -1,0 +1,106 @@
+{
+  "warrior": {
+    "x": -57,
+    "y": -57,
+    "definition": "warrior",
+    "root": true
+  },
+  "knight": {
+    "x": -185,
+    "y": -29,
+    "definition": "knight"
+  },
+  "samurai": {
+    "x": -133,
+    "y": -133,
+    "definition": "samurai"
+  },
+  "berzerker": {
+    "x": -29,
+    "y": -185,
+    "definition": "berzerker"
+  },
+  "mage": {
+    "x": 57,
+    "y": -57,
+    "definition": "mage",
+    "root": true
+  },
+  "holy": {
+    "x": 29,
+    "y": -185,
+    "definition": "holy"
+  },
+  "flame": {
+    "x": 85,
+    "y": -167,
+    "definition": "flame"
+  },
+  "lightning": {
+    "x": 133,
+    "y": -133,
+    "definition": "lightning"
+  },
+  "necromancy": {
+    "x": 167,
+    "y": -85,
+    "definition": "necromancy"
+  },
+  "ice": {
+    "x": 185,
+    "y": -29,
+    "definition": "ice"
+  },
+  "rogue": {
+    "x": 57,
+    "y": 57,
+    "definition": "rogue",
+    "root": true
+  },
+  "assassin": {
+    "x": 185,
+    "y": 29,
+    "definition": "assassin"
+  },
+  "phantom": {
+    "x": 157,
+    "y": 102,
+    "definition": "phantom"
+  },
+  "scout": {
+    "x": 102,
+    "y": 157,
+    "definition": "scout"
+  },
+  "thief": {
+    "x": 29,
+    "y": 185,
+    "definition": "thief"
+  },
+  "ranger": {
+    "x": -57,
+    "y": 57,
+    "definition": "ranger",
+    "root": true
+  },
+  "wanderer": {
+    "x": -29,
+    "y": 185,
+    "definition": "wanderer"
+  },
+  "stalker": {
+    "x": -102,
+    "y": 157,
+    "definition": "stalker"
+  },
+  "druid": {
+    "x": -157,
+    "y": 102,
+    "definition": "druid"
+  },
+  "cursed": {
+    "x": -185,
+    "y": 29,
+    "definition": "cursed"
+  }
+}

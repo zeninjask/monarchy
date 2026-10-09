@@ -1,0 +1,122 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="mdvlcraft"
+version="0.7.1"
+displayName="MDVLCraft Binder"
+authors="MDVLCraft"
+description='''Glue mod for the MDVLCraft modpack: class and archetype skill trees, ability wheel, and control over Iron's Spells and Cursed Fate content.'''
+
+[[dependencies.mdvlcraft]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.mdvlcraft]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.21)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.mdvlcraft]]
+    modId="epicfight"
+    mandatory=true
+    versionRange="[20.14,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.mdvlcraft]]
+    modId="irons_spellbooks"
+    mandatory=true
+    versionRange="[1.20.1-3.16,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.mdvlcraft]]
+    modId="cataclysm"
+    mandatory=true
+    versionRange="[3.31,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.mdvlcraft]]
+    modId="puffish_skills"
+    mandatory=true
+    versionRange="[0.19,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.mdvlcraft]]
+    modId="cursedfate"
+    mandatory=true
+    versionRange="[1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.mdvlcraft]]
+    modId="puffish_attributes"
+    mandatory=true
+    versionRange="[0.8,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.mdvlcraft]]
+    modId="epic_fight_ponder"
+    mandatory=true
+    versionRange="[1.0,)"
+    ordering="AFTER"
+    side="CLIENT"
+
+[[dependencies.mdvlcraft]]
+    modId="alekiships"
+    mandatory=true
+    versionRange="[1.0.14,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.mdvlcraft]]
+    modId="iss_ponder"
+    mandatory=true
+    versionRange="[1.0.3,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.mdvlcraft]]
+    modId="sword_soaring"
+    mandatory=true
+    versionRange="[20.14.2.8,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.mdvlcraft]]
+    modId="naoyaaddon"
+    mandatory=true
+    versionRange="[1.0.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.mdvlcraft]]
+    modId="efn"
+    mandatory=true
+    versionRange="[3.4.2,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.mdvlcraft]]
+    modId="distanthorizons"
+    mandatory=true
+    versionRange="[3.3.3,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.mdvlcraft]]
+    modId="chunky"
+    mandatory=true
+    versionRange="[1.3.146,)"
+    ordering="AFTER"
+    side="BOTH"

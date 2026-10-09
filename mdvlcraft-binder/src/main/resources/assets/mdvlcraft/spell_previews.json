@@ -1,0 +1,422 @@
+{
+  "mdvlcraft:knight/shield": {
+    "spell": "irons_spellbooks:shield",
+    "level": 2
+  },
+  "mdvlcraft:knight/shield_4": {
+    "spell": "irons_spellbooks:shield",
+    "level": 4
+  },
+  "mdvlcraft:knight/fortify": {
+    "spell": "irons_spellbooks:fortify",
+    "level": 2
+  },
+  "mdvlcraft:knight/fortify_3": {
+    "spell": "irons_spellbooks:fortify",
+    "level": 3
+  },
+  "mdvlcraft:samurai/blood_slash": {
+    "spell": "irons_spellbooks:blood_slash",
+    "level": 2
+  },
+  "mdvlcraft:samurai/volt_strike": {
+    "spell": "irons_spellbooks:volt_strike",
+    "level": 3
+  },
+  "mdvlcraft:samurai/flaming_strike": {
+    "spell": "irons_spellbooks:flaming_strike",
+    "level": 3
+  },
+  "mdvlcraft:berzerker/heartstop": {
+    "spell": "irons_spellbooks:heartstop",
+    "level": 1
+  },
+  "mdvlcraft:berzerker/burning_dash": {
+    "spell": "irons_spellbooks:burning_dash",
+    "level": 3
+  },
+  "mdvlcraft:berzerker/stomp": {
+    "spell": "irons_spellbooks:stomp",
+    "level": 2
+  },
+  "mdvlcraft:berzerker/fang_strike": {
+    "spell": "irons_spellbooks:fang_strike",
+    "level": 3
+  },
+  "mdvlcraft:berzerker/fang_strike_5": {
+    "spell": "irons_spellbooks:fang_strike",
+    "level": 5
+  },
+  "mdvlcraft:holy/root": {
+    "spell": "irons_spellbooks:guiding_bolt",
+    "level": 3
+  },
+  "mdvlcraft:holy/healing_circle": {
+    "spell": "irons_spellbooks:healing_circle",
+    "level": 3
+  },
+  "mdvlcraft:holy/sunbeam": {
+    "spell": "irons_spellbooks:sunbeam",
+    "level": 3
+  },
+  "mdvlcraft:holy/cloud_of_regeneration": {
+    "spell": "irons_spellbooks:cloud_of_regeneration",
+    "level": 3
+  },
+  "mdvlcraft:holy/wisp": {
+    "spell": "irons_spellbooks:wisp",
+    "level": 3
+  },
+  "mdvlcraft:holy/cleanse": {
+    "spell": "irons_spellbooks:cleanse",
+    "level": 1
+  },
+  "mdvlcraft:holy/heal": {
+    "spell": "irons_spellbooks:heal",
+    "level": 3
+  },
+  "mdvlcraft:holy/blessing_of_life": {
+    "spell": "irons_spellbooks:blessing_of_life",
+    "level": 3
+  },
+  "mdvlcraft:holy/guiding_bolt": {
+    "spell": "irons_spellbooks:guiding_bolt",
+    "level": 5
+  },
+  "mdvlcraft:holy/divine_smite": {
+    "spell": "irons_spellbooks:divine_smite",
+    "level": 3
+  },
+  "mdvlcraft:holy/greater_heal": {
+    "spell": "irons_spellbooks:greater_heal",
+    "level": 1
+  },
+  "mdvlcraft:flame/root": {
+    "spell": "irons_spellbooks:firebolt",
+    "level": 3
+  },
+  "mdvlcraft:flame/blaze_storm": {
+    "spell": "irons_spellbooks:blaze_storm",
+    "level": 3
+  },
+  "mdvlcraft:flame/raise_hell": {
+    "spell": "irons_spellbooks:raise_hell",
+    "level": 1
+  },
+  "mdvlcraft:flame/scorch": {
+    "spell": "irons_spellbooks:scorch",
+    "level": 3
+  },
+  "mdvlcraft:flame/wall_of_fire": {
+    "spell": "irons_spellbooks:wall_of_fire",
+    "level": 3
+  },
+  "mdvlcraft:flame/heat_surge": {
+    "spell": "irons_spellbooks:heat_surge",
+    "level": 2
+  },
+  "mdvlcraft:flame/fireball": {
+    "spell": "irons_spellbooks:fireball",
+    "level": 2
+  },
+  "mdvlcraft:flame/fire_breath": {
+    "spell": "irons_spellbooks:fire_breath",
+    "level": 3
+  },
+  "mdvlcraft:flame/magma_bomb": {
+    "spell": "irons_spellbooks:magma_bomb",
+    "level": 3
+  },
+  "mdvlcraft:flame/firebolt": {
+    "spell": "irons_spellbooks:firebolt",
+    "level": 5
+  },
+  "mdvlcraft:lightning/root": {
+    "spell": "irons_spellbooks:electrocute",
+    "level": 3
+  },
+  "mdvlcraft:lightning/ball_lightning": {
+    "spell": "irons_spellbooks:ball_lightning",
+    "level": 3
+  },
+  "mdvlcraft:lightning/chain_lightning": {
+    "spell": "irons_spellbooks:chain_lightning",
+    "level": 3
+  },
+  "mdvlcraft:lightning/electrocute": {
+    "spell": "irons_spellbooks:electrocute",
+    "level": 5
+  },
+  "mdvlcraft:lightning/charge": {
+    "spell": "irons_spellbooks:charge",
+    "level": 1
+  },
+  "mdvlcraft:lightning/thunderstorm": {
+    "spell": "irons_spellbooks:thunderstorm",
+    "level": 1
+  },
+  "mdvlcraft:lightning/lightning_lance": {
+    "spell": "irons_spellbooks:lightning_lance",
+    "level": 3
+  },
+  "mdvlcraft:lightning/lightning_bolt": {
+    "spell": "irons_spellbooks:lightning_bolt",
+    "level": 2
+  },
+  "mdvlcraft:lightning/shockwave": {
+    "spell": "irons_spellbooks:shockwave",
+    "level": 2
+  },
+  "mdvlcraft:lightning/volt_strike": {
+    "spell": "irons_spellbooks:volt_strike",
+    "level": 3
+  },
+  "mdvlcraft:necromancy/root": {
+    "spell": "irons_spellbooks:wither_skull",
+    "level": 3
+  },
+  "mdvlcraft:necromancy/blood_slash": {
+    "spell": "irons_spellbooks:blood_slash",
+    "level": 2
+  },
+  "mdvlcraft:necromancy/ray_of_siphoning": {
+    "spell": "irons_spellbooks:ray_of_siphoning",
+    "level": 3
+  },
+  "mdvlcraft:necromancy/wither_skull": {
+    "spell": "irons_spellbooks:wither_skull",
+    "level": 5
+  },
+  "mdvlcraft:necromancy/blood_needles": {
+    "spell": "irons_spellbooks:blood_needles",
+    "level": 3
+  },
+  "mdvlcraft:necromancy/summon_vex": {
+    "spell": "irons_spellbooks:summon_vex",
+    "level": 2
+  },
+  "mdvlcraft:necromancy/sacrifice": {
+    "spell": "irons_spellbooks:sacrifice",
+    "level": 3
+  },
+  "mdvlcraft:necromancy/raise_dead": {
+    "spell": "irons_spellbooks:raise_dead",
+    "level": 2
+  },
+  "mdvlcraft:necromancy/devour": {
+    "spell": "irons_spellbooks:devour",
+    "level": 3
+  },
+  "mdvlcraft:ice/root": {
+    "spell": "irons_spellbooks:icicle",
+    "level": 3
+  },
+  "mdvlcraft:ice/ice_block": {
+    "spell": "irons_spellbooks:ice_block",
+    "level": 2
+  },
+  "mdvlcraft:ice/frostbite": {
+    "spell": "irons_spellbooks:frostbite",
+    "level": 1
+  },
+  "mdvlcraft:ice/ice_spikes": {
+    "spell": "irons_spellbooks:ice_spikes",
+    "level": 3
+  },
+  "mdvlcraft:ice/blizzard": {
+    "spell": "irons_spellbooks:blizzard",
+    "level": 2
+  },
+  "mdvlcraft:ice/frostwave": {
+    "spell": "irons_spellbooks:frostwave",
+    "level": 3
+  },
+  "mdvlcraft:ice/ray_of_frost": {
+    "spell": "irons_spellbooks:ray_of_frost",
+    "level": 3
+  },
+  "mdvlcraft:ice/cone_of_cold": {
+    "spell": "irons_spellbooks:cone_of_cold",
+    "level": 3
+  },
+  "mdvlcraft:ice/frost_step": {
+    "spell": "irons_spellbooks:frost_step",
+    "level": 3
+  },
+  "mdvlcraft:ice/icicle": {
+    "spell": "irons_spellbooks:icicle",
+    "level": 5
+  },
+  "mdvlcraft:assassin/throw": {
+    "spell": "irons_spellbooks:throw",
+    "level": 3
+  },
+  "mdvlcraft:assassin/echoing_strikes": {
+    "spell": "irons_spellbooks:echoing_strikes",
+    "level": 2
+  },
+  "mdvlcraft:assassin/acupuncture": {
+    "spell": "irons_spellbooks:acupuncture",
+    "level": 3
+  },
+  "mdvlcraft:assassin/blood_step": {
+    "spell": "irons_spellbooks:blood_step",
+    "level": 2
+  },
+  "mdvlcraft:assassin/invisibility": {
+    "spell": "irons_spellbooks:invisibility",
+    "level": 2
+  },
+  "mdvlcraft:phantom/slow": {
+    "spell": "irons_spellbooks:slow",
+    "level": 2
+  },
+  "mdvlcraft:phantom/invisibility": {
+    "spell": "irons_spellbooks:invisibility",
+    "level": 2
+  },
+  "mdvlcraft:phantom/evasion": {
+    "spell": "irons_spellbooks:evasion",
+    "level": 1
+  },
+  "mdvlcraft:phantom/evasion_2": {
+    "spell": "irons_spellbooks:evasion",
+    "level": 2
+  },
+  "mdvlcraft:scout/gust": {
+    "spell": "irons_spellbooks:gust",
+    "level": 3
+  },
+  "mdvlcraft:scout/cleanse": {
+    "spell": "irons_spellbooks:cleanse",
+    "level": 1
+  },
+  "mdvlcraft:scout/touch_dig": {
+    "spell": "irons_spellbooks:touch_dig",
+    "level": 2
+  },
+  "mdvlcraft:scout/haste": {
+    "spell": "irons_spellbooks:haste",
+    "level": 2
+  },
+  "mdvlcraft:scout/planar_sight": {
+    "spell": "irons_spellbooks:planar_sight",
+    "level": 1
+  },
+  "mdvlcraft:thief/teleport": {
+    "spell": "irons_spellbooks:teleport",
+    "level": 2
+  },
+  "mdvlcraft:thief/teleport_4": {
+    "spell": "irons_spellbooks:teleport",
+    "level": 4
+  },
+  "mdvlcraft:thief/scapegoat": {
+    "spell": "irons_spellbooks:scapegoat",
+    "level": 2
+  },
+  "mdvlcraft:thief/firecracker": {
+    "spell": "irons_spellbooks:firecracker",
+    "level": 3
+  },
+  "mdvlcraft:thief/lob_creeper": {
+    "spell": "irons_spellbooks:lob_creeper",
+    "level": 3
+  },
+  "mdvlcraft:thief/chain_creeper": {
+    "spell": "irons_spellbooks:chain_creeper",
+    "level": 2
+  },
+  "mdvlcraft:wanderer/summon_horse": {
+    "spell": "irons_spellbooks:summon_horse",
+    "level": 3
+  },
+  "mdvlcraft:wanderer/summon_horse_5": {
+    "spell": "irons_spellbooks:summon_horse",
+    "level": 5
+  },
+  "mdvlcraft:wanderer/counterspell": {
+    "spell": "irons_spellbooks:counterspell",
+    "level": 1
+  },
+  "mdvlcraft:wanderer/summon_polar_bear": {
+    "spell": "irons_spellbooks:summon_polar_bear",
+    "level": 3
+  },
+  "mdvlcraft:wanderer/gluttony": {
+    "spell": "irons_spellbooks:gluttony",
+    "level": 1
+  },
+  "mdvlcraft:stalker/fire_arrow": {
+    "spell": "irons_spellbooks:fire_arrow",
+    "level": 3
+  },
+  "mdvlcraft:stalker/invisibility": {
+    "spell": "irons_spellbooks:invisibility",
+    "level": 2
+  },
+  "mdvlcraft:stalker/arrow_volley": {
+    "spell": "irons_spellbooks:arrow_volley",
+    "level": 3
+  },
+  "mdvlcraft:stalker/arrow_volley_5": {
+    "spell": "irons_spellbooks:arrow_volley",
+    "level": 5
+  },
+  "mdvlcraft:stalker/poison_arrow": {
+    "spell": "irons_spellbooks:poison_arrow",
+    "level": 3
+  },
+  "mdvlcraft:stalker/poison_arrow_5": {
+    "spell": "irons_spellbooks:poison_arrow",
+    "level": 5
+  },
+  "mdvlcraft:druid/root": {
+    "spell": "irons_spellbooks:acid_orb",
+    "level": 3
+  },
+  "mdvlcraft:druid/root_3": {
+    "spell": "irons_spellbooks:root",
+    "level": 3
+  },
+  "mdvlcraft:druid/firefly_swarm": {
+    "spell": "irons_spellbooks:firefly_swarm",
+    "level": 3
+  },
+  "mdvlcraft:druid/acid_orb": {
+    "spell": "irons_spellbooks:acid_orb",
+    "level": 5
+  },
+  "mdvlcraft:druid/blight": {
+    "spell": "irons_spellbooks:blight",
+    "level": 2
+  },
+  "mdvlcraft:druid/poison_splash": {
+    "spell": "irons_spellbooks:poison_splash",
+    "level": 3
+  },
+  "mdvlcraft:druid/spider_aspect": {
+    "spell": "irons_spellbooks:spider_aspect",
+    "level": 3
+  },
+  "mdvlcraft:druid/oakskin": {
+    "spell": "irons_spellbooks:oakskin",
+    "level": 2
+  },
+  "mdvlcraft:druid/oakskin_4": {
+    "spell": "irons_spellbooks:oakskin",
+    "level": 4
+  },
+  "mdvlcraft:druid/root_5": {
+    "spell": "irons_spellbooks:root",
+    "level": 5
+  },
+  "mdvlcraft:druid/earthquake": {
+    "spell": "irons_spellbooks:earthquake",
+    "level": 2
+  },
+  "mdvlcraft:cursed/devour": {
+    "spell": "irons_spellbooks:devour",
+    "level": 3
+  }
+}

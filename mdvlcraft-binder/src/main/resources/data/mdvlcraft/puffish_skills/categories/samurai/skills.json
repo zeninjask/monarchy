@@ -1,0 +1,2023 @@
+{
+  "root": {
+    "x": 0,
+    "y": 0,
+    "definition": "root",
+    "root": true
+  },
+  "wellspring_1": {
+    "x": -59,
+    "y": -55,
+    "definition": "wellspring_1"
+  },
+  "impact_1": {
+    "x": -99,
+    "y": -98,
+    "definition": "impact_1"
+  },
+  "meditation_2": {
+    "x": -135,
+    "y": -137,
+    "definition": "meditation_2"
+  },
+  "impact_2": {
+    "x": -114,
+    "y": -60,
+    "definition": "impact_2"
+  },
+  "wellspring_2": {
+    "x": -173,
+    "y": -81,
+    "definition": "wellspring_2"
+  },
+  "vitality_1": {
+    "x": -226,
+    "y": -126,
+    "definition": "vitality_1"
+  },
+  "wellspring_mastery_i": {
+    "x": -245,
+    "y": -168,
+    "definition": "wellspring_mastery_i"
+  },
+  "impact_3": {
+    "x": -306,
+    "y": -193,
+    "definition": "impact_3"
+  },
+  "wellspring_3": {
+    "x": -359,
+    "y": -213,
+    "definition": "wellspring_3"
+  },
+  "impact_mastery_1": {
+    "x": -414,
+    "y": -204,
+    "definition": "impact_mastery_1"
+  },
+  "wellspring_4": {
+    "x": -474,
+    "y": -171,
+    "definition": "wellspring_4"
+  },
+  "impact_4": {
+    "x": -366,
+    "y": -264,
+    "definition": "impact_4"
+  },
+  "attunement_1": {
+    "x": -377,
+    "y": -316,
+    "definition": "attunement_1"
+  },
+  "impact_5": {
+    "x": -336,
+    "y": -362,
+    "definition": "impact_5"
+  },
+  "combat_mastery_i": {
+    "x": -414,
+    "y": -287,
+    "definition": "combat_mastery_i"
+  },
+  "wellspring_mastery_ii": {
+    "x": -364,
+    "y": -420,
+    "definition": "wellspring_mastery_ii"
+  },
+  "impact_6": {
+    "x": -441,
+    "y": -319,
+    "definition": "impact_6"
+  },
+  "wellspring_5": {
+    "x": -325,
+    "y": -429,
+    "definition": "wellspring_5"
+  },
+  "impact_mastery_2": {
+    "x": -284,
+    "y": -470,
+    "definition": "impact_mastery_2"
+  },
+  "wellspring_6": {
+    "x": -249,
+    "y": -510,
+    "definition": "wellspring_6"
+  },
+  "vitality_2": {
+    "x": -217,
+    "y": -555,
+    "definition": "vitality_2"
+  },
+  "wellspring_mastery_iii": {
+    "x": -192,
+    "y": -604,
+    "definition": "wellspring_mastery_iii"
+  },
+  "combat_mastery_ii": {
+    "x": -164,
+    "y": -647,
+    "definition": "combat_mastery_ii"
+  },
+  "impact_7": {
+    "x": -125,
+    "y": -676,
+    "definition": "impact_7"
+  },
+  "readiness_1": {
+    "x": -74,
+    "y": -712,
+    "definition": "readiness_1"
+  },
+  "impact_8": {
+    "x": -45,
+    "y": -764,
+    "definition": "impact_8"
+  },
+  "readiness_2": {
+    "x": -30,
+    "y": -828,
+    "definition": "readiness_2"
+  },
+  "impact_9": {
+    "x": -41,
+    "y": -885,
+    "definition": "impact_9"
+  },
+  "readiness_3": {
+    "x": 16,
+    "y": -751,
+    "definition": "readiness_3"
+  },
+  "impact_mastery_3": {
+    "x": 53,
+    "y": -786,
+    "definition": "impact_mastery_3"
+  },
+  "katana_damage_1": {
+    "x": -313,
+    "y": -238,
+    "definition": "katana_damage_1"
+  },
+  "hardened_1": {
+    "x": -305,
+    "y": -317,
+    "definition": "hardened_1"
+  },
+  "katana_damage_2": {
+    "x": -302,
+    "y": -381,
+    "definition": "katana_damage_2"
+  },
+  "second_breath_2": {
+    "x": -276,
+    "y": -277,
+    "definition": "second_breath_2"
+  },
+  "katana_damage_3": {
+    "x": -255,
+    "y": -328,
+    "definition": "katana_damage_3"
+  },
+  "willpower_1": {
+    "x": -254,
+    "y": -380,
+    "definition": "willpower_1"
+  },
+  "katana_damage_4": {
+    "x": -269,
+    "y": -434,
+    "definition": "katana_damage_4"
+  },
+  "hearty_3": {
+    "x": -216,
+    "y": -374,
+    "definition": "hearty_3"
+  },
+  "katana_damage_mastery_1": {
+    "x": -177,
+    "y": -408,
+    "definition": "katana_damage_mastery_1"
+  },
+  "willpower_2": {
+    "x": -168,
+    "y": -451,
+    "definition": "willpower_2"
+  },
+  "katana_damage_5": {
+    "x": -226,
+    "y": -432,
+    "definition": "katana_damage_5"
+  },
+  "vitality_3": {
+    "x": -213,
+    "y": -479,
+    "definition": "vitality_3"
+  },
+  "katana_damage_6": {
+    "x": -116,
+    "y": -491,
+    "definition": "katana_damage_6"
+  },
+  "endurance_1": {
+    "x": -188,
+    "y": -525,
+    "definition": "endurance_1"
+  },
+  "katana_damage_7": {
+    "x": -146,
+    "y": -602,
+    "definition": "katana_damage_7"
+  },
+  "mending_1": {
+    "x": -90,
+    "y": -636,
+    "definition": "mending_1"
+  },
+  "hasty_casting": {
+    "x": -48,
+    "y": -680,
+    "definition": "hasty_casting"
+  },
+  "katana_damage_8": {
+    "x": -1,
+    "y": -712,
+    "definition": "katana_damage_8"
+  },
+  "swiftness_1": {
+    "x": 55,
+    "y": -703,
+    "definition": "swiftness_1"
+  },
+  "katana_damage_mastery_2": {
+    "x": 108,
+    "y": -734,
+    "definition": "katana_damage_mastery_2"
+  },
+  "readiness_4": {
+    "x": 150,
+    "y": -748,
+    "definition": "readiness_4"
+  },
+  "katana_damage_9": {
+    "x": 186,
+    "y": -796,
+    "definition": "katana_damage_9"
+  },
+  "focus_1": {
+    "x": 233,
+    "y": -841,
+    "definition": "focus_1"
+  },
+  "spider_techniques": {
+    "x": 282,
+    "y": -877,
+    "definition": "spider_techniques"
+  },
+  "katana_damage_10": {
+    "x": 201,
+    "y": -725,
+    "definition": "katana_damage_10"
+  },
+  "footing_1": {
+    "x": 253,
+    "y": -697,
+    "definition": "footing_1"
+  },
+  "katana_damage_11": {
+    "x": 315,
+    "y": -691,
+    "definition": "katana_damage_11"
+  },
+  "meditation_3": {
+    "x": 360,
+    "y": -702,
+    "definition": "meditation_3"
+  },
+  "katana_damage_12": {
+    "x": 407,
+    "y": -736,
+    "definition": "katana_damage_12"
+  },
+  "endurance_2": {
+    "x": 412,
+    "y": -784,
+    "definition": "endurance_2"
+  },
+  "katana_damage_mastery_3": {
+    "x": 414,
+    "y": -837,
+    "definition": "katana_damage_mastery_3"
+  },
+  "armor_1": {
+    "x": -134,
+    "y": -399,
+    "definition": "armor_1"
+  },
+  "hearty_6": {
+    "x": -74,
+    "y": -390,
+    "definition": "hearty_6"
+  },
+  "armor_2": {
+    "x": -17,
+    "y": -367,
+    "definition": "armor_2"
+  },
+  "might_7": {
+    "x": -83,
+    "y": -455,
+    "definition": "might_7"
+  },
+  "armor_3": {
+    "x": -42,
+    "y": -436,
+    "definition": "armor_3"
+  },
+  "mending_3": {
+    "x": -25,
+    "y": -490,
+    "definition": "mending_3"
+  },
+  "armor_mastery_1": {
+    "x": -10,
+    "y": -539,
+    "definition": "armor_mastery_1"
+  },
+  "meditation_13": {
+    "x": -3,
+    "y": -602,
+    "definition": "meditation_13"
+  },
+  "armor_4": {
+    "x": -11,
+    "y": -657,
+    "definition": "armor_4"
+  },
+  "meditation_14": {
+    "x": 77,
+    "y": -652,
+    "definition": "meditation_14"
+  },
+  "armor_5": {
+    "x": 137,
+    "y": -651,
+    "definition": "armor_5"
+  },
+  "bounce_8": {
+    "x": 190,
+    "y": -642,
+    "definition": "bounce_8"
+  },
+  "armor_6": {
+    "x": 124,
+    "y": -607,
+    "definition": "armor_6"
+  },
+  "mending_4": {
+    "x": 179,
+    "y": -605,
+    "definition": "mending_4"
+  },
+  "armor_mastery_2": {
+    "x": 235,
+    "y": -607,
+    "definition": "armor_mastery_2"
+  },
+  "mending_5": {
+    "x": 288,
+    "y": -636,
+    "definition": "mending_5"
+  },
+  "armor_7": {
+    "x": 190,
+    "y": -547,
+    "definition": "armor_7"
+  },
+  "willpower_5": {
+    "x": 246,
+    "y": -514,
+    "definition": "willpower_5"
+  },
+  "armor_8": {
+    "x": 301,
+    "y": -533,
+    "definition": "armor_8"
+  },
+  "bounce_9": {
+    "x": 358,
+    "y": -536,
+    "definition": "bounce_9"
+  },
+  "armor_9": {
+    "x": 406,
+    "y": -569,
+    "definition": "armor_9"
+  },
+  "vitality_6": {
+    "x": 422,
+    "y": -620,
+    "definition": "vitality_6"
+  },
+  "armor_mastery_3": {
+    "x": 416,
+    "y": -530,
+    "definition": "armor_mastery_3"
+  },
+  "renewal_1": {
+    "x": -152,
+    "y": -177,
+    "definition": "renewal_1"
+  },
+  "reservoir_1": {
+    "x": -199,
+    "y": -214,
+    "definition": "reservoir_1"
+  },
+  "meditation_1": {
+    "x": -249,
+    "y": -250,
+    "definition": "meditation_1"
+  },
+  "reservoir_2": {
+    "x": -138,
+    "y": -220,
+    "definition": "reservoir_2"
+  },
+  "renewal_2": {
+    "x": -213,
+    "y": -267,
+    "definition": "renewal_2"
+  },
+  "hearty_1": {
+    "x": -203,
+    "y": -308,
+    "definition": "hearty_1"
+  },
+  "renewal_mastery_i": {
+    "x": -175,
+    "y": -357,
+    "definition": "renewal_mastery_i"
+  },
+  "reservoir_mastery_i": {
+    "x": -93,
+    "y": -320,
+    "definition": "reservoir_mastery_i"
+  },
+  "second_breath_1": {
+    "x": -39,
+    "y": -336,
+    "definition": "second_breath_1"
+  },
+  "reservoir_3": {
+    "x": -140,
+    "y": -331,
+    "definition": "reservoir_3"
+  },
+  "renewal_3": {
+    "x": -35,
+    "y": -294,
+    "definition": "renewal_3"
+  },
+  "reservoir_4": {
+    "x": 25,
+    "y": -301,
+    "definition": "reservoir_4"
+  },
+  "technician": {
+    "x": 72,
+    "y": -306,
+    "definition": "technician"
+  },
+  "renewal_4": {
+    "x": 83,
+    "y": -350,
+    "definition": "renewal_4"
+  },
+  "reservoir_mastery_ii": {
+    "x": 132,
+    "y": -382,
+    "definition": "reservoir_mastery_ii"
+  },
+  "renewal_mastery_ii": {
+    "x": 152,
+    "y": -337,
+    "definition": "renewal_mastery_ii"
+  },
+  "reservoir_5": {
+    "x": 181,
+    "y": -372,
+    "definition": "reservoir_5"
+  },
+  "renewal_5": {
+    "x": 198,
+    "y": -430,
+    "definition": "renewal_5"
+  },
+  "damage_boost1": {
+    "x": 226,
+    "y": -399,
+    "definition": "damage_boost1"
+  },
+  "hearty_2": {
+    "x": 248,
+    "y": -453,
+    "definition": "hearty_2"
+  },
+  "renewal_6": {
+    "x": 205,
+    "y": -511,
+    "definition": "renewal_6"
+  },
+  "reservoir_6": {
+    "x": 128,
+    "y": -538,
+    "definition": "reservoir_6"
+  },
+  "renewal_mastery_iii": {
+    "x": 68,
+    "y": -563,
+    "definition": "renewal_mastery_iii"
+  },
+  "reservoir_mastery_iii": {
+    "x": 35,
+    "y": -604,
+    "definition": "reservoir_mastery_iii"
+  },
+  "knockback_resistance_1": {
+    "x": 38,
+    "y": -79,
+    "definition": "knockback_resistance_1"
+  },
+  "hardened_4": {
+    "x": 49,
+    "y": -131,
+    "definition": "hardened_4"
+  },
+  "knockback_resistance_2": {
+    "x": 39,
+    "y": -192,
+    "definition": "knockback_resistance_2"
+  },
+  "readiness_10": {
+    "x": -12,
+    "y": -228,
+    "definition": "readiness_10"
+  },
+  "knockback_resistance_3": {
+    "x": 97,
+    "y": -159,
+    "definition": "knockback_resistance_3"
+  },
+  "mending_2": {
+    "x": 154,
+    "y": -172,
+    "definition": "mending_2"
+  },
+  "knockback_resistance_mastery_1": {
+    "x": 204,
+    "y": -196,
+    "definition": "knockback_resistance_mastery_1"
+  },
+  "hearty_5": {
+    "x": 184,
+    "y": -230,
+    "definition": "hearty_5"
+  },
+  "knockback_resistance_4": {
+    "x": 216,
+    "y": -282,
+    "definition": "knockback_resistance_4"
+  },
+  "might_6": {
+    "x": 240,
+    "y": -322,
+    "definition": "might_6"
+  },
+  "knockback_resistance_5": {
+    "x": 246,
+    "y": -223,
+    "definition": "knockback_resistance_5"
+  },
+  "blitz": {
+    "x": 301,
+    "y": -247,
+    "definition": "blitz"
+  },
+  "meditation_10": {
+    "x": 330,
+    "y": -303,
+    "definition": "meditation_10"
+  },
+  "knockback_resistance_6": {
+    "x": 312,
+    "y": -357,
+    "definition": "knockback_resistance_6"
+  },
+  "willpower_4": {
+    "x": 314,
+    "y": -410,
+    "definition": "willpower_4"
+  },
+  "knockback_resistance_mastery_2": {
+    "x": 326,
+    "y": -458,
+    "definition": "knockback_resistance_mastery_2"
+  },
+  "meditation_11": {
+    "x": 364,
+    "y": -447,
+    "definition": "meditation_11"
+  },
+  "knockback_resistance_7": {
+    "x": 406,
+    "y": -486,
+    "definition": "knockback_resistance_7"
+  },
+  "surprise_attack": {
+    "x": 455,
+    "y": -535,
+    "definition": "surprise_attack"
+  },
+  "bounce_7": {
+    "x": 504,
+    "y": -551,
+    "definition": "bounce_7"
+  },
+  "knockback_resistance_8": {
+    "x": 547,
+    "y": -571,
+    "definition": "knockback_resistance_8"
+  },
+  "meditation_12": {
+    "x": 555,
+    "y": -627,
+    "definition": "meditation_12"
+  },
+  "knockback_resistance_9": {
+    "x": 577,
+    "y": -674,
+    "definition": "knockback_resistance_9"
+  },
+  "focus_7": {
+    "x": 586,
+    "y": -605,
+    "definition": "focus_7"
+  },
+  "knockback_resistance_mastery_3": {
+    "x": 617,
+    "y": -653,
+    "definition": "knockback_resistance_mastery_3"
+  },
+  "constitution_1": {
+    "x": 78,
+    "y": 15,
+    "definition": "constitution_1"
+  },
+  "readiness_5": {
+    "x": 136,
+    "y": 41,
+    "definition": "readiness_5"
+  },
+  "constitution_2": {
+    "x": 185,
+    "y": 37,
+    "definition": "constitution_2"
+  },
+  "meditation_4": {
+    "x": 241,
+    "y": 35,
+    "definition": "meditation_4"
+  },
+  "constitution_mastery_i": {
+    "x": 297,
+    "y": 22,
+    "definition": "constitution_mastery_i"
+  },
+  "meditation_5": {
+    "x": 351,
+    "y": 31,
+    "definition": "meditation_5"
+  },
+  "constitution_3": {
+    "x": 303,
+    "y": 62,
+    "definition": "constitution_3"
+  },
+  "meditation_6": {
+    "x": 340,
+    "y": 95,
+    "definition": "meditation_6"
+  },
+  "constitution_4": {
+    "x": 373,
+    "y": 142,
+    "definition": "constitution_4"
+  },
+  "blood_slash": {
+    "x": 415,
+    "y": 188,
+    "definition": "blood_slash"
+  },
+  "bounce_1": {
+    "x": 468,
+    "y": 212,
+    "definition": "bounce_1"
+  },
+  "constitution_mastery_ii": {
+    "x": 330,
+    "y": 158,
+    "definition": "constitution_mastery_ii"
+  },
+  "might_1": {
+    "x": 365,
+    "y": 193,
+    "definition": "might_1"
+  },
+  "constitution_5": {
+    "x": 410,
+    "y": 240,
+    "definition": "constitution_5"
+  },
+  "volt_strike": {
+    "x": 512,
+    "y": 168,
+    "definition": "volt_strike"
+  },
+  "second_breath_3": {
+    "x": 559,
+    "y": 158,
+    "definition": "second_breath_3"
+  },
+  "constitution_6": {
+    "x": 403,
+    "y": 280,
+    "definition": "constitution_6"
+  },
+  "meditation_7": {
+    "x": 441,
+    "y": 319,
+    "definition": "meditation_7"
+  },
+  "constitution_mastery_iii": {
+    "x": 484,
+    "y": 371,
+    "definition": "constitution_mastery_iii"
+  },
+  "parry_stamina_1": {
+    "x": -231,
+    "y": -600,
+    "definition": "parry_stamina_1"
+  },
+  "readiness_9": {
+    "x": -246,
+    "y": -656,
+    "definition": "readiness_9"
+  },
+  "parry_stamina_2": {
+    "x": -247,
+    "y": -711,
+    "definition": "parry_stamina_2"
+  },
+  "focus_5": {
+    "x": -238,
+    "y": -756,
+    "definition": "focus_5"
+  },
+  "parry_stamina_3": {
+    "x": -257,
+    "y": -816,
+    "definition": "parry_stamina_3"
+  },
+  "might_5": {
+    "x": -296,
+    "y": -678,
+    "definition": "might_5"
+  },
+  "parry_stamina_mastery_1": {
+    "x": -295,
+    "y": -732,
+    "definition": "parry_stamina_mastery_1"
+  },
+  "bounce_5": {
+    "x": -340,
+    "y": -673,
+    "definition": "bounce_5"
+  },
+  "parry_stamina_4": {
+    "x": -407,
+    "y": -671,
+    "definition": "parry_stamina_4"
+  },
+  "attunement_4": {
+    "x": -451,
+    "y": -698,
+    "definition": "attunement_4"
+  },
+  "parry_stamina_5": {
+    "x": -468,
+    "y": -747,
+    "definition": "parry_stamina_5"
+  },
+  "bounce_6": {
+    "x": -431,
+    "y": -760,
+    "definition": "bounce_6"
+  },
+  "parry_stamina_6": {
+    "x": -446,
+    "y": -815,
+    "definition": "parry_stamina_6"
+  },
+  "hearty_4": {
+    "x": -456,
+    "y": -865,
+    "definition": "hearty_4"
+  },
+  "parry_stamina_mastery_2": {
+    "x": -482,
+    "y": -920,
+    "definition": "parry_stamina_mastery_2"
+  },
+  "willpower_3": {
+    "x": -488,
+    "y": -784,
+    "definition": "willpower_3"
+  },
+  "parry_stamina_7": {
+    "x": -528,
+    "y": -818,
+    "definition": "parry_stamina_7"
+  },
+  "second_breath_5": {
+    "x": -584,
+    "y": -815,
+    "definition": "second_breath_5"
+  },
+  "parry_stamina_8": {
+    "x": -641,
+    "y": -814,
+    "definition": "parry_stamina_8"
+  },
+  "swiftness_5": {
+    "x": -493,
+    "y": -852,
+    "definition": "swiftness_5"
+  },
+  "parry_stamina_9": {
+    "x": -623,
+    "y": -775,
+    "definition": "parry_stamina_9"
+  },
+  "focus_6": {
+    "x": -592,
+    "y": -862,
+    "definition": "focus_6"
+  },
+  "parry_stamina_mastery_3": {
+    "x": -629,
+    "y": -903,
+    "definition": "parry_stamina_mastery_3"
+  },
+  "myriad_blades": {
+    "x": -674,
+    "y": -951,
+    "definition": "myriad_blades"
+  },
+  "max_health_1": {
+    "x": -532,
+    "y": -772,
+    "definition": "max_health_1"
+  },
+  "attunement_5": {
+    "x": -596,
+    "y": -737,
+    "definition": "attunement_5"
+  },
+  "max_health_2": {
+    "x": -639,
+    "y": -696,
+    "definition": "max_health_2"
+  },
+  "willpower_6": {
+    "x": -614,
+    "y": -662,
+    "definition": "willpower_6"
+  },
+  "max_health_3": {
+    "x": -650,
+    "y": -618,
+    "definition": "max_health_3"
+  },
+  "endurance_9": {
+    "x": -702,
+    "y": -601,
+    "definition": "endurance_9"
+  },
+  "max_health_4": {
+    "x": -749,
+    "y": -599,
+    "definition": "max_health_4"
+  },
+  "attunement_6": {
+    "x": -805,
+    "y": -570,
+    "definition": "attunement_6"
+  },
+  "max_health_mastery_1": {
+    "x": -852,
+    "y": -537,
+    "definition": "max_health_mastery_1"
+  },
+  "second_breath_6": {
+    "x": -757,
+    "y": -656,
+    "definition": "second_breath_6"
+  },
+  "max_health_5": {
+    "x": -790,
+    "y": -711,
+    "definition": "max_health_5"
+  },
+  "might_8": {
+    "x": -856,
+    "y": -589,
+    "definition": "might_8"
+  },
+  "max_health_6": {
+    "x": -903,
+    "y": -623,
+    "definition": "max_health_6"
+  },
+  "attunement_7": {
+    "x": -811,
+    "y": -673,
+    "definition": "attunement_7"
+  },
+  "max_health_7": {
+    "x": -854,
+    "y": -713,
+    "definition": "max_health_7"
+  },
+  "swiftness_6": {
+    "x": -921,
+    "y": -731,
+    "definition": "swiftness_6"
+  },
+  "max_health_8": {
+    "x": -860,
+    "y": -626,
+    "definition": "max_health_8"
+  },
+  "focus_8": {
+    "x": -942,
+    "y": -663,
+    "definition": "focus_8"
+  },
+  "max_health_mastery_2": {
+    "x": -998,
+    "y": -691,
+    "definition": "max_health_mastery_2"
+  },
+  "might_9": {
+    "x": -1053,
+    "y": -724,
+    "definition": "might_9"
+  },
+  "max_health_9": {
+    "x": -1103,
+    "y": -720,
+    "definition": "max_health_9"
+  },
+  "attunement_8": {
+    "x": -1148,
+    "y": -719,
+    "definition": "attunement_8"
+  },
+  "max_health_10": {
+    "x": -1099,
+    "y": -676,
+    "definition": "max_health_10"
+  },
+  "swiftness_7": {
+    "x": -1145,
+    "y": -641,
+    "definition": "swiftness_7"
+  },
+  "max_health_11": {
+    "x": -1175,
+    "y": -668,
+    "definition": "max_health_11"
+  },
+  "willpower_7": {
+    "x": -1202,
+    "y": -699,
+    "definition": "willpower_7"
+  },
+  "max_health_12": {
+    "x": -1223,
+    "y": -650,
+    "definition": "max_health_12"
+  },
+  "swiftness_8": {
+    "x": -1258,
+    "y": -673,
+    "definition": "swiftness_8"
+  },
+  "max_health_mastery_3": {
+    "x": -1318,
+    "y": -683,
+    "definition": "max_health_mastery_3"
+  },
+  "armor_shred_1": {
+    "x": -21,
+    "y": 86,
+    "definition": "armor_shred_1"
+  },
+  "hardened_2": {
+    "x": -31,
+    "y": 140,
+    "definition": "hardened_2"
+  },
+  "armor_shred_2": {
+    "x": -56,
+    "y": 198,
+    "definition": "armor_shred_2"
+  },
+  "focus_2": {
+    "x": -76,
+    "y": 245,
+    "definition": "focus_2"
+  },
+  "armor_shred_3": {
+    "x": -109,
+    "y": 296,
+    "definition": "armor_shred_3"
+  },
+  "meditation_8": {
+    "x": -127,
+    "y": 337,
+    "definition": "meditation_8"
+  },
+  "armor_shred_mastery_1": {
+    "x": -128,
+    "y": 385,
+    "definition": "armor_shred_mastery_1"
+  },
+  "readiness_6": {
+    "x": -132,
+    "y": 443,
+    "definition": "readiness_6"
+  },
+  "armor_shred_4": {
+    "x": -143,
+    "y": 499,
+    "definition": "armor_shred_4"
+  },
+  "swiftness_2": {
+    "x": -168,
+    "y": 559,
+    "definition": "swiftness_2"
+  },
+  "armor_shred_5": {
+    "x": -176,
+    "y": 607,
+    "definition": "armor_shred_5"
+  },
+  "readiness_7": {
+    "x": -182,
+    "y": 663,
+    "definition": "readiness_7"
+  },
+  "armor_shred_6": {
+    "x": -198,
+    "y": 716,
+    "definition": "armor_shred_6"
+  },
+  "dancing_blade": {
+    "x": -248,
+    "y": 736,
+    "definition": "dancing_blade"
+  },
+  "footing_2": {
+    "x": -231,
+    "y": 770,
+    "definition": "footing_2"
+  },
+  "armor_shred_mastery_2": {
+    "x": -263,
+    "y": 797,
+    "definition": "armor_shred_mastery_2"
+  },
+  "endurance_3": {
+    "x": -276,
+    "y": 849,
+    "definition": "endurance_3"
+  },
+  "dopamine": {
+    "x": -303,
+    "y": 896,
+    "definition": "dopamine"
+  },
+  "armor_shred_7": {
+    "x": -335,
+    "y": 937,
+    "definition": "armor_shred_7"
+  },
+  "endurance_4": {
+    "x": -238,
+    "y": 837,
+    "definition": "endurance_4"
+  },
+  "armor_shred_8": {
+    "x": -224,
+    "y": 898,
+    "definition": "armor_shred_8"
+  },
+  "swordmaster": {
+    "x": -181,
+    "y": 949,
+    "definition": "swordmaster"
+  },
+  "second_breath_4": {
+    "x": -132,
+    "y": 950,
+    "definition": "second_breath_4"
+  },
+  "armor_shred_9": {
+    "x": -84,
+    "y": 966,
+    "definition": "armor_shred_9"
+  },
+  "vitality_4": {
+    "x": -257,
+    "y": 940,
+    "definition": "vitality_4"
+  },
+  "armor_shred_mastery_3": {
+    "x": -309,
+    "y": 968,
+    "definition": "armor_shred_mastery_3"
+  },
+  "damage_reflection_1": {
+    "x": -88,
+    "y": 36,
+    "definition": "damage_reflection_1"
+  },
+  "swiftness_3": {
+    "x": -141,
+    "y": 39,
+    "definition": "swiftness_3"
+  },
+  "damage_reflection_2": {
+    "x": -196,
+    "y": 69,
+    "definition": "damage_reflection_2"
+  },
+  "attunement_2": {
+    "x": -263,
+    "y": 86,
+    "definition": "attunement_2"
+  },
+  "damage_reflection_3": {
+    "x": -322,
+    "y": 86,
+    "definition": "damage_reflection_3"
+  },
+  "hardened_3": {
+    "x": -374,
+    "y": 94,
+    "definition": "hardened_3"
+  },
+  "damage_reflection_mastery_1": {
+    "x": -437,
+    "y": 109,
+    "definition": "damage_reflection_mastery_1"
+  },
+  "bounce_2": {
+    "x": -482,
+    "y": 140,
+    "definition": "bounce_2"
+  },
+  "damage_reflection_4": {
+    "x": -422,
+    "y": 48,
+    "definition": "damage_reflection_4"
+  },
+  "focus_3": {
+    "x": -467,
+    "y": 16,
+    "definition": "focus_3"
+  },
+  "damage_reflection_5": {
+    "x": -469,
+    "y": 191,
+    "definition": "damage_reflection_5"
+  },
+  "might_2": {
+    "x": -448,
+    "y": 240,
+    "definition": "might_2"
+  },
+  "stance": {
+    "x": -412,
+    "y": 291,
+    "definition": "stance"
+  },
+  "damage_reflection_6": {
+    "x": -413,
+    "y": 358,
+    "definition": "damage_reflection_6"
+  },
+  "endurance_5": {
+    "x": -417,
+    "y": 411,
+    "definition": "endurance_5"
+  },
+  "damage_reflection_mastery_2": {
+    "x": -423,
+    "y": 453,
+    "definition": "damage_reflection_mastery_2"
+  },
+  "footing_3": {
+    "x": -475,
+    "y": 455,
+    "definition": "footing_3"
+  },
+  "damage_reflection_7": {
+    "x": -525,
+    "y": 432,
+    "definition": "damage_reflection_7"
+  },
+  "flaming_strike": {
+    "x": -576,
+    "y": 417,
+    "definition": "flaming_strike"
+  },
+  "footing_4": {
+    "x": -635,
+    "y": 436,
+    "definition": "footing_4"
+  },
+  "damage_reflection_8": {
+    "x": -682,
+    "y": 458,
+    "definition": "damage_reflection_8"
+  },
+  "endurance_6": {
+    "x": -729,
+    "y": 496,
+    "definition": "endurance_6"
+  },
+  "damage_reflection_9": {
+    "x": -778,
+    "y": 540,
+    "definition": "damage_reflection_9"
+  },
+  "endurance_7": {
+    "x": -693,
+    "y": 515,
+    "definition": "endurance_7"
+  },
+  "damage_reflection_mastery_3": {
+    "x": -717,
+    "y": 547,
+    "definition": "damage_reflection_mastery_3"
+  },
+  "natural_regeneration_1": {
+    "x": 183,
+    "y": -3,
+    "definition": "natural_regeneration_1"
+  },
+  "focus_4": {
+    "x": 230,
+    "y": -14,
+    "definition": "focus_4"
+  },
+  "natural_regeneration_2": {
+    "x": 289,
+    "y": -18,
+    "definition": "natural_regeneration_2"
+  },
+  "meditation_9": {
+    "x": 172,
+    "y": -53,
+    "definition": "meditation_9"
+  },
+  "natural_regeneration_3": {
+    "x": 155,
+    "y": -113,
+    "definition": "natural_regeneration_3"
+  },
+  "bounce_3": {
+    "x": 274,
+    "y": -55,
+    "definition": "bounce_3"
+  },
+  "natural_regeneration_mastery_1": {
+    "x": 303,
+    "y": -116,
+    "definition": "natural_regeneration_mastery_1"
+  },
+  "attunement_3": {
+    "x": 336,
+    "y": -158,
+    "definition": "attunement_3"
+  },
+  "natural_regeneration_4": {
+    "x": 396,
+    "y": -148,
+    "definition": "natural_regeneration_4"
+  },
+  "vitality_5": {
+    "x": 463,
+    "y": -144,
+    "definition": "vitality_5"
+  },
+  "natural_regeneration_5": {
+    "x": 322,
+    "y": -212,
+    "definition": "natural_regeneration_5"
+  },
+  "bounce_4": {
+    "x": 357,
+    "y": -266,
+    "definition": "bounce_4"
+  },
+  "natural_regeneration_6": {
+    "x": 395,
+    "y": -312,
+    "definition": "natural_regeneration_6"
+  },
+  "revelation": {
+    "x": 397,
+    "y": -262,
+    "definition": "revelation"
+  },
+  "might_3": {
+    "x": 391,
+    "y": -211,
+    "definition": "might_3"
+  },
+  "natural_regeneration_mastery_2": {
+    "x": 443,
+    "y": -204,
+    "definition": "natural_regeneration_mastery_2"
+  },
+  "might_4": {
+    "x": 459,
+    "y": -259,
+    "definition": "might_4"
+  },
+  "natural_regeneration_7": {
+    "x": 510,
+    "y": -264,
+    "definition": "natural_regeneration_7"
+  },
+  "swiftness_4": {
+    "x": 557,
+    "y": -258,
+    "definition": "swiftness_4"
+  },
+  "manipulator": {
+    "x": 511,
+    "y": -173,
+    "definition": "manipulator"
+  },
+  "natural_regeneration_8": {
+    "x": 573,
+    "y": -164,
+    "definition": "natural_regeneration_8"
+  },
+  "endurance_8": {
+    "x": 624,
+    "y": -181,
+    "definition": "endurance_8"
+  },
+  "natural_regeneration_9": {
+    "x": 667,
+    "y": -209,
+    "definition": "natural_regeneration_9"
+  },
+  "readiness_8": {
+    "x": 614,
+    "y": -133,
+    "definition": "readiness_8"
+  },
+  "natural_regeneration_mastery_3": {
+    "x": 677,
+    "y": -164,
+    "definition": "natural_regeneration_mastery_3"
+  },
+  "bounce_10": {
+    "x": -230,
+    "y": 975,
+    "definition": "bounce_10"
+  },
+  "willpower_8": {
+    "x": -203,
+    "y": 1014,
+    "definition": "willpower_8"
+  },
+  "second_breath_7": {
+    "x": -200,
+    "y": 1055,
+    "definition": "second_breath_7"
+  },
+  "bounce_11": {
+    "x": -186,
+    "y": 1097,
+    "definition": "bounce_11"
+  },
+  "hardened_5": {
+    "x": -89,
+    "y": -171,
+    "definition": "hardened_5"
+  },
+  "bounce_12": {
+    "x": -93,
+    "y": -229,
+    "definition": "bounce_12"
+  },
+  "attunement_9": {
+    "x": 17,
+    "y": -160,
+    "definition": "attunement_9"
+  },
+  "readiness_11": {
+    "x": -32,
+    "y": -188,
+    "definition": "readiness_11"
+  },
+  "hearty_7": {
+    "x": -55,
+    "y": -225,
+    "definition": "hearty_7"
+  },
+  "bounce_13": {
+    "x": -69,
+    "y": -266,
+    "definition": "bounce_13"
+  },
+  "meditation_15": {
+    "x": 154,
+    "y": -430,
+    "definition": "meditation_15"
+  },
+  "bounce_14": {
+    "x": 141,
+    "y": -466,
+    "definition": "bounce_14"
+  },
+  "attunement_11": {
+    "x": 201,
+    "y": -339,
+    "definition": "attunement_11"
+  },
+  "endurance_10": {
+    "x": 528,
+    "y": -130,
+    "definition": "endurance_10"
+  },
+  "vitality_7": {
+    "x": 577,
+    "y": -116,
+    "definition": "vitality_7"
+  },
+  "bounce_15": {
+    "x": 619,
+    "y": -90,
+    "definition": "bounce_15"
+  },
+  "focus_9": {
+    "x": 654,
+    "y": -70,
+    "definition": "focus_9"
+  },
+  "bounce_16": {
+    "x": -261,
+    "y": -206,
+    "definition": "bounce_16"
+  },
+  "willpower_9": {
+    "x": 158,
+    "y": -708,
+    "definition": "willpower_9"
+  },
+  "focus_10": {
+    "x": 199,
+    "y": -679,
+    "definition": "focus_10"
+  },
+  "willpower_10": {
+    "x": 382,
+    "y": 318,
+    "definition": "willpower_10"
+  },
+  "hardened_7": {
+    "x": 365,
+    "y": 356,
+    "definition": "hardened_7"
+  },
+  "endurance_11": {
+    "x": -147,
+    "y": -528,
+    "definition": "endurance_11"
+  },
+  "attunement_12": {
+    "x": -109,
+    "y": -570,
+    "definition": "attunement_12"
+  },
+  "mending_6": {
+    "x": -53,
+    "y": -604,
+    "definition": "mending_6"
+  },
+  "mending_7": {
+    "x": -755,
+    "y": 452,
+    "definition": "mending_7"
+  },
+  "bounce_17": {
+    "x": -804,
+    "y": 456,
+    "definition": "bounce_17"
+  },
+  "might_10": {
+    "x": -854,
+    "y": 454,
+    "definition": "might_10"
+  },
+  "vitality_8": {
+    "x": -465,
+    "y": 492,
+    "definition": "vitality_8"
+  },
+  "endurance_12": {
+    "x": -511,
+    "y": 520,
+    "definition": "endurance_12"
+  },
+  "vitality_9": {
+    "x": -561,
+    "y": 543,
+    "definition": "vitality_9"
+  },
+  "attunement_13": {
+    "x": -663,
+    "y": -666,
+    "definition": "attunement_13"
+  },
+  "might_11": {
+    "x": -702,
+    "y": -674,
+    "definition": "might_11"
+  },
+  "mending_8": {
+    "x": -740,
+    "y": -695,
+    "definition": "mending_8"
+  },
+  "hearty_8": {
+    "x": 380,
+    "y": 73,
+    "definition": "hearty_8"
+  },
+  "readiness_12": {
+    "x": 410,
+    "y": 106,
+    "definition": "readiness_12"
+  },
+  "bounce_18": {
+    "x": 451,
+    "y": 134,
+    "definition": "bounce_18"
+  },
+  "swiftness_10": {
+    "x": 227,
+    "y": -564,
+    "definition": "swiftness_10"
+  },
+  "footing_5": {
+    "x": 287,
+    "y": -569,
+    "definition": "footing_5"
+  },
+  "focus_11": {
+    "x": 328,
+    "y": -562,
+    "definition": "focus_11"
+  },
+  "vitality_10": {
+    "x": 685,
+    "y": -100,
+    "definition": "vitality_10"
+  },
+  "endurance_13": {
+    "x": 720,
+    "y": -80,
+    "definition": "endurance_13"
+  },
+  "second_breath_8": {
+    "x": 384,
+    "y": -357,
+    "definition": "second_breath_8"
+  },
+  "swiftness_11": {
+    "x": 400,
+    "y": -405,
+    "definition": "swiftness_11"
+  },
+  "endurance_14": {
+    "x": 421,
+    "y": -447,
+    "definition": "endurance_14"
+  },
+  "focus_12": {
+    "x": 461,
+    "y": -473,
+    "definition": "focus_12"
+  },
+  "willpower_11": {
+    "x": 245,
+    "y": -647,
+    "definition": "willpower_11"
+  },
+  "willpower_12": {
+    "x": -169,
+    "y": 341,
+    "definition": "willpower_12"
+  },
+  "hardened_8": {
+    "x": -207,
+    "y": 366,
+    "definition": "hardened_8"
+  },
+  "hearty_10": {
+    "x": -553,
+    "y": -897,
+    "definition": "hearty_10"
+  },
+  "vitality_11": {
+    "x": -525,
+    "y": -936,
+    "definition": "vitality_11"
+  },
+  "readiness_13": {
+    "x": -485,
+    "y": -972,
+    "definition": "readiness_13"
+  },
+  "meditation_16": {
+    "x": -194,
+    "y": 821,
+    "definition": "meditation_16"
+  },
+  "readiness_14": {
+    "x": -185,
+    "y": 868,
+    "definition": "readiness_14"
+  },
+  "hearty_11": {
+    "x": 446,
+    "y": -724,
+    "definition": "hearty_11"
+  },
+  "might_12": {
+    "x": 482,
+    "y": -739,
+    "definition": "might_12"
+  },
+  "mending_9": {
+    "x": -62,
+    "y": 289,
+    "definition": "mending_9"
+  },
+  "attunement_14": {
+    "x": -42,
+    "y": 322,
+    "definition": "attunement_14"
+  },
+  "footing_6": {
+    "x": -28,
+    "y": 363,
+    "definition": "footing_6"
+  },
+  "willpower_13": {
+    "x": 283,
+    "y": -178,
+    "definition": "willpower_13"
+  },
+  "mending_10": {
+    "x": 243,
+    "y": -101,
+    "definition": "mending_10"
+  },
+  "focus_13": {
+    "x": 232,
+    "y": -53,
+    "definition": "focus_13"
+  },
+  "might_13": {
+    "x": 333,
+    "y": 215,
+    "definition": "might_13"
+  },
+  "mending_12": {
+    "x": 326,
+    "y": 257,
+    "definition": "mending_12"
+  },
+  "mending_13": {
+    "x": -694,
+    "y": -550,
+    "definition": "mending_13"
+  },
+  "second_breath_9": {
+    "x": -725,
+    "y": -515,
+    "definition": "second_breath_9"
+  },
+  "attunement_16": {
+    "x": -112,
+    "y": -362,
+    "definition": "attunement_16"
+  },
+  "hardened_9": {
+    "x": 554,
+    "y": -721,
+    "definition": "hardened_9"
+  },
+  "mending_14": {
+    "x": 532,
+    "y": -763,
+    "definition": "mending_14"
+  },
+  "second_breath_10": {
+    "x": 434,
+    "y": -307,
+    "definition": "second_breath_10"
+  },
+  "mending_15": {
+    "x": 435,
+    "y": -346,
+    "definition": "mending_15"
+  },
+  "swiftness_12": {
+    "x": 441,
+    "y": -391,
+    "definition": "swiftness_12"
+  },
+  "second_breath_11": {
+    "x": 457,
+    "y": -433,
+    "definition": "second_breath_11"
+  },
+  "willpower_14": {
+    "x": 207,
+    "y": -470,
+    "definition": "willpower_14"
+  },
+  "vitality_12": {
+    "x": 166,
+    "y": -514,
+    "definition": "vitality_12"
+  },
+  "footing_7": {
+    "x": 98,
+    "y": -492,
+    "definition": "footing_7"
+  },
+  "willpower_15": {
+    "x": 640,
+    "y": -617,
+    "definition": "willpower_15"
+  },
+  "hearty_12": {
+    "x": 686,
+    "y": -622,
+    "definition": "hearty_12"
+  },
+  "footing_8": {
+    "x": 733,
+    "y": -632,
+    "definition": "footing_8"
+  },
+  "hardened_10": {
+    "x": -1239,
+    "y": -602,
+    "definition": "hardened_10"
+  },
+  "vitality_13": {
+    "x": -1279,
+    "y": -580,
+    "definition": "vitality_13"
+  },
+  "mending_16": {
+    "x": 308,
+    "y": -601,
+    "definition": "mending_16"
+  },
+  "second_breath_12": {
+    "x": 355,
+    "y": -611,
+    "definition": "second_breath_12"
+  },
+  "vitality_14": {
+    "x": -454,
+    "y": 373,
+    "definition": "vitality_14"
+  },
+  "hearty_13": {
+    "x": -495,
+    "y": 390,
+    "definition": "hearty_13"
+  },
+  "readiness_15": {
+    "x": -561,
+    "y": 357,
+    "definition": "readiness_15"
+  },
+  "hearty_14": {
+    "x": 279,
+    "y": -742,
+    "definition": "hearty_14"
+  },
+  "endurance_16": {
+    "x": 293,
+    "y": -784,
+    "definition": "endurance_16"
+  },
+  "mending_17": {
+    "x": -95,
+    "y": -768,
+    "definition": "mending_17"
+  },
+  "footing_9": {
+    "x": -130,
+    "y": -804,
+    "definition": "footing_9"
+  },
+  "mending_18": {
+    "x": -138,
+    "y": -843,
+    "definition": "mending_18"
+  },
+  "hardened_11": {
+    "x": -448,
+    "y": -644,
+    "definition": "hardened_11"
+  },
+  "vitality_16": {
+    "x": -486,
+    "y": -628,
+    "definition": "vitality_16"
+  },
+  "focus_14": {
+    "x": 395,
+    "y": -672,
+    "definition": "focus_14"
+  },
+  "hardened_12": {
+    "x": 439,
+    "y": -662,
+    "definition": "hardened_12"
+  },
+  "vitality_17": {
+    "x": 484,
+    "y": -659,
+    "definition": "vitality_17"
+  },
+  "might_15": {
+    "x": 526,
+    "y": -677,
+    "definition": "might_15"
+  },
+  "second_breath_14": {
+    "x": -208,
+    "y": -823,
+    "definition": "second_breath_14"
+  },
+  "meditation_18": {
+    "x": -201,
+    "y": -861,
+    "definition": "meditation_18"
+  },
+  "mending_19": {
+    "x": -212,
+    "y": -901,
+    "definition": "mending_19"
+  },
+  "vitality_18": {
+    "x": -818,
+    "y": 516,
+    "definition": "vitality_18"
+  },
+  "endurance_17": {
+    "x": -870,
+    "y": 496,
+    "definition": "endurance_17"
+  },
+  "might_16": {
+    "x": -915,
+    "y": 473,
+    "definition": "might_16"
+  },
+  "second_breath_15": {
+    "x": -73,
+    "y": 124,
+    "definition": "second_breath_15"
+  },
+  "hardened_13": {
+    "x": -112,
+    "y": 118,
+    "definition": "hardened_13"
+  },
+  "swiftness_13": {
+    "x": 82,
+    "y": -194,
+    "definition": "swiftness_13"
+  },
+  "endurance_18": {
+    "x": 127,
+    "y": -215,
+    "definition": "endurance_18"
+  },
+  "attunement_17": {
+    "x": 158,
+    "y": -271,
+    "definition": "attunement_17"
+  },
+  "might_17": {
+    "x": -508,
+    "y": -741,
+    "definition": "might_17"
+  },
+  "second_breath_16": {
+    "x": -528,
+    "y": -693,
+    "definition": "second_breath_16"
+  },
+  "endurance_19": {
+    "x": -347,
+    "y": -175,
+    "definition": "endurance_19"
+  },
+  "focus_15": {
+    "x": -401,
+    "y": -169,
+    "definition": "focus_15"
+  },
+  "vitality_20": {
+    "x": 25,
+    "y": -344,
+    "definition": "vitality_20"
+  },
+  "willpower_16": {
+    "x": 14,
+    "y": -393,
+    "definition": "willpower_16"
+  },
+  "hearty_15": {
+    "x": 33,
+    "y": -430,
+    "definition": "hearty_15"
+  },
+  "endurance_20": {
+    "x": -599,
+    "y": 476,
+    "definition": "endurance_20"
+  },
+  "swiftness_14": {
+    "x": -646,
+    "y": 485,
+    "definition": "swiftness_14"
+  },
+  "mending_20": {
+    "x": -322,
+    "y": -488,
+    "definition": "mending_20"
+  },
+  "attunement_18": {
+    "x": -318,
+    "y": -542,
+    "definition": "attunement_18"
+  },
+  "second_breath_17": {
+    "x": -318,
+    "y": -593,
+    "definition": "second_breath_17"
+  },
+  "footing_10": {
+    "x": -379,
+    "y": -635,
+    "definition": "footing_10"
+  },
+  "swiftness_15": {
+    "x": -67,
+    "y": -802,
+    "definition": "swiftness_15"
+  }
+}

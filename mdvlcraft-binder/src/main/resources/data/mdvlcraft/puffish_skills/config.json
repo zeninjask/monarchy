@@ -1,0 +1,22 @@
+{
+  "version": 3,
+  "categories": [
+    "classes",
+    "knight",
+    "samurai",
+    "berzerker",
+    "holy",
+    "flame",
+    "lightning",
+    "necromancy",
+    "ice",
+    "assassin",
+    "phantom",
+    "scout",
+    "thief",
+    "wanderer",
+    "stalker",
+    "druid",
+    "cursed"
+  ]
+}

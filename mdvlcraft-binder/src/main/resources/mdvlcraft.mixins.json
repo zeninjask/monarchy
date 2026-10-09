@@ -1,0 +1,48 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.mdvlcraft.binder.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "mdvlcraft.refmap.json",
+  "mixins": [
+    "ForgeHooksMixin",
+    "LevelMixin",
+    "NetworkHooksMixin",
+    "RecipeManagerMixin",
+    "ServerAdvancementManagerMixin",
+    "irons.SpellSelectionManagerMixin",
+    "epicfight.ParryingSkillMixin",
+    "epicfight.ParryingSkillAccessor",
+    "epicfight.ActionAnimationMixin",
+    "epicfight.CPChangeSkillMixin",
+    "cursedfate.SureHitEffectInDomainAreaProcedureMixin",
+    "cursedfate.ShrineOnTickProcedureMixin",
+    "swordsoaring.VatanseverItemMixin",
+    "ItemStackMixin",
+    "efn.EffekUnitsMixin",
+    "chunky.ChunkyProviderAccessor",
+    "distanthorizons.AbstractChunkyAccessorMixin",
+    "naoyaaddon.DodgeProcedureMixin",
+    "naoyaaddon.ProjectionDashProcedureMixin",
+    "naoyaaddon.SetAbilityCooldownProcedureMixin",
+    "naoyaaddon.BarrageProcedureMixin",
+    "naoyaaddon.ToggleProjectionStylePacketMixin"
+  ],
+  "client": [
+    "cursedfate.CursedfateModKeyMappingsMixin",
+    "irons.KeyMappingsMixin",
+    "WeaponTypeReloadListenerMixin",
+    "SkillsScreenMixin",
+    "GuiGraphicsMixin",
+    "AbstractButtonMixin",
+    "epicfight.AnimationTrailParticleMixin",
+    "epicfight.EpicFightKeyMappingsMixin",
+    "swordsoaring.SwordSoaringKeyMappingsMixin",
+    "epicfight.AnimationEventMixin",
+    "efn.EFNKeyMappingsMixin",
+    "puffish.ConnectionBatchedRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

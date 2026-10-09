@@ -1,0 +1,98 @@
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'net.minecraftforge.gradle' version '[6.0.24,6.2)'
+    id 'org.spongepowered.mixin' version '0.7.+'
+}
+
+version = mod_version
+group = mod_group_id
+
+base {
+    archivesName = mod_id
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+minecraft {
+    mappings channel: mapping_channel, version: mapping_version
+    copyIdeResources = true
+
+    runs {
+        configureEach {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            // Dependencies are deobfuscated by ForgeGradle, so their SRG refmaps must be remapped too
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
+            mods {
+                "${mod_id}" {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        client {
+        }
+
+        server {
+            args '--nogui'
+        }
+    }
+}
+
+mixin {
+    add sourceSets.main, "${mod_id}.refmap.json"
+    config "${mod_id}.mixins.json"
+}
+
+// The modpack's jars, fetched by tools/fetch_mods.py. flatDir finds "local:<file name>:0" as <file name>.jar.
+repositories {
+    flatDir {
+        dirs 'libs/modpack', 'libs/nested'
+    }
+}
+
+def listed = { String path ->
+    def list = file(path)
+    list.exists() ? list.readLines()*.trim().findAll { it } : []
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
+    // The Binder's mandatory dependencies and everything they need (libs/core.txt)
+    listed('libs/core.txt').each { jar ->
+        implementation fg.deobf("local:${jar - '.jar'}:0")
+    }
+    // Libraries shipped inside those jars, e.g. Ponder and Flywheel inside epic_fight_ponder (libs/nested.txt)
+    listed('libs/nested.txt').each { jar ->
+        compileOnly fg.deobf("local:${jar - '.jar'}:0")
+    }
+}
+
+if (!file('libs/core.txt').exists()) {
+    logger.warn('libs/core.txt is missing: run tools/fetch_mods.py before building')
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+jar {
+    manifest {
+        attributes([
+                'Specification-Title'     : mod_id,
+                'Specification-Vendor'    : 'MDVLCraft',
+                'Specification-Version'   : '1',
+                'Implementation-Title'    : 'mdvlcraft-binder',
+                'Implementation-Version'  : project.jar.archiveVersion,
+                'Implementation-Vendor'   : 'MDVLCraft',
+                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+    finalizedBy 'reobfJar'
+}

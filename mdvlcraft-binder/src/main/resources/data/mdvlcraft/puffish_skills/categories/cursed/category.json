@@ -1,0 +1,46 @@
+{
+  "title": "Cursed",
+  "description": "Shrine techniques: Dismantle, Cleave and the Malevolent Shrine (closed, then open).",
+  "icon": {
+    "type": "texture",
+    "data": {
+      "texture": "mdvlcraft:textures/gui/icons/tab/cursed.png"
+    }
+  },
+  "background": {
+    "texture": "mdvlcraft:textures/gui/skills/canvas.png",
+    "width": 12,
+    "height": 12,
+    "position": "tile"
+  },
+  "colors": {
+    "connections": {
+      "locked": {
+        "fill": "#343a44",
+        "stroke": "#0e1014"
+      },
+      "available": {
+        "fill": "#5a626e",
+        "stroke": "#0e1014"
+      },
+      "affordable": {
+        "fill": "#548f6a",
+        "stroke": "#0e1014"
+      },
+      "unlocked": {
+        "fill": "#4ec47a",
+        "stroke": "#0e1014"
+      },
+      "excluded": {
+        "fill": "#282c34",
+        "stroke": "#0e1014"
+      }
+    },
+    "points": {
+      "fill": "#4ec47a",
+      "stroke": "#1c2027"
+    }
+  },
+  "unlocked_by_default": false,
+  "starting_points": 1
+}

@@ -1,0 +1,46 @@
+{
+  "title": "Scout",
+  "description": "Mobility, ender magic and far sight.",
+  "icon": {
+    "type": "texture",
+    "data": {
+      "texture": "mdvlcraft:textures/gui/icons/tab/scout.png"
+    }
+  },
+  "background": {
+    "texture": "mdvlcraft:textures/gui/skills/canvas.png",
+    "width": 12,
+    "height": 12,
+    "position": "tile"
+  },
+  "colors": {
+    "connections": {
+      "locked": {
+        "fill": "#343a44",
+        "stroke": "#0e1014"
+      },
+      "available": {
+        "fill": "#5a626e",
+        "stroke": "#0e1014"
+      },
+      "affordable": {
+        "fill": "#7f61a5",
+        "stroke": "#0e1014"
+      },
+      "unlocked": {
+        "fill": "#a468f0",
+        "stroke": "#0e1014"
+      },
+      "excluded": {
+        "fill": "#282c34",
+        "stroke": "#0e1014"
+      }
+    },
+    "points": {
+      "fill": "#a468f0",
+      "stroke": "#1c2027"
+    }
+  },
+  "unlocked_by_default": false,
+  "starting_points": 1
+}
