@@ -398,7 +398,7 @@
   "wanderer": {
     "title": "Wanderer",
     "description": "Long journeys: food, sure footing and a loyal horse. Key: Summon Horse, Counterspell, Summon Polar Bear.",
-    "extra_description": "Opens the Wanderer tab. You can pick 2 archetypes in total.",
+    "extra_description": "Opens the Wanderer tab. You can pick 2 archetypes in total. You can no longer be poisoned or given Hunger.",
     "icon": {
       "type": "texture",
       "data": {
@@ -416,7 +416,17 @@
       }
     },
     "size": 1.5,
-    "cost": 1
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "mdvlcraft:affliction_immunity",
+          "value": 1,
+          "operation": "addition"
+        }
+      }
+    ]
   },
   "stalker": {
     "title": "Stalker",
@@ -444,7 +454,7 @@
   "druid": {
     "title": "Druid",
     "description": "Nature magic and the land's healing. Key: Acid Orb, Root, Firefly Swarm.",
-    "extra_description": "Opens the Druid tab. You can pick 2 archetypes in total.",
+    "extra_description": "Opens the Druid tab. You can pick 2 archetypes in total. You can no longer be poisoned or given Hunger.",
     "icon": {
       "type": "texture",
       "data": {
@@ -462,7 +472,17 @@
       }
     },
     "size": 1.5,
-    "cost": 1
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "mdvlcraft:affliction_immunity",
+          "value": 1,
+          "operation": "addition"
+        }
+      }
+    ]
   },
   "cursed": {
     "title": "Cursed",

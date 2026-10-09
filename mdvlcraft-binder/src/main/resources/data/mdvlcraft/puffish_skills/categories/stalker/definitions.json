@@ -11517,5 +11517,99 @@
     },
     "size": 0.75,
     "extra_description": "Twig bonus (every archetype has a few of these)."
+  },
+  "bodkin_points_1": {
+    "title": "Bodkin Points I",
+    "description": "+15% Arrow Armor Penetration: arrows and bolts you shoot ignore 15% of the target's armor",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/spectral_arrow.png"
+      }
+    },
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "mdvlcraft:arrow_penetration",
+          "value": 0.15,
+          "operation": "addition"
+        }
+      }
+    ],
+    "cost": 2,
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_ranger_goal_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_ranger_goal_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_ranger_goal_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_ranger_goal_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_ranger_goal_excluded.png"
+      }
+    },
+    "size": 1.5
+  },
+  "bodkin_points_2": {
+    "title": "Bodkin Points II",
+    "description": "+15% Arrow Armor Penetration: arrows and bolts you shoot ignore 15% of the target's armor",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/item/spectral_arrow.png"
+      }
+    },
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "mdvlcraft:arrow_penetration",
+          "value": 0.15,
+          "operation": "addition"
+        }
+      }
+    ],
+    "cost": 2,
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_ranger_goal_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_ranger_goal_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_ranger_goal_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_ranger_goal_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_ranger_goal_excluded.png"
+      }
+    },
+    "size": 1.5
+  },
+  "critical_knowledge": {
+    "title": "Critical Knowledge",
+    "description": "Teaches Critical Knowledge, an Epic Fight Passive skill: attacks, arrows included, have a 20% chance to crit for double damage; Fire Protection on your armor raises the chance and Blast Protection the damage. Equip it in the Combat Skills box of the abilities screen",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "wom:textures/gui/skills/passive/critical_knowledge.png"
+      }
+    },
+    "rewards": [
+      {
+        "type": "mdvlcraft:epicfight_skill",
+        "data": {
+          "skill": "wom:critical_knowledge"
+        }
+      }
+    ],
+    "cost": 3,
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_excluded.png"
+      }
+    },
+    "size": 2.0
   }
 }

@@ -27,6 +27,10 @@ public final class BinderAttributes {
         "nature_regen", () -> new RangedAttribute("attribute.mdvlcraft.nature_regen", 0.0, 0.0, 10.0).setSyncable(true)
     );
     public static final RegistryObject<Attribute> TECHNIQUE_EFFICIENCY = fraction("technique_efficiency", 0.9);
+    /** Share of the armour that arrows and bolts the player shoots ignore. */
+    public static final RegistryObject<Attribute> ARROW_PENETRATION = fraction("arrow_penetration", 1.0);
+    /** 1 or more: Poison and Hunger cannot be applied to the player. */
+    public static final RegistryObject<Attribute> AFFLICTION_IMMUNITY = fraction("affliction_immunity", 1.0);
 
     private BinderAttributes() {
     }

@@ -6,7 +6,7 @@ import java.util.Optional;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
-public sealed interface Ability permits SpellAbility, Technique, SlotSkillAbility, StanceAbility, DoppelgangerAbility {
+public sealed interface Ability permits SpellAbility, Technique, SlotSkillAbility, StanceAbility, DoppelgangerAbility, SustenanceAbility {
     ResourceLocation id();
 
     Component displayName();
@@ -29,6 +29,8 @@ public sealed interface Ability permits SpellAbility, Technique, SlotSkillAbilit
                     return stance;
                 } else if (DoppelgangerAbility.INSTANCE.id().equals(id)) {
                     return Optional.of(DoppelgangerAbility.INSTANCE);
+                } else if (SustenanceAbility.INSTANCE.id().equals(id)) {
+                    return Optional.of(SustenanceAbility.INSTANCE);
                 } else {
                     AbstractSpell spell = SpellRegistry.getSpell(id);
                     return spell == SpellRegistry.none() ? Optional.empty() : Optional.of(new SpellAbility(spell));

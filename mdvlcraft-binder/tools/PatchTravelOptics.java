@@ -8,7 +8,7 @@ import org.objectweb.asm.tree.*;
 
 /**
  * Rewrites a T.O Magic 'n Extras 5.5.0 jar, built for an older L_Ender's Cataclysm and Iron's Spells, so it
- * links against Cataclysm 3.31 and Iron's Spells 3.16. Usage (ASM 9 on the class path):
+ * links against Cataclysm 3.31 and Iron's Spells 3.16, and registers Violent Skreech without Alex's Mobs. Usage (ASM 9 on the class path):
  *   java -cp asm.jar:asm-tree.jar:asm-commons.jar tools/PatchTravelOptics.java in.jar out.jar
  */
 public class PatchTravelOptics {
@@ -36,6 +36,15 @@ public class PatchTravelOptics {
     static final Map<String, String[]> FIELDS = Map.of(
         C + "config/CMConfig.HarbingerHealingMultiplier", new String[]{"harbingerHealingMultiplier", "()D"},
         C + "config/CMConfig.HarbingerLightFire", new String[]{"harbingerLightFire", "()Z"});
+    // Violent (Paralyzing) Skreech is only registered with Alex's Mobs, which the pack does not have; it only
+    // uses that mod's sounds and particle, so register it anyway with the Warden's sonic boom instead
+    static final Map<String, Map<String, String>> STRINGS = Map.of(
+        "com/gametechbc/traveloptics/init/TravelopticsSpells", Map.of("alexsmobs", "minecraft"),
+        "com/gametechbc/traveloptics/compat/spells/eldritch/ViolentSkreechSpell", Map.of(
+            "alexsmobs", "minecraft",
+            "skreecher_call", "entity.warden.sonic_charge",
+            "skreecher_clap", "entity.warden.sonic_boom",
+            "alexsmobs:skulk_boom", "minecraft:sonic_boom"));
 
     public static void main(String[] args) throws IOException {
         int changed = 0;
@@ -66,7 +75,7 @@ public class PatchTravelOptics {
     static boolean mentions(byte[] data) {
         String s = new String(data, java.nio.charset.StandardCharsets.ISO_8859_1);
         for (String k : MOVED.keySet()) if (s.contains(k)) return true;
-        return s.contains(C + "config/CMConfig");
+        return s.contains(C + "config/CMConfig") || s.contains("alexsmobs");
     }
 
     static byte[] patch(byte[] data) {
@@ -74,6 +83,7 @@ public class PatchTravelOptics {
         ClassNode node = new ClassNode();
         new ClassReader(data).accept(new ClassRemapper(node, new SimpleRemapper(MOVED)), 0);
         node.innerClasses.removeIf(ic -> MOVED.containsValue(ic.name));
+        Map<String, String> strings = STRINGS.getOrDefault(node.name, Map.of());
         for (MethodNode m : node.methods) {
             Deque<TypeInsnNode> news = new ArrayDeque<>();
             for (AbstractInsnNode insn : m.instructions.toArray()) {
@@ -94,6 +104,8 @@ public class PatchTravelOptics {
                             m.instructions.set(mi, new MethodInsnNode(Opcodes.INVOKESTATIC, SHIM, shim[0], shim[1], false));
                         }
                     }
+                } else if (insn instanceof LdcInsnNode ldc && ldc.cst instanceof String text && strings.containsKey(text)) {
+                    ldc.cst = strings.get(text);
                 } else if (insn instanceof FieldInsnNode f && f.getOpcode() == Opcodes.GETSTATIC) {
                     String[] shim = FIELDS.get(f.owner + "." + f.name);
                     if (shim != null) m.instructions.set(f, new MethodInsnNode(Opcodes.INVOKESTATIC, SHIM, shim[0], shim[1], false));

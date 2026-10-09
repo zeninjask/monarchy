@@ -1964,5 +1964,15 @@
     "x": -362,
     "y": 243,
     "definition": "ashen_breath"
+  },
+  "adaptive_skin": {
+    "x": 476,
+    "y": -502,
+    "definition": "adaptive_skin"
+  },
+  "arcane_sustenance": {
+    "x": 556,
+    "y": -432,
+    "definition": "arcane_sustenance"
   }
 }

@@ -11887,5 +11887,36 @@
       }
     },
     "size": 2.0
+  },
+  "violent_skreech": {
+    "title": "Paralyzing Skreech",
+    "description": "Unlocks Paralyzing Skreech (Level 3) (8 mana every half second while channelled, 37.5 s cooldown) on the ability wheel: pulses of sound shred armor, chill and damage everything nearby. Hold the Ponder key (W) here to preview it",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "traveloptics:textures/gui/spell_icons/violent_skreech.png"
+      }
+    },
+    "rewards": [
+      {
+        "type": "mdvlcraft:ability",
+        "data": {
+          "ability": "traveloptics:violent_skreech",
+          "level": 3
+        }
+      }
+    ],
+    "cost": 3,
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_excluded.png"
+      }
+    },
+    "size": 2.0
   }
 }

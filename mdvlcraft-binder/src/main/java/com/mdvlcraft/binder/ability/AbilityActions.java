@@ -50,6 +50,8 @@ public final class AbilityActions {
                     Stances.press(player);
                 } else if (ability.get() instanceof DoppelgangerAbility) {
                     Doppelgangers.press(player);
+                } else if (ability.get() instanceof SustenanceAbility sustenance) {
+                    sustenance.cast(player);
                 }
             }
         }

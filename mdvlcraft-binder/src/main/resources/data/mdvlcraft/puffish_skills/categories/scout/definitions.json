@@ -11405,5 +11405,36 @@
     },
     "size": 0.75,
     "extra_description": "Twig bonus (every archetype has a few of these)."
+  },
+  "arcane_sustenance": {
+    "title": "Arcane Sustenance",
+    "description": "Unlocks Arcane Sustenance (50 mana) on the ability wheel: turn mana into food, restoring 1 hunger shank and 4 saturation each cast",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "minecraft:textures/mob_effect/saturation.png"
+      }
+    },
+    "rewards": [
+      {
+        "type": "mdvlcraft:ability",
+        "data": {
+          "ability": "mdvlcraft:arcane_sustenance",
+          "level": 1
+        }
+      }
+    ],
+    "cost": 2,
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_excluded.png"
+      }
+    },
+    "size": 2.0
   }
 }

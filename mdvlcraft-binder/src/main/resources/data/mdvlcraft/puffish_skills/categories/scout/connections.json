@@ -1544,6 +1544,10 @@
       [
         "endurance_4",
         "willpower_16"
+      ],
+      [
+        "haste",
+        "arcane_sustenance"
       ]
     ]
   }

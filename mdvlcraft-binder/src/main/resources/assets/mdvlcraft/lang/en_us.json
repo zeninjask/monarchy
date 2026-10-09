@@ -112,5 +112,10 @@
   "ability.mdvlcraft.doppelganger.upkeep": "%s mana per second while summoned",
   "ability.mdvlcraft.doppelganger.no_target": "Look at a creature to teleport to it (sneak to dismiss your double)",
   "ability.mdvlcraft.doppelganger.no_room": "No room to teleport behind that creature",
-  "ability.mdvlcraft.doppelganger.out_of_mana": "Your doppelganger fades: out of mana"
+  "ability.mdvlcraft.doppelganger.out_of_mana": "Your doppelganger fades: out of mana",
+  "attribute.mdvlcraft.arrow_penetration": "Arrow Armor Penetration",
+  "attribute.mdvlcraft.affliction_immunity": "Poison and Hunger Immunity",
+  "ability.mdvlcraft.arcane_sustenance": "Arcane Sustenance",
+  "ability.mdvlcraft.arcane_sustenance.desc": "Turn mana into food: restores %s hunger shank and %s saturation.",
+  "ability.mdvlcraft.arcane_sustenance.full": "You are already full"
 }

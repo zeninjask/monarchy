@@ -1754,5 +1754,20 @@
     "x": 274,
     "y": -456,
     "definition": "meditation_7"
+  },
+  "bodkin_points_1": {
+    "x": 41,
+    "y": -121,
+    "definition": "bodkin_points_1"
+  },
+  "bodkin_points_2": {
+    "x": 41,
+    "y": -216,
+    "definition": "bodkin_points_2"
+  },
+  "critical_knowledge": {
+    "x": 647,
+    "y": -412,
+    "definition": "critical_knowledge"
   }
 }

@@ -1809,5 +1809,10 @@
     "x": -424,
     "y": -352,
     "definition": "wither_skull"
+  },
+  "violent_skreech": {
+    "x": -348,
+    "y": -113,
+    "definition": "violent_skreech"
   }
 }

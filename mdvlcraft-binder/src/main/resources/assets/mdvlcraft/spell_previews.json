@@ -522,5 +522,13 @@
   "mdvlcraft:water/skypiercer": {
     "spell": "traveloptics:skypiercer",
     "level": 1
+  },
+  "mdvlcraft:cursed/violent_skreech": {
+    "spell": "traveloptics:violent_skreech",
+    "level": 3
+  },
+  "mdvlcraft:thief/astral_sense": {
+    "spell": "traveloptics:astral_sense",
+    "level": 1
   }
 }

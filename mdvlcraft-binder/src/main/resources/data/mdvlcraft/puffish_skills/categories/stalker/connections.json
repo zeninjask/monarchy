@@ -1612,6 +1612,18 @@
       [
         "revelation",
         "staminar_5"
+      ],
+      [
+        "crossbow_projectile_speed_1",
+        "bodkin_points_1"
+      ],
+      [
+        "bodkin_points_1",
+        "bodkin_points_2"
+      ],
+      [
+        "crossbow_projectile_speed_5",
+        "critical_knowledge"
       ]
     ]
   }

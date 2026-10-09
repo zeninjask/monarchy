@@ -1739,5 +1739,10 @@
     "x": 505,
     "y": -361,
     "definition": "second_breath_8"
+  },
+  "arcane_sustenance": {
+    "x": 463,
+    "y": -220,
+    "definition": "arcane_sustenance"
   }
 }

@@ -1624,6 +1624,10 @@
       [
         "melee_resistance_6",
         "wither_skull"
+      ],
+      [
+        "footing_1",
+        "violent_skreech"
       ]
     ]
   }

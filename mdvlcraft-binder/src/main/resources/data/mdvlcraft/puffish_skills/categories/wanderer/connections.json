@@ -1724,6 +1724,14 @@
       [
         "summon_horse",
         "ashen_breath"
+      ],
+      [
+        "gluttony",
+        "adaptive_skin"
+      ],
+      [
+        "gluttony",
+        "arcane_sustenance"
       ]
     ]
   }

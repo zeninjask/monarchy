@@ -12280,5 +12280,35 @@
       }
     },
     "size": 2.0
+  },
+  "adaptive_skin": {
+    "title": "Adaptive Skin",
+    "description": "Teaches Adaptive Skin, an Epic Fight Passive skill: gain stacking resistance to the damage types you have taken recently. Equip it in the Combat Skills box of the abilities screen",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "epicfight:textures/gui/skills/passive/adaptive_skin.png"
+      }
+    },
+    "rewards": [
+      {
+        "type": "mdvlcraft:epicfight_skill",
+        "data": {
+          "skill": "epicfight:adaptive_skin"
+        }
+      }
+    ],
+    "cost": 3,
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_excluded.png"
+      }
+    },
+    "size": 2.0
   }
 }

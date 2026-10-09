@@ -13,6 +13,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodData;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.phys.Vec3;
@@ -21,17 +23,21 @@ import net.minecraftforge.event.TickEvent.PlayerTickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.MobEffectEvent;
+import net.minecraftforge.eventbus.api.Event.Result;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent.Finish;
 import net.minecraftforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.RegistryObject;
+import yesman.epicfight.api.utils.math.ValueModifier;
 import yesman.epicfight.skill.dodge.DodgeSkill;
 import yesman.epicfight.world.capabilities.EpicFightCapabilities;
 import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
 import yesman.epicfight.world.capabilities.item.WeaponCategory;
 import yesman.epicfight.world.capabilities.item.CapabilityItem.WeaponCategories;
+import yesman.epicfight.world.damagesource.EpicFightDamageSource;
 import yesman.epicfight.world.entity.eventlistener.PlayerEventListener.EventType;
 
 @EventBusSubscriber(
@@ -60,6 +66,25 @@ public final class AttributeEffects {
         DamageSource source = event.getSource();
         if (source.getEntity() instanceof ServerPlayer attacker && isMelee(source, attacker)) {
             event.setAmount(event.getAmount() * (float)(1.0 + meleeBonus(attacker, target)));
+        }
+        // Epic Fight turns arrow damage into its own damage source and applies its armour negation
+        // after this event, when armour is taken off the damage
+        if (source.getEntity() instanceof ServerPlayer attacker
+            && source.getDirectEntity() instanceof AbstractArrow
+            && source instanceof EpicFightDamageSource epicFightSource) {
+            double penetration = value(attacker, BinderAttributes.ARROW_PENETRATION);
+            if (penetration > 0.0) {
+                epicFightSource.attachArmorNegationModifier(ValueModifier.adder((float)(penetration * 100.0)));
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onEffectApplicable(MobEffectEvent.Applicable event) {
+        if (event.getEntity() instanceof Player player
+            && (event.getEffectInstance().getEffect() == MobEffects.POISON || event.getEffectInstance().getEffect() == MobEffects.HUNGER)
+            && value(player, BinderAttributes.AFFLICTION_IMMUNITY) >= 1.0) {
+            event.setResult(Result.DENY);
         }
     }
 

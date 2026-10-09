@@ -1734,5 +1734,10 @@
     "x": 73,
     "y": 87,
     "definition": "endurance_15"
+  },
+  "astral_sense": {
+    "x": 427,
+    "y": 179,
+    "definition": "astral_sense"
   }
 }

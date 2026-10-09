@@ -2,6 +2,28 @@
 
 ## 1.9.12 (Binder 0.7.4)
 
+Source changes only: the packs have not been built or tested in game yet.
+
+### Skill trees
+
+- **Druid and Wanderer** get **Adaptive Skin** (Epic Fight passive, same node as Holy's), and picking either
+  archetype on the Classes tab now makes you **immune to Poison and Hunger** (new attribute
+  `mdvlcraft:affliction_immunity`; the effects are refused when applied, so food poisoning, poison
+  arrows and spells all fail).
+- **Stalker**: two new nodes, **Bodkin Points I and II**, each +15% **Arrow Armor Penetration** (new
+  attribute `mdvlcraft:arrow_penetration`: arrows and bolts you shoot ignore that share of the target's
+  armour, through Epic Fight's armour negation). Stalker also gets **Critical Knowledge** (Weapons of
+  Miracles passive). It already works with bows: Epic Fight turns arrow damage into its own damage
+  type, which is what the skill listens for, so arrow hits roll the same 20% crit for x2 damage (more
+  chance with Fire Protection, more damage with Blast Protection).
+- **Arcane Sustenance**, a new Binder ability for **Scout** and **Wanderer**: 50 mana for 1 hunger shank
+  and 4 saturation. It does nothing (and costs nothing) when you are completely full.
+- **Cursed** gets **Paralyzing Skreech** (T.O `violent_skreech`, level 3, channelled: pulses that shred
+  armour, chill and damage everything nearby). T.O only registers it when Alex's Mobs is installed, which
+  the pack does not have; the spell only borrows that mod's sounds and particle, so the patched T.O jar
+  registers it anyway and uses the Warden's sonic charge, sonic boom and particle instead.
+- **Thief** gets **Astral Sense** (T.O, level 1, 60 mana, 180 s cooldown).
+
 ### Fixed
 
 - **Game would not start (crash report 9 Oct 19:50, T.O Magic 'n Extras: `NoClassDefFoundError:
