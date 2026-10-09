@@ -11,10 +11,10 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation;
 
 public enum StanceElement {
-    FIRE(16734740, () -> Attributes.f_22283_, 0.15, Operation.MULTIPLY_TOTAL, "4b9b3c1e-6f2a-4a8e-9d61-0f1b6a5c1001"),
+    FIRE(16734740, () -> Attributes.ATTACK_SPEED, 0.15, Operation.MULTIPLY_TOTAL, "4b9b3c1e-6f2a-4a8e-9d61-0f1b6a5c1001"),
     WIND(11075538, BinderAttributes.DODGE_DISTANCE, 0.4, Operation.ADDITION, "4b9b3c1e-6f2a-4a8e-9d61-0f1b6a5c1002"),
     WATER(3049215, BinderAttributes.PARRY_WINDOW, 0.5, Operation.ADDITION, "4b9b3c1e-6f2a-4a8e-9d61-0f1b6a5c1003"),
-    EARTH(11565614, () -> Attributes.f_22281_, 0.15, Operation.MULTIPLY_TOTAL, "4b9b3c1e-6f2a-4a8e-9d61-0f1b6a5c1004");
+    EARTH(11565614, () -> Attributes.ATTACK_DAMAGE, 0.15, Operation.MULTIPLY_TOTAL, "4b9b3c1e-6f2a-4a8e-9d61-0f1b6a5c1004");
 
     public final int colour;
     final Supplier<Attribute> attribute;
@@ -31,10 +31,10 @@ public enum StanceElement {
     }
 
     public Component displayName() {
-        return Component.m_237115_("stance.mdvlcraft." + this.name().toLowerCase()).m_130938_(style -> style.m_131148_(TextColor.m_131266_(this.colour)));
+        return Component.translatable("stance.mdvlcraft." + this.name().toLowerCase()).withStyle(style -> style.withColor(TextColor.fromRgb(this.colour)));
     }
 
     public Component effect() {
-        return Component.m_237115_("stance.mdvlcraft." + this.name().toLowerCase() + ".effect");
+        return Component.translatable("stance.mdvlcraft." + this.name().toLowerCase() + ".effect");
     }
 }

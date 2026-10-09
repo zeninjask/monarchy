@@ -26,11 +26,11 @@ final class DomainUpkeep {
     }
 
     static void windingUp(ServerPlayer player, Technique shrine) {
-        DOMAINS.put(player.m_20148_(), new DomainUpkeep.Domain(shrine, player.m_9236_().m_46467_(), -1L));
+        DOMAINS.put(player.getUUID(), new DomainUpkeep.Domain(shrine, player.level().getGameTime(), -1L));
     }
 
     static boolean isWindingUp(ServerPlayer player) {
-        DomainUpkeep.Domain domain = DOMAINS.get(player.m_20148_());
+        DomainUpkeep.Domain domain = DOMAINS.get(player.getUUID());
         return domain != null && domain.openedTick() < 0L;
     }
 
@@ -39,8 +39,8 @@ final class DomainUpkeep {
         if (domains.isEmpty()) {
             return false;
         } else {
-            domains.forEach(domain -> domain.getPersistentData().m_128379_("forcestopdomain", true));
-            DOMAINS.remove(player.m_20148_());
+            domains.forEach(domain -> domain.getPersistentData().putBoolean("forcestopdomain", true));
+            DOMAINS.remove(player.getUUID());
             return true;
         }
     }
@@ -50,12 +50,12 @@ final class DomainUpkeep {
 
         while (entries.hasNext()) {
             Entry<UUID, DomainUpkeep.Domain> entry = entries.next();
-            ServerPlayer player = server.m_6846_().m_11259_(entry.getKey());
+            ServerPlayer player = server.getPlayerList().getPlayer(entry.getKey());
             if (player == null) {
                 entries.remove();
             } else {
                 DomainUpkeep.Domain domain = entry.getValue();
-                long now = player.m_9236_().m_46467_();
+                long now = player.level().getGameTime();
                 boolean up = domain.shrine() == Technique.MALEVOLENT_SHRINE ? !ownedClosedDomains(player).isEmpty() : ownsOpenShrine(player);
                 if (domain.openedTick() < 0L) {
                     if (up) {
@@ -65,7 +65,7 @@ final class DomainUpkeep {
                     }
                 } else if (up && now - domain.openedTick() < 400L) {
                     PlayerVariables variables = TechniqueRunner.variables(player);
-                    double needed = player.getPersistentData().m_128459_("DomainCECost") + variables.CursedEnegryMax;
+                    double needed = player.getPersistentData().getDouble("DomainCECost") + variables.CursedEnegryMax;
                     if (variables.CursedEnegry < needed) {
                         variables.CursedEnegry = needed;
                         variables.syncPlayerVariables(player);
@@ -78,24 +78,24 @@ final class DomainUpkeep {
     }
 
     private static List<DomainExpansionEntityEntity> ownedClosedDomains(ServerPlayer player) {
-        String owner = player.m_20149_();
-        return player.m_9236_()
-            .m_6443_(
+        String owner = player.getStringUUID();
+        return player.level()
+            .getEntitiesOfClass(
                 DomainExpansionEntityEntity.class,
-                player.m_20191_().m_82400_(27.0),
-                entity -> owner.equals(entity.getPersistentData().m_128461_("CurrentDomainOwner"))
+                player.getBoundingBox().inflate(27.0),
+                entity -> owner.equals(entity.getPersistentData().getString("CurrentDomainOwner"))
             );
     }
 
     private static boolean ownsOpenShrine(ServerPlayer player) {
         EntityType<?> shrineType = (EntityType<?>)ForgeRegistries.ENTITY_TYPES.getValue(OPEN_SHRINE);
         if (shrineType != null && OPEN_SHRINE.equals(ForgeRegistries.ENTITY_TYPES.getKey(shrineType))) {
-            String owner = player.m_20149_();
-            return !player.m_9236_()
-                .m_6249_(
+            String owner = player.getStringUUID();
+            return !player.level()
+                .getEntities(
                     (Entity)null,
-                    player.m_20191_().m_82400_(27.0),
-                    entity -> entity.m_6095_() == shrineType && owner.equals(entity.getPersistentData().m_128461_("PlayerUUID"))
+                    player.getBoundingBox().inflate(27.0),
+                    entity -> entity.getType() == shrineType && owner.equals(entity.getPersistentData().getString("PlayerUUID"))
                 )
                 .isEmpty();
         } else {

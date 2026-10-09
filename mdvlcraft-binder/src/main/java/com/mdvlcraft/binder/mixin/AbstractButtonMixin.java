@@ -19,9 +19,9 @@ public abstract class AbstractButtonMixin {
     )
     private void mdvlcraft$slateButton(GuiGraphics graphics, int mouseX, int mouseY, float partialTick, CallbackInfo ci) {
         if (SlateRecruits.styled()) {
-            AbstractButton button = (AbstractButton)this;
-            SlateRecruits.drawButton(graphics, button.m_252754_(), button.m_252907_(), button.m_5711_(), button.m_93694_(), button.m_198029_(), button.f_93623_);
-            button.m_280139_(graphics, Minecraft.m_91087_().f_91062_, SlateRecruits.buttonText(button.f_93623_));
+            AbstractButton button = (AbstractButton)(Object)this;
+            SlateRecruits.drawButton(graphics, button.getX(), button.getY(), button.getWidth(), button.getHeight(), button.isHoveredOrFocused(), button.active);
+            button.renderString(graphics, Minecraft.getInstance().font, SlateRecruits.buttonText(button.active));
             ci.cancel();
         }
     }

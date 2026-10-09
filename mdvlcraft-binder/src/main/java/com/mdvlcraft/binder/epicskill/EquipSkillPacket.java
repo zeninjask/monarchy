@@ -11,12 +11,12 @@ import yesman.epicfight.skill.SkillSlot;
 
 public record EquipSkillPacket(int slot, Optional<ResourceLocation> skill) {
     public static void encode(EquipSkillPacket packet, FriendlyByteBuf buf) {
-        buf.m_130130_(packet.slot);
-        buf.m_236835_(packet.skill, FriendlyByteBuf::m_130085_);
+        buf.writeVarInt(packet.slot);
+        buf.writeOptional(packet.skill, FriendlyByteBuf::writeResourceLocation);
     }
 
     public static EquipSkillPacket decode(FriendlyByteBuf buf) {
-        return new EquipSkillPacket(buf.m_130242_(), buf.m_236860_(FriendlyByteBuf::m_130281_));
+        return new EquipSkillPacket(buf.readVarInt(), buf.readOptional(FriendlyByteBuf::readResourceLocation));
     }
 
     public static void handle(EquipSkillPacket packet, Supplier<Context> context) {

@@ -24,7 +24,7 @@ public final class WeaponPonderPlugin implements PonderPlugin {
 
         for (Entry<ResourceLocation, Function<Item, Builder>> entry : WeaponTypeReloadListener.entries()) {
             ResourceLocation type = entry.getKey();
-            if (covered.add(type.m_135815_())) {
+            if (covered.add(type.getPath())) {
                 helper.withKeyFunction(WeaponPonderPlugin::sceneKey)
                     .forComponents(new ResourceLocation[]{type})
                     .addStoryBoard(STRUCTURE, (scene, util) -> WeaponPonderScenes.showcase(scene, util, type));
@@ -33,6 +33,6 @@ public final class WeaponPonderPlugin implements PonderPlugin {
     }
 
     private static ResourceLocation sceneKey(ResourceLocation weaponType) {
-        return ResourceLocation.fromNamespaceAndPath("epic_fight_ponder", "weapon_" + weaponType.m_135815_());
+        return ResourceLocation.fromNamespaceAndPath("epic_fight_ponder", "weapon_" + weaponType.getPath());
     }
 }

@@ -48,7 +48,7 @@ final class CombatSkillsPanel {
     }
 
     private static CapabilitySkill skills() {
-        return EpicFightCapabilities.getLocalPlayerPatch(Minecraft.m_91087_().f_91074_).getSkillCapability();
+        return EpicFightCapabilities.getLocalPlayerPatch(Minecraft.getInstance().player).getSkillCapability();
     }
 
     private List<Skill> choices() {
@@ -56,7 +56,7 @@ final class CombatSkillsPanel {
     }
 
     private List<FormattedCharSequence> hint() {
-        return this.font.m_92923_(Component.m_237115_("screen.mdvlcraft.skills.hint"), 130);
+        return this.font.split(Component.translatable("screen.mdvlcraft.skills.hint"), 130);
     }
 
     private int slotY(int index) {
@@ -85,7 +85,7 @@ final class CombatSkillsPanel {
     }
 
     void render(GuiGraphics graphics, int height) {
-        SlateGui.panel(graphics, this.font, Component.m_237115_("screen.mdvlcraft.skills"), this.left, this.top, 150, height);
+        SlateGui.panel(graphics, this.font, Component.translatable("screen.mdvlcraft.skills"), this.left, this.top, 150, height);
         CapabilitySkill skills = skills();
 
         for (int i = 0; i < SLOTS.size(); i++) {
@@ -99,22 +99,22 @@ final class CombatSkillsPanel {
                 drawIcon(graphics, skill, x + 2, y + 2);
             }
 
-            graphics.m_280614_(this.font, Component.m_237113_(SkillSlot.ENUM_MANAGER.toTranslated(slot)), x + 20 + 6, y + 1, -7826784, false);
-            Component name = skill != null ? Component.m_237115_(skill.getTranslationKey()) : Component.m_237115_("screen.mdvlcraft.skills.empty");
-            graphics.m_280614_(this.font, name, x + 20 + 6, y + 11, skill != null ? -1512206 : -7826784, false);
+            graphics.drawString(this.font, Component.literal(SkillSlot.ENUM_MANAGER.toTranslated(slot)), x + 20 + 6, y + 1, -7826784, false);
+            Component name = skill != null ? Component.translatable(skill.getTranslationKey()) : Component.translatable("screen.mdvlcraft.skills.empty");
+            graphics.drawString(this.font, name, x + 20 + 6, y + 11, skill != null ? -1512206 : -7826784, false);
             if (container.onReplaceCooldown()) {
                 String seconds = (container.getReplaceCooldown() + 19) / 20 + "s";
-                graphics.m_280056_(this.font, seconds, this.left + 150 - 10 - this.font.m_92895_(seconds), y + 1, -1944512, false);
+                graphics.drawString(this.font, seconds, this.left + 150 - 10 - this.font.width(seconds), y + 1, -1944512, false);
             }
         }
 
         SlateGui.rule(graphics, this.left + 10, this.left + 150 - 10, this.choicesTop() - 18);
-        graphics.m_280614_(
+        graphics.drawString(
             this.font,
             this.picked == null
-                ? Component.m_237115_("screen.mdvlcraft.skills.learned")
-                : Component.m_237110_(
-                    "screen.mdvlcraft.skills.learned_for", new Object[]{Component.m_237113_(SkillSlot.ENUM_MANAGER.toTranslated(this.picked))}
+                ? Component.translatable("screen.mdvlcraft.skills.learned")
+                : Component.translatable(
+                    "screen.mdvlcraft.skills.learned_for", new Object[]{Component.literal(SkillSlot.ENUM_MANAGER.toTranslated(this.picked))}
                 ),
             this.left + 10,
             this.choicesTop() - 11,
@@ -123,7 +123,7 @@ final class CombatSkillsPanel {
         );
         List<Skill> choices = this.choices();
         if (this.picked != null && choices.isEmpty()) {
-            graphics.m_280614_(this.font, Component.m_237115_("screen.mdvlcraft.skills.none"), this.left + 10, this.choicesTop() + 5, -7826784, false);
+            graphics.drawString(this.font, Component.translatable("screen.mdvlcraft.skills.none"), this.left + 10, this.choicesTop() + 5, -7826784, false);
         }
 
         for (int i = 0; i < choices.size(); i++) {
@@ -135,13 +135,13 @@ final class CombatSkillsPanel {
         List<FormattedCharSequence> hint = this.hint();
 
         for (int line = 0; line < hint.size(); line++) {
-            graphics.m_280649_(this.font, hint.get(line), this.left + 10, this.hintTop() + line * 10, -7826784, false);
+            graphics.drawString(this.font, hint.get(line), this.left + 10, this.hintTop() + line * 10, -7826784, false);
         }
     }
 
     private static void drawIcon(GuiGraphics graphics, Skill skill, int x, int y) {
         RenderSystem.enableBlend();
-        graphics.m_280411_(skill.getSkillTexture(), x, y, 16, 16, 0.0F, 0.0F, 128, 128, 128, 128);
+        graphics.blit(skill.getSkillTexture(), x, y, 16, 16, 0.0F, 0.0F, 128, 128, 128, 128);
     }
 
     Optional<List<FormattedCharSequence>> tooltip(double mouseX, double mouseY) {
@@ -150,12 +150,12 @@ final class CombatSkillsPanel {
 
     private List<FormattedCharSequence> tooltip(Skill skill) {
         List<FormattedCharSequence> lines = new ArrayList<>();
-        lines.add(Component.m_237115_(skill.getTranslationKey()).m_130940_(ChatFormatting.GOLD).m_7532_());
+        lines.add(Component.translatable(skill.getTranslationKey()).withStyle(ChatFormatting.GOLD).getVisualOrderText());
         lines.addAll(
             this.font
-                .m_92923_(
-                    Component.m_237110_(skill.getTranslationKey() + ".tooltip", skill.getTooltipArgsOfScreen(new ArrayList()).toArray())
-                        .m_130940_(ChatFormatting.GRAY),
+                .split(
+                    Component.translatable(skill.getTranslationKey() + ".tooltip", skill.getTooltipArgsOfScreen(new ArrayList()).toArray())
+                        .withStyle(ChatFormatting.GRAY),
                     220
                 )
         );

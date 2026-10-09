@@ -8,11 +8,11 @@ import net.minecraftforge.network.NetworkEvent.Context;
 public record CastPacket(boolean pressed, int slot) {
     public static void encode(CastPacket packet, FriendlyByteBuf buf) {
         buf.writeBoolean(packet.pressed);
-        buf.m_130130_(packet.slot);
+        buf.writeVarInt(packet.slot);
     }
 
     public static CastPacket decode(FriendlyByteBuf buf) {
-        return new CastPacket(buf.readBoolean(), buf.m_130242_());
+        return new CastPacket(buf.readBoolean(), buf.readVarInt());
     }
 
     public static void handle(CastPacket packet, Supplier<Context> context) {

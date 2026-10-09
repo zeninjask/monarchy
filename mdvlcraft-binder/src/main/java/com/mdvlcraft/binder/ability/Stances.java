@@ -29,25 +29,25 @@ public final class Stances {
     }
 
     static void press(ServerPlayer player) {
-        boolean active = ACTIVE.contains(player.m_20148_());
-        if (player.m_6144_()) {
+        boolean active = ACTIVE.contains(player.getUUID());
+        if (player.isShiftKeyDown()) {
             StanceElement element = element(player).next();
             saveElement(player, element);
             apply(player, active);
-            player.f_8906_
-                .m_9829_(
+            player.connection
+                .send(
                     new ClientboundSetActionBarTextPacket(
-                        Component.m_237110_(
+                        Component.translatable(
                             active ? "stance.mdvlcraft.switched_active" : "stance.mdvlcraft.switched", new Object[]{element.displayName(), element.effect()}
                         )
                     )
                 );
         } else {
             apply(player, !active);
-            player.f_8906_
-                .m_9829_(
+            player.connection
+                .send(
                     new ClientboundSetActionBarTextPacket(
-                        Component.m_237110_(
+                        Component.translatable(
                             active ? "stance.mdvlcraft.off" : "stance.mdvlcraft.on", new Object[]{element(player).displayName(), element(player).effect()}
                         )
                     )
@@ -56,48 +56,48 @@ public final class Stances {
     }
 
     static void deactivate(ServerPlayer player) {
-        if (ACTIVE.contains(player.m_20148_())) {
+        if (ACTIVE.contains(player.getUUID())) {
             apply(player, false);
         }
     }
 
     public static StanceElement element(Player player) {
-        CompoundTag data = player.getPersistentData().m_128469_("PlayerPersisted");
-        return data.m_128441_("mdvlcraft_stance") ? StanceElement.values()[data.m_128445_("mdvlcraft_stance")] : StanceElement.FIRE;
+        CompoundTag data = player.getPersistentData().getCompound("PlayerPersisted");
+        return data.contains("mdvlcraft_stance") ? StanceElement.values()[data.getByte("mdvlcraft_stance")] : StanceElement.FIRE;
     }
 
     private static void saveElement(ServerPlayer player, StanceElement element) {
-        CompoundTag persisted = player.getPersistentData().m_128469_("PlayerPersisted");
-        persisted.m_128344_("mdvlcraft_stance", (byte)element.ordinal());
-        player.getPersistentData().m_128365_("PlayerPersisted", persisted);
+        CompoundTag persisted = player.getPersistentData().getCompound("PlayerPersisted");
+        persisted.putByte("mdvlcraft_stance", (byte)element.ordinal());
+        player.getPersistentData().put("PlayerPersisted", persisted);
     }
 
     private static void apply(ServerPlayer player, boolean active) {
         StanceElement current = element(player);
 
         for (StanceElement element : StanceElement.values()) {
-            AttributeInstance instance = player.m_21051_(element.attribute.get());
+            AttributeInstance instance = player.getAttribute(element.attribute.get());
             if (instance == null) {
-                throw new IllegalStateException("Player has no " + element.attribute.get().m_22087_() + " attribute");
+                throw new IllegalStateException("Player has no " + element.attribute.get().getDescriptionId() + " attribute");
             }
 
-            instance.m_22120_(element.modifier.m_22209_());
+            instance.removeModifier(element.modifier.getId());
             if (active && element == current) {
-                instance.m_22118_(element.modifier);
+                instance.addTransientModifier(element.modifier);
             }
         }
 
         if (active) {
-            ACTIVE.add(player.m_20148_());
+            ACTIVE.add(player.getUUID());
         } else {
-            ACTIVE.remove(player.m_20148_());
+            ACTIVE.remove(player.getUUID());
         }
 
         BinderNetwork.sendToTrackingAndSelf(player, packet(player));
     }
 
     private static StanceSyncPacket packet(ServerPlayer player) {
-        return new StanceSyncPacket(player.m_19879_(), element(player), ACTIVE.contains(player.m_20148_()));
+        return new StanceSyncPacket(player.getId(), element(player), ACTIVE.contains(player.getUUID()));
     }
 
     @SubscribeEvent
@@ -108,13 +108,13 @@ public final class Stances {
 
     @SubscribeEvent
     public static void onLogout(PlayerLoggedOutEvent event) {
-        ACTIVE.remove(event.getEntity().m_20148_());
+        ACTIVE.remove(event.getEntity().getUUID());
     }
 
     @SubscribeEvent
     public static void onRespawn(PlayerRespawnEvent event) {
         ServerPlayer player = (ServerPlayer)event.getEntity();
-        ACTIVE.remove(player.m_20148_());
+        ACTIVE.remove(player.getUUID());
         BinderNetwork.sendToTrackingAndSelf(player, packet(player));
     }
 

@@ -13,13 +13,13 @@ public final class CursedFateTerrain {
     }
 
     public static boolean refuses(Level level, BlockPos pos, BlockState newState) {
-        if (!level.f_46443_ && newState.m_60795_()) {
-            BlockState old = level.m_8055_(pos);
-            if (old.m_60795_()) {
+        if (!level.isClientSide && newState.isAir()) {
+            BlockState old = level.getBlockState(pos);
+            if (old.isAir()) {
                 return false;
             } else {
-                ResourceLocation id = ForgeRegistries.BLOCKS.getKey(old.m_60734_());
-                return id != null && id.m_135827_().equals("cursedfate")
+                ResourceLocation id = ForgeRegistries.BLOCKS.getKey(old.getBlock());
+                return id != null && id.getNamespace().equals("cursedfate")
                     ? false
                     : STACK.walk(frames -> frames.anyMatch(frame -> isCursedFate(frame.getClassName())));
             }

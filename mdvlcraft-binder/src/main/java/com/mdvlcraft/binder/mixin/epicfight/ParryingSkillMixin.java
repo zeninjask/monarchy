@@ -28,7 +28,7 @@ public abstract class ParryingSkillMixin {
     private int mdvlcraft$parryWindow(
         ParryingSkill skill, SkillContainer container, CapabilityItem itemCapability, Attack event, float knockback, float impact, boolean advanced
     ) {
-        double bonus = ((ServerPlayer)((ServerPlayerPatch)event.getPlayerPatch()).getOriginal()).m_21133_((Attribute)BinderAttributes.PARRY_WINDOW.get());
+        double bonus = ((ServerPlayer)((ServerPlayerPatch)event.getPlayerPatch()).getOriginal()).getAttributeValue((Attribute)BinderAttributes.PARRY_WINDOW.get());
         return (int)Math.round(((ParryingSkillAccessor)skill).mdvlcraft$parryWindow() * (1.0 + bonus));
     }
 }

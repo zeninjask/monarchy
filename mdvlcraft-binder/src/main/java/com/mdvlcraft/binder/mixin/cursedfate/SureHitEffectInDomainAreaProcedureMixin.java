@@ -23,7 +23,7 @@ public abstract class SureHitEffectInDomainAreaProcedureMixin {
     private static void mdvlcraft$holdShrineSlashes(LevelAccessor world, double x, double y, double z, Entity domain, CallbackInfo ci) {
         if (domain != null) {
             ServerPlayer owner = ShrineSlashes.owner(domain, "CurrentDomainOwner");
-            if (owner != null && "malevolentshrine".equals(owner.getPersistentData().m_128461_("DomainID")) && ShrineSlashes.held(owner)) {
+            if (owner != null && "malevolentshrine".equals(owner.getPersistentData().getString("DomainID")) && ShrineSlashes.held(owner)) {
                 ci.cancel();
             }
         }

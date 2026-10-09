@@ -48,16 +48,30 @@ mixin {
     config "${mod_id}.mixins.json"
 }
 
-// The modpack's jars, fetched by tools/fetch_mods.py. flatDir finds "local:<file name>:0" as <file name>.jar.
-repositories {
-    flatDir {
-        dirs 'libs/modpack', 'libs/nested'
+// The modpack's jars, fetched by tools/fetch_mods.py. They are copied to build/moddeps under names
+// ForgeGradle can handle (no spaces or brackets); flatDir then finds "local:<name>:0" as <name>.jar.
+def depDir = file("${buildDir}/moddeps")
+def listed = { String path ->
+    def list = file(path)
+    if (!list.exists()) {
+        return []
+    }
+    list.readLines()*.trim().findAll { it }.collect { String jar ->
+        def source = ['libs/modpack', 'libs/nested'].collect { file("${it}/${jar}") }.find { it.exists() }
+        def name = (jar - '.jar').replaceAll('[^A-Za-z0-9._+-]', '_')
+        def target = new File(depDir, "${name}.jar")
+        if (source != null && (!target.exists() || target.length() != source.length())) {
+            depDir.mkdirs()
+            java.nio.file.Files.copy(source.toPath(), target.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+        }
+        name
     }
 }
 
-def listed = { String path ->
-    def list = file(path)
-    list.exists() ? list.readLines()*.trim().findAll { it } : []
+repositories {
+    flatDir {
+        dirs depDir
+    }
 }
 
 dependencies {
@@ -65,12 +79,12 @@ dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
     // The Binder's mandatory dependencies and everything they need (libs/core.txt)
-    listed('libs/core.txt').each { jar ->
-        implementation fg.deobf("local:${jar - '.jar'}:0")
+    listed('libs/core.txt').each { name ->
+        implementation fg.deobf("local:${name}:0")
     }
     // Libraries shipped inside those jars, e.g. Ponder and Flywheel inside epic_fight_ponder (libs/nested.txt)
-    listed('libs/nested.txt').each { jar ->
-        compileOnly fg.deobf("local:${jar - '.jar'}:0")
+    listed('libs/nested.txt').each { name ->
+        compileOnly fg.deobf("local:${name}:0")
     }
 }
 

@@ -20,9 +20,12 @@ Writes:
 Needs network access to cdn.modrinth.com.
 """
 import hashlib
+import http.client
 import io
+import re
 import json
 import sys
+import time
 import tomllib
 import urllib.request
 import zipfile
@@ -48,16 +51,18 @@ def download(entry: dict, target: Path) -> None:
         return
     last_error = None
     for url in entry["downloads"]:
-        try:
-            with urllib.request.urlopen(url, timeout=120) as response:
-                data = response.read()
-        except OSError as error:
-            last_error = error
-            continue
-        if sha512(data) != expected:
-            raise SystemExit(f"sha512 mismatch for {url}")
-        target.write_bytes(data)
-        return
+        for attempt in range(4):
+            try:
+                with urllib.request.urlopen(url, timeout=120) as response:
+                    data = response.read()
+            except (OSError, http.client.HTTPException) as error:
+                last_error = error
+                time.sleep(2 ** (attempt + 1))
+                continue
+            if sha512(data) != expected:
+                raise SystemExit(f"sha512 mismatch for {url}")
+            target.write_bytes(data)
+            return
     raise SystemExit(f"could not download {target.name}: {last_error}")
 
 
@@ -156,7 +161,24 @@ def dependency_closure() -> tuple[list[str], list[str]]:
                     nested_jars.append(target)
     if missing:
         print(f"  not found in the pack (assumed optional or built in): {', '.join(sorted(missing))}", file=sys.stderr)
-    return sorted(chosen), sorted(set(nested_jars))
+    return sorted(chosen), newest(nested_jars)
+
+
+def newest(jars: list[str]) -> list[str]:
+    """Several mods can bundle different versions of one library; keep the newest of each."""
+    def split(name: str):
+        match = re.match(r"(.+?)-(\d[\w.+-]*)\.jar$", name)
+        return (match.group(1), match.group(2)) if match else (name, "")
+
+    def key(version: str):
+        return [int(part) if part.isdigit() else part for part in re.split(r"[.+-]", version)]
+
+    best = {}
+    for jar in set(jars):
+        artifact, version = split(jar)
+        if artifact not in best or key(version) > key(split(best[artifact])[1]):
+            best[artifact] = jar
+    return sorted(best.values())
 
 
 def main() -> None:

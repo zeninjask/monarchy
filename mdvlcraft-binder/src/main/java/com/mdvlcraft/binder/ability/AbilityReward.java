@@ -39,7 +39,7 @@ public final class AbilityReward implements Reward {
         if (!problems.isEmpty()) {
             return Result.failure(Problem.combine(problems));
         } else {
-            ResourceLocation abilityId = ResourceLocation.m_135820_(id.orElseThrow());
+            ResourceLocation abilityId = ResourceLocation.tryParse(id.orElseThrow());
             Optional<Ability> ability = abilityId == null ? Optional.empty() : Ability.byId(abilityId);
             if (ability.isEmpty()) {
                 return Result.failure(Problem.message("Unknown ability `" + id.orElseThrow() + "`"));

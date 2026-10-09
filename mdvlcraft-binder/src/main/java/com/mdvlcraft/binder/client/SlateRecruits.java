@@ -27,14 +27,14 @@ public final class SlateRecruits {
     static void onAddPackFinders(AddPackFindersEvent event) {
         if (event.getPackType() == PackType.CLIENT_RESOURCES) {
             Path root = ModList.get().getModFileById("mdvlcraft").getFile().findResource(new String[]{"resourcepacks", "slate"});
-            Pack pack = Pack.m_245429_(
+            Pack pack = Pack.readMetaAndCreate(
                 "mdvlcraft:slate",
-                Component.m_237113_("MDVLCraft Slate UI"),
+                Component.literal("MDVLCraft Slate UI"),
                 true,
                 id -> new PathPackResources(id, root, true),
                 PackType.CLIENT_RESOURCES,
                 Position.TOP,
-                PackSource.f_10528_
+                PackSource.BUILT_IN
             );
             if (pack == null) {
                 throw new IllegalStateException("MDVLCraft Slate resource pack is missing its pack.mcmeta");

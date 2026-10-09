@@ -11,11 +11,11 @@ import net.minecraftforge.network.NetworkEvent.Context;
 
 public record TechniqueCooldownsPacket(Map<ResourceLocation, Integer> remaining) {
     public static void encode(TechniqueCooldownsPacket packet, FriendlyByteBuf buf) {
-        buf.m_236831_(packet.remaining, FriendlyByteBuf::m_130085_, FriendlyByteBuf::m_130130_);
+        buf.writeMap(packet.remaining, FriendlyByteBuf::writeResourceLocation, FriendlyByteBuf::writeVarInt);
     }
 
     public static TechniqueCooldownsPacket decode(FriendlyByteBuf buf) {
-        return new TechniqueCooldownsPacket(buf.m_236847_(FriendlyByteBuf::m_130281_, FriendlyByteBuf::m_130242_));
+        return new TechniqueCooldownsPacket(buf.readMap(FriendlyByteBuf::readResourceLocation, FriendlyByteBuf::readVarInt));
     }
 
     public static void handle(TechniqueCooldownsPacket packet, Supplier<Context> context) {

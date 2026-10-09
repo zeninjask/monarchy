@@ -22,15 +22,15 @@ final class BdHillFix {
             Path root = ModList.get().getModFileById("mdvlcraft").getFile().findResource(new String[]{"resourcepacks", "bdhill_fix"});
             event.addRepositorySource(
                 consumer -> {
-                    if (!Minecraft.m_91087_().f_91066_.f_92117_.stream().noneMatch(id -> id.contains("BDHill"))) {
-                        Pack pack = Pack.m_245429_(
+                    if (!Minecraft.getInstance().options.resourcePacks.stream().noneMatch(id -> id.contains("BDHill"))) {
+                        Pack pack = Pack.readMetaAndCreate(
                             "mdvlcraft:bdhill_fix",
-                            Component.m_237113_("MDVLCraft BD&Hill fixes"),
+                            Component.literal("MDVLCraft BD&Hill fixes"),
                             true,
                             id -> new PathPackResources(id, root, true),
                             PackType.CLIENT_RESOURCES,
                             Position.TOP,
-                            PackSource.f_10528_
+                            PackSource.BUILT_IN
                         );
                         if (pack == null) {
                             throw new IllegalStateException("MDVLCraft BD&Hill fix resource pack is missing its pack.mcmeta");

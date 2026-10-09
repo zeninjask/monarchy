@@ -27,11 +27,11 @@ public abstract class ActionAnimationMixin {
     private void mdvlcraft$dodgeDistance(
         LivingEntityPatch<?> entitypatch, AssetAccessor<? extends DynamicAnimation> animation, CallbackInfoReturnable<Vec3> cir
     ) {
-        if (this instanceof DodgeAnimation && entitypatch.getOriginal() instanceof Player player) {
-            double bonus = player.m_21133_((Attribute)BinderAttributes.DODGE_DISTANCE.get());
+        if ((Object)this instanceof DodgeAnimation && entitypatch.getOriginal() instanceof Player player) {
+            double bonus = player.getAttributeValue((Attribute)BinderAttributes.DODGE_DISTANCE.get());
             if (bonus > 0.0) {
                 Vec3 move = (Vec3)cir.getReturnValue();
-                cir.setReturnValue(new Vec3(move.f_82479_ * (1.0 + bonus), move.f_82480_, move.f_82481_ * (1.0 + bonus)));
+                cir.setReturnValue(new Vec3(move.x * (1.0 + bonus), move.y, move.z * (1.0 + bonus)));
             }
         }
     }

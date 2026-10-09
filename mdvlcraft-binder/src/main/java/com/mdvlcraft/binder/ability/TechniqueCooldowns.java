@@ -15,15 +15,15 @@ public final class TechniqueCooldowns {
     }
 
     static long remaining(ServerPlayer player, Technique technique) {
-        long ready = player.getPersistentData().m_128469_("mdvlcraft:technique_ready").m_128454_(technique.id().toString());
-        return Math.max(0L, ready - player.m_9236_().m_46467_());
+        long ready = player.getPersistentData().getCompound("mdvlcraft:technique_ready").getLong(technique.id().toString());
+        return Math.max(0L, ready - player.level().getGameTime());
     }
 
     static void start(ServerPlayer player, Technique technique) {
         if (technique.cooldownTicks() != 0) {
-            CompoundTag ready = player.getPersistentData().m_128469_("mdvlcraft:technique_ready");
-            ready.m_128356_(technique.id().toString(), player.m_9236_().m_46467_() + technique.cooldownTicks());
-            player.getPersistentData().m_128365_("mdvlcraft:technique_ready", ready);
+            CompoundTag ready = player.getPersistentData().getCompound("mdvlcraft:technique_ready");
+            ready.putLong(technique.id().toString(), player.level().getGameTime() + technique.cooldownTicks());
+            player.getPersistentData().put("mdvlcraft:technique_ready", ready);
             send(player);
         }
     }

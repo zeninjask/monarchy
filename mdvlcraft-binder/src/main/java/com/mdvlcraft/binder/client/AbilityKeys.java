@@ -34,33 +34,33 @@ public final class AbilityKeys {
 
     static void logConflicts(Minecraft minecraft) {
         for (KeyMapping mine : ALL) {
-            Arrays.stream(minecraft.f_91066_.f_92059_)
-                .filter(other -> other != mine && other.m_90850_(mine))
+            Arrays.stream(minecraft.options.keyMappings)
+                .filter(other -> other != mine && other.same(mine))
                 .forEach(
                     other -> MDVLBinder.LOGGER
-                        .warn("Key {} ({}) is also bound to {}", new Object[]{mine.m_90860_(), mine.getKey().m_84874_(), other.m_90860_()})
+                        .warn("Key {} ({}) is also bound to {}", new Object[]{mine.getName(), mine.getKey().getName(), other.getName()})
                 );
         }
     }
 
     static void onClientTick(ClientTickEvent event) {
-        Minecraft minecraft = Minecraft.m_91087_();
-        if (event.phase == Phase.END && minecraft.f_91074_ != null) {
-            while (OPEN_ABILITIES.m_90859_()) {
-                minecraft.m_91152_(new AbilityScreen());
+        Minecraft minecraft = Minecraft.getInstance();
+        if (event.phase == Phase.END && minecraft.player != null) {
+            while (OPEN_ABILITIES.consumeClick()) {
+                minecraft.setScreen(new AbilityScreen());
             }
 
-            while (WHEEL.m_90859_()) {
-                minecraft.m_91152_(new WheelScreen());
+            while (WHEEL.consumeClick()) {
+                minecraft.setScreen(new WheelScreen());
             }
 
             boolean tapped = false;
 
-            while (CAST.m_90859_()) {
+            while (CAST.consumeClick()) {
                 tapped = true;
             }
 
-            boolean down = CAST.m_90857_() && minecraft.f_91080_ == null;
+            boolean down = CAST.isDown() && minecraft.screen == null;
             if (tapped && !down && !castDown) {
                 BinderNetwork.sendToServer(new CastPacket(true, ClientAbilities.selected()));
                 BinderNetwork.sendToServer(new CastPacket(false, ClientAbilities.selected()));

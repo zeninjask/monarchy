@@ -38,7 +38,7 @@ public final class SpellPreviews {
         }
 
         hovered = now;
-        hoveredAt = Util.m_137550_();
+        hoveredAt = Util.getMillis();
     }
 
     public static void hoverSkill(ResourceLocation category, String skillId) {
@@ -49,12 +49,12 @@ public final class SpellPreviews {
     }
 
     static Component prompt() {
-        return Component.m_237110_("tooltip.iss_ponder.hold_to_preview", new Object[]{PonderKeybinds.PONDER.message()});
+        return Component.translatable("tooltip.iss_ponder.hold_to_preview", new Object[]{PonderKeybinds.PONDER.message()});
     }
 
     static void onClientTick(ClientTickEvent event) {
         if (event.phase == Phase.END) {
-            boolean hovering = hovered != null && Util.m_137550_() - hoveredAt < 200L;
+            boolean hovering = hovered != null && Util.getMillis() - hoveredAt < 200L;
             if (hovering && PonderKeybinds.PONDER.isDown() && !ClientPreviewController.isPending() && !ClientPreviewController.isPreviewOpen()) {
                 if (++held >= 12) {
                     ClientPreviewController.request(hovered.id(), hovered.level());
@@ -71,7 +71,7 @@ public final class SpellPreviews {
         if (skillSpells == null) {
             Map<String, SpellPreviews.Spell> spells = new HashMap<>();
 
-            try (Reader reader = Minecraft.m_91087_().m_91098_().m_215593_(SKILL_SPELLS).m_215508_()) {
+            try (Reader reader = Minecraft.getInstance().getResourceManager().getResourceOrThrow(SKILL_SPELLS).openAsReader()) {
                 JsonObject json = JsonParser.parseReader(reader).getAsJsonObject();
                 json.entrySet()
                     .forEach(

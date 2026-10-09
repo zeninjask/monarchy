@@ -24,7 +24,7 @@ public enum StanceAbility implements Ability {
 
     @Override
     public Component displayName() {
-        return Component.m_237115_("ability.mdvlcraft.stance");
+        return Component.translatable("ability.mdvlcraft.stance");
     }
 
     @Override

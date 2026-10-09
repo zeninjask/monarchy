@@ -48,7 +48,7 @@ public abstract class ConnectionBatchedRendererMixin {
             float cx = (startX + endX) / 2.0F - dy * bend;
             float cy = (startY + endY) / 2.0F + dx * bend;
             int segments = Math.max(4, Math.round(length / 6.0F));
-            Matrix4f matrix = context.m_280168_().m_85850_().m_252922_();
+            Matrix4f matrix = context.pose().last().pose();
             float px = startX;
             float py = startY;
 

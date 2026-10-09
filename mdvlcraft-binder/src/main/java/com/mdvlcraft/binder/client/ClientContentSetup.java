@@ -28,7 +28,7 @@ public final class ClientContentSetup {
     }
 
     private static void onLoggingIn(LoggingIn event) {
-        if (Minecraft.m_91087_().m_91091_()) {
+        if (Minecraft.getInstance().hasSingleplayerServer()) {
             PonderIndex.reload();
         }
     }

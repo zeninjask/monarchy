@@ -32,13 +32,13 @@ public final class EpicSkillGrants {
     }
 
     static void set(ServerPlayer player, EpicSkillReward reward, boolean active) {
-        Set<EpicSkillReward> rewards = ACTIVE.computeIfAbsent(player.m_20148_(), uuid -> new HashSet<>());
+        Set<EpicSkillReward> rewards = ACTIVE.computeIfAbsent(player.getUUID(), uuid -> new HashSet<>());
         if (active ? rewards.add(reward) : rewards.remove(reward)) {
-            DIRTY.add(player.m_20148_());
+            DIRTY.add(player.getUUID());
         }
 
         if (rewards.isEmpty()) {
-            ACTIVE.remove(player.m_20148_());
+            ACTIVE.remove(player.getUUID());
         }
     }
 
@@ -52,12 +52,12 @@ public final class EpicSkillGrants {
     }
 
     public static void markDirty(ServerPlayer player) {
-        DIRTY.add(player.m_20148_());
+        DIRTY.add(player.getUUID());
     }
 
     public static void flush(MinecraftServer server) {
         for (UUID uuid : DIRTY) {
-            ServerPlayer player = server.m_6846_().m_11259_(uuid);
+            ServerPlayer player = server.getPlayerList().getPlayer(uuid);
             if (player != null) {
                 sync(player);
             }
@@ -69,11 +69,11 @@ public final class EpicSkillGrants {
     private static void sync(ServerPlayer player) {
         ServerPlayerPatch patch = (ServerPlayerPatch)EpicFightCapabilities.getEntityPatch(player, ServerPlayerPatch.class);
         if (patch == null) {
-            throw new IllegalStateException(player.m_36316_().getName() + " has no Epic Fight player patch");
+            throw new IllegalStateException(player.getGameProfile().getName() + " has no Epic Fight player patch");
         } else {
             CapabilitySkill skills = patch.getSkillCapability();
             Set<Skill> granted = new HashSet<>();
-            ACTIVE.getOrDefault(player.m_20148_(), Set.of()).forEach(reward -> granted.add(reward.skill));
+            ACTIVE.getOrDefault(player.getUUID(), Set.of()).forEach(reward -> granted.add(reward.skill));
 
             for (Skill skill : TREE_SKILLS) {
                 boolean learned = skills.hasLearned(skill);

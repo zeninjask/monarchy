@@ -27,8 +27,8 @@ final class WeaponReport {
     static List<WeaponReport.Row> build() {
         Map<Item, String> dataTypes = new HashMap<>();
         ItemCapabilityReloadListener.getWeaponDataStream().forEach(tag -> {
-            if (tag.m_128441_("type")) {
-                dataTypes.put(Item.m_41445_(tag.m_128451_("id")), tag.m_128461_("type"));
+            if (tag.contains("type")) {
+                dataTypes.put(Item.byId(tag.getInt("id")), tag.getString("type"));
             }
         });
         List<WeaponReport.Row> rows = new ArrayList<>();
@@ -42,7 +42,7 @@ final class WeaponReport {
                         boolean supported = capability != null && !capability.isEmpty();
                         rows.add(
                             new WeaponReport.Row(
-                                ((ResourceKey)entry.getKey()).m_135782_(),
+                                ((ResourceKey)entry.getKey()).location(),
                                 item.getClass().getName(),
                                 supported ? String.valueOf(capability.getWeaponCategory()) : "-",
                                 dataTypes.getOrDefault(item, "-"),
@@ -62,7 +62,7 @@ final class WeaponReport {
                 || item instanceof TridentItem
                 || item instanceof ProjectileWeaponItem
                 || item instanceof ShieldItem
-                || item.m_7167_(EquipmentSlot.MAINHAND).containsKey(Attributes.f_22281_);
+                || item.getDefaultAttributeModifiers(EquipmentSlot.MAINHAND).containsKey(Attributes.ATTACK_DAMAGE);
     }
 
     record Row(ResourceLocation id, String itemClass, String category, String weaponType, boolean supported) {

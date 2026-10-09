@@ -49,7 +49,7 @@ public enum SlotSkillAbility implements Ability {
 
     @Override
     public Component displayName() {
-        return Component.m_237115_("ability.mdvlcraft." + this.id.m_135815_());
+        return Component.translatable("ability.mdvlcraft." + this.id.getPath());
     }
 
     @Override
@@ -80,12 +80,12 @@ public enum SlotSkillAbility implements Ability {
             }
 
             MagicData magic = MagicData.getPlayerMagicData(player);
-            if (!player.m_7500_() && magic.getMana() < this.manaCost) {
-                actionBar(player, Component.m_237110_("ui.irons_spellbooks.cast_error_mana", new Object[]{this.displayName()}));
+            if (!player.isCreative() && magic.getMana() < this.manaCost) {
+                actionBar(player, Component.translatable("ui.irons_spellbooks.cast_error_mana", new Object[]{this.displayName()}));
             } else if (!skill.canExecute(container)) {
-                actionBar(player, Component.m_237110_("ability.mdvlcraft.cannot_cast", new Object[]{this.displayName()}));
+                actionBar(player, Component.translatable("ability.mdvlcraft.cannot_cast", new Object[]{this.displayName()}));
             } else {
-                if (!player.m_7500_()) {
+                if (!player.isCreative()) {
                     magic.setMana(magic.getMana() - this.manaCost);
                     PacketDistributor.sendToPlayer(player, new SyncManaPacket(magic));
                 }
@@ -96,6 +96,6 @@ public enum SlotSkillAbility implements Ability {
     }
 
     private static void actionBar(ServerPlayer player, Component message) {
-        player.f_8906_.m_9829_(new ClientboundSetActionBarTextPacket(message.m_6881_().m_130940_(ChatFormatting.RED)));
+        player.connection.send(new ClientboundSetActionBarTextPacket(message.copy().withStyle(ChatFormatting.RED)));
     }
 }

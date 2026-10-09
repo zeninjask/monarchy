@@ -18,10 +18,10 @@ public final class AbilityGrants {
     }
 
     static void set(ServerPlayer player, AbilityReward reward, boolean active) {
-        Set<AbilityReward> rewards = ACTIVE.computeIfAbsent(player.m_20148_(), uuid -> new HashSet<>());
+        Set<AbilityReward> rewards = ACTIVE.computeIfAbsent(player.getUUID(), uuid -> new HashSet<>());
         boolean changed = active ? rewards.add(reward) : rewards.remove(reward);
         if (rewards.isEmpty()) {
-            ACTIVE.remove(player.m_20148_());
+            ACTIVE.remove(player.getUUID());
         }
 
         if (changed) {
@@ -33,7 +33,7 @@ public final class AbilityGrants {
                 Stances.deactivate(player);
             }
 
-            DIRTY.add(player.m_20148_());
+            DIRTY.add(player.getUUID());
         }
     }
 
@@ -49,7 +49,7 @@ public final class AbilityGrants {
     public static Map<Ability, Integer> of(ServerPlayer player) {
         Map<Ability, Integer> granted = new LinkedHashMap<>();
 
-        for (AbilityReward reward : ACTIVE.getOrDefault(player.m_20148_(), Set.of())) {
+        for (AbilityReward reward : ACTIVE.getOrDefault(player.getUUID(), Set.of())) {
             granted.merge(reward.ability, reward.level, Math::max);
         }
 
@@ -61,12 +61,12 @@ public final class AbilityGrants {
     }
 
     static void markDirty(ServerPlayer player) {
-        DIRTY.add(player.m_20148_());
+        DIRTY.add(player.getUUID());
     }
 
     static void flush(MinecraftServer server) {
         for (UUID uuid : DIRTY) {
-            ServerPlayer player = server.m_6846_().m_11259_(uuid);
+            ServerPlayer player = server.getPlayerList().getPlayer(uuid);
             if (player != null) {
                 AbilitySync.send(player);
             }

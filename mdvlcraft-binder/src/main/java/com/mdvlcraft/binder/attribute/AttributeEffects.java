@@ -46,24 +46,24 @@ public final class AttributeEffects {
     }
 
     private static double value(Player player, RegistryObject<Attribute> attribute) {
-        return player.m_21133_((Attribute)attribute.get());
+        return player.getAttributeValue((Attribute)attribute.get());
     }
 
     private static boolean isMelee(DamageSource source, Player attacker) {
-        return source.m_276093_(DamageTypes.f_268464_) && source.m_7640_() == attacker;
+        return source.is(DamageTypes.PLAYER_ATTACK) && source.getDirectEntity() == attacker;
     }
 
     @SubscribeEvent
     public static void onHurt(LivingHurtEvent event) {
         LivingEntity target = event.getEntity();
         DamageSource source = event.getSource();
-        if (source.m_7639_() instanceof ServerPlayer attacker && isMelee(source, attacker)) {
+        if (source.getEntity() instanceof ServerPlayer attacker && isMelee(source, attacker)) {
             event.setAmount(event.getAmount() * (float)(1.0 + meleeBonus(attacker, target)));
         }
     }
 
     private static double meleeBonus(ServerPlayer attacker, LivingEntity target) {
-        CapabilityItem weapon = EpicFightCapabilities.getItemStackCapability(attacker.m_21205_());
+        CapabilityItem weapon = EpicFightCapabilities.getItemStackCapability(attacker.getMainHandItem());
         WeaponCategory category = weapon.getWeaponCategory();
         double bonus = 0.0;
         if (category == WeaponCategories.GREATSWORD) {
@@ -72,18 +72,18 @@ public final class AttributeEffects {
             bonus += value(attacker, BinderAttributes.KATANA_DAMAGE);
         } else if (category == WeaponCategories.DAGGER) {
             bonus += value(attacker, BinderAttributes.DAGGER_DAMAGE);
-        } else if (category == WeaponCategories.SWORD && attacker.m_21206_().m_41619_()) {
+        } else if (category == WeaponCategories.SWORD && attacker.getOffhandItem().isEmpty()) {
             bonus += value(attacker, BinderAttributes.RAPIER_DAMAGE);
         }
 
-        Vec3 facing = Vec3.m_82498_(0.0F, target.m_146908_());
-        Vec3 toAttacker = attacker.m_20182_().m_82546_(target.m_20182_()).m_82542_(1.0, 0.0, 1.0).m_82541_();
-        if (facing.m_82526_(toAttacker) < -0.5) {
+        Vec3 facing = Vec3.directionFromRotation(0.0F, target.getYRot());
+        Vec3 toAttacker = attacker.position().subtract(target.position()).multiply(1.0, 0.0, 1.0).normalize();
+        if (facing.dot(toAttacker) < -0.5) {
             bonus += value(attacker, BinderAttributes.BACKSTAB_DAMAGE);
         }
 
-        Long riposteUntil = RIPOSTE_UNTIL.remove(attacker.m_20148_());
-        if (riposteUntil != null && riposteUntil >= attacker.m_9236_().m_46467_()) {
+        Long riposteUntil = RIPOSTE_UNTIL.remove(attacker.getUUID());
+        if (riposteUntil != null && riposteUntil >= attacker.level().getGameTime()) {
             bonus += value(attacker, BinderAttributes.RIPOSTE_DAMAGE);
         }
 
@@ -96,34 +96,34 @@ public final class AttributeEffects {
             FoodProperties var7 = event.getItem().getFoodProperties(player);
             double bonus = value(player, BinderAttributes.SATURATION_BONUS);
             if (var7 != null && bonus > 0.0) {
-                FoodData foodData = player.m_36324_();
-                float extra = (float)(var7.m_38744_() * var7.m_38745_() * 2.0F * bonus);
-                foodData.m_38717_(Math.min(foodData.m_38722_() + extra, (float)foodData.m_38702_()));
+                FoodData foodData = player.getFoodData();
+                float extra = (float)(var7.getNutrition() * var7.getSaturationModifier() * 2.0F * bonus);
+                foodData.setSaturation(Math.min(foodData.getSaturationLevel() + extra, (float)foodData.getFoodLevel()));
             }
         }
     }
 
     @SubscribeEvent
     public static void onDrops(LivingDropsEvent event) {
-        if (event.getSource().m_7639_() instanceof ServerPlayer player && !(event.getEntity() instanceof Player) && !event.getDrops().isEmpty()) {
-            if (player.m_217043_().m_188500_() < value(player, BinderAttributes.PLUNDER)) {
+        if (event.getSource().getEntity() instanceof ServerPlayer player && !(event.getEntity() instanceof Player) && !event.getDrops().isEmpty()) {
+            if (player.getRandom().nextDouble() < value(player, BinderAttributes.PLUNDER)) {
                 List<ItemEntity> drops = List.copyOf(event.getDrops());
-                ItemEntity original = drops.get(player.m_217043_().m_188503_(drops.size()));
+                ItemEntity original = drops.get(player.getRandom().nextInt(drops.size()));
                 event.getDrops()
-                    .add(new ItemEntity(original.m_9236_(), original.m_20185_(), original.m_20186_(), original.m_20189_(), original.m_32055_().m_41777_()));
+                    .add(new ItemEntity(original.level(), original.getX(), original.getY(), original.getZ(), original.getItem().copy()));
             }
         }
     }
 
     @SubscribeEvent
     public static void onPlayerTick(PlayerTickEvent event) {
-        if (event.phase == Phase.END && event.player instanceof ServerPlayer player && player.f_19797_ % 100 == 0) {
+        if (event.phase == Phase.END && event.player instanceof ServerPlayer player && player.tickCount % 100 == 0) {
             double regen = value(player, BinderAttributes.NATURE_REGEN);
             if (regen > 0.0
-                && player.m_20096_()
-                && player.m_9236_().m_8055_(player.m_20097_()).m_204336_(BlockTags.f_144274_)
-                && player.m_9236_().m_45527_(player.m_20183_())) {
-                player.m_5634_((float)regen);
+                && player.onGround()
+                && player.level().getBlockState(player.getOnPos()).is(BlockTags.DIRT)
+                && player.level().canSeeSky(player.blockPosition())) {
+                player.heal((float)regen);
             }
         }
     }
@@ -133,7 +133,7 @@ public final class AttributeEffects {
         if (event.getEntity() instanceof ServerPlayer player) {
             ServerPlayerPatch patch = (ServerPlayerPatch)EpicFightCapabilities.getEntityPatch(player, ServerPlayerPatch.class);
             if (patch == null) {
-                throw new IllegalStateException("Epic Fight patch missing on " + player.m_36316_().getName());
+                throw new IllegalStateException("Epic Fight patch missing on " + player.getGameProfile().getName());
             } else {
                 patch.getEventListener().addEventListener(EventType.TAKE_DAMAGE_EVENT_ATTACK, EPIC_FIGHT_LISTENER, attack -> {
                     double restore = value(player, BinderAttributes.PARRY_STAMINA);
@@ -148,7 +148,7 @@ public final class AttributeEffects {
                 });
                 patch.getEventListener().addEventListener(EventType.DODGE_SUCCESS_EVENT, EPIC_FIGHT_LISTENER, dodge -> {
                     if (value(player, BinderAttributes.RIPOSTE_DAMAGE) > 0.0) {
-                        RIPOSTE_UNTIL.put(player.m_20148_(), player.m_9236_().m_46467_() + 60L);
+                        RIPOSTE_UNTIL.put(player.getUUID(), player.level().getGameTime() + 60L);
                     }
                 });
             }
@@ -157,6 +157,6 @@ public final class AttributeEffects {
 
     @SubscribeEvent
     public static void onLogout(PlayerLoggedOutEvent event) {
-        RIPOSTE_UNTIL.remove(event.getEntity().m_20148_());
+        RIPOSTE_UNTIL.remove(event.getEntity().getUUID());
     }
 }

@@ -24,7 +24,7 @@ public final class BinderAttributes {
     public static final RegistryObject<Attribute> SATURATION_BONUS = fraction("saturation_bonus", 5.0);
     public static final RegistryObject<Attribute> PLUNDER = fraction("plunder", 1.0);
     public static final RegistryObject<Attribute> NATURE_REGEN = ATTRIBUTES.register(
-        "nature_regen", () -> new RangedAttribute("attribute.mdvlcraft.nature_regen", 0.0, 0.0, 10.0).m_22084_(true)
+        "nature_regen", () -> new RangedAttribute("attribute.mdvlcraft.nature_regen", 0.0, 0.0, 10.0).setSyncable(true)
     );
     public static final RegistryObject<Attribute> TECHNIQUE_EFFICIENCY = fraction("technique_efficiency", 0.9);
 
@@ -32,7 +32,7 @@ public final class BinderAttributes {
     }
 
     private static RegistryObject<Attribute> fraction(String name, double max) {
-        return ATTRIBUTES.register(name, () -> new RangedAttribute("attribute.mdvlcraft." + name, 0.0, 0.0, max).m_22084_(true));
+        return ATTRIBUTES.register(name, () -> new RangedAttribute("attribute.mdvlcraft." + name, 0.0, 0.0, max).setSyncable(true));
     }
 
     public static void register(IEventBus modBus) {
@@ -41,6 +41,6 @@ public final class BinderAttributes {
     }
 
     private static void onAttributeModification(EntityAttributeModificationEvent event) {
-        ATTRIBUTES.getEntries().forEach(attribute -> event.add(EntityType.f_20532_, (Attribute)attribute.get()));
+        ATTRIBUTES.getEntries().forEach(attribute -> event.add(EntityType.PLAYER, (Attribute)attribute.get()));
     }
 }

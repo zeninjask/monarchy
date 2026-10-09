@@ -11,11 +11,11 @@ public final class ShrineSlashes {
 
     @Nullable
     public static ServerPlayer owner(Entity domain, String key) {
-        String uuid = domain.getPersistentData().m_128461_(key);
+        String uuid = domain.getPersistentData().getString(key);
         if (uuid.isEmpty()) {
             return null;
         } else {
-            return domain.m_9236_().m_46003_(UUID.fromString(uuid)) instanceof ServerPlayer player ? player : null;
+            return domain.level().getPlayerByUUID(UUID.fromString(uuid)) instanceof ServerPlayer player ? player : null;
         }
     }
 

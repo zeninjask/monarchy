@@ -18,7 +18,7 @@ public abstract class ItemStackMixin {
         cancellable = true
     )
     private void mdvlcraft$weaponFree(TagKey<Item> tag, CallbackInfoReturnable<Boolean> cir) {
-        if (WeaponFreeCasts.active() && (tag.equals(ItemTags.f_271388_) || tag.equals(ItemTags.f_271207_))) {
+        if (WeaponFreeCasts.active() && (tag.equals(ItemTags.SWORDS) || tag.equals(ItemTags.AXES))) {
             cir.setReturnValue(true);
         }
     }

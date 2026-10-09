@@ -32,10 +32,10 @@ public final class AbilityActions {
         if (!ability.isEmpty()) {
             int level = AbilityGrants.level(player, ability.get());
             if (level == 0) {
-                player.f_8906_
-                    .m_9829_(
+                player.connection
+                    .send(
                         new ClientboundSetActionBarTextPacket(
-                            Component.m_237110_("ability.mdvlcraft.not_granted", new Object[]{ability.get().displayName()}).m_130940_(ChatFormatting.RED)
+                            Component.translatable("ability.mdvlcraft.not_granted", new Object[]{ability.get().displayName()}).withStyle(ChatFormatting.RED)
                         )
                     );
             } else {
@@ -63,7 +63,7 @@ public final class AbilityActions {
         }
 
         spell.attemptInitiateCast(
-            ItemStack.f_41583_, spell.getLevelFor(level, player), player.m_9236_(), player, CastSource.SPELLBOOK, true, SpellSelectionManager.MAINHAND
+            ItemStack.EMPTY, spell.getLevelFor(level, player), player.level(), player, CastSource.SPELLBOOK, true, SpellSelectionManager.MAINHAND
         );
     }
 }

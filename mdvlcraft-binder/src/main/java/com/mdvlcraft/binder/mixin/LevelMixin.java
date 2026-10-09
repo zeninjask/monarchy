@@ -17,7 +17,7 @@ public abstract class LevelMixin {
         cancellable = true
     )
     private void mdvlcraft$keepTerrain(BlockPos pos, BlockState state, int flags, int recursionLeft, CallbackInfoReturnable<Boolean> cir) {
-        if (CursedFateTerrain.refuses((Level)this, pos, state)) {
+        if (CursedFateTerrain.refuses((Level)(Object)this, pos, state)) {
             cir.setReturnValue(false);
         }
     }

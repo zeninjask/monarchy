@@ -27,7 +27,7 @@ final class TechniqueRunner {
     }
 
     static boolean isSlashing(ServerPlayer player) {
-        Technique held = HELD.get(player.m_20148_());
+        Technique held = HELD.get(player.getUUID());
         return held != null && held.isSlash();
     }
 
@@ -35,15 +35,15 @@ final class TechniqueRunner {
         if (!technique.held) {
             cast(player, technique);
         } else {
-            HELD.put(player.m_20148_(), technique);
+            HELD.put(player.getUUID(), technique);
             if (TechniqueCooldowns.remaining(player, technique) == 0L && !cast(player, technique)) {
-                HELD.remove(player.m_20148_());
+                HELD.remove(player.getUUID());
             }
         }
     }
 
     static void release(ServerPlayer player) {
-        HELD.remove(player.m_20148_());
+        HELD.remove(player.getUUID());
         PlayerVariables variables = variables(player);
         if (variables.holdability1) {
             variables.holdability1 = false;
@@ -58,7 +58,7 @@ final class TechniqueRunner {
 
         while (entries.hasNext()) {
             Entry<UUID, Technique> entry = entries.next();
-            ServerPlayer player = server.m_6846_().m_11259_(entry.getKey());
+            ServerPlayer player = server.getPlayerList().getPlayer(entry.getKey());
             if (player == null) {
                 entries.remove();
             } else if (TechniqueCooldowns.remaining(player, entry.getValue()) == 0L && !cast(player, entry.getValue())) {
@@ -68,7 +68,7 @@ final class TechniqueRunner {
     }
 
     private static boolean cast(ServerPlayer player, Technique technique) {
-        if (technique == Technique.FOLLOW_UP_KICK && player.m_6144_()) {
+        if (technique == Technique.FOLLOW_UP_KICK && player.isShiftKeyDown()) {
             ProjectionSorcery.toggleFlow(player);
             return false;
         } else {
@@ -84,24 +84,24 @@ final class TechniqueRunner {
 
             long cooldown = TechniqueCooldowns.remaining(player, technique);
             if (cooldown > 0L) {
-                player.f_8906_
-                    .m_9829_(
+                player.connection
+                    .send(
                         new ClientboundSetActionBarTextPacket(
-                            Component.m_237110_("ability.mdvlcraft.on_cooldown", new Object[]{technique.displayName(), (cooldown + 19L) / 20L})
-                                .m_130940_(ChatFormatting.RED)
+                            Component.translatable("ability.mdvlcraft.on_cooldown", new Object[]{technique.displayName(), (cooldown + 19L) / 20L})
+                                .withStyle(ChatFormatting.RED)
                         )
                     );
                 return false;
             } else {
                 MagicData magic = MagicData.getPlayerMagicData(player);
                 int cost = cost(player, technique);
-                if (!player.m_7500_()) {
+                if (!player.isCreative()) {
                     if (magic.getMana() < cost) {
-                        player.f_8906_
-                            .m_9829_(
+                        player.connection
+                            .send(
                                 new ClientboundSetActionBarTextPacket(
-                                    Component.m_237110_("ui.irons_spellbooks.cast_error_mana", new Object[]{technique.displayName()})
-                                        .m_130940_(ChatFormatting.RED)
+                                    Component.translatable("ui.irons_spellbooks.cast_error_mana", new Object[]{technique.displayName()})
+                                        .withStyle(ChatFormatting.RED)
                                 )
                             );
                         return false;
@@ -123,7 +123,7 @@ final class TechniqueRunner {
                     ProjectionSorcery.prepare(player);
                 }
 
-                Runnable execute = () -> AbilitysProcedure.execute(player.m_9236_(), player.m_20185_(), player.m_20186_(), player.m_20189_(), player);
+                Runnable execute = () -> AbilitysProcedure.execute(player.level(), player.getX(), player.getY(), player.getZ(), player);
                 if (technique.weaponFree()) {
                     WeaponFreeCasts.run(execute);
                 } else {
@@ -146,7 +146,7 @@ final class TechniqueRunner {
     }
 
     private static boolean modeToggle(ServerPlayer player, Technique technique) {
-        return technique == Technique.PHANTOM_MOVEMENT && player.m_6144_();
+        return technique == Technique.PHANTOM_MOVEMENT && player.isShiftKeyDown();
     }
 
     private static int cost(ServerPlayer player, Technique technique) {
@@ -154,14 +154,14 @@ final class TechniqueRunner {
             return 0;
         } else {
             return technique.isShrine()
-                    && ReturnPlayerNearAOpenedDomainProcedure.execute(player.m_9236_(), player.m_20185_(), player.m_20186_(), player.m_20189_())
+                    && ReturnPlayerNearAOpenedDomainProcedure.execute(player.level(), player.getX(), player.getY(), player.getZ())
                 ? 0
-                : Math.round(technique.manaCost(1) * (float)(1.0 - player.m_21133_((Attribute)BinderAttributes.TECHNIQUE_EFFICIENCY.get())));
+                : Math.round(technique.manaCost(1) * (float)(1.0 - player.getAttributeValue((Attribute)BinderAttributes.TECHNIQUE_EFFICIENCY.get())));
         }
     }
 
     static PlayerVariables variables(ServerPlayer player) {
         return (PlayerVariables)player.getCapability(CursedfateModVariables.PLAYER_VARIABLES_CAPABILITY)
-            .orElseThrow(() -> new IllegalStateException("Cursed Fate variables missing on " + player.m_36316_().getName()));
+            .orElseThrow(() -> new IllegalStateException("Cursed Fate variables missing on " + player.getGameProfile().getName()));
     }
 }

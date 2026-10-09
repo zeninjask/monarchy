@@ -42,10 +42,10 @@ final class WeaponPonderScenes {
     }
 
     private static ItemStack representative(ResourceLocation weaponType) {
-        String path = weaponType.m_135815_();
+        String path = weaponType.getPath();
         return ForgeRegistries.ITEMS.getValues().stream().<ItemStack>map(ItemStack::new).filter(stack -> {
             String type = EFPPonderPlugin.getWeaponPresetId(stack);
-            return type != null && ResourceLocation.parse(type).m_135815_().equals(path);
+            return type != null && ResourceLocation.parse(type).getPath().equals(path);
         }).findFirst().orElseThrow(() -> new IllegalStateException("No item uses an Epic Fight weapon type named " + path));
     }
 

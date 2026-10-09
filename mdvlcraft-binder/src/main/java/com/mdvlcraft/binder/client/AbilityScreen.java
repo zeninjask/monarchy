@@ -28,14 +28,14 @@ public final class AbilityScreen extends Screen {
     private CombatSkillsPanel combatSkills;
 
     public AbilityScreen() {
-        super(Component.m_237115_("screen.mdvlcraft.abilities"));
+        super(Component.translatable("screen.mdvlcraft.abilities"));
     }
 
-    protected void m_7856_() {
-        this.combatSkills = new CombatSkillsPanel(this.f_96547_);
+    protected void init() {
+        this.combatSkills = new CombatSkillsPanel(this.font);
     }
 
-    public boolean m_7043_() {
+    public boolean isPauseScreen() {
         return false;
     }
 
@@ -44,16 +44,16 @@ public final class AbilityScreen extends Screen {
     }
 
     private int left() {
-        return (this.f_96543_ - 194 - 12 - 150) / 2;
+        return (this.width - 194 - 12 - 150) / 2;
     }
 
     private int panelHeight() {
-        int hintLines = this.f_96547_.m_92923_(Component.m_237115_("screen.mdvlcraft.abilities.hint_pick"), 174).size();
+        int hintLines = this.font.split(Component.translatable("screen.mdvlcraft.abilities.hint_pick"), 174).size();
         return Math.max(152 + hintLines * 10 + 6, this.combatSkills.height());
     }
 
     private int top() {
-        return (this.f_96544_ - this.panelHeight()) / 2;
+        return (this.height - this.panelHeight()) / 2;
     }
 
     private int hintTop() {
@@ -84,20 +84,20 @@ public final class AbilityScreen extends Screen {
         return this.top() + 112;
     }
 
-    public void m_88315_(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        this.m_280273_(graphics);
-        Component hint = Component.m_237115_(this.picked == null ? "screen.mdvlcraft.abilities.hint_pick" : "screen.mdvlcraft.abilities.hint_place");
-        List<FormattedCharSequence> hintLines = this.f_96547_.m_92923_(hint, 174);
+    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
+        this.renderBackground(graphics);
+        Component hint = Component.translatable(this.picked == null ? "screen.mdvlcraft.abilities.hint_pick" : "screen.mdvlcraft.abilities.hint_place");
+        List<FormattedCharSequence> hintLines = this.font.split(hint, 174);
         this.placeCombatSkills();
         int panelHeight = this.panelHeight();
         int textX = this.left() + 10;
-        SlateGui.panel(graphics, this.f_96547_, this.f_96539_, this.left(), this.top(), 194, panelHeight);
+        SlateGui.panel(graphics, this.font, this.title, this.left(), this.top(), 194, panelHeight);
         List<Ability> abilities = this.abilities();
         if (abilities.isEmpty()) {
-            List<FormattedCharSequence> none = this.f_96547_.m_92923_(Component.m_237115_("screen.mdvlcraft.abilities.none"), 174);
+            List<FormattedCharSequence> none = this.font.split(Component.translatable("screen.mdvlcraft.abilities.none"), 174);
 
             for (int line = 0; line < none.size(); line++) {
-                graphics.m_280649_(this.f_96547_, none.get(line), textX, this.listTop() + 4 + line * 10, -7826784, false);
+                graphics.drawString(this.font, none.get(line), textX, this.listTop() + 4 + line * 10, -7826784, false);
             }
         }
 
@@ -109,34 +109,34 @@ public final class AbilityScreen extends Screen {
             AbilityDisplay.drawIcon(graphics, ability, x + 2, y + 2);
         }
 
-        graphics.m_280614_(this.f_96547_, Component.m_237115_("screen.mdvlcraft.abilities.wheel"), textX, this.slotY() - 12, -7826784, false);
+        graphics.drawString(this.font, Component.translatable("screen.mdvlcraft.abilities.wheel"), textX, this.slotY() - 12, -7826784, false);
 
         for (int slot = 0; slot < 8; slot++) {
             int x = this.slotX(slot);
             SlateGui.slot(graphics, x, this.slotY(), 20, ClientAbilities.slot(slot).isPresent() ? SlateGui.Slot.FILLED : SlateGui.Slot.EMPTY);
             ClientAbilities.slot(slot).ifPresent(ability -> AbilityDisplay.drawIcon(graphics, ability, x + 2, this.slotY() + 2));
             String number = String.valueOf(slot + 1);
-            graphics.m_280056_(this.f_96547_, number, x + (20 - this.f_96547_.m_92895_(number)) / 2 + 1, this.slotY() + 20 + 3, -7826784, false);
+            graphics.drawString(this.font, number, x + (20 - this.font.width(number)) / 2 + 1, this.slotY() + 20 + 3, -7826784, false);
         }
 
         SlateGui.rule(graphics, textX, this.left() + 194 - 10, this.hintTop() - 6);
 
         for (int line = 0; line < hintLines.size(); line++) {
-            graphics.m_280649_(this.f_96547_, hintLines.get(line), textX, this.hintTop() + line * 10, -7826784, false);
+            graphics.drawString(this.font, hintLines.get(line), textX, this.hintTop() + line * 10, -7826784, false);
         }
 
         this.combatSkills.render(graphics, panelHeight);
-        super.m_88315_(graphics, mouseX, mouseY, partialTick);
+        super.render(graphics, mouseX, mouseY, partialTick);
         this.hovered(mouseX, mouseY).ifPresent(ability -> {
             List<Component> lines = AbilityDisplay.tooltip(ability, ClientAbilities.level(ability));
             if (ability instanceof SpellAbility spell) {
                 SpellPreviews.hover(spell.spell().getSpellResource(), ClientAbilities.level(ability));
-                lines.add(1, SpellPreviews.prompt().m_6881_().m_130940_(ChatFormatting.DARK_GRAY));
+                lines.add(1, SpellPreviews.prompt().copy().withStyle(ChatFormatting.DARK_GRAY));
             }
 
-            graphics.m_280666_(this.f_96547_, lines, mouseX, mouseY);
+            graphics.renderComponentTooltip(this.font, lines, mouseX, mouseY);
         });
-        this.combatSkills.tooltip(mouseX, mouseY).ifPresent(lines -> graphics.m_280245_(this.f_96547_, lines, mouseX, mouseY));
+        this.combatSkills.tooltip(mouseX, mouseY).ifPresent(lines -> graphics.renderTooltip(this.font, lines, mouseX, mouseY));
     }
 
     private Optional<Ability> hovered(double mouseX, double mouseY) {
@@ -161,7 +161,7 @@ public final class AbilityScreen extends Screen {
         return mouseX >= x && mouseX < x + 20 && mouseY >= y && mouseY < y + 20;
     }
 
-    public boolean m_6375_(double mouseX, double mouseY, int button) {
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
         List<Ability> abilities = this.abilities();
 
         for (int i = 0; i < abilities.size(); i++) {
@@ -185,15 +185,15 @@ public final class AbilityScreen extends Screen {
         }
 
         this.placeCombatSkills();
-        return this.combatSkills.mouseClicked(mouseX, mouseY, button) ? true : super.m_6375_(mouseX, mouseY, button);
+        return this.combatSkills.mouseClicked(mouseX, mouseY, button) ? true : super.mouseClicked(mouseX, mouseY, button);
     }
 
-    public boolean m_7933_(int keyCode, int scanCode, int modifiers) {
-        if (AbilityKeys.OPEN_ABILITIES.m_90832_(keyCode, scanCode)) {
-            this.m_7379_();
+    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        if (AbilityKeys.OPEN_ABILITIES.matches(keyCode, scanCode)) {
+            this.onClose();
             return true;
         } else {
-            return super.m_7933_(keyCode, scanCode, modifiers);
+            return super.keyPressed(keyCode, scanCode, modifiers);
         }
     }
 }

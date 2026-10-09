@@ -31,7 +31,7 @@ public final class ClientAbilitySetup {
     }
 
     private static void onClientSetup(FMLClientSetupEvent event) {
-        event.enqueueWork(() -> AbilityKeys.logConflicts(Minecraft.m_91087_()));
+        event.enqueueWork(() -> AbilityKeys.logConflicts(Minecraft.getInstance()));
     }
 
     private static void onLoggingOut(LoggingOut event) {

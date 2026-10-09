@@ -14,16 +14,16 @@ import net.minecraftforge.network.NetworkEvent.Context;
 
 public record SyncAbilitiesPacket(Map<ResourceLocation, Integer> granted, List<Optional<ResourceLocation>> loadout) {
     public static void encode(SyncAbilitiesPacket packet, FriendlyByteBuf buf) {
-        buf.m_236831_(packet.granted, FriendlyByteBuf::m_130085_, FriendlyByteBuf::m_130130_);
-        packet.loadout.forEach(slot -> buf.m_236835_(slot, FriendlyByteBuf::m_130085_));
+        buf.writeMap(packet.granted, FriendlyByteBuf::writeResourceLocation, FriendlyByteBuf::writeVarInt);
+        packet.loadout.forEach(slot -> buf.writeOptional(slot, FriendlyByteBuf::writeResourceLocation));
     }
 
     public static SyncAbilitiesPacket decode(FriendlyByteBuf buf) {
-        Map<ResourceLocation, Integer> granted = buf.m_236847_(FriendlyByteBuf::m_130281_, FriendlyByteBuf::m_130242_);
+        Map<ResourceLocation, Integer> granted = buf.readMap(FriendlyByteBuf::readResourceLocation, FriendlyByteBuf::readVarInt);
         List<Optional<ResourceLocation>> loadout = new ArrayList<>();
 
         for (int i = 0; i < 8; i++) {
-            loadout.add(buf.m_236860_(FriendlyByteBuf::m_130281_));
+            loadout.add(buf.readOptional(FriendlyByteBuf::readResourceLocation));
         }
 
         return new SyncAbilitiesPacket(granted, loadout);

@@ -30,7 +30,7 @@ final class SlateGui {
     }
 
     static void onTooltipColour(Color event) {
-        Screen screen = Minecraft.m_91087_().f_91080_;
+        Screen screen = Minecraft.getInstance().screen;
         if (screen instanceof SkillsScreen || screen instanceof AbilityScreen || screen != null && SlateRecruits.isRecruits(screen)) {
             event.setBackground(-133032935);
             event.setBorderStart(-12828082);
@@ -44,12 +44,12 @@ final class SlateGui {
 
     static void panel(GuiGraphics graphics, Font font, Component title, int x, int y, int width, int height) {
         panel(graphics, x, y, width, height);
-        graphics.m_280614_(font, title, x + 10, y + 9, -1512206, false);
+        graphics.drawString(font, title, x + 10, y + 9, -1512206, false);
         rule(graphics, x + 10, x + width - 10, y + 21);
     }
 
     static void rule(GuiGraphics graphics, int x0, int x1, int y) {
-        graphics.m_280509_(x0, y, x1, y + 1, -13486014);
+        graphics.fill(x0, y, x1, y + 1, -13486014);
     }
 
     static void slot(GuiGraphics graphics, int x, int y, int size, SlateGui.Slot state) {
@@ -77,8 +77,8 @@ final class SlateGui {
     }
 
     static void bar(GuiGraphics graphics, int x, int y, int width, int height, float fraction, int colour) {
-        graphics.m_280509_(x, y, x + width, y + height, -14144202);
-        graphics.m_280509_(x, y, x + Math.round(width * fraction), y + height, colour);
+        graphics.fill(x, y, x + width, y + height, -14144202);
+        graphics.fill(x, y, x + Math.round(width * fraction), y + height, colour);
     }
 
     static void disc(GuiGraphics graphics, int centerX, int centerY, int radius, boolean accent) {
@@ -90,11 +90,11 @@ final class SlateGui {
             int inner = Math.abs(row) < radius - 1 ? (int)Math.round(Math.sqrt((radius - 1) * (radius - 1) - row * row)) : 0;
             int y = centerY + dy;
             if (inner == 0) {
-                graphics.m_280509_(centerX - outer, y, centerX + outer, y + 1, ring);
+                graphics.fill(centerX - outer, y, centerX + outer, y + 1, ring);
             } else {
-                graphics.m_280509_(centerX - outer, y, centerX - inner, y + 1, ring);
-                graphics.m_280509_(centerX - inner, y, centerX + inner, y + 1, -300607458);
-                graphics.m_280509_(centerX + inner, y, centerX + outer, y + 1, ring);
+                graphics.fill(centerX - outer, y, centerX - inner, y + 1, ring);
+                graphics.fill(centerX - inner, y, centerX + inner, y + 1, -300607458);
+                graphics.fill(centerX + inner, y, centerX + outer, y + 1, ring);
             }
         }
     }
@@ -102,17 +102,17 @@ final class SlateGui {
     private static void box(GuiGraphics graphics, int x, int y, int width, int height, int fill, int border) {
         int right = x + width;
         int bottom = y + height;
-        graphics.m_280509_(x + 2, y, right - 2, y + 1, border);
-        graphics.m_280509_(x + 2, bottom - 1, right - 2, bottom, border);
-        graphics.m_280509_(x, y + 2, x + 1, bottom - 2, border);
-        graphics.m_280509_(right - 1, y + 2, right, bottom - 2, border);
-        graphics.m_280509_(x + 1, y + 1, x + 2, y + 2, border);
-        graphics.m_280509_(right - 2, y + 1, right - 1, y + 2, border);
-        graphics.m_280509_(x + 1, bottom - 2, x + 2, bottom - 1, border);
-        graphics.m_280509_(right - 2, bottom - 2, right - 1, bottom - 1, border);
-        graphics.m_280509_(x + 2, y + 1, right - 2, y + 2, fill);
-        graphics.m_280509_(x + 1, y + 2, right - 1, bottom - 2, fill);
-        graphics.m_280509_(x + 2, bottom - 2, right - 2, bottom - 1, fill);
+        graphics.fill(x + 2, y, right - 2, y + 1, border);
+        graphics.fill(x + 2, bottom - 1, right - 2, bottom, border);
+        graphics.fill(x, y + 2, x + 1, bottom - 2, border);
+        graphics.fill(right - 1, y + 2, right, bottom - 2, border);
+        graphics.fill(x + 1, y + 1, x + 2, y + 2, border);
+        graphics.fill(right - 2, y + 1, right - 1, y + 2, border);
+        graphics.fill(x + 1, bottom - 2, x + 2, bottom - 1, border);
+        graphics.fill(right - 2, bottom - 2, right - 1, bottom - 1, border);
+        graphics.fill(x + 2, y + 1, right - 2, y + 2, fill);
+        graphics.fill(x + 1, y + 2, right - 1, bottom - 2, fill);
+        graphics.fill(x + 2, bottom - 2, right - 2, bottom - 1, fill);
     }
 
     static enum Button {

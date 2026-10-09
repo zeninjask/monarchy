@@ -29,7 +29,7 @@ public abstract class SwordSoaringKeyMappingsMixin {
         )
     )
     private static void mdvlcraft$skipFlightKeys(RegisterKeyMappingsEvent event, KeyMapping mapping) {
-        if (mdvlcraft$REMOVED.contains(mapping.m_90860_())) {
+        if (mdvlcraft$REMOVED.contains(mapping.getName())) {
             ForeignKeyMappings.unbind(List.of(mapping));
         } else {
             event.register(mapping);

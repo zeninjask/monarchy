@@ -24,7 +24,7 @@ public abstract class VatanseverItemMixin {
         cancellable = true
     )
     private void mdvlcraft$noTakeOff(Level level, Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
-        cir.setReturnValue(InteractionResultHolder.m_19098_(player.m_21120_(hand)));
+        cir.setReturnValue(InteractionResultHolder.pass(player.getItemInHand(hand)));
     }
 
     @Inject(

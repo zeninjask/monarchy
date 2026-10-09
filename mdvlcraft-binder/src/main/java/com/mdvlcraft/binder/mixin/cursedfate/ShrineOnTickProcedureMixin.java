@@ -23,7 +23,7 @@ public abstract class ShrineOnTickProcedureMixin {
         if (shrine != null) {
             ServerPlayer owner = ShrineSlashes.owner(shrine, "PlayerUUID");
             if (owner != null && ShrineSlashes.held(owner)) {
-                shrine.getPersistentData().m_128347_("domainnum2", 0.0);
+                shrine.getPersistentData().putDouble("domainnum2", 0.0);
             }
         }
     }

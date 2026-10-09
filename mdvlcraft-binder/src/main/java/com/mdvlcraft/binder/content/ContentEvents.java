@@ -25,7 +25,7 @@ public final class ContentEvents {
 
     @SubscribeEvent
     public static void onFinalizeSpawn(FinalizeSpawn event) {
-        if (event.getSpawnType() == MobSpawnType.NATURAL && DisabledContent.isDisabled(event.getEntity().m_6095_())) {
+        if (event.getSpawnType() == MobSpawnType.NATURAL && DisabledContent.isDisabled(event.getEntity().getType())) {
             event.setSpawnCancelled(true);
         }
     }
@@ -34,19 +34,19 @@ public final class ContentEvents {
         priority = EventPriority.HIGHEST
     )
     public static void onEntityInteract(EntityInteract event) {
-        if (!event.getLevel().m_5776_() && event.getTarget() instanceof Merchant merchant) {
-            merchant.m_6616_()
+        if (!event.getLevel().isClientSide() && event.getTarget() instanceof Merchant merchant) {
+            merchant.getOffers()
                 .removeIf(
-                    offer -> DisabledContent.isForbidden(offer.m_45368_())
-                        || DisabledContent.isForbidden(offer.m_45352_())
-                        || DisabledContent.isForbidden(offer.m_45364_())
+                    offer -> DisabledContent.isForbidden(offer.getResult())
+                        || DisabledContent.isForbidden(offer.getBaseCostA())
+                        || DisabledContent.isForbidden(offer.getCostB())
                 );
         }
     }
 
     @SubscribeEvent
     public static void onRightClickBlock(RightClickBlock event) {
-        if (DisabledContent.isForbidden(event.getLevel().m_8055_(event.getPos()).m_60734_().m_5456_())) {
+        if (DisabledContent.isForbidden(event.getLevel().getBlockState(event.getPos()).getBlock().asItem())) {
             event.setCanceled(true);
             event.setCancellationResult(InteractionResult.FAIL);
         }
@@ -71,6 +71,6 @@ public final class ContentEvents {
         priority = EventPriority.LOWEST
     )
     public static void onLivingDrops(LivingDropsEvent event) {
-        event.getDrops().removeIf(drop -> DisabledContent.isForbidden(drop.m_32055_()));
+        event.getDrops().removeIf(drop -> DisabledContent.isForbidden(drop.getItem()));
     }
 }

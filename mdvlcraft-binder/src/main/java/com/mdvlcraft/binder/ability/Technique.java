@@ -72,7 +72,7 @@ public enum Technique implements Ability {
 
     @Override
     public Component displayName() {
-        return Component.m_237115_("ability.mdvlcraft." + this.id.m_135815_());
+        return Component.translatable("ability.mdvlcraft." + this.id.getPath());
     }
 
     @Override

@@ -9,7 +9,7 @@ public final class ForeignKeyMappings {
     }
 
     public static void unbind(Collection<? extends KeyMapping> mappings) {
-        mappings.forEach(mapping -> mapping.m_90848_(InputConstants.f_84822_));
-        KeyMapping.m_90854_();
+        mappings.forEach(mapping -> mapping.setKey(InputConstants.UNKNOWN));
+        KeyMapping.resetMapping();
     }
 }

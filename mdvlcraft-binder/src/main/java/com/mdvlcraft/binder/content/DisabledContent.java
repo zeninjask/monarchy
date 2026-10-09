@@ -26,7 +26,7 @@ public final class DisabledContent {
     }
 
     public static boolean isDisabled(ResourceLocation id) {
-        return id != null && NAMESPACES.contains(id.m_135827_());
+        return id != null && NAMESPACES.contains(id.getNamespace());
     }
 
     public static boolean isDisabled(EntityType<?> type) {
@@ -42,18 +42,18 @@ public final class DisabledContent {
     }
 
     public static boolean isForbidden(ItemStack stack) {
-        return !stack.m_41619_() && isForbidden(stack.m_41720_());
+        return !stack.isEmpty() && isForbidden(stack.getItem());
     }
 
     public static boolean producesForbiddenItem(JsonElement recipe) {
         if (recipe.isJsonObject() && recipe.getAsJsonObject().has("result")) {
             JsonElement result = recipe.getAsJsonObject().get("result");
             if (result.isJsonPrimitive()) {
-                return isForbiddenId(ResourceLocation.m_135820_(result.getAsString()));
+                return isForbiddenId(ResourceLocation.tryParse(result.getAsString()));
             } else if (result.isJsonObject()) {
                 JsonObject object = result.getAsJsonObject();
                 String key = object.has("item") ? "item" : "id";
-                return object.has(key) && isForbiddenId(ResourceLocation.m_135820_(object.get(key).getAsString()));
+                return object.has(key) && isForbiddenId(ResourceLocation.tryParse(object.get(key).getAsString()));
             } else {
                 return false;
             }

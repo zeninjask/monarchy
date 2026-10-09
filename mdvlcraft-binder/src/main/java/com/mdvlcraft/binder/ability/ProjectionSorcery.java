@@ -26,17 +26,17 @@ public final class ProjectionSorcery {
 
     static void toggleFlow(ServerPlayer player) {
         boolean flow = !flow(player);
-        player.getPersistentData().m_128379_("mdvlcraft:kick_flow", flow);
-        player.f_8906_
-            .m_9829_(
+        player.getPersistentData().putBoolean("mdvlcraft:kick_flow", flow);
+        player.connection
+            .send(
                 new ClientboundSetActionBarTextPacket(
-                    Component.m_237115_(flow ? "ability.mdvlcraft.follow_up_kick.flow" : "ability.mdvlcraft.follow_up_kick.normal")
-                        .m_130940_(ChatFormatting.BLUE)
+                    Component.translatable(flow ? "ability.mdvlcraft.follow_up_kick.flow" : "ability.mdvlcraft.follow_up_kick.normal")
+                        .withStyle(ChatFormatting.BLUE)
                 )
             );
     }
 
     public static boolean flow(Player player) {
-        return player.getPersistentData().m_128471_("mdvlcraft:kick_flow");
+        return player.getPersistentData().getBoolean("mdvlcraft:kick_flow");
     }
 }

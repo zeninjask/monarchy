@@ -1,0 +1,74 @@
+Picked up JAVA_TOOL_OPTIONS: -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts -Djavax.net.ssl.trustStoreType=JKS -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=38663 -Dhttp.nonProxyHosts=localhost|127.0.0.1|::1|127.*|0.*|::|169.254.*|api.anthropic.com|api-staging.anthropic.com|api-pr-preview.anthropic.com|mcp-proxy.anthropic.com|mcp-proxy-staging.anthropic.com|registry.npmjs.org|jsr.io|npm.jsr.io|pypi.org|files.pythonhosted.org|index.crates.io|proxy.golang.org|host.docker.internal|10.*|172.16.*|172.17.*|172.18.*|172.19.*|172.20.*|172.21.*|172.22.*|172.23.*|172.24.*|172.25.*|172.26.*|172.27.*|172.28.*|172.29.*|172.30.*|172.31.*|192.168.*|100.64.0.0/10|*.svc.cluster.local|*.svc.cluster.local -Djdk.http.auth.tunneling.disabledSchemes= -Djdk.http.auth.proxying.disabledSchemes=
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.8/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :
+MixinGradle did not locate the diffplug APT plugin, skipping eclipse task configuration
+
+> Task :downloadMcpConfig
+> Task :extractSrg UP-TO-DATE
+> Task :createMcpToSrg UP-TO-DATE
+
+> Task :compileJava
+Picked up JAVA_TOOL_OPTIONS: -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts -Djavax.net.ssl.trustStoreType=JKS -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=38663 -Dhttp.nonProxyHosts=localhost|127.0.0.1|::1|127.*|0.*|::|169.254.*|api.anthropic.com|api-staging.anthropic.com|api-pr-preview.anthropic.com|mcp-proxy.anthropic.com|mcp-proxy-staging.anthropic.com|registry.npmjs.org|jsr.io|npm.jsr.io|pypi.org|files.pythonhosted.org|index.crates.io|proxy.golang.org|host.docker.internal|10.*|172.16.*|172.17.*|172.18.*|172.19.*|172.20.*|172.21.*|172.22.*|172.23.*|172.24.*|172.25.*|172.26.*|172.27.*|172.28.*|172.29.*|172.30.*|172.31.*|192.168.*|100.64.0.0/10|*.svc.cluster.local|*.svc.cluster.local -Djdk.http.auth.tunneling.disabledSchemes= -Djdk.http.auth.proxying.disabledSchemes=
+Note: SpongePowered MIXIN Annotation Processor Version=0.8.5 (MixinGradle Version=0.7.38)
+Note: Supported obfuscation types: ObfuscationServiceMCP supports [notch] ObfuscationServiceFG3 supports [searge]
+Note: Loading searge mappings from /home/user/monarchy/mdvlcraft-binder/build/createMcpToSrg/output.tsrg
+Note: Writing refmap to /home/user/monarchy/mdvlcraft-binder/build/tmp/compileJava/compileJava-refmap.json
+Note: Writing refmap to /home/user/monarchy/mdvlcraft-binder/build/tmp/compileJava/compileJava-refmap.json
+Note: Writing searge composite mappings to /home/user/monarchy/mdvlcraft-binder/build/tmp/compileJava/compileJava-mappings.tsrg
+Note: Writing refmap to /home/user/monarchy/mdvlcraft-binder/build/tmp/compileJava/compileJava-refmap.json
+Note: Writing refmap to /home/user/monarchy/mdvlcraft-binder/build/tmp/compileJava/compileJava-refmap.json
+Note: Writing searge composite mappings to /home/user/monarchy/mdvlcraft-binder/build/tmp/compileJava/compileJava-mappings.tsrg
+/home/user/monarchy/mdvlcraft-binder/src/main/java/com/mdvlcraft/binder/mixin/LevelMixin.java:20: error: incompatible types: LevelMixin cannot be converted to Level
+        if (CursedFateTerrain.refuses((Level)this, pos, state)) {
+                                             ^
+/home/user/monarchy/mdvlcraft-binder/src/main/java/com/mdvlcraft/binder/mixin/ForgeHooksMixin.java:26: error: incompatible types: invalid method reference
+        ((ObjectArrayList)cir.getReturnValue()).removeIf(DisabledContent::isForbidden);
+                                                         ^
+    no suitable method found for isForbidden(Object)
+        method DisabledContent.isForbidden(Item) is not applicable
+          (argument mismatch; Object cannot be converted to Item)
+        method DisabledContent.isForbidden(ItemStack) is not applicable
+          (argument mismatch; Object cannot be converted to ItemStack)
+/home/user/monarchy/mdvlcraft-binder/src/main/java/com/mdvlcraft/binder/mixin/epicfight/ActionAnimationMixin.java:30: error: incompatible types: ActionAnimationMixin cannot be converted to DodgeAnimation
+        if (this instanceof DodgeAnimation && entitypatch.getOriginal() instanceof Player player) {
+            ^
+/home/user/monarchy/mdvlcraft-binder/src/main/java/com/mdvlcraft/binder/mixin/AbstractButtonMixin.java:22: error: incompatible types: AbstractButtonMixin cannot be converted to AbstractButton
+            AbstractButton button = (AbstractButton)this;
+                                                    ^
+/home/user/monarchy/mdvlcraft-binder/src/main/java/com/mdvlcraft/binder/client/ponder/ShipPonderScenes.java:206: error: incompatible types: Property<CAP#1> cannot be converted to Property<T>
+        Property<T> property = state.getBlock().getStateDefinition().getProperty(name);
+                                                                                ^
+  where T is a type-variable:
+    T extends Comparable<T> declared in method <T>with(BlockState,String,String)
+  where CAP#1 is a fresh type-variable:
+    CAP#1 extends Comparable<CAP#1> from capture of ?
+Note: /home/user/monarchy/mdvlcraft-binder/src/main/java/com/mdvlcraft/binder/command/WeaponReport.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+5 errors
+
+> Task :compileJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.8/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 36s
+4 actionable tasks: 2 executed, 2 up-to-date
+EXIT 1

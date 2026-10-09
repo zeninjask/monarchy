@@ -11,19 +11,19 @@ public final class WheelScreen extends Screen {
     private static final int DEAD_ZONE = 14;
 
     public WheelScreen() {
-        super(Component.m_237115_("screen.mdvlcraft.wheel"));
+        super(Component.translatable("screen.mdvlcraft.wheel"));
     }
 
-    public boolean m_7043_() {
+    public boolean isPauseScreen() {
         return false;
     }
 
     private int slotCenterX(int slot) {
-        return this.f_96543_ / 2 + (int)Math.round(56.0 * Math.cos(angle(slot)));
+        return this.width / 2 + (int)Math.round(56.0 * Math.cos(angle(slot)));
     }
 
     private int slotCenterY(int slot) {
-        return this.f_96544_ / 2 + (int)Math.round(56.0 * Math.sin(angle(slot)));
+        return this.height / 2 + (int)Math.round(56.0 * Math.sin(angle(slot)));
     }
 
     private static double angle(int slot) {
@@ -31,8 +31,8 @@ public final class WheelScreen extends Screen {
     }
 
     private int hovered(double mouseX, double mouseY) {
-        double dx = mouseX - this.f_96543_ / 2.0;
-        double dy = mouseY - this.f_96544_ / 2.0;
+        double dx = mouseX - this.width / 2.0;
+        double dy = mouseY - this.height / 2.0;
         if (dx * dx + dy * dy < 196.0) {
             return -1;
         } else {
@@ -41,10 +41,10 @@ public final class WheelScreen extends Screen {
         }
     }
 
-    public void m_88315_(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
+    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
         int hovered = this.hovered(mouseX, mouseY);
         int shown = hovered >= 0 ? hovered : ClientAbilities.selected();
-        SlateGui.disc(graphics, this.f_96543_ / 2, this.f_96544_ / 2, 76, false);
+        SlateGui.disc(graphics, this.width / 2, this.height / 2, 76, false);
 
         for (int slot = 0; slot < 8; slot++) {
             int x = this.slotCenterX(slot) - 12;
@@ -59,21 +59,21 @@ public final class WheelScreen extends Screen {
             ClientAbilities.slot(slot).ifPresent(ability -> drawAbility(graphics, ability, x + 4, y + 4));
         }
 
-        SlateGui.disc(graphics, this.f_96543_ / 2, this.f_96544_ / 2, 18, true);
+        SlateGui.disc(graphics, this.width / 2, this.height / 2, 18, true);
         ClientAbilities.slot(shown).ifPresent(ability -> {
-            drawAbility(graphics, ability, this.f_96543_ / 2 - 8, this.f_96544_ / 2 - 8);
-            int textWidth = this.f_96547_.m_92852_(ability.displayName());
-            int bannerTop = this.f_96544_ / 2 + 56 + 12 + 14;
-            SlateGui.panel(graphics, this.f_96543_ / 2 - textWidth / 2 - 6, bannerTop, textWidth + 12, 16);
-            graphics.m_280614_(this.f_96547_, ability.displayName(), this.f_96543_ / 2 - textWidth / 2, bannerTop + 4, -1512206, false);
+            drawAbility(graphics, ability, this.width / 2 - 8, this.height / 2 - 8);
+            int textWidth = this.font.width(ability.displayName());
+            int bannerTop = this.height / 2 + 56 + 12 + 14;
+            SlateGui.panel(graphics, this.width / 2 - textWidth / 2 - 6, bannerTop, textWidth + 12, 16);
+            graphics.drawString(this.font, ability.displayName(), this.width / 2 - textWidth / 2, bannerTop + 4, -1512206, false);
         });
-        super.m_88315_(graphics, mouseX, mouseY, partialTick);
+        super.render(graphics, mouseX, mouseY, partialTick);
     }
 
     private static void drawAbility(GuiGraphics graphics, Ability ability, int x, int y) {
         AbilityDisplay.drawIcon(graphics, ability, x, y);
         if (ClientAbilities.level(ability) == 0) {
-            graphics.m_280509_(x, y, x + 16, y + 16, -1337978864);
+            graphics.fill(x, y, x + 16, y + 16, -1337978864);
         }
     }
 
@@ -83,22 +83,22 @@ public final class WheelScreen extends Screen {
             ClientAbilities.select(hovered);
         }
 
-        this.m_7379_();
+        this.onClose();
     }
 
-    public boolean m_7920_(int keyCode, int scanCode, int modifiers) {
-        if (AbilityKeys.WHEEL.m_90832_(keyCode, scanCode)) {
-            double scale = (double)this.f_96541_.m_91268_().m_85445_() / this.f_96541_.m_91268_().m_85443_();
-            this.choose(this.f_96541_.f_91067_.m_91589_() * scale, this.f_96541_.f_91067_.m_91594_() * scale);
+    public boolean keyReleased(int keyCode, int scanCode, int modifiers) {
+        if (AbilityKeys.WHEEL.matches(keyCode, scanCode)) {
+            double scale = (double)this.minecraft.getWindow().getGuiScaledWidth() / this.minecraft.getWindow().getScreenWidth();
+            this.choose(this.minecraft.mouseHandler.xpos() * scale, this.minecraft.mouseHandler.ypos() * scale);
             return true;
         } else {
-            return super.m_7920_(keyCode, scanCode, modifiers);
+            return super.keyReleased(keyCode, scanCode, modifiers);
         }
     }
 
-    public boolean m_6375_(double mouseX, double mouseY, int button) {
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
         if (button == 1) {
-            this.f_96541_.m_91152_(new AbilityScreen());
+            this.minecraft.setScreen(new AbilityScreen());
         } else {
             this.choose(mouseX, mouseY);
         }

@@ -31,10 +31,10 @@ public abstract class AnimationTrailParticleMixin extends TextureSheetParticle {
     private void mdvlcraft$stanceColour(
         ClientLevel level, LivingEntityPatch<?> owner, Joint joint, AssetAccessor<? extends StaticAnimation> animation, TrailInfo trailInfo, CallbackInfo ci
     ) {
-        ClientStances.active(((LivingEntity)owner.getOriginal()).m_19879_()).ifPresent(element -> {
-            this.f_107227_ = (element.colour >> 16 & 0xFF) / 255.0F;
-            this.f_107228_ = (element.colour >> 8 & 0xFF) / 255.0F;
-            this.f_107229_ = (element.colour & 0xFF) / 255.0F;
+        ClientStances.active(((LivingEntity)owner.getOriginal()).getId()).ifPresent(element -> {
+            this.rCol = (element.colour >> 16 & 0xFF) / 255.0F;
+            this.gCol = (element.colour >> 8 & 0xFF) / 255.0F;
+            this.bCol = (element.colour & 0xFF) / 255.0F;
         });
     }
 }

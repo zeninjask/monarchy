@@ -9,12 +9,12 @@ import net.minecraftforge.network.NetworkEvent.Context;
 
 public record AssignSlotPacket(int slot, Optional<ResourceLocation> ability) {
     public static void encode(AssignSlotPacket packet, FriendlyByteBuf buf) {
-        buf.m_130130_(packet.slot);
-        buf.m_236835_(packet.ability, FriendlyByteBuf::m_130085_);
+        buf.writeVarInt(packet.slot);
+        buf.writeOptional(packet.ability, FriendlyByteBuf::writeResourceLocation);
     }
 
     public static AssignSlotPacket decode(FriendlyByteBuf buf) {
-        return new AssignSlotPacket(buf.m_130242_(), buf.m_236860_(FriendlyByteBuf::m_130281_));
+        return new AssignSlotPacket(buf.readVarInt(), buf.readOptional(FriendlyByteBuf::readResourceLocation));
     }
 
     public static void handle(AssignSlotPacket packet, Supplier<Context> context) {

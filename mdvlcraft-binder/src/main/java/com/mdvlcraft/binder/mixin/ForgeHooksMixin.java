@@ -23,6 +23,6 @@ public abstract class ForgeHooksMixin {
     private static void mdvlcraft$stripForbiddenLoot(
         ResourceLocation lootTableId, ObjectArrayList<ItemStack> generatedLoot, LootContext context, CallbackInfoReturnable<ObjectArrayList<ItemStack>> cir
     ) {
-        ((ObjectArrayList)cir.getReturnValue()).removeIf(DisabledContent::isForbidden);
+        cir.getReturnValue().removeIf(DisabledContent::isForbidden);
     }
 }

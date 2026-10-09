@@ -158,7 +158,7 @@ final class ShipPonderScenes {
     }
 
     private static void fitPlanks(SceneBuilder scene, List<ShipPonderScenes.Frame> frames, Vec3 hint) {
-        scene.overlay().showControls(hint, Pointing.DOWN, 60).rightClick().withItem(new ItemStack(Items.f_42647_));
+        scene.overlay().showControls(hint, Pointing.DOWN, 60).rightClick().withItem(new ItemStack(Items.OAK_PLANKS));
         scene.overlay().showText(80).text("Right-click every frame with planks to give it a wood").pointAt(hint).placeNearTarget().attachKeyFrame();
 
         for (ShipPonderScenes.Frame frame : frames) {
@@ -198,17 +198,18 @@ final class ShipPonderScenes {
         if (!ForgeRegistries.BLOCKS.containsKey(item(path))) {
             throw new IllegalStateException("aleki's Nifty Ships has no block " + item(path));
         } else {
-            return ((Block)ForgeRegistries.BLOCKS.getValue(item(path))).m_49966_();
+            return ((Block)ForgeRegistries.BLOCKS.getValue(item(path))).defaultBlockState();
         }
     }
 
     private static <T extends Comparable<T>> BlockState with(BlockState state, String name, String value) {
-        Property<T> property = state.m_60734_().m_49965_().m_61081_(name);
+        @SuppressWarnings("unchecked")
+        Property<T> property = (Property<T>)state.getBlock().getStateDefinition().getProperty(name);
         if (property == null) {
-            throw new IllegalStateException(ForgeRegistries.BLOCKS.getKey(state.m_60734_()) + " has no property " + name);
+            throw new IllegalStateException(ForgeRegistries.BLOCKS.getKey(state.getBlock()) + " has no property " + name);
         } else {
-            T parsed = (T)property.m_6215_(value).orElseThrow(() -> new IllegalStateException(name + " cannot be " + value));
-            return (BlockState)state.m_61124_(property, parsed);
+            T parsed = (T)property.getValue(value).orElseThrow(() -> new IllegalStateException(name + " cannot be " + value));
+            return (BlockState)state.setValue(property, parsed);
         }
     }
 

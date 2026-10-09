@@ -12,7 +12,7 @@ public record SpellAbility(AbstractSpell spell) implements Ability {
 
     @Override
     public Component displayName() {
-        return Component.m_237115_(this.spell.getComponentId());
+        return Component.translatable(this.spell.getComponentId());
     }
 
     @Override
