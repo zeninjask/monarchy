@@ -157,11 +157,6 @@
         "attribute": "reach-entity-attributes:reach",
         "operation": "addition",
         "value": 1.0
-      },
-      {
-        "attribute": "additionalentityattributes:generic.dig_speed",
-        "operation": "addition",
-        "value": 1.0
       }
     ],
     "condition": {

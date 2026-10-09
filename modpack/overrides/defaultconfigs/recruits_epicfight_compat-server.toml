@@ -1,0 +1,28 @@
+
+#Recruits Epic Fight Compatibility Configuration
+[general]
+	#Damage multiplier for recruit attacks hitting players (e.g. 0.5 = 50% damage reduction)
+	#Range: 0.05 ~ 2.0
+	playerDamageMultiplier = 0.5
+	#Number of consecutive swings before a recruit enters fatigue state
+	#Range: 1 ~ 20
+	fatigueSwingThreshold = 4
+	#Duration of recruit fatigue pause in ticks (20 ticks = 1 second)
+	#Range: 10 ~ 200
+	fatigueDurationTicks = 60
+	#Probability that a player's successful parry or dodge stuns the attacking recruit (e.g. 0.5 = 50% chance)
+	#Range: 0.0 ~ 1.0
+	playerDefenseStunChance = 0.5
+	#Overall probability that a melee recruit attempts a defensive maneuver when attacked (e.g. 0.4 = 40% chance)
+	#Range: 0.0 ~ 1.0
+	recruitOverallDefenseChance = 0.4
+	#Share of successful recruit defenses that result in a Block vs Parry (e.g. 0.75 = 75% Block, 25% Parry)
+	#Range: 0.0 ~ 1.0
+	recruitBlockShare = 0.75
+	#Recovery pause duration between attack series in ticks (20 ticks = 1 second)
+	#Range: 0 ~ 100
+	attackSeriesCooldown = 40
+	#Navigation speed multiplier for recruits stepping back during fatigue
+	#Range: 0.2 ~ 3.0
+	evasiveSpeedMultiplier = 1.0
+

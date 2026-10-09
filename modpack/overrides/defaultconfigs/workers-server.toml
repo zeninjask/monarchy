@@ -1,0 +1,126 @@
+
+#Workers Config:
+[Workers]
+	#
+	#The amount of currency required to hire a farmer.
+	#	(takes effect after restart)
+	#	default: 10
+	#Range: 0 ~ 1453
+	FarmerCost = 10
+	#
+	#The amount of currency required to hire a lumberjack.
+	#	(takes effect after restart)
+	#	default: 12
+	#Range: 0 ~ 1453
+	LumberjackCost = 12
+	#
+	#The amount of currency required to hire a miner.
+	#	(takes effect after restart)
+	#	default: 16
+	#Range: 0 ~ 1453
+	MinerCost = 16
+	#
+	#The amount of currency required to hire a builder.
+	#	(takes effect after restart)
+	#	default: 20
+	#Range: 0 ~ 1453
+	BuilderCost = 20
+	#
+	#The amount of currency required to hire a merchant.
+	#	(takes effect after restart)
+	#	default: 30
+	#Range: 0 ~ 1453
+	MerchantCost = 30
+	#
+	#The amount of currency required to hire a courier.
+	#	(takes effect after restart)
+	#	default: 30
+	#Range: 0 ~ 1453
+	CourierCost = 20
+	#
+	#The amount of currency required to hire a cook.
+	#	(takes effect after restart)
+	#	default: 25
+	#Range: 0 ~ 1453
+	CookCost = 25
+	#
+	#Whether the villager breeding mixin is active.
+	#When enabled, villagers can breed using any food item
+	#based on its nutrition value instead of only vanilla
+	#bread/carrot/potato/beetroot.
+	#Disable this if you experience compatibility issues with other mods.
+	#	(takes effect after restart)
+	#	default: true
+	VillagerBreedMixinEnabled = true
+	#
+	#The total saturation value required in a villager's inventory
+	#to trigger breeding (only used when VillagerBreedMixinEnabled = true).
+	#Saturation is calculated as: nutrition * saturationModifier * 2
+	#Examples at default threshold 15:
+	#- Bread (saturation 6.0): needs 3 bread  â†’ 18 >= 15
+	#- Cooked Beef (saturation 12.8): needs 2 â†’ 25 >= 15
+	#- Baked Potato (saturation 6.0): needs 3 â†’ 18 >= 15
+	#	(takes effect after restart)
+	#	default: 15
+	#Range: 1 ~ 100
+	VillagerBreedSaturationThreshold = 15
+	#
+	#Should placing a work ara or a building only be allowed when in a claim of the own faction.
+	#	(takes effect after restart)
+	#	default: false
+	ShouldWorkAreaOnlyBeInFactionClaim = false
+	#
+	#Should only buildings be allowed to place.
+	#	(takes effect after restart)
+	#	default: false
+	ShouldOnlyPlacingBuildingsBePossible = false
+	#
+	#The max amount of animals in a pen. After the animal worker will not breed.
+	#	(takes effect after restart)
+	#	default: 32
+	#Range: 0 ~ 1453
+	AnimalPenMaxAnimals = 32
+	#
+	#Controls which build mode is active on this server.
+	#	 FREE           - clients may use local scans (default)
+	#	 PRESET         - only server-side preset files can be loaded
+	#	 PRESET_FACTIONS - like PRESET but filtered by team folder
+	#	(takes effect after restart)
+	#Allowed Values: FREE, PRESET, PRESET_FACTIONS
+	BuildMode = "FREE"
+	#
+	#Should workers replace allay spawns. (In Pillager outposts and mansion)
+	#	(takes effect after restart)
+	#	default: true
+	WorkersReplaceAllay = true
+	#
+	#Pickup configuration for miners
+	#	(takes effect after restart)
+	#	Items in this list will be picked up, for example: ["minecraft:sugar", "minecraft:sheep", ...]
+	MinerPickup = ["minecraft:torch", "minecraft:lantern", "minecraft:redstone", "minecraft:cobblestone", "minecraft:deepslate", "minecraft:cobbled_deepslate", "minecraft:sandstone", "minecraft:sand", "minecraft:gravel", "minecraft:flint", "minecraft:coal", "minecraft:calcite", "minecraft:clay_ball", "minecraft:dripstone_block", "minecraft:pointed_dripstone", "minecraft:netherrack", "minecraft:emerald", "minecraft:lapis_lazuli", "minecraft:diamond", "psg:raw_potassium", "psg:sulphur"]
+	#
+	#Blocks in this list will be skipped by the miner.
+	#	(takes effect after restart)
+	#	For example: ["minecraft:torch", "minecraft:chest", ...]
+	MinerIgnore = ["minecraft:air", "minecraft:cave_air", "minecraft:torch", "minecraft:wall_torch", "minecraft:lantern", "minecraft:lever", "minecraft:redstone_torch", "minecraft:redstone_wall_torch", "minecraft:redstone_wire", "minecraft:redstone_lamp", "minecraft:rail", "minecraft:water", "minecraft:soul_lantern", "minecraft:soul_torch", "minecraft:soul_wall_torch", "minecraft:netherrack"]
+	#
+	#Pickup configuration for animal-farmers
+	#	(takes effect after restart)
+	#	Items in this list will be picked up, for example: ["minecraft:sugar", "minecraft:stone", ...]
+	AnimalFarmerPickup = ["minecraft:feather", "minecraft:leather", "minecraft:milk_bucket", "minecraft:chicken", "minecraft:mutton", "minecraft:egg", "minecraft:prokchop", "minecraft:beef", "minecraft:rabbit", "naturalist:duck", "naturalist:venison", "naturalist:fur", "naturalist:bushmeat", "naturalist:antler", "naturalist:duck_egg", "farmersdelight:ham"]
+	#
+	#Pickup configuration for farmers
+	#	(takes effect after restart)
+	#	Items in this list will be picked up, for example: ["minecraft:sugar", "minecraft:stone", ...]
+	FarmerPickup = ["minecraft:wheat", "minecraft:wheat_seeds", "minecraft:beetroot_seeds", "minecraft:beetroot_seeds", "minecraft:carrot", "minecraft:potato", "minecraft:poisonous_potato", "minecraft:pumpkin", "minecraft:pumpkin_seeds", "minecraft:melon", "minecraft:melon_seeds", "minecraft:melon_slice", "supplementaries:flax", "farmersdelight:straw", "herbalbrews:green_tea_leaf"]
+	#
+	#Pickup configuration for lumberjacks
+	#	(takes effect after restart)
+	#	Items in this list will be picked up, for example: ["minecraft:sugar", "minecraft:stone", ...]
+	LumberjackPickup = ["minecraft:stick", "minecraft:bee_nest", "dynamictrees:oak_seed", "dynamictrees:birch_seed", "dynamictrees:apple_oak_seed", "dynamictrees:spruce_seed", "dynamictrees:cocoa_seed"]
+	#
+	#Pickup configuration for fishermans
+	#	(takes effect after restart)
+	#	Items in this list will be picked up, for example: ["minecraft:sugar", "minecraft:stone", ...]
+	FishermanPickup = ["minecraft:tropical_fish", "minecraft:pufferfish", "naturalist:catfish", "naturalist:bass"]
+

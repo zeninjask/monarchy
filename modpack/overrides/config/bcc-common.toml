@@ -1,11 +1,14 @@
+
 #General settings
 [general]
 	#The CurseForge project ID for the modpack
-	#Range: 0 ~ 2147483647
+	#Range: > 0
 	modpackProjectID = 0
 	#The name of the modpack
 	modpackName = "MDVLCraft"
 	#The version of the modpack
-	modpackVersion = "1.9.11"
+	modpackVersion = "1.9.12"
 	#Use the metadata.json to determine the modpack version
+	#ONLY ENABLE THIS IF YOU KNOW WHAT YOU ARE DOING
 	useMetadata = false
+

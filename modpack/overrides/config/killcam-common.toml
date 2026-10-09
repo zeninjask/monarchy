@@ -1,0 +1,42 @@
+
+["Kill Cam Settings"]
+	#Enable the Kill Cam feature
+	enableKillCam = true
+	#Enable the Kill Cam time slow feature
+	enableKillCamTimeSlow = true
+	#Make the player invulnerable during the kill cam time slow
+	invulnerableDuringKillCam = true
+	#Lock the player's turning when the kill cam time slow is active
+	turningLockDuringKillCam = true
+	#Ticks before time slow starts
+	delayBegin = 6
+	#Ticks before time speed returns to normal
+	delayEnd = 11
+	#Time slow speed (lower is slower, 20.0 is normal)
+	amplifier = 2
+	#Kill Cam FOV
+	killCamFov = 0.45
+	#Kill Cam screen effect duration (use when time slow disabled)
+	killCamScreenEffectDuration = 30
+	#Entities that ALWAYS trigger kill cam (Highest priority) (format: modid:entity_id)
+	whitelist = []
+	#Entities that NEVER trigger kill cam (format: modid:entity_id)
+	blacklist = ["minecraft:silverfish"]
+	#Minimum max health of the entity to trigger time slow
+	minMaxHealth = 50.0
+	#Trigger kill cam if it's a boss
+	bossCheckEnabled = true
+	#Trigger kill cam if it's the last enemy in the area
+	lastEnemyEnabled = true
+	#Radius to check for nearby enemies
+	lastEnemyRadius = 16.0
+
+["Epic Fight Compat"]
+	#List of animation IDs that will trigger the kill cam time slow
+	#You can use an exact animation ID, or a directory prefix ending with '/' to match all animations in it
+	#This is a SERVER-SIDE setting
+	#Example: ["efn:biped/yamato_judgementcut_end", "efn:biped/hf_murasama/slash/"]
+	killCamAnimations = ["efn:biped/exsiliumgladius_reborn/exsiliumgladius_abba", "efn:biped/exsiliumgladius_reborn/exsiliumgladius_abbb", "efn:biped/falchion/falchion_airslash", "efn:biped/falchion/falchion_ex2", "efn:biped/hf_murasama/skill/hf_murasama_zandatsu", "efn:biped/hf_murasama/skill/hf_murasama_zandatsu_air", "efn:biped/hf_murasama/skill/hf_murasama_y_charge", "efn:biped/hf_murasama/skill/hf_murasama_xy_charge", "efn:biped/hf_murasama/skill/hf_murasama_xxy_charge", "efn:biped/hf_murasama/skill/hf_murasama_xxxy_charge", "efn:biped/hf_murasama/skill/hf_murasama_xxxy", "efn:biped/hf_murasama/skill/hf_murasama_air_y_charge", "efn:biped/hf_murasama/skill/hf_murasama_air_y", "efn:biped/hf_murasama/skill/hf_murasama_dash_y_sp", "efn:biped/hf_blade/skill/hf_blade_zandatsu", "efn:biped/hf_blade/skill/hf_blade_zandatsu_air", "efn:biped/hf_blade/skill/hf_blade_y_charge", "efn:biped/hf_blade/skill/hf_blade_xy_charge", "efn:biped/hf_blade/skill/hf_blade_xxy_charge", "efn:biped/hf_blade/skill/hf_blade_xxxy_charge", "efn:biped/hf_blade/skill/hf_blade_xxxy", "efn:biped/hf_blade/skill/hf_blade_air_y_charge", "efn:biped/hf_blade/skill/hf_blade_air_y", "efn:biped/hf_blade/skill/hf_blade_dash_y_sp", "efn:biped/nf_claw/nf_claw_beastroar", "efn:biped/nf_claw_n/nf_claw_beastroar", "efn:biped/nf_claw/nf_claw_auto3", "efn:biped/nf_claw_n/nf_claw_auto3", "efn:biped/nf_dual/nf_dual_auto4", "efn:biped/nf_dual/nf_dual_dodgestorm", "efn:biped/nf_dual/nf_dual_stormatk", "efn:biped/nf_dual/nf_dual_skill", "efn:biped/nf_dual/nf_dual_skill_hit", "efn:biped/nf_meen/nf_meen_auto2", "efn:biped/nf_meen/nf_meen_auto4", "efn:biped/nf_meen/nf_meen_charge1", "efn:biped/nf_meen/nf_meen_charge2", "efn:biped/nf_meen/nf_meen_charge3", "efn:biped/nf_meen/nf_meen_skill_max", "efn:biped/nf_shortsword/nf_shortsword_auto6", "efn:biped/nf_skill/biped_execute", "efn:biped/nf_skill/biped_stomp", "efn:biped/nf_sword/nf_sword_auto4", "efn:biped/nf_sword/nf_sword_skill1", "efn:biped/nf_tachi/nf_tachi_auto5", "efn:biped/nf_tachi/nf_tachi_bloodlust", "efn:biped/nf_tachi/nf_tachi_bloodlust_end", "efn:biped/ng_greatsword/ng_great_airslash", "efn:biped/ng_greatsword/ng_great_skill_clash", "efn:biped/ng_greatsword/ng_great_skill_clash_hit", "efn:biped/ng_greatsword/ng_great_charge1max", "efn:biped/scythe/combat/scythe_auto5", "efn:biped/scythe/skill/scythe_harvest", "efn:biped/scythe/skill/scythe_scarlet_end", "efn:biped/sekiro/fushigiri/fushigiri_1", "efn:biped/sekiro/fushigiri/fushigiri_2", "efn:biped/sekiro/kusabimaru/dragon_flash", "efn:biped/sekiro/kusabimaru/ichimonji_1", "efn:biped/sekiro/kusabimaru/ichimonji_2", "efn:biped/sekiro/kusabimaru/sakura_dance", "efn:biped/sekiro/kusabimaru/shadow_rush", "efn_enhance:biped/sekiro/fushigiri/fushigiri_1", "efn_enhance:biped/sekiro/fushigiri/fushigiri_2", "efn_enhance:biped/sekiro/fushigiri/mortalblade_1", "efn_enhance:biped/sekiro/fushigiri/mortalblade_3", "efn_enhance:biped/sekiro/fushigiri/fake_mortalblade_2", "efn_enhance:biped/sekiro/kusabimaru/dragon_flash", "efn_enhance:biped/sekiro/kusabimaru/ichimonji_1", "efn_enhance:biped/sekiro/kusabimaru/ichimonji_2", "efn_enhance:biped/sekiro/kusabimaru/sakura_dance", "efn_enhance:biped/sekiro/kusabimaru/shadow_rush", "efn:biped/thornwheel/thornwheel_attack3", "efn:biped/thornwheel/thornwheel_loop", "efn:biped/thornwheel/thornwheel_start", "efn:biped/yamato/dmcyamato_helmbreaker", "efn:biped/yamato/dmcyamato_flare_cut", "efn:biped/yamato/dmcyamato_flare_just", "efn:biped/yamato/dmcyamato_flare_rapid", "efn:biped/yamato/dmcyamato_orbit_2", "efn:biped/yamato/dmcyamato_killerbee", "efn:biped/yamato/dmcyamato_judgementcut_just", "efn:biped/yamato/dmcyamato_rapidslash", "efn:biped/yamato/dmcyamato_slasher_3", "efn:biped/yamato/dmcyamato_slasher_crosscut_3", "efn:biped/yamato/dmcyamato_divorce_3", "efn:biped/yamato/dmcyamato_aerialrave_3", "efn:biped/yamato/dmcyamato_upperslash", "efn:biped/yamato/dmcyamato_upperslash_hold", "efn:biped/yamato/dmcyamato_volcano_hold", "efn:biped/yamato/dmcyamato_volcano_cut", "efn:biped/yamato/dmcyamato_volcano", "efn:biped/yamato/dmcyamato_stomp", "efn:biped/yamato_judgementcut_end", "efn:biped/hf_murasama/slash/", "efn:biped/hf_blade/slash/", "wom:biped/skill/katana_gesshoku"]
+	#Check Skill Damage Tag
+	CheckSkillDamage = true
+

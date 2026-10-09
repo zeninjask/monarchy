@@ -83,6 +83,8 @@ for key in ('golden_weapon_boosts', 'golden_weapon_boosts_offhand'):
     mods = [m for m in greedy[key]['modifiers'] if m['attribute'] != 'minecraft:generic.attack_damage']
     assert len(mods) == len(greedy[key]['modifiers']) - 1
     greedy[key]['modifiers'] = mods
+# this Origins build has no Dig Speed attribute; the modifier only made the power fail to load fully
+greedy['golden_tool_boosts']['modifiers'] = [m for m in greedy['golden_tool_boosts']['modifiers'] if 'dig_speed' not in m['attribute']]
 greedy['description'] = 'Hobgoblins have a special relationship with treasure: they find more loot with golden weapons and take less damage in a full set of golden armor.'
 power('medievalorigins:goblin/greedy', greedy)
 origin('medievalorigins:goblin', remove=['medievalorigins:goblin/nippy', 'medievalorigins:goblin/stunted'], name='Hobgoblin',

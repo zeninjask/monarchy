@@ -1,0 +1,37 @@
+
+[villageRecruits]
+	#Stop AI factions from Village Recruits from building their villages up into cities.
+	#Player factions still build when their leader allows it.
+	stopAiVillageBuilding = true
+	#Stop Recruits and Village Recruits from giving their soldiers beneficial effects of their own
+	#(morale, elite, leader and travel buffs). Potions, spells and beacons still work on them.
+	stripRecruitBuffs = true
+
+[combat]
+	#How long a hit with the Inverted Spear of Heaven stops any effect being applied to the target.
+	#Range: 0 ~ 60
+	invertedSpearSealSeconds = 4
+	#Cursed Fate technique damage is multiplied by (caster's melee damage / this value).
+	#6 is an iron sword. 0 turns the scaling off.
+	#Range: 0.0 ~ 1000.0
+	techniqueReferenceDamage = 6.0
+	#Lowest multiplier technique damage can get, e.g. when cast bare-handed.
+	#Range: 0.0 ~ 1.0
+	techniqueMinimumFactor = 0.5
+
+[mobGear]
+	#Give hostile mobs (entity type tags mdvlcraft:armed_mobs and mdvlcraft:armoured_mobs) weapons from
+	#Epic Fight and Epic Knights and armour no better than iron, including Epic Knights armour.
+	enabled = true
+	#Chance for a mob in mdvlcraft:armed_mobs to spawn with a melee weapon.
+	#Range: 0.0 ~ 1.0
+	weaponChance = 0.4
+	#Chance for a mob in mdvlcraft:armoured_mobs to spawn with armour.
+	#Range: 0.0 ~ 1.0
+	armorChance = 0.4
+	#For a mob that gets armour, the chance for each slot to get a piece.
+	#Range: 0.0 ~ 1.0
+	armorPieceChance = 0.6
+	#Only give mobs weapons made of iron or weaker materials (no diamond, netherite, steel and so on).
+	weaponsUpToIron = true
+
