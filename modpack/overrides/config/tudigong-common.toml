@@ -23,10 +23,10 @@ mark_location = true
 
 [Searching]
 	#When searching for structures, try to find structures in unexplored chunks. This may increase search times and is not applicable to biome searches.
-	avoid_duplicate_searches = true
+	avoid_duplicate_searches = false
 	#The search radius in chunks for structures.
 	#Range: 10 ~ 500
-	structure_search_radius_chunks = 100
+	structure_search_radius_chunks = 50
 	#The search radius in blocks for biomes.
 	#Range: 100 ~ 20000
 	biome_search_radius_blocks = 6400

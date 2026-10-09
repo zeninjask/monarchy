@@ -739,7 +739,7 @@
 	#villages, send some settlers to a far empty spot and, after
 	#a delay, found a brand new village belonging to that faction.
 	#
-	enabled = true
+	enabled = false
 	#Money a faction must spend to found a new village. Paid from the
 	#SEPARATE expansion war chest (see economy.expansionIncomeFraction),
 	#not the normal treasury. This is the price of the faction's FIRST
