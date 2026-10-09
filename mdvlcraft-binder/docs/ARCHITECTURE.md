@@ -297,6 +297,21 @@ being the player. The weapon bonuses add together into one multiplier: `amount *
 
 ---
 
+## 7a. Compatibility fixes (added in 0.7.2)
+
+| Class | Fixes |
+|---|---|
+| `mixin.epicfight.ColliderMixin` | An attack animation that names a joint the attacker's armature does not have (Super Golem's Golem Heart swung by a recruit) now hits nothing instead of throwing and crashing the server. |
+| `mixin.wom.ReuseableEventsMixin` + `compat.wom.EnderObscurisTeleport` | Replaces WoM 2.0.171's Ender Obscuris teleport events (`lambda$static$23`, `lambda$static$21`), whose unbounded search loop could hang the server. Each handler checks the animation it fired for, so a WoM update that renumbers lambdas does not hijack other events. |
+| `client.TrueInvisibilityRender` | HIGHEST-priority `RenderLivingEvent.Pre` listener that hides entities with Iron's `true_invisibility` before Epic Fight's battle-mode renderer draws them. |
+| `compat.issponder.PreviewCasts` | Un-cancels `SpellPreCastEvent` for ISS Ponder's FakePlayer in `iss_ponder:spell_preview` (EF x Iron's Compat cancelled every preview cast). |
+| `mixin.villagerecruits.*` + `compat.villagerecruits.AiVillageBuilding` | Redirects `VillageFactionManager.autoBuildsCity` in the city planner and the builder manager so AI factions do not build. Toggle: `stopAiVillageBuilding` in `config/mdvlcraft-common.toml` (`config.BinderConfig`). |
+
+WoM and Village Recruits are compile-only dependencies (`libs/compat.txt`); their mixins are
+`@Pseudo` with `require = 0`, so the Binder still loads without them.
+
+---
+
 ## 8. Network (channel `mdvlcraft:main`, protocol "4")
 
 | # | Packet | Dir | Payload |
