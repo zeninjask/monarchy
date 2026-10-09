@@ -4,6 +4,8 @@ import com.mdvlcraft.binder.ability.AbilityReward;
 import com.mdvlcraft.binder.attribute.BinderAttributes;
 import com.mdvlcraft.binder.client.ClientAbilitySetup;
 import com.mdvlcraft.binder.client.ClientContentSetup;
+import com.mdvlcraft.binder.compat.issponder.PreviewCasts;
+import com.mdvlcraft.binder.config.BinderConfig;
 import com.mdvlcraft.binder.content.DisabledContentSetup;
 import com.mdvlcraft.binder.epicskill.EpicSkillReward;
 import com.mdvlcraft.binder.integration.CataclysmIntegration;
@@ -15,6 +17,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig.Type;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
@@ -28,6 +31,7 @@ public final class MDVLBinder {
     public MDVLBinder(FMLJavaModLoadingContext context) {
         IEventBus modBus = context.getModEventBus();
         IEventBus forgeBus = MinecraftForge.EVENT_BUS;
+        context.registerConfig(Type.COMMON, BinderConfig.SPEC);
         DisabledContentSetup.register(modBus);
         BinderAttributes.register(modBus);
         modBus.addListener(MDVLBinder::onCommonSetup);
@@ -37,6 +41,7 @@ public final class MDVLBinder {
         }
 
         EpicFightIntegration.register(modBus, forgeBus);
+        PreviewCasts.register();
         CataclysmIntegration.register(modBus, forgeBus);
     }
 

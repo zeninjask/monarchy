@@ -86,6 +86,10 @@ dependencies {
     listed('libs/nested.txt').each { name ->
         compileOnly fg.deobf("local:${name}:0")
     }
+    // Optional mods the Binder patches but does not require (libs/compat.txt)
+    listed('libs/compat.txt').each { name ->
+        compileOnly fg.deobf("local:${name}:0")
+    }
 }
 
 if (!file('libs/core.txt').exists()) {
