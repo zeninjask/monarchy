@@ -1,0 +1,480 @@
+
+[promotion]
+	#Maximum allowed promotion tier (1-3).
+	#If a recruit reaches a tier higher than this value, promotion is blocked.
+	#
+	#Range: 1 ~ 3
+	maxTier = 3
+	#Money cost to promote a plain villager-recruit into a Tier 1 soldier
+	#class (shieldman / bowman / crossbowman / nomad). A class change is a
+	#real investment, not a trickle upgrade. Default: 120
+	#
+	#Range: 0 ~ 1000000
+	promotionCostTier1 = 120
+	#Money cost to promote into a Tier 2 soldier class. Default: 350
+	#Range: 0 ~ 1000000
+	promotionCostTier2 = 350
+	#Money cost to promote into a Tier 3 soldier class. Default: 750
+	#Range: 0 ~ 1000000
+	promotionCostTier3 = 750
+	#Weapon material for Tier 1 recruits.
+	#Supported values:
+	#- "wood"
+	#- "stone"
+	#- "iron"
+	#- "gold"
+	#- "diamond"
+	#- "netherite"
+	#
+	tier1WeaponMaterial = "stone"
+	#Armor material for Tier 1 recruits.
+	#Supported values:
+	#- "leather"
+	#- "chainmail"
+	#- "iron"
+	#- "gold"
+	#- "diamond"
+	#- "netherite"
+	#
+	tier1ArmorMaterial = "leather"
+	#Weapon material for Tier 2 recruits.
+	tier2WeaponMaterial = "iron"
+	#Armor material for Tier 2 recruits.
+	tier2ArmorMaterial = "chainmail"
+	#Weapon material for Tier 3 recruits.
+	tier3WeaponMaterial = "diamond"
+	#Armor material for Tier 3 recruits.
+	tier3ArmorMaterial = "diamond"
+
+[announcements]
+	#Master switch for global chat announcements. When a notable event
+	#happens in the world (diplomacy change, an assault being launched, a
+	#village being conquered) a message is broadcast to EVERY online
+	#player. Turn this off to silence all of the messages below at once.
+	#Default: true
+	#
+	enabled = true
+	#Announce in chat every time two factions change their relationship
+	#(declare war, form an alliance or make peace). Default: true
+	#
+	announceDiplomacy = true
+	#Announce in chat every time a village launches an assault on an enemy
+	#village. Default: true
+	#
+	announceAttacks = true
+	#Announce in chat every time a village is conquered and changes owner.
+	#Default: true
+	#
+	announceConquest = true
+	#Announce in chat every time two AI villages complete a trade.
+	#Default: true
+	#
+	announceTrade = true
+	#Append a small greyed-out hint ("you can disable these messages in
+	#the config") to every announcement above, so players know the
+	#messages can be turned off. Default: true
+	#
+	showDisableHint = true
+	#Warn players in chat when a village of THEIR OWN faction spots an
+	#enemy nearby: what the enemy is, which faction it belongs to (if any)
+	#and where it is. The enemy also starts glowing for a few seconds so it
+	#can be picked out at a glance.
+	#
+	#The village only reports what its own soldiers/workers actually ran
+	#into -- there is no omniscient scan around the village center. This is
+	#a targeted message to nearby faction members, NOT a global broadcast,
+	#so it is not affected by the "enabled" master switch above.
+	#Default: true
+	#
+	announceEnemySpotted = true
+	#How close (blocks) a player must be to the spotted enemy to receive the
+	#alert above. Only players in the SAME faction as the village that made
+	#the detection are told. Default: 96.0
+	#
+	#Range: 8.0 ~ 512.0
+	enemyAlertRadius = 96.0
+	#SECOND way to receive the alert above: a player of the village's OWN faction
+	#standing this close to the VILLAGE CENTER is told too, however far the enemy
+	#is. Without this the alert was measured only player-to-enemy, so a contact
+	#made by the ranged soldiers at the far end of a patrol road (archers spot and
+	#shoot at up to ~40 blocks from a picket that already sits ~84 blocks out) was
+	#silent for the player standing in his own village — exactly the report you
+	#most want. Set to 0 to disable and keep the old player-to-enemy rule only.
+	#Default: 128.0
+	#
+	#Range: 0.0 ~ 512.0
+	enemyAlertCenterRadius = 128.0
+	#Minimum ticks before the SAME enemy can raise the alert again, so a
+	#long fight does not spam the chat. 20 ticks = 1 second.
+	#Default: 200 (10 seconds)
+	#
+	#Range: 20 ~ 24000
+	enemyAlertCooldownTicks = 200
+	#How long (ticks) a spotted enemy glows after the alert. 20 ticks = 1
+	#second. Set to 0 to disable the glow and keep only the chat message.
+	#Default: 200 (10 seconds)
+	#
+	#Range: 0 ~ 6000
+	enemyAlertGlowTicks = 200
+	#Tell a player who belongs to NO faction how to enlist, when they walk
+	#into the territory of a village that would accept them. The message
+	#names the village and the exact phrase to say in chat.
+	#
+	#This is a targeted message to one player, NOT a global broadcast, so it
+	#is not affected by the "enabled" master switch above. Default: true
+	#
+	announceJoinHint = true
+	#Minimum ticks before the SAME village can offer the enlistment hint to
+	#the SAME player again, so walking in and out of the border does not spam
+	#the chat. 20 ticks = 1 second. Default: 6000 (5 minutes)
+	#
+	#Range: 20 ~ 1728000
+	joinHintCooldownTicks = 6000
+	#Tell a player who BELONGS to a village faction, when they get close to one
+	#of their OWN faction's villages, that they can right-click the village
+	#leader to talk to them (open the leader menu). Works for both AI-run and
+	#player-run village factions. Shown once per village per player.
+	#
+	#This is a targeted message to one player, NOT a global broadcast, so it
+	#is not affected by the "enabled" master switch above. Default: true
+	#
+	announceLeaderHint = true
+	#Tell the LEADER of a PLAYER faction, when they get close to one of their
+	#villages that has a builder, that they can right-click the builder to
+	#turn automatic construction on or off. Shown once per village per leader.
+	#
+	#This is a targeted message to one player, NOT a global broadcast, so it
+	#is not affected by the "enabled" master switch above. Default: true
+	#
+	announceBuilderHint = true
+	#Tell the LEADER of a PLAYER faction, the first time they own a village
+	#capital and get close to one of their villages, that they can now command
+	#their villages from the faction menu via the new "Command" button. Shown
+	#once per leader.
+	#
+	#This is a targeted message to one player, NOT a global broadcast, so it
+	#is not affected by the "enabled" master switch above. Default: true
+	#
+	announceCommandHint = true
+	#Remind a player, a few seconds after they log in, that the in-game wiki
+	#exists and can be opened three ways: the keybind, the /vrwiki command,
+	#or the manual they were given. A help system nobody knows about is the
+	#same as no help system.
+	#
+	#This is a targeted message to ONE player on their OWN login, never a
+	#server-wide broadcast, so it is not affected by the "enabled" master
+	#switch above - and forty veterans are not told something only the
+	#newcomer needed every time somebody joins.
+	#It STOPS FOR GOOD the first time that player opens the wiki by any
+	#route, and gives up on its own after wikiReminderMaxTimes below.
+	#The key it names is read on the CLIENT, so a player who rebound it is
+	#told the key they actually use. Default: true
+	#
+	wikiReminderEnabled = false
+	#How many logins a player who never opens the wiki is reminded, before
+	#the reminder gives up on them permanently. Somebody who is simply not
+	#interested should not be nagged for the life of the world.
+	#0 = no limit (only opening the wiki stops it). Default: 3
+	#
+	#Range: 0 ~ 100
+	wikiReminderMaxTimes = 3
+	#Right-clicking the Village Recruits Manual opens the in-game WIKI
+	#directly, instead of opening the written book and making the player
+	#left-click the [ Open the Wiki ] link inside it.
+	#
+	#The book is four pages of introduction; the wiki is the actual
+	#documentation, with pictures. Right-click is the shortest route to the
+	#thing worth reading, and the link inside the book stays where it is
+	#either way.
+	#SNEAK + right-click always opens the book itself to be READ, whatever
+	#this is set to - so the four pages are never unreachable. That is the
+	#same sneak-is-the-other-action rule the Service Marker uses.
+	#false = the book behaves like any written book. Default: true
+	#
+	wikiBookOpensWiki = true
+
+[travel]
+	#Give recruits a temporary speed boost while they still have a long way
+	#to travel toward their destination (following the leader, a move order,
+	#a combat target, ...). While boosted their hunger drains faster.
+	#Default: true
+	#
+	travelBoostEnabled = true
+	#How far (in blocks) a recruit's destination must be before the travel
+	#speed boost kicks in. Default: 10
+	#
+	#Range: 2 ~ 128
+	travelBoostMinDistance = 10
+	#Amplifier of the Speed effect applied while travelling. 0 = Speed I,
+	#1 = Speed II, ... Default: 1
+	#
+	#Range: 0 ~ 5
+	travelBoostSpeedAmplifier = 1
+	#Extra hunger points drained per second while a recruit is enjoying the
+	#travel speed boost (on top of the base-mod drain). A recruit whose
+	#hunger is already empty gets no boost. Default: 0.15
+	#
+	#Range: 0.0 ~ 10.0
+	travelBoostHungerDrainPerSecond = 0.15
+
+[offline]
+	#EMPTY-SERVER IDLE: when NO player is online anywhere on the server,
+	#freeze the whole village simulation — no growth, no building, no
+	#economy, no diplomacy, no attacks, no expansions, no rebellions, no
+	#offline force-loading. The server truly idles until someone logs in.
+	#
+	#With no player online there is nobody to witness or be affected by AI
+	#village activity, yet the offline model keeps force-loading villages to
+	#run battles/expansions/rebellions and abstract growth in the background,
+	#burning CPU on a world nobody is in. This stops all of it and lets those
+	#force-load holds expire, so an unattended server sits at near-zero load.
+	#
+	#Everything resumes automatically the moment a player joins; nothing is
+	#lost, each manager just re-evaluates on its next cycle.
+	#
+	#Turn this off to keep AI villages living their lives on an empty server
+	#(the old behavior). Default: true
+	#
+	pauseWhenNoPlayersOnline = true
+	#PERFORMANCE ON BIG WORLDS: limit how many villages the AI may
+	#force-load AT THE SAME TIME.
+	#
+	#Sleeping villages are nearly free: with no player nearby there are no
+	#entities, no AI and no pathfinding, so a world with 100+ villages costs
+	#almost nothing while they idle. The cost comes from ACTIONS: every
+	#battle, expansion or rebellion force-loads a ~8-chunk entity-ticking
+	#radius around a village center, with real entities, squad AI and
+	#pathfinding. Each faction decides on its own, so nothing stopped 20 of
+	#them from attacking within the same minute and keeping 40 villages
+	#awake at once. The server does not lag from the NUMBER of villages, it
+	#lags from how many are ACTIVE at once — this is the ceiling on that.
+	#
+	#Actions in villages that are already loaded (a player is standing
+	#there) are never throttled: they force-load nothing, so they cost
+	#nothing extra. Actions already in flight are never interrupted either
+	#— only their START goes through the throttle.
+	#
+	#Turn this off to restore the old unlimited behavior. Default: true
+	#
+	offlineThrottleEnabled = true
+	#Maximum number of offline villages that may be force-loaded at once for
+	#BATTLES, EXPANSIONS and REBELLIONS (the expensive actions: whole
+	#villages loaded and fighting).
+	#
+	#This is the setting that actually caps the load. A spacing rule alone
+	#does not: with a 5-minute battle window (offlineBattleLoadTicks) and one
+	#attack every 30s you still pile up ~10 concurrent battles. When the cap
+	#is full, further attacks/expansions/rebellions are simply skipped and
+	#re-evaluated on their next cycle (nothing is lost or queued).
+	#
+	#Raise it if your server has CPU headroom and you want a busier world,
+	#lower it if AI wars cause lag spikes. Default: 4
+	#
+	#Range: 1 ~ 64
+	offlineMaxConcurrentActions = 4
+	#Minimum delay (in ticks) between two offline BATTLE/EXPANSION/REBELLION
+	#starts. Stops several of them from firing on the very same tick (a load
+	#spike followed by silence) and spreads the chunk loading out instead.
+	#
+	#This smooths the load; offlineMaxConcurrentActions is what bounds it.
+	#20 ticks = 1 second. Set to 0 to disable the spacing and rely on the cap
+	#alone. Default: 600 (30 s)
+	#
+	#Range: 0 ~ 12000
+	offlineActionSpacingTicks = 600
+	#Maximum number of offline villages that may be force-loaded at once for
+	#BUILDING (instant structure placement in villages far from any player).
+	#
+	#Separate from offlineMaxConcurrentActions, and higher, because an
+	#offline build only slams blocks into the world — no combat, no squad AI,
+	#no pathfinding — so it costs far less than a battle. Sharing one budget
+	#would starve construction across the whole map every time a war broke
+	#out, and villages would visibly stop growing. Default: 8
+	#
+	#Range: 1 ~ 64
+	offlineMaxConcurrentBuilds = 8
+	#Minimum delay (in ticks) between two offline BUILD starts. Kept short:
+	#building is cheap and every village does it, so a long gap here would
+	#noticeably slow down how fast the world's villages grow.
+	#20 ticks = 1 second. Set to 0 to disable. Default: 100 (5 s)
+	#
+	#Range: 0 ~ 12000
+	offlineBuildSpacingTicks = 100
+	#STARTUP WARMUP: for this many ticks after the server has started, block
+	#the AI from STARTING new offline force-loads (battles, expansions,
+	#rebellions, offline builds).
+	#
+	#When a world loads, chunk tickets persisted in the save are reinstalled
+	#and a batch of village centers briefly ticks at once — a load spike that
+	#settles after a few seconds as those villages go back offline. Without
+	#this window the AI would pile fresh force-loaded battles/builds on top of
+	#that spike the moment the first tick runs. This does NOT touch villages a
+	#player is standing in (those are never throttled) nor actions already in
+	#flight — only NEW offline starts wait until the world has settled.
+	#
+	#20 ticks = 1 second. Set to 0 to disable the warmup. Default: 1200 (60 s)
+	#
+	#Range: 0 ~ 12000
+	offlineThrottleStartupTicks = 1200
+	#Let the hole-filling REPAIRMAN work in villages that are not really
+	#online, i.e. villages that only tick because WE are force-loading them
+	#for a battle/expansion.
+	#
+	#Off by default: repairing craters is pure cosmetics that nobody is
+	#around to see, and doing it during a force-load window adds terrain
+	#scanning and block placement on top of the battle that the window was
+	#actually opened for. With this off, the repairman only runs when a real
+	#player is within simulation distance. Default: false
+	#
+	offlineRepairEnabled = false
+
+[update]
+	#UPDATE NOTICE: check once at server start whether a newer release of
+	#this addon is out, and tell the server owner in game.
+	#
+	#A server owner has no reason to look at the mod's page every day, so an
+	#addon that ships a crash fix can sit unnoticed for weeks. The check is a
+	#single HTTPS GET of a small version file, done on a background thread
+	#with a short timeout: it never blocks world load, and if it fails (no
+	#internet, file moved, rate limit) it is silently forgotten -- the game
+	#is never affected by the outcome.
+	#
+	#Nothing about the world or the players is sent; the request only asks
+	#for the file. Turn this off to make the addon never touch the network.
+	#Default: true
+	#
+	updateCheckEnabled = false
+	#Where to read the version file from. This is the SAME file Forge's own
+	#mod-list update indicator uses (the 'updateJSONURL' format), so one file
+	#serves both.
+	#
+	#Point this at your own fork if you host your own builds. An empty
+	#string disables the check just like updateCheckEnabled=false.
+	#
+	updateCheckUrl = "https://raw.githubusercontent.com/magarellivito09-boop/Village-Recruits/master/update.json"
+	#WHO gets told, as a minimum permission level (the /op level):
+	#  0 = every player who joins,
+	#  2 = ops / server owner only (default),
+	#  4 = server operator with full permissions only.
+	#
+	#Ordinary players cannot act on an update -- only whoever installs the
+	#jar can -- so telling everyone is noise. In single player the host
+	#always qualifies (they hold permission level 4 in their own world).
+	#
+	#Range: 0 ~ 4
+	updateNotifyPermissionLevel = 2
+	#How stale a result may get before the next JOIN triggers a fresh check,
+	#in hours. There is no timer: the check is re-run at most once per this
+	#interval, and only when someone actually logs in, so an idle server
+	#makes no requests at all.
+	#
+	#0 = check only once, at server start.
+	#Default: 6
+	#
+	#Range: 0 ~ 168
+	updateCheckIntervalHours = 6
+
+[sleep]
+	#Kill a villager or a recruit belonging to a village and you cannot sleep
+	#for the rest of that day. The bed refuses you and says why.
+	#
+	#This is what makes a war cost something between the battles. Night is
+	#when a player least wants to be outside - mobs on every road, and
+	#phantoms once you have been awake long enough - so a campaign fought
+	#without pause becomes genuinely punishing and PEACE becomes worth
+	#making. Every village counts, including another player's: a villager is
+	#a villager whoever owns the place.
+	#
+	#It applies in a declared war exactly as it does in peace. That is the
+	#point rather than an oversight - if war suspended it, it would only ever
+	#punish murder, and murder is not the thing that needs a cost.
+	#
+	#CREATIVE and SPECTATOR are exempt at both ends: the kill is not
+	#remembered and the bed never refuses. Building and clearing a site are
+	#not crimes of conscience.
+	#Default: true
+	#
+	restlessNightsEnabled = true
+	#How many days of sleeplessness one kill costs, counting the day of the
+	#kill itself. 1 = you lose that night only.
+	#
+	#Raising it makes a war much heavier: at 3, a week of fighting is a week
+	#of phantoms. Note that the count is in DAYS and not in kills - a battle
+	#in which you cut down thirty men costs exactly what one ambush does,
+	#because it is remorse and not a tally.
+	#Default: 1
+	#
+	#Range: 1 ~ 30
+	restlessNightsDays = 1
+	#A village's off-duty SOLDIERS sleep in its beds.
+	#
+	#This is a PERFORMANCE setting first. Nearly everything a loaded recruit
+	#costs the server is his AI - sensing, goals, targeting, navigation - and
+	#a sleeping one runs none of it, so a village that is not fighting stops
+	#paying for an army that is not doing anything. On a busy world with
+	#several hundred recruits loaded it is the single biggest saving this
+	#addon can make.
+	#
+	#The rules: only while the village is NOT under attack (a wandering
+	#zombie is not an attack), never more than garrisonSleepFraction of the
+	#garrison, never an officer, never a worker, and never a man who is away
+	#on a convoy, a column, a battle or an escort. One bed, one sleeper - so
+	#a village sleeps as many men as it has beds and no more.
+	#They are woken instantly by a blow, by a player talking to them, and by
+	#the village being attacked.
+	#Turn this off if you would rather every soldier stayed on his feet.
+	#Default: true
+	#
+	garrisonSleepEnabled = true
+	#The largest share of a village's soldiers that may be asleep at once.
+	#The rest are the watch. It is what keeps a village looking manned rather
+	#than abandoned, and it is why a raid never arrives to find every
+	#defender lying down.
+	#0.75 = three men in four. 1.0 lets the whole garrison sleep, which is the
+	#fastest and the least defensible. Default: 0.75
+	#
+	#Range: 0.0 ~ 1.0
+	garrisonSleepFraction = 0.75
+	#Health a sleeping soldier recovers every 5 seconds.
+	#Resting is how a garrison heals between wars without a player doing
+	#anything about it. 0 disables the healing and keeps the performance
+	#saving. Default: 1.0
+	#
+	#Range: 0.0 ~ 20.0
+	garrisonSleepRegen = 1.0
+	#Sleeping healing is paid for out of the man's own rations, like every
+	#other point of health in this mod.
+	#⚠️ Leave this ON unless you know you want the other thing. The food
+	#model exists because healing costs something - all three of the base
+	#mod's free heals were removed for it - and a heal in bed that cost
+	#nothing would immediately be the best one in the game: no food, no
+	#withdrawal, no shieldman. With it on, a fed soldier who lies down
+	#recovers and a starving one does not, which is also a reason to keep the
+	#granary full.
+	#Ignored for anything the food model does not govern (nobles, or the
+	#model switched off) - those heal free either way.
+	#Default: true
+	#
+	garrisonSleepRegenCostsFood = true
+	#A soldier with nowhere to sleep may turn a VILLAGER out of his bed.
+	#He may never take another soldier's - a garrison that could would spend
+	#every pass shuffling the same men between the same mattresses.
+	#⚠️ The villager whose bed is taken keeps his claim on it (the mod does
+	#not touch bed ownership, which is what villager housing and breeding hang
+	#off), so he will stand about instead of finding another. Turn this off if
+	#you would rather your villagers always got a night's sleep and your
+	#soldiers only used spare beds.
+	#Default: true
+	#
+	garrisonSleepEvictVillagers = true
+	#How long a soldier sent to a bed has to reach it, in ticks, before he
+	#gives up and the bed goes to somebody else.
+	#The give-up is not a nicety: a bed across a river, behind a door his
+	#pathfinding will not open, or in a house that has since been demolished
+	#would otherwise leave him walking towards it for the rest of the save,
+	#holding a sleeping slot nobody else can use.
+	#Default: 600 (30 s)
+	#
+	#Range: 100 ~ 24000
+	garrisonSleepWalkTimeoutTicks = 600
+

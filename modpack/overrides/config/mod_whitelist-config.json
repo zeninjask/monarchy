@@ -1,0 +1,44 @@
+{
+  "USE_WHITELIST_ONLY": false,
+  "CLIENT_MOD_NECESSARY": [
+    "mod_whitelist"
+  ],
+  "CLIENT_MOD_WHITELIST": [
+    "forge",
+    "mod_whitelist"
+  ],
+  "CLIENT_MOD_BLACKLIST": [
+    "aristois",
+    "bleachhack",
+    "meteor-client",
+    "wurst",
+    "impact",
+    "inertia",
+    "liquidbounce",
+    "rusherhack",
+    "future",
+    "freecam",
+    "freecamera",
+    "free_cam",
+    "freecam_forge",
+    "xray",
+    "xraymod",
+    "advanced_xray",
+    "advancedxray",
+    "simplexray",
+    "simple_xray",
+    "xray_ultimate",
+    "oreesp",
+    "ore_esp",
+    "orefinder",
+    "ore_finder",
+    "seedcrackerx",
+    "chestesp",
+    "xaerominimap",
+    "xaerominimapfair",
+    "xaeroworldmap",
+    "xaeroplus",
+    "xaerobetterpvp",
+    "xaerolib"
+  ]
+}

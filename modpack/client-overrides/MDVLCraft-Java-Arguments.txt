@@ -1,0 +1,12 @@
+MDVLCraft client: Java 17 and memory
+====================================
+
+Modrinth packs cannot set Java arguments, so set these once in your launcher:
+  Modrinth App:  instance > Settings > Java and memory > Memory: 8192 MB, Java arguments: paste the line below
+  Prism Launcher: instance > Edit > Settings > Java > Memory: 8192 MiB min and max, JVM arguments: paste the line below
+  CurseForge app: Settings > Minecraft > Java Settings (allocated memory and additional arguments)
+
+Java: 17 (Temurin 17 recommended). Memory: 8 GB (6 GB minimum; at most about half your system RAM).
+
+JVM arguments (one line):
+-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1

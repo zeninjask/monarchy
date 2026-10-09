@@ -3,11 +3,11 @@
 which of them the Binder needs in the dev environment.
 
 Sources:
-  modpack/client.modrinth.index.json and modpack/server.modrinth.index.json
-      (copied out of MDVLCraft 1.9.9; every file is fetched from cdn.modrinth.com
-      and checked against its sha512)
-  any *.mrpack given on the command line, or ../*.mrpack by default
-      (for jars shipped as overrides, e.g. epic_fight_ponder, which is not on Modrinth)
+  ../modpack/client.modrinth.index.json and ../modpack/server.modrinth.index.json
+      (every file is fetched from its download URL and checked against its sha512)
+  ../modpack/mods/*.jar
+      (jars the pack ships as overrides because they are not on Modrinth)
+  any *.mrpack given on the command line (their overrides/mods jars are added too)
 
 Writes:
   libs/modpack/<jar>         every mod in the pack except the Binder itself
@@ -16,6 +16,7 @@ Writes:
                              build.gradle puts these on the compile and runtime classpath
   libs/nested/, nested.txt   jar-in-jar libraries (e.g. Ponder inside epic_fight_ponder)
                              that the Binder compiles against
+  libs/compat.txt            optional mods the Binder has compat code for (compile only)
 
 Needs network access to cdn.modrinth.com.
 """
@@ -32,11 +33,15 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-INDEXES = [ROOT / "modpack" / "client.modrinth.index.json", ROOT / "modpack" / "server.modrinth.index.json"]
+PACK = ROOT.parent / "modpack"
+INDEXES = [PACK / "client.modrinth.index.json", PACK / "server.modrinth.index.json"]
 OUT = ROOT / "libs" / "modpack"
 CORE = ROOT / "libs" / "core.txt"
 NESTED = ROOT / "libs" / "nested"
 NESTED_LIST = ROOT / "libs" / "nested.txt"
+COMPAT_LIST = ROOT / "libs" / "compat.txt"
+# Optional mods the Binder has compat code for: compiled against, never required at runtime
+COMPAT_PREFIXES = ("WeaponsOfMiracles-", "village_recruits-")
 SELF = "mdvlcraft"
 PROVIDED = {"forge", "minecraft", "javafml", "lowcodefml"}
 
@@ -77,6 +82,13 @@ def fetch_index() -> None:
             name = path.split("/", 1)[1]
             print(f"  {name}")
             download(entry, OUT / name)
+
+
+def copy_pack_jars() -> None:
+    """Jars the pack ships as overrides (not on Modrinth), kept in modpack/mods."""
+    for jar in sorted((PACK / "mods").glob("*.jar")):
+        print(f"  {jar.name} (override)")
+        (OUT / jar.name).write_bytes(jar.read_bytes())
 
 
 def extract_overrides(packs: list[Path]) -> None:
@@ -183,15 +195,19 @@ def newest(jars: list[str]) -> list[str]:
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    packs = [Path(p) for p in sys.argv[1:]] or sorted(ROOT.parent.glob("*.mrpack"))
     print("Downloading modpack files")
     fetch_index()
-    print("Extracting overrides")
-    extract_overrides(packs)
+    print("Copying override jars")
+    copy_pack_jars()
+    if len(sys.argv) > 1:
+        print("Extracting overrides from the given packs")
+        extract_overrides([Path(p) for p in sys.argv[1:]])
     print("Resolving the Binder's dependencies")
     core, nested = dependency_closure()
     CORE.write_text("\n".join(core) + "\n")
     NESTED_LIST.write_text("\n".join(nested) + "\n")
+    compat = sorted(jar.name for jar in OUT.glob("*.jar") if jar.name.startswith(COMPAT_PREFIXES) and jar.name not in core)
+    COMPAT_LIST.write_text("\n".join(compat) + "\n")
     print(f"{len(core)} jars listed in {CORE.relative_to(ROOT)}, {len(nested)} nested jars in {NESTED_LIST.relative_to(ROOT)}")
 
 

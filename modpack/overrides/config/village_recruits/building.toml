@@ -1,0 +1,1132 @@
+
+[roads]
+	#The roads leaving the village centre start level with the centre
+	#structure's own floor, instead of one block below it.
+	#
+	#The founding cross has always been laid at the tower's floor; the CITY
+	#PLAN's arteries were anchored one block lower, so every village's main
+	#roads began underneath the building they lead out of - you stepped down
+	#out of the tower onto them, and everything that reads a road's height
+	#(branch roads, the plot connectors, the buildings themselves) inherited
+	#the drop. It shows most on a wide centre structure, where the road runs
+	#under the floor for many blocks before it emerges.
+	#
+	#⚠️ On an EXISTING village the arteries are already in the ground one
+	#block low. This does not move them - nothing rebuilds a road that is
+	#already laid - but a stretch that is later RE-LAID (a road recorded as
+	#built with no blocks in the world, which the repairman heals) comes back
+	#at the corrected height and may leave a one-block step where it meets an
+	#older neighbouring stretch. Set false to keep every road exactly where
+	#it is.
+	#Default: true
+	#
+	centerRoadAtTowerFloor = true
+	#A road or a building that touches a tree fells the WHOLE tree, instead of
+	#only the part standing in the way.
+	#
+	#Every terrain pass used to clear trees cell by cell, inside whatever
+	#volume it owned - the road corridor, the plot's box, a few blocks of
+	#headroom. That is right for terrain and wrong for a tree, which is one
+	#object whose canopy reaches well past its trunk: what was left behind was
+	#a trunk cut off at road height with its crown still hanging in the air,
+	#and canopies floating over a street with nothing under them. Nothing ever
+	#tidied either one - an offline village never repairs, and the works are
+	#grief-protected, so the player cannot take them down by hand.
+	#
+	#The tree is found by flood fill through the LOGS and LEAVES tags, so a
+	#modded tree is felled exactly like an oak. A wall of logs is NOT a tree
+	#and is left standing (a log is only followed when there is canopy above
+	#it and no roof), leaves you placed yourself (persistent) are never taken,
+	#and the felling never loads a chunk - a crown reaching into sleeping
+	#ground is left alone rather than paged in.
+	#
+	#Nothing drops: clearing a tree in the way is terraforming, not
+	#harvesting, and a forest's worth of items dropped into a village is its
+	#own performance problem.
+	#
+	#Set false to go back to clearing only the cells in the way.
+	#Default: true
+	#
+	wholeTreeRemoval = true
+	#A bare trunk with open sky above it - a tree whose canopy is already
+	#gone - still counts as a tree and is felled.
+	#
+	#A log is normally recognised as a tree by the CANOPY above it, and that
+	#test cannot see a trunk that has already lost its leaves: to it, open sky
+	#reads exactly like a roofless wooden structure, so the trunk was
+	#preserved forever. Nothing else takes it down either - an offline village
+	#never repairs, and the works are grief-protected, so the player cannot
+	#break it by hand. Result: bare wooden poles standing in the middle of a
+	#village. This heals the ones already in a world.
+	#
+	#Three conditions have to hold together, so this is not a licence to
+	#delete anybody's wood: the log has AT MOST 4 logs in the 5x5 around it
+	#(a trunk, up to a 2x2 spruce - a wall of logs has more), it rests on
+	#real GROUND (dirt/sand/stone or a modded ground block, never on planks,
+	#a foundation, a block with an inventory, or thin air), and there are no
+	#hand-placed (persistent) leaves next to it. Anything with a roof over it
+	#is still refused before this test is ever reached.
+	#
+	#Set false if you build roofless 1x1 or 2x2 log pillars near villages and
+	#want them left alone.
+	#Default: true
+	#
+	strippedTrunkRemoval = true
+	#How much terrain work a road plan may do in a single server tick. One
+	#unit is one block written or one cell examined; the plan is spread over
+	#as many ticks as it needs.
+	#
+	#Road blocks used to be written STRAIGHT INTO THE CHUNK, skipping the
+	#notification every other block placement in the game performs. That was
+	#cheap and it is why this budget could be this high - but it also left the
+	#finished area behaving as if it were frozen: leaves that never decayed,
+	#gravel and sand hanging in the air, water that never flowed back, fences
+	#born unconnected. Roads are now laid like any other block placement, so
+	#the world around them behaves again and each unit of this budget costs
+	#more than it used to.
+	#
+	#Lower it if a village laying a large road network produces a visible
+	#hitch; the roads simply take proportionally longer to appear.
+	#Default: 8000
+	#
+	#Range: 250 ~ 64000
+	roadOpsPerTick = 8000
+	#How far out the ground is CUT BACK around a finished building, in blocks.
+	#
+	#A building is placed at the height of the ROAD it faces, so that its
+	#doorstep and the street agree, and a plot's own ground can be several
+	#blocks off that road. Where the road runs below the plot, the terrain
+	#clear removes everything above the floor for the footprint and its
+	#margin and stops dead there: a pit with sheer walls and the meadow still
+	#at eye level around the roof.
+	#
+	#This is the ground in between. The first ring is taken down flush with
+	#the floor and each ring after it rises one block back toward the natural
+	#surface, until they meet or this many rings have been used - a slope, or
+	#a short flight of one-block terraces, the way a player cuts back around
+	#a house dug into a hill by hand.
+	#
+	#It only ever cuts, never fills: a building standing ABOVE the ground
+	#around it is left standing, because the plot's connector already joins
+	#its door to the road and a skirt of earth around the walls would be
+	#hiding a plinth with a mound.
+	#
+	#Bigger is gentler and costs more block writes once, when the building is
+	#finished. 0 turns it off and restores the bare footprint edge.
+	#Default: 4
+	#
+	#Range: 0 ~ 16
+	buildingGradeRadius = 4
+	#A plot is REFUSED if the ground across it rises and falls by more than
+	#this many blocks, and a different slot is used instead.
+	#
+	#This is a rule about CLIFFS, not about slopes. An uneven plot is not a
+	#problem: the site is graded (buildingGradeRadius above) and the building
+	#set into the levelled ground, which is why villages can be built on hilly
+	#terrain at all. What this catches is a footprint split by a cliff face,
+	#where the grading would have to shift a wall of earth and the house ends
+	#up standing in a quarry whichever way it is placed.
+	#
+	#⚠️ KEEP IT HIGH. Lowering it does not make buildings sit better - it
+	#makes a village in the mountains or the badlands fail to find any plot it
+	#is allowed to use, and simply stop building. The default is far above
+	#anything the grading cannot cope with.
+	#
+	#Measured as highest minus lowest over five columns - the middle of the
+	#plot and its four corners. 0 turns the test off entirely.
+	#Default: 12
+	#
+	#Range: 0 ~ 64
+	plotMaxRelief = 12
+	#Blocks a village refuses to put a building on. A plot holding any of
+	#them is skipped and a different slot is used.
+	#
+	#Full block ids, one per entry. Blocks from other mods work - the id is
+	#resolved against the registry, so anything installed can be listed. An
+	#id that does not resolve is written to the log by name at startup and
+	#otherwise ignored; check there if an entry seems to do nothing (the
+	#classic being 'minecraft:cacti', which is not a block - it is
+	#'minecraft:cactus').
+	#
+	#⚠️ Only ground somebody can SEE is tested. A village plans while nobody
+	#is near it, and reading a block in an ungenerated chunk would generate
+	#the chunk - so an unloaded plot is allowed through rather than
+	#force-loading a region to judge it. The other plot rules (water, relief)
+	#are answered from the terrain photograph and do not have this limit;
+	#block identity cannot be, because the photograph stores heights.
+	#
+	#Empty list turns the test off.
+	#
+	plotHazardBlocks = ["minecraft:lava", "minecraft:fire", "minecraft:soul_fire", "minecraft:magma_block", "minecraft:cactus", "minecraft:sweet_berry_bush", "minecraft:wither_rose", "minecraft:powder_snow", "minecraft:campfire", "minecraft:soul_campfire"]
+	#How deep the foundation under a building may be filled in.
+	#
+	#It exists for a building whose floor is above the ground under part of
+	#its footprint - a corner overhanging a dip, or a plot whose road runs
+	#well above it - and it has to be deep enough to reach the ground in
+	#those cases, or the building is left hanging over a gap.
+	#
+	#It was lowered to 8 when maxBuildingRise still bounded how far a floor
+	#could sit above its own ground. That bound is gone: the floor now always
+	#matches the road, and buildingGradeRadius answers the look of it by
+	#grading the land instead of by moving the building. So this is back to
+	#the depth that actually reaches the ground.
+	#Default: 24
+	#
+	#Range: 1 ~ 64
+	maxFoundationDepth = 24
+	#The centre structure is set INTO the ground rather than standing on it.
+	#
+	#The ground search stops at the lowest cell that still has air in it, so
+	#the structure's bottom layer was laid ON the surface: its floor ended up
+	#one block above the meadow around it, and since the roads leave the
+	#centre at the floor's height they inherited the same step - a village on
+	#a low kerb, most obvious where the land is flat.
+	#
+	#Set into the ground, the bottom layer REPLACES the surface block, so the
+	#floor and the grass outside are the same height to walk on, and a road
+	#leaving the centre lies in the ground instead of on top of it.
+	#
+	#⚠️ Only affects centres placed FROM NOW ON - nothing rebuilds a tower
+	#that is already standing.
+	#Default: true
+	#
+	towerSetIntoGround = true
+	#A SECOND builder joins a worksite this many blocks or larger, and leaves
+	#when that building is finished. 0 disables it.
+	#
+	#One builder is right for a house. It is not right for the tank factory,
+	#which is twelve thousand cells against a cottage's few hundred - one man
+	#carrying nine blocks at a time takes a very long time over it, and the
+	#village builds nothing else while he does.
+	#
+	#The assistant is hired for the job and let go at the end of it. It never
+	#despawns mid-building: the check is made when a worksite finishes, so
+	#what it is carrying always ends up in the wall.
+	#
+	#⚠️ Counted in blocks the builder actually PLACES, which is not the
+	#structure's volume: the Workers NBT has air stripped out, so the tank
+	#factory is 2101 blocks and not the 12400 cells of its bounding box. A
+	#threshold picked from the volume would never be met by anything and the
+	#assistant would simply never appear.
+	#Default: 1200 (the factory is 2101; a house is a few hundred)
+	#
+	#Range: 0 ~ 1000000
+	secondBuilderMinBlocks = 1200
+	#How a village's MAIN roads (the central cross of arteries) are laid out
+	#when the village is founded.
+	#
+	#false (default): the main roads FOLLOW THE NATURAL TERRAIN, just like the
+	#  secondary/branch roads already do — a mostly flat road that cuts small
+	#  bumps and steps ±1 over sustained slopes, bridges water, and blends into
+	#  the landscape. No plateau is carved and no ring hill is raised, so the
+	#  village sits on the land as it is.
+	#
+	#true: restore the OLD behaviour — carve a flat plateau under the village
+	#  and raise a graded ring hill around it, then draw the main cross flat on
+	#  top of that plateau.
+	#
+	#Only affects NEWLY generated villages; villages whose roads were already
+	#  generated keep whatever terrain they were built on.
+	#
+	flattenTerrain = false
+	#How deep a road will CUT into rising ground before it gives up and steps
+	#up a block to follow the slope instead.
+	#
+	#This and maxFillHeight used to be ONE number, and that is what made roads
+	#carve mountains: a road crossing a hillside stayed level until the ground
+	#was three blocks above it, so it sliced a three-deep slot through the
+	#slope, stepped up one, and sliced another - a stepped trench with
+	#near-vertical walls, worst exactly where the terrain was most worth
+	#looking at.
+	#
+	#They are not the same thing in the world. A FILL is an embankment: the
+	#road rides over a dip on made ground, and it already gets shoulders and a
+	#fence, so it reads as built on purpose. A CUT is a hole with the
+	#hillside's insides showing. At 1 the road hugs a rising slope in
+	#single-block steps instead of carving along it.
+	#
+	#Set to 3 to restore the old shape exactly. Default: 1
+	#
+	#Range: 0 ~ 8
+	maxCutDepth = 1
+	#How high a road will FILL over falling ground before it steps down a
+	#block to follow it.
+	#
+	#This was 3, on the reasoning that an embankment reads as built on
+	#purpose while a cut does not. In the world it does not: a road holding
+	#its level over three blocks of falling ground is a dirt wall with a path
+	#on top, standing over the grass beside it, and that is the single most
+	#common complaint about how villages look. At 1 the road sits ON the
+	#ground - it steps down as soon as the ground is two below it - and every
+	#one of those steps is a flight of STAIRS (see stepStairs), so following
+	#the terrain reads as deliberate instead of as a wobble.
+	#
+	#Set to 3 to restore the old embankments. Default: 1
+	#
+	#NOTE: changing a default only reaches config files that do not exist
+	#  yet. A world that already has building.toml keeps whatever value is
+	#  written there - use /vrconfig reset building confirm to take the new
+	#  defaults, or edit maxFillHeight by hand.
+	#
+	#Range: 0 ~ 8
+	maxFillHeight = 1
+	#Lay STAIRS wherever a road changes height by one block, instead of a
+	#bare one-block ledge in the path.
+	#
+	#The stair always goes on the HIGHER of the two columns and faces
+	#UPHILL (in vanilla the full-height half of a stair is on the side it
+	#faces), across the full width of the carriageway - so a sustained slope
+	#becomes a real staircase rather than three separate ledges. Bridge
+	#decks that meet at different heights use the same rule.
+	#
+	#Material follows the ground: the biome's wood normally, sandstone in
+	#the desert and red sandstone in badlands, matching what the road itself
+	#is paved over.
+	#
+	#Default: true (false = the old bare ledges)
+	#
+	stepStairs = true
+	#Keep a CROSSROADS flat: no road ever leaves a staircase where another
+	#road crosses it.
+	#
+	#A branch is already refused a junction that sits on a step, but nothing
+	#stopped a road from running straight THROUGH the staircase of another
+	#one - which is where the two stop meeting at the same height and stop
+	#looking like a crossroads at all.
+	#
+	#Two rules, and both are needed because either road can be laid first:
+	#  - a road holds its height across another road's carriageway and takes
+	#    its step on the first column past it, so the situation is never
+	#    created again;
+	#  - a road that meets a staircase ALREADY built levels the junction to
+	#    the higher of the two sides and re-lays the crossed road's step one
+	#    column clear of the carriageway, so both roads keep their full
+	#    length and cross properly.
+	#
+	#The rework only happens when the arriving road actually reaches the
+	#junction's height (it ramps toward it over the last few blocks); if it
+	#cannot, the crossing is left exactly as it is rather than half-done.
+	#
+	#Default: true (false = roads cross each other's staircases as before)
+	#
+	flatCrossroads = true
+	#How far (in blocks) a building - or the junction of a new branch road -
+	#may SLIDE along its street to get off a staircase.
+	#
+	#Nothing may face a step. A building takes its floor height from the road
+	#column it faces, and a stair is half a block below the carriageway
+	#arriving from the high side and a block above the one arriving from the
+	#low side, so the doorstep cannot meet the street from either - the
+	#building that "expects to connect to the stairs, ends up not connected,
+	#and sits at the wrong height". A branch road grafting onto a step has the
+	#same problem at its junction.
+	#
+	#So a frontage needs THREE flat road columns in a row, and whatever wants
+	#one slides along the road until it finds them - the building moves with
+	#its connection point, a branch moves with everything grafted onto it.
+	#Past this distance the stretch is simply a staircase: the plot is dropped
+	#from the plan (a plot that can never be built would stall the whole
+	#village's build queue), and a branch that cannot graft loses its plots
+	#and is never laid.
+	#
+	#0 disables sliding - anything that lands on a step is dropped outright.
+	#Default: 4
+	#
+	#Range: 0 ~ 16
+	stepFrontageSlideMax = 4
+	#Keep village DOORWAYS clear of road material.
+	#
+	#Roads never break a BUILT block, so the tower's door always survives -
+	#but the ground in front of it does not: a road passing close to a
+	#building raises the terrain (or its bridge railing) right up against the
+	#threshold, and the door ends up walled in. Nobody gets out, nobody gets
+	#in.
+	#
+	#With this on, every ONLINE village (a player within simulation distance)
+	#is swept a few columns at a time: every door and fence gate found gets
+	#the 2-block-tall opening on both of its sides cleared - but ONLY of road
+	#material (dirt path, natural terrain/vegetation, bridge railings). A
+	#built block in front of a door stops the cleanup instead of being
+	#removed, so player walls and decorations are never touched.
+	#Default: true
+	#
+	doorClearEnabled = true
+	#How many blocks OUT from a door the cleanup may dig, at most, to break
+	#through an embankment. This is a CEILING, not a corridor length: the
+	#moment a cell is already free the cleanup stops there, so a door that
+	#opens onto open ground is left exactly as it is. Raise it only if roads
+	#bury your doors under thick embankments. Default: 2
+	#
+	#Range: 1 ~ 6
+	doorClearDepth = 2
+	#Terrain columns examined per pass (every 100 game ticks) while
+	#sweeping a village's buildings for doors. The sweep is incremental and
+	#loops forever, so this only sets how QUICKLY a newly buried door is
+	#found. Higher = sooner, more CPU. Default: 32
+	#
+	#Range: 4 ~ 512
+	doorClearColumnsPerPass = 32
+	#Take down a TOWER OF BRIDGES left behind by an older version.
+	#
+	#Up to 1.0.7.22 a bridge decided its height by reading the HIGHEST deck
+	#already standing in the column and laying itself 3 blocks above it - and
+	#that deck was very often the one the same road had laid on its previous
+	#pass. Since a span with even one step on an unloaded chunk never becomes
+	#'complete', the road healer re-laid it every 600 ticks forever, so the
+	#bridge climbed 3 blocks per pass: a stack of evenly spaced decks growing
+	#into the sky, about two a minute.
+	#
+	#The height rules are fixed, so no new stack can form. This option deals
+	#with the ones already in a save, which a player cannot clear by hand
+	#because village roads are grief-protected. When a bridge is re-laid at
+	#its proper height and finds wood far above it, the column is checked for
+	#the runaway's SIGNATURE - three or more plank layers at an exact 3-block
+	#spacing - and only then are those decks, their railings and their stairs
+	#removed. One deck above a bridge is a legitimate overpass and is left
+	#alone, and nothing but planks, fences and stairs is ever removed.
+	#Default: true
+	#
+	bridgeStackCleanup = true
+	#Carry a road across a deep drop on a BRIDGE instead of on an embankment
+	#of earth.
+	#
+	#A road holds its height and lets the ground fall away under it, filling
+	#the difference in - which is right for a dip and wrong for a cliff, a
+	#ravine or a quarry, where the fill becomes a wall of dirt as tall as a
+	#house with a path on top and the landscape buried underneath. Past
+	#viaductMinHeight the road spans the gap the same way it spans water: a
+	#plank deck at road height, a railing on both sides, and fence pillars
+	#down to the ground every 8 blocks.
+	#
+	#Turning this off restores the earth embankment at any height.
+	#Default: true
+	#
+	viaductEnabled = true
+	#How far the ground has to fall below a road before the road becomes a
+	#BRIDGE instead of an embankment (needs viaductEnabled).
+	#
+	#Below this the road fills as it always did - a short embankment gets
+	#shoulders and a fence and reads as built on purpose. Above it, the fill
+	#is a rampart. Once a span is in the air it stays there until the drop is
+	#3 blocks less than this value: with a single threshold, ground wobbling
+	#either side of it would break one span into an alternation of deck and
+	#rampart, which looks worse than either.
+	#
+	#This also decides where a WATER bridge comes down: a shore still far
+	#below the deck now keeps the deck instead of landing on a new rampart.
+	#Default: 10
+	#
+	#Range: 3 ~ 64
+	viaductMinHeight = 10
+	#Lay a flight of stairs down the SIDE of a road every 10 blocks, wherever
+	#the ground beside it drops but not far enough to earn a fenced shoulder.
+	#
+	#It was meant as a way down off a low embankment. In practice it is a
+	#staircase attached to the flank of a road that nobody asked for, on
+	#terrain a villager can already walk off, and it puts stair blocks exactly
+	#where a building or a branch road wants a flat frontage - so the ramps
+	#were also, indirectly, costing the village plots.
+	#
+	#This does NOT affect the access ramp a building's connector lays at its
+	#own doorway (that one exists to reach a door and is placed against a
+	#frontage that is known to be flat), nor the stairs on the carriageway
+	#itself where the road changes height (see stepStairs).
+	#
+	#Set true to bring the periodic side ramps back. Default: false
+	#
+	sideSafetyStairs = false
+	#How far (in blocks) a road that is climbing may be LENGTHENED past its
+	#planned end, looking for ground flat enough to host a side street.
+	#0 disables it.
+	#
+	#A road that rises a block every column is a staircase for its whole
+	#length, and nothing can face a staircase: a branch road needs three flat
+	#columns in a row to graft onto and a building needs the same to put its
+	#door on. So a road that spends its whole length climbing a hillside ends
+	#at a tip where nothing may be built - a ramp that leads nowhere, which is
+	#what the village paid for it.
+	#
+	#Rather than give up, the ramp CARRIES ON in the same direction, the road
+	#being simulated column by column exactly as it will be laid, until it
+	#finds a run of level ground long enough for a junction - and it stops
+	#there, at the first place that is of any use, not at some fixed distance.
+	#The branch (and everything hanging off it) moves up to that junction.
+	#
+	#Past this distance the slope is a mountain face and the branch is dropped
+	#as before. Bigger costs a longer road and a longer patrol route on it;
+	#the extension is never laid beyond the world border.
+	#Default: 64
+	#
+	#Range: 0 ~ 256
+	rampExtendMax = 64
+	#How many blocks FURTHER the path from a road to a building's door runs
+	#than the strict geometry calls for.
+	#
+	#The connector is laid from the edge of the road to one block short of the
+	#building's near face, so that it never writes into the building's own
+	#footprint. Read from the ground that block short is a visible strip of
+	#grass between the path and the doorstep - the path "not quite arriving".
+	#At 1 the last cell lands on the face itself; the builder lays its wall or
+	#its own doorstep over it afterwards, and cells the structure owns are
+	#skipped anyway.
+	#
+	#0 restores the old gap.
+	#Default: 1
+	#
+	#Range: 0 ~ 4
+	connectorExtraReach = 1
+	#Production buildings (lumber camp, mine, sheep pen, wheat farm, cow pen,
+	#forge, kitchen) are set ONE BLOCK INTO the ground rather than standing on
+	#it.
+	#
+	#Each of them is generated with a walkable dirt apron around its
+	#perimeter at floor level. Placed at ground level that apron - and the
+	#floor with it - sits a block above the grass around it, so the whole
+	#site stands on a low kerb and the path that arrives from the street
+	#meets it at a step. A block lower the apron is flush with the ground
+	#outside and the road runs straight onto it.
+	#
+	#⚠️ Applies to the buildings this mod generates, not to production
+	#buildings shipped by a DATAPACK - those state their own placement height
+	#and it is left alone.
+	#
+	#⚠️ Only affects production buildings put up FROM NOW ON; nothing moves
+	#one that is already standing.
+	#Default: true
+	#
+	productionSetIntoGround = true
+
+[repair]
+	#Give every village a REPAIRMAN: a second builder worker whose only job
+	#is to fill holes in the terrain around the village (creeper craters,
+	#abandoned digs, vertical cave mouths) with dirt/sand/red sand depending
+	#on the biome. With a player nearby he physically walks to the hole and
+	#places the blocks; far/offline villages fill instantly. Filling is free.
+	#
+	#⚠️ OFF by default. It is a second worker per village whose passes
+	#REMOVE and PLACE terrain, and the mistakes of a repair are the ones a
+	#player cannot repair back - it has twice taken ground it should not have.
+	#The judgement it rests on ("is this column a hole?") is a heuristic about
+	#terrain, and a village is full of things that look like holes from
+	#underneath. Turn it on if craters left in your villages bother you more
+	#than the risk does.
+	#
+	#Two repairs are DELIBERATELY not gated on this switch, because they are
+	#faults rather than an optional extra worker: the ghost-road heal (a road
+	#recorded as laid with no blocks in the world) and the tower foundation
+	#heal (a centre tower left standing on air).
+	#
+	#NOTE: this is the default for a config file that does not exist yet.
+	#Forge never rewrites a key an existing file already has, so a world set
+	#up before this changed keeps its stored value - either flip this line in
+	#building.toml or run /vrconfig reset building confirm.
+	#Default: false
+	#
+	repairBuilderEnabled = false
+	#Maximum hole depth (blocks below the surrounding ground level) that gets
+	#filled completely. Deeper voids (cave shafts, ravines) only get a 2-block
+	#PLUG at ground level - the cave below stays intact. Default: 6
+	#
+	#Range: 2 ~ 24
+	repairMaxDepth = 6
+	#How uneven the ground around a hole may be before the repairman leaves it
+	#alone entirely, in blocks.
+	#
+	#This is what keeps him off CLIFFS and MOUNTAINSIDES. A hole is judged
+	#against the level the water would stand at if you poured it in, so a
+	#slope - which drains downhill instead of holding water - already fills
+	#nothing. This is the second line: even where a genuine dip exists, if the
+	#land around it is not reasonably flat then it is a mountain feature and
+	#not damage, and a patch of dirt cut into a hillside looks far worse than
+	#the dip did. Village works are grief-protected, so nobody can take it
+	#back out by hand either.
+	#
+	#Measured on the terrain with the hole itself removed, so a deep cave
+	#shaft in flat ground is still plugged - its own depth does not count
+	#against it. Raise it to let him work rougher ground; 64 is effectively
+	#off. Default: 8
+	#
+	#Range: 2 ~ 64
+	repairMaxRelief = 8
+	#Extra margin (blocks) around the village's road network and plots within
+	#which the repairman also scans for holes. Default: 16
+	#
+	#Range: 0 ~ 64
+	repairScanMargin = 16
+	#Terrain columns examined per manager tick (every 20 game ticks) while
+	#sweeping the village area for holes. Higher = holes found sooner, more
+	#CPU. Default: 64
+	#
+	#Range: 4 ~ 1024
+	repairScanColumnsPerTick = 64
+	#Re-lay village roads that the city plan records as built but that were
+	#never actually placed in the world. A road is skipped wherever its chunks
+	#were not loaded at the time, and until now only a village that still had
+	#a building left to erect ever retried: a village that finished its plots
+	#kept the gaps forever. This checks every village a player is near and
+	#lays the missing stretches a few at a time. It never loads a chunk, so a
+	#sleeping village is repaired when somebody visits it. Independent of
+	#repairBuilderEnabled. Default: true
+	#
+	roadHealEnabled = true
+	#How many missing road stretches are re-laid per pass. Higher = a
+	#neglected village is repaired sooner, at the cost of more terrain work
+	#in one go. Default: 2
+	#
+	#Range: 1 ~ 16
+	roadHealSegmentsPerPass = 2
+	#Game ticks between two road-repair passes on the SAME village (20 ticks
+	#= 1 second). Only villages that still have missing roads pay anything at
+	#all. Default: 600
+	#
+	#Range: 20 ~ 24000
+	roadHealIntervalTicks = 600
+	#ASK THE WORLD whether a road the city plan calls finished is really
+	#there, and re-lay it if it is not.
+	#
+	#A road's blocks are QUEUED, not written: the placer spreads them over
+	#many ticks so a village does not freeze the server. The plan, however,
+	#recorded 'laid' the moment they were queued - and that queue lives only
+	#in memory, so a restart, a world change or a server stop threw away
+	#whatever was still in it. That road was then missing from the world and
+	#declared complete in the save, which is the one state no repair pass
+	#could see: a permanent gap in the network. It happened where the queue
+	#was longest - a village building while the server was lagging.
+	#
+	#New builds no longer lie (the plan is marked laid only once the blocks
+	#are written), but a world that already lost a queue has nothing left to
+	#tell it apart from a healthy one except the ground itself. This samples
+	#the carriageway of each road ONCE per village and, where there is no
+	#trace of a road at all, hands it to the road healer.
+	#
+	#Costs a handful of block reads per village per pass and stops for good
+	#once every road has been looked at. Needs roadHealEnabled. Default: true
+	#
+	roadAuditEnabled = true
+	#ASK THE WORLD whether the short path from the road to a building's door
+	#is really there, and lay it again if it is not.
+	#
+	#That spur used to be laid the moment a building site OPENED, when the
+	#building itself was still a patch of grass - and then the builder
+	#levelled the ground, cleared what was left inside the footprint, and the
+	#path went with it. The cells where the structure lays paving of its own
+	#are skipped on purpose (a builder handed a cell that is already correct
+	#never finishes it), so an interrupted site left a hole nothing came back
+	#to close. Either way the plot was already marked as connected, so it
+	#stayed that way for ever: the house with no way in.
+	#
+	#New buildings lay the spur when the site CLOSES instead, which cannot
+	#hit any of that. This pass is for the ones already standing in your
+	#world - it walks out from the road and, where a whole step of the way is
+	#bare ground, lays the connector again. Loads nothing: a village is
+	#checked when somebody is near it. Needs roadHealEnabled. Default: true
+	#
+	connectorAuditEnabled = true
+	#How many buildings are checked per pass on the same village. Each check
+	#is a handful of block reads; re-laying one is the expensive part, and
+	#never happens twice for the same building in one session. Default: 2
+	#
+	#Range: 1 ~ 16
+	connectorAuditPlotsPerPass = 2
+	#FINISH the buildings a village left half-built.
+	#
+	#A building site does not survive closing the world by itself: the marker
+	#keeps the structure it was given but not the list of blocks it still had
+	#to lay, so a site that was running when you quit comes back with nothing
+	#to do. The village eventually gives up on it and starts the next plot,
+	#and the shell stays exactly as it was - for ever, because as far as the
+	#plan is concerned that plot is built. Leaving and rejoining a few times
+	#while a village is building leaves several.
+	#
+	#This finds those and re-opens construction, laying only the blocks that
+	#are missing. It does NOT charge for them: a village pays for a building
+	#when the site opens, so a shell has already been paid for in full.
+	#
+	#Costs one structure scan per building, once, and only while you are near
+	#the village. A village whose buildings are whole pays that once each and
+	#then nothing. Default: true
+	#
+	unfinishedBuildHealEnabled = true
+	#Game ticks between two such checks on the SAME village (20 ticks = 1
+	#second). One building is measured per check. Default: 600
+	#
+	#Range: 100 ~ 24000
+	unfinishedBuildHealIntervalTicks = 600
+	#How many blocks must be missing before construction is re-opened.
+	#
+	#Low values make a village rebuild anything a player has taken out of one
+	#of its houses, which is the hole-filling repairman's job and not this
+	#one. Default: 12
+	#
+	#Range: 1 ~ 4096
+	unfinishedBuildMinMissing = 12
+	#EXPERIMENTAL - OFF by default. Dig a village building back out when
+	#terrain has BURIED its interior.
+	#
+	#Turn this on only if you have buildings whose insides are full of earth
+	#and you would rather risk the sweep than leave them buried. It has taken
+	#ground it should not have twice: once out from under a wheat field, and
+	#once terracing away the terrain around a pen. Both causes are fixed and
+	#it now peels a column from the top and stops at the first floor, wall or
+	#foundation it meets, so it cannot undercut anything - but a pass that
+	#REMOVES blocks in a village is the one kind of repair whose mistakes are
+	#not repairable, and it has not yet earned the benefit of the doubt.
+	#
+	#What it is for: the hole filler decides what a hole is from the ground
+	#surface, and that reading deliberately looks THROUGH logs and leaves so a
+	#forest floor is not mistaken for a crater. Half a village house is built
+	#out of logs, so it once looked straight through a beamed roof, read the
+	#room's floor as the ground, and filled the room with dirt. The filler no
+	#longer does that, so no NEW building should get buried; this only undoes
+	#what an older version already walled in.
+	#
+	#Removal is narrow: only the blocks the filler itself places (dirt / sand
+	#/ red sand / sandstone) plus the grass and podzol that grow on them, only
+	#in a column with something solid overhead, and only ABOVE the building's
+	#floor line.
+	#Default: false
+	#
+	structureUncoverEnabled = false
+	#Blocks the uncover sweep may remove from ONE building per pass (a pass
+	#runs every 20 ticks and looks at one built plot, round-robin). This only
+	#sets how fast a buried building comes back, not whether it does.
+	#Default: 64
+	#
+	#Range: 1 ~ 4096
+	structureUncoverPerPass = 64
+	#Fill the empty space left UNDER a village's centre tower.
+	#
+	#The tower is anchored to the ground found under one column, so on a
+	#slope, a hollow or a cliff edge its outer columns stand over air. That
+	#void is filled when the tower is placed, but the fill used to skip any
+	#column whose lowest block is not a full cube - a step, a slab floor, a
+	#fence, a window - which is most of a tower's edge, and it never ran at
+	#all for towers built by an older version. The result is air pockets under
+	#the middle of the village that read as ordinary open ground to every
+	#search in the mod, which is how a player travelling to his own village
+	#could arrive UNDERNEATH the centre.
+	#
+	#One pass per village per server session, only for villages a player is
+	#near, and only under columns the tower really occupies - a gateway arch
+	#or an open courtyard is never walled up. Independent of
+	#repairBuilderEnabled: a floating building is a fault, not an extra
+	#worker. Default: true
+	#
+	towerFoundationHealEnabled = true
+
+[demolition]
+	#When a village's claim is DELETED (from the world map), slowly demolish
+	#all of its works - the center tower, buildings, roads, bridges and the
+	#stairs/railings along them - a bit at a time, dropping no items. Only the
+	#BUILT blocks are removed; the natural ground under and around them is left
+	#intact, so no craters. While it is still crumbling the site keeps counting
+	#as a village (no other village can expand onto the rubble); once it is
+	#fully gone the land is free to be settled again. Turning this OFF leaves a
+	#deleted village's buildings standing (and cancels any crumble in progress).
+	#Default: true
+	#
+	demolitionEnabled = true
+	#How many terrain COLUMNS are demolished each game tick. Lower = the
+	#village crumbles more slowly (and more cheaply); higher = it disappears
+	#faster. Default: 16
+	#
+	#Range: 1 ~ 4096
+	demolitionColumnsPerTick = 16
+
+[spawnprotect]
+	#A player cannot open a TRAPDOOR that is part of a village's own works.
+	#
+	#Asked for by the sky hangar's author and it generalises honestly: a
+	#trapdoor inside a village's buildings is part of the building, not
+	#furniture. The hangar's are floor hatches over a working deck, and a
+	#player flipping one open leaves a hole for whatever walks across it -
+	#the village's own crew included, who have no idea it moved.
+	#
+	#Scoped to the WORKS FOOTPRINT, the same index the fire and grief
+	#protection use, so a trapdoor you put in your own house is untouched. An
+	#OP is exempt, as with a village's chests: an admin has to be able to get
+	#into anything.
+	#
+	#The village still opens these itself where a design calls for it - only
+	#the player's interaction is refused, so the block keeps its look and its
+	#function. Replacing it with something that cannot open would be a
+	#different building.
+	#
+	trapdoorsLocked = true
+	#Prevent hostile mobs (zombies, skeletons, creepers, ...) from spawning
+	#near any village center. Keeps villages safe from monster raids.
+	#Default: true
+	#
+	mobSpawnBlockEnabled = true
+	#Also keep AMBIENT mobs - bats - out of a village's safe zones.
+	#
+	#The spawn protection only ever considered MONSTERS, which is the
+	#category that matters for safety and not the one that matters for a
+	#building's interior: a factory or a barracks is a big dark roofed room,
+	#which is precisely what a bat looks for. They are harmless and they are
+	#noise, flapping around a workshop nobody can reach to light up.
+	#
+	#Same zones as the monster rule, so this does not reach a cave in open
+	#country - only the ground a village has built on.
+	#Default: true
+	#
+	blockAmbientSpawns = true
+	#BASE radius (in blocks) around every village center within which natural
+	#hostile-mob spawns are suppressed. A capital's radius then GROWS with the
+	#number of buildings it has erected (see mobSpawnBlockPerBuilding). Default: 100
+	#
+	#Range: 0 ~ 512
+	mobSpawnBlockRadius = 100
+	#Extra spawn-protection radius (in blocks) added per building the capital
+	#has actually built. The safe zone therefore expands as the town grows,
+	#up to mobSpawnBlockMaxRadius. Set 0 to keep a flat radius. Default: 6
+	#
+	#Range: 0 ~ 128
+	mobSpawnBlockPerBuilding = 6
+	#Hard cap (in blocks) on a capital's grown spawn-protection radius, so a
+	#very large town doesn't push the safe zone out indefinitely. Default: 200
+	#
+	#Range: 0 ~ 512
+	mobSpawnBlockMaxRadius = 200
+	#STARTING spawn-protection radius of a SECONDARY village, as opposed to a
+	#capital (mobSpawnBlockRadius, 100).
+	#A capital is a town and a secondary is a hamlet, and giving them the
+	#same safe zone made a two-house outpost as safe as the seat of the
+	#faction. Like a capital's, this radius GROWS with the buildings that
+	#village actually erects - so a secondary that becomes a real town earns
+	#its way up to mobSpawnVillageMaxRadius. Default: 50
+	#
+	#Range: 0 ~ 512
+	mobSpawnVillageRadius = 50
+	#Hard cap on a SECONDARY village's grown radius. Half a capital's by
+	#default, so a well-built hamlet never out-protects the capital it
+	#belongs to. Default: 100
+	#
+	#Range: 0 ~ 512
+	mobSpawnVillageMaxRadius = 100
+	#Radius (in blocks) around EVERY individual built village building (work
+	#houses, barracks, production sites, ...) within which natural hostile-mob
+	#spawns are suppressed. This protects buildings that sit far out along the
+	#roads, beyond the central safe zone. Set 0 to disable per-building
+	#protection (only the central zone stays). Default: 75
+	#
+	#Range: 0 ~ 512
+	mobSpawnBlockBuildingRadius = 75
+	#OPTIONAL periodic rebuild of the mob-spawn safe zones, in ticks.
+	#The zones are normally refreshed lazily (only when a hostile mob tries to
+	#spawn near a village) and, on top of that, this addon now rebuilds them
+	#ONCE automatically a few seconds after every world load — which is what
+	#running /vrspawnprotect by hand used to do, since a village whose faction/
+	#claim/plan data loaded late could otherwise stay unprotected until forced.
+	#That one-shot after load covers the usual "fix it once" case, so this
+	#periodic rebuild is DISABLED by default (0). Set a value (e.g. 1200 = every
+	#minute) only if you want a continuous safety-net rebuild as well; lower
+	#values cost more on very large worlds. Default: 0 (off)
+	#
+	#Range: 0 ~ 24000
+	mobSpawnBlockRefreshIntervalTicks = 0
+	#When spawn protection reaches a spot for the FIRST time (a village is
+	#founded, conquered, or a new building is erected out along the roads), the
+	#hostile mobs already standing inside that brand-new safe zone are removed
+	#once. Without this, blocking new spawns leaves the monsters that were
+	#already there roaming a "protected" village forever.
+	#It happens ONCE per protected spot, and only while that spot is loaded, so
+	#an offline village is cleaned the first time it wakes up. Mobs that wander
+	#in later are never touched - only the arrival of the protection purges.
+	#Default: true
+	#
+	mobSpawnPurgeOnFirstProtect = true
+	#Whether that one-shot purge also removes PERSISTENT hostile mobs: named
+	#ones, leashed ones, mob-spawner spawns and anything flagged to never
+	#despawn. Left false so a player's own mob farm / named pet zombie / boss
+	#next to a village survives; set true for a truly empty safe zone.
+	#Default: false
+	#
+	mobSpawnPurgeIncludePersistent = false
+	#Make village WORKS fireproof: buildings the village has actually
+	#erected, the roads it has laid and the bridges those roads cross on
+	#never burn away, and fire lit on top of them goes out.
+	#A village is almost entirely wood, so one lightning strike, lava flow
+	#or flaming arrow could erase hours of construction (which the village
+	#then has to pay for again — or, if offline, never rebuilds).
+	#Only the actual footprint of the works is protected (building plots +
+	#a small margin, road/bridge carriageway), NOT the whole safe-zone
+	#radius: the forest around a village still burns normally.
+	#Default: true
+	#
+	fireProtectionEnabled = true
+	#Anti-griefing: only the faction LEADER (or a server admin, permission
+	#level 2) may break blocks that belong to a village's works — the
+	#centre tower, the roads/bridges it has laid and the buildings it has
+	#erected (the same footprint used by fireProtectionEnabled). This applies
+	#to BOTH AI and player factions; since AI factions have no player leader,
+	#their village blocks become effectively unbreakable except by an admin,
+	#which stops raiders from dismantling a village they cannot conquer
+	#outright. The whole works footprint is covered, including the terrain
+	#under and around the structures.
+	#EXCEPTION: iron / gold / emerald BLOCKS are always breakable by anyone —
+	#the shipped tower.nbt places them as free loot for players.
+	#Default: true
+	#
+	leaderOnlyBlockBreaking = true
+	#Anti-griefing: only the faction LEADER (or a server admin who is in
+	#CREATIVE mode) may PLACE blocks inside a village's works footprint — the
+	#centre tower, the roads/bridges it has laid and the buildings it has
+	#erected (the same footprint used by leaderOnlyBlockBreaking). This applies
+	#to BOTH AI and player factions; since AI factions have no player leader,
+	#nobody can place blocks in an AI village (except an admin in creative),
+	#which stops outsiders from walling off, cobble-boxing or otherwise defacing
+	#a village they do not own. In a player faction the leader may grant a
+	#member build rights per-village (the same grant that governs breaking) via
+	#the [Village Permissions] menu.
+	#
+	#A player who is refused does NOT lose anything: by default the block is placed
+	#and then takes itself away again a few seconds later, and he gets it back. See
+	#temporaryPlacementSeconds just below, which is where that is configured (set it
+	#to 0 and the placement is refused outright instead, keeping the block in hand).
+	#Default: true
+	#
+	leaderOnlyBlockPlacing = true
+	#How long, in SECONDS, a block placed by somebody who is not allowed to build
+	#here survives before it takes itself away again.
+	#
+	#Refusing the placement outright is correct about ownership and miserable to
+	#play against - a wall you cannot climb, a moat you cannot cross, a torch you
+	#cannot put down while a village's soldiers are killing you. So the block goes
+	#down, and then goes away: nothing PERMANENT can be built on ground that is
+	#not yours, but as scaffolding it works exactly as it does anywhere else.
+	#
+	#The player GETS THE BLOCK BACK when it vanishes (into his inventory, or on the
+	#ground where it stood if he has gone). Trespassing is not supposed to cost him
+	#a stack of cobblestone. Anything he had put INSIDE it - a chest he filled in
+	#those few seconds - drops rather than being deleted with it.
+	#
+	#Whatever was UNDERNEATH is restored too. A carriageway is a dirt path and
+	#vanilla turns a dirt path into plain dirt as soon as something solid is placed
+	#on it, so without that a block dropped on a road and removed would leave a
+	#dirt scar the village never repairs.
+	#
+	#Set to 0 to go back to refusing the placement outright, which is what this
+	#option replaced. Requires leaderOnlyBlockPlacing.
+	#
+	#Range: 0.0 ~ 600.0
+	temporaryPlacementSeconds = 10.0
+	#Anti-griefing: make village works immune to EXPLOSIONS. Blocks inside
+	#the works footprint (same as leaderOnlyBlockBreaking) are removed from
+	#the destruction list of every explosion — TNT, creepers, ghast fireballs,
+	#beds/respawn anchors, end crystals. Entities still take blast damage and
+	#terrain OUTSIDE the footprint still craters; only the village's own
+	#buildings, roads and tower are spared, so a single TNT cannot erase hours
+	#of construction that an offline village would never rebuild.
+	#Default: true
+	#
+	villageBlocksExplosionImmune = true
+	#Anti-griefing: stop ENDERMEN from picking up (or placing) blocks while
+	#they stand inside a village's protected territory — the village claim plus
+	#the peripheral works footprint (roads, bridges, buildings). Without this an
+	#enderman can quietly steal a road/bridge/building block and leave a hole an
+	#offline village never repairs. Only the enderman's block-grief is denied;
+	#it can still spawn, wander and teleport normally, and endermen outside a
+	#village are unaffected.
+	#Default: true
+	#
+	endermanBlockPickupProtect = true
+
+[offlinebuild]
+	#A village nobody is near builds ABSTRACTLY: it pays, books the plot and
+	#runs a construction timer, writing no blocks and force-loading no chunk.
+	#The building appears in the world later, when a player's VIEW distance
+	#reaches the site (or is handed to a real builder if the village comes
+	#back into simulation range while the timer runs).
+	#OFF = the old behaviour: an offline village force-loads its plot and
+	#slams the whole structure in at once.
+	#Default: true
+	#
+	offlineAbstractBuilding = true
+	#How long an abstract build takes, in SECONDS per block of the structure.
+	#1.0 means a 200-block house takes 200 seconds. A village that is on a
+	#big structure gets a second, parallel abstract worksite exactly as a
+	#loaded one hires an assistant builder (see repair/second builder).
+	#Default: 1.0
+	#
+	#Range: 0.0 ~ 60.0
+	offlineBuildSecondsPerBlock = 1.0
+	#How much server time (in MICROSECONDS, 1000 = 1 ms) one pass of finished
+	#offline buildings may spend writing them into the world.
+	#
+	#offlineMaterializePerPass limits how MANY buildings a pass places. It
+	#says nothing about how long one costs, and a large building costs far
+	#more than a small one - so the same count could be a comfortable pass or
+	#a visible stutter depending on what was queued.
+	#
+	#A pass always places at least one building however small this is set, so
+	#it can never stall the queue; everything left waits for the next pass.
+	#
+	#LOWER it if flying into new land makes buildings appear in a stutter.
+	#Set to 0 to remove the ceiling. Default: 2500 (2.5 ms)
+	#
+	#Range: 0 ~ 50000
+	offlineMaterializeBudgetMicros = 2500
+	#How many finished abstract buildings may be written into the world in one
+	#pass. A player flying into unexplored land can bring several villages'
+	#worth of finished buildings into view at once; this keeps that off the
+	#server tick. Default: 2
+	#
+	#Range: 1 ~ 32
+	offlineMaterializePerPass = 2
+	#How many BLOCKS of a finished offline building are written into the world
+	#per tick. The building is no longer written all at once: measured at 376 ms
+	#for a single large structure, which is a third of a second in which the
+	#server does not tick at all.
+	#
+	#offlineMaterializePerPass bounds how many BUILDINGS a pass starts and can
+	#do nothing about the cost of one; this bounds the building itself. Raise it
+	#to see structures appear faster, lower it if placement still causes a hitch.
+	#Default: 128
+	#
+	#Range: 8 ~ 4096
+	offlineWriteBlocksPerTick = 128
+	#Wall-clock ceiling (microseconds) for one tick of that block writing, as a
+	#second brake: a block write costs whatever the terrain around it costs, so a
+	#fixed count is not a fixed time. Checked between blocks, and at least one
+	#block is always written, so a value too small slows the queue down rather
+	#than stalling it.
+	#
+	#Set to 0 to remove the ceiling and rely on the count alone. Default: 2000
+	#
+	#Range: 0 ~ 50000
+	offlineWriteBudgetMicros = 2000
+	#Legacy compatibility key. Abstract buildings now always wait until their
+	#complete road chain has been written, because using this timeout produced
+	#permanently disconnected buildings and allowed terrain to be measured
+	#before the asynchronous road placer had reached it. The value is ignored.
+	#
+	#Range: 0 ~ 72000
+	offlineMaterializeRoadGrace = 1200
+	#How close a player must be to a village centre, in BLOCKS, before a
+	#finished offline building is handed to a REAL builder to be constructed
+	#in front of you, instead of simply appearing.
+	#
+	#Why this exists. Handing a building to a physical builder is the
+	#EXPENSIVE path: while that worksite is active the village force-loads
+	#itself every pass - full entities, AI and pathfinding - so you can watch
+	#the house go up. Abstract placement costs almost nothing and needs only
+	#the chunk to be in VIEW distance, no entity ticking at all.
+	#Before this option the hand-off happened for any village inside the
+	#simulation distance, which is up to ~200 blocks away - i.e. villages you
+	#were nowhere near paid the full price for an animation nobody watched.
+	#
+	#Set it to roughly the size of a village, so the animation happens where
+	#you would actually see it and everything further away appears instead.
+	#0 = never hand off; buildings always just appear (cheapest).
+	#Measured horizontally, so being underground below a village still counts.
+	#Default: 48
+	#
+	#Range: 0 ~ 512
+	builderHandoffRadius = 48
+	#How long a finished building waits before its placement is ATTEMPTED
+	#again, after an attempt was refused, in ticks. 100 = 5s.
+	#
+	#Why this exists. Deciding that a building cannot be placed yet costs
+	#almost as much as placing it: the structure has to be resolved and
+	#rotated, its roads probed and its materials priced before anything can
+	#say no. Without a back-off, every blocked booking paid all of that on
+	#every pass - measured at 17.39 ms/s, 85% of the whole addon's tick cost,
+	#for work that was thrown away each time.
+	#Nothing is lost by waiting: the things a placement waits on (a road
+	#being re-laid, a chunk coming into view) take seconds, not ticks.
+	#Lower = buildings appear a little sooner after their blocker clears.
+	#Default: 100
+	#
+	#Range: 1 ~ 12000
+	offlineMaterializeRetryTicks = 100
+	#Ticks between two passes that look for finished abstract buildings to
+	#write into the world. Default: 40
+	#
+	#Range: 5 ~ 1200
+	offlineMaterializeIntervalTicks = 40
+	#When a village stops being simulated it is held loaded for a few more
+	#seconds and its ground is photographed (one surface height and one water
+	#height per column). Offline planning then knows where its roads will
+	#step, where its plots may face a street and where a bridge is needed -
+	#none of which can be asked of an unloaded chunk. The photograph is
+	#retaken every time the village goes offline again.
+	#OFF = offline planning falls back to "unknown ground", the pre-1.0.7.93
+	#behaviour: roads laid with a broken height profile and plots planned
+	#against stairs nobody could see. Default: true
+	#
+	terrainScanEnabled = true
+	#Columns read per tick while photographing. Lower = gentler on the server
+	#and a longer scan. Default: 512
+	#
+	#Range: 16 ~ 8192
+	scanColumnsPerTick = 512
+	#Wall-clock budget for terrain photograph work in one server tick,
+	#in microseconds. The scanner also obeys scanColumnsPerTick; whichever
+	#limit is reached first yields to the next tick. 0 disables the time
+	#limit. Default: 1500 (1.5 ms)
+	#
+	#Range: 0 ~ 50000
+	scanBudgetMicros = 1500
+	#How long a village is kept loaded for its photograph, in ticks. When the
+	#window runs out the scan keeps whatever it managed to read. 300 = 15s.
+	#Default: 300
+	#
+	#Range: 20 ~ 6000
+	scanWindowTicks = 300
+	#Blocks of ground photographed BEYOND the outermost road end and plot of
+	#the city plan - room for the roads and plots the village has not planned
+	#yet. Default: 24
+	#
+	#Range: 0 ~ 128
+	scanMargin = 24
+	#Hard cap on the photograph's half-size, in blocks from the village
+	#centre. Ground beyond it is never photographed, so an offline village
+	#plans nothing out there. Raising this raises both the save size and the
+	#memory a village's photograph costs (4 bytes per column). Default: 144
+	#
+	#Range: 32 ~ 512
+	scanMaxRadius = 144
+	#How many chunk holds one scan may take at once. A hold reaches about ten
+	#chunks, so a wide village needs several; this is what stops a grown
+	#village from force-loading its whole plan in one go. Default: 9
+	#
+	#Range: 1 ~ 64
+	scanMaxHolds = 9
+	#A LOADED village whose photograph is older than this has a fresh one
+	#taken for free (no hold: its chunks are already there). 24000 = one
+	#Minecraft day. 0 = only ever photograph on the way offline.
+	#Default: 24000
+	#
+	#Range: 0 ~ 1728000
+	scanRefreshTicks = 24000
+	#Shortest gap between two terrain photographs of the SAME village,
+	#in ticks. 12000 = 10 minutes.
+	#A village is re-photographed when it goes quiet, because the ground may
+	#have changed while a player was standing on it - but nothing bounded how
+	#OFTEN that could happen, and a village flips online/offline every time
+	#somebody walks past it. On a busy map that meant a full-area rescan per
+	#village per crossing, which the profiler reported as the single most
+	#expensive thing this addon does.
+	#This is the floor: within it, a village that goes quiet keeps the
+	#photograph it already has. Raise it if scanning still shows up in
+	#/vrprofiler; lower it if villages plan against stale ground.
+	#0 restores the old behaviour - retake on every transition.
+	#Range: 0 ~ 1728000
+	scanMinRetakeTicks = 12000
+	#A village may build on WATER: the build volume is drained and a
+	#foundation is poured from the bed up to the floor, so the building
+	#stands on a small island of its own instead of the plot being thrown
+	#away. Applies to the real builder and to abstract offline building
+	#alike. OFF = a plot that would place a block in water is refused and
+	#its materials refunded (the old behaviour). Default: true
+	#
+	waterBuildEnabled = true
+	#The deepest water a village will build in, in blocks from the surface to
+	#the bed. Deeper than this the plot is refused and refunded: a plot in open
+	#ocean would otherwise be a tower of foundation blocks nobody asked for.
+	#Default: 6
+	#
+	#Range: 1 ~ 64
+	waterBuildMaxDepth = 6
+

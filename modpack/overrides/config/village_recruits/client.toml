@@ -1,0 +1,56 @@
+
+[sound]
+	#How loud the BATTLE track is, 0.0 (off) to 1.0 (full).
+	#
+	#This is what the "Battle Music" slider in Options -> Music & Sound Options
+	#writes; there is no reason to edit it here, and the slider will overwrite it
+	#the next time it is moved. Set to 0.0 to never hear a battle track at all.
+	#
+	#The master volume still applies on top of this, exactly as it does to vanilla
+	#music. The vanilla "Music" slider does NOT: this addon's music has its own
+	#controls precisely so that turning off Minecraft's soundtrack does not
+	#silently take it with it, and so that keeping the soundtrack does not force
+	#it on you. Default: 1.0
+	#
+	#Range: 0.0 ~ 1.0
+	battleMusicVolume = 1.0
+	#How loud the VILLAGE track is, 0.0 (off) to 1.0 (full).
+	#
+	#Separate from battleMusicVolume above on purpose: the two are wanted for
+	#opposite reasons - battle music is an event you might want, town ambience is
+	#a mood you might not, or the other way round - and one slider would force
+	#anyone who disliked either to lose both. Set to 0.0 for battle music only.
+	#
+	#Written by the "Village Music" slider in the same screen. Default: 1.0
+	#
+	#Range: 0.0 ~ 1.0
+	villageMusicVolume = 1.0
+	#How loud the NIGHT village track is, 0.0 (off) to 1.0 (full).
+	#
+	#A village after dark plays a different piece from the same village at noon,
+	#and it gets its own control for the same reason the other two do: night
+	#music is the one most likely to be wanted alone, or not at all, and a shared
+	#slider would make that impossible to say. Set to 0.0 for daytime village
+	#music only.
+	#
+	#Written by the "Night Music" slider in Options -> Music & Sound Options.
+	#Default: 1.0
+	#
+	#Range: 0.0 ~ 1.0
+	nightMusicVolume = 1.0
+	#How many times a track plays through before a DIFFERENT one of the same kind
+	#takes over.
+	#
+	#2 by default: long enough to settle into a piece, short enough that a long
+	#siege is not the same ninety seconds a dozen times. Set to 1 to change track
+	#every time round, or higher to stay on one longer.
+	#
+	#Within its turn the track loops seamlessly - the swap is where the two-second
+	#fade happens. Client-side because it is a pacing preference and nothing about
+	#the world depends on it; two players in the same battle may hear different
+	#tracks, and that is fine, since nobody can hear anyone else's music anyway.
+	#Default: 2
+	#
+	#Range: 1 ~ 20
+	musicPlaysPerTrack = 2
+

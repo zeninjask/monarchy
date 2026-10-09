@@ -1,0 +1,2512 @@
+
+[economy]
+	#Maximum amount of money a faction can store.
+	#Default: 10000
+	#Recommended range: 1000 - 100000
+	#
+	#Range: 1000 ~ 100000
+	maxEconomyPoints = 10000
+	#Money produced by each normal villager (not recruits).
+	#Default: 10
+	#
+	#Range: 1 ~ 1000
+	villagerIncome = 35
+	#Income multiplier for a village center that is OFFLINE (outside the
+	#entity-ticking simulation distance) at payout time.
+	#
+	#An offline center has no loaded villager entities, so its income is
+	#computed from the abstract POPULATION LEDGER (the villager count last
+	#observed while it was loaded, kept up to date by offline growth and
+	#conscription) instead of a live entity count. Without this the count
+	#reads 0 and a far-away village earns NOTHING at all — no treasury, no
+	#expansion war chest, no construction budget — so it can never build or
+	#expand on its own.
+	#
+	#1.0 = an offline village earns exactly as much as a loaded one.
+	#0.0 = offline villages earn nothing (the old behaviour).
+	#Default: 0.5
+	#
+	#Range: 0.0 ~ 1.0
+	offlineIncomeScale = 0.5
+	#Let OFFLINE village centers grow their population on paper. Vanilla
+	#breeding needs loaded entities, so without this a village outside the
+	#simulation distance is demographically frozen forever.
+	#
+	#Growth is written to the abstract population ledger and the villagers
+	#are MATERIALIZED (spawned for real) the moment the center loads again.
+	#Growth is capped by the center's bed-driven population cap and costs
+	#food, so a village with no farm/pen does not grow. Default: true
+	#
+	offlinePopulationEnabled = true
+	#Villagers an offline center adds to its ledger per economy cycle
+	#(~3000 ticks / 2.5 min), while under its population cap and able to
+	#pay the food cost. Default: 1 (~24 villagers per real-time hour)
+	#
+	#Range: 0 ~ 20
+	offlinePopulationGrowthPerCycle = 1
+	#Food units (food_grain, then food_meat) consumed per villager born
+	#offline — the same counters a wheat farm / cow pen / sheep pen fills.
+	#A center that cannot pay does not grow that cycle, so offline growth
+	#stays tied to the production chain instead of being free.
+	#0 = free growth (bed cap is then the only limit).
+	#
+	#WARNING: this DEFAULTED TO 4 before the player food model arrived, and now
+	#defaults to 0 - villagers are born free. Rations and babies were drawing on
+	#the same counter, and once healing is paid for in food that is a spiral
+	#with no floor: a war drains the grain, no grain means no births, fewer
+	#births means fewer recruits and less income, which loses the war. Food is
+	#now a purely MILITARY resource. Growth is still paced by
+	#offlinePopulationGrowthPerCycle and capped by beds, so nothing grows
+	#instantly - the gate is gone, not the clock.
+	#
+	#An existing world keeps whatever its economy.toml already says: Forge never
+	#rewrites a key a file already has. Use /vrconfig reset economy confirm, or
+	#set it to 0 by hand. Default: 0
+	#
+	#Range: 0 ~ 128
+	offlinePopulationFoodCost = 0
+	#Maximum villagers materialized in a single pass when a center that grew
+	#offline comes back into simulation range. The rest are spawned on later
+	#passes, so walking into a long-abandoned village does not dump its whole
+	#population growth in one tick. Default: 8
+	#
+	#Range: 1 ~ 64
+	offlineVillagerSpawnPerPass = 8
+	#Fraction of every income payout that is diverted into the faction's
+	#separate EXPANSION war chest instead of its normal treasury. This
+	#pool can ONLY be spent founding new villages, so expansion always
+	#saves up even while the army keeps buying equipment. The rest funds
+	#equipment / promotions / food. 0 = disable the split (old behaviour,
+	#one shared pool). Default: 0.35
+	#
+	#Range: 0.0 ~ 1.0
+	expansionIncomeFraction = 0.35
+	#Maximum amount of money the separate expansion war chest can store.
+	#Default: 8000
+	#
+	#Range: 100 ~ 1000000
+	maxExpansionPoints = 8000
+	#Build village structures with the Workers mod's builder worker instead of
+	#placing them directly. Each village keeps one persistent builder that buys
+	#blocks (from the CONSTRUCTION war chest) and physically constructs buildings;
+	#offline/unloaded villages instant-place the structure but still pay for it.
+	#false = fall back to the old direct-placement builder. Default: true
+	#
+	constructionEnabled = true
+	#Fraction of every income payout credited into the faction's separate
+	#CONSTRUCTION war chest, used to buy the blocks the builder worker places.
+	#This is an EXTRA generated ON TOP of the income — it is NOT taken out of the
+	#army/treasury share, so it does NOT slow down army upgrades. Treasury (troops)
+	#and expansion keep their full split (65% / 35% by default); construction
+	#simply gets this fraction of the payout in addition. 0 = disable construction
+	#funding. Default: 0.30
+	#
+	#Range: 0.0 ~ 1.0
+	constructionIncomeFraction = 0.3
+	#Maximum amount of money the separate construction war chest can store.
+	#Default: 8000
+	#
+	#Range: 100 ~ 1000000
+	maxConstructionPoints = 30000
+	#Money cost per block a structure requires. A building's total cost is
+	#(number of blocks in its bill of materials) x this value, paid from the
+	#construction war chest before the builder starts. May be fractional to make
+	#buildings cheaper (e.g. 0.25 = a quarter of a point per block). Default: 0.25
+	#
+	#Range: 0.0 ~ 10000.0
+	blockBaseCost = 0.25
+	#Ticks before a village's builder worker respawns after it dies. 20 ticks = 1s.
+	#Default: 1200 (60 seconds)
+	#
+	#Range: 20 ~ 1000000
+	builderRespawnTicks = 1200
+	#Watchdog: how many ticks a village build site may go WITHOUT the builder placing a
+	#new block (the FIRST block, or any block mid-build) before escalating fallbacks kick
+	#in so a stuck build never freezes forever. 20 ticks = 1s. At this threshold the
+	#builder is teleported back onto the site; at 2x it instant-places the current layer;
+	#at 3x it instant-completes the whole remaining structure (materials already paid).
+	#Any real block placement resets the timer, so a normally-working builder never
+	#triggers it. Lower = quicker rescue but less time for the builder to sort itself out.
+	#Default: 300 (15 seconds)
+	#
+	#Range: 40 ~ 1000000
+	builderStallTicks = 300
+	#LEGACY COMPATIBILITY KEY. Physical builds now always finish their already-paid
+	#remaining blocks when every player leaves simulation distance. Pausing would occupy
+	#the village's builder slot indefinitely; force-loading would defeat simulation
+	#distance. The key remains so established config files do not become invalid.
+	#
+	builderRushWhenOffline = true
+	#LEGACY COMPATIBILITY KEY. Remote physical builds now finish immediately so their
+	#builder slot cannot block later abstract construction. This value is no longer used.
+	#
+	#Range: 0 ~ 1000000
+	builderOfflineRushGraceTicks = 200
+	#/vrbuildturbo speed: how many EXTRA builder-AI steps to run per game tick for a
+	#turbo'd village. The builder places ~1 block every 5 AI steps, so N steps ≈ N/5
+	#extra blocks placed per tick (on top of the normal 1). Higher = faster building
+	#but a bit more CPU per turbo'd village and jerkier builder movement.
+	#Default: 20 (≈4 extra blocks/tick)
+	#
+	#Range: 1 ~ 200
+	builderTurboSteps = 20
+	#Milliseconds of real time per tick that /vrbuildturbo may spend on one
+	#village's builder, whatever builderTurboSteps says.
+	#
+	#A "step" is not a fixed cost. Each one runs the builder's work goal, and
+	#that goal removes each placed block by scanning the whole list of blocks
+	#still to place - so a step costs roughly as much as the building is BIG.
+	#Twenty steps on a cottage is nothing; twenty on the tank factory
+	#(~12,000 cells) was measured at 3.8 seconds of server stall.
+	#
+	#Time is what a player actually notices, and unlike a step count it means
+	#the same thing on every structure. At least one step always runs, so
+	#turbo still makes progress on a huge building - it just cannot freeze the
+	#server to do it. 10 is half a tick. Default: 10
+	#
+	#Range: 1 ~ 200
+	builderTurboBudgetMs = 10
+	#How long a /vrbuildturbo boost stays active on a village before expiring, in
+	#ticks. 20 ticks = 1s. While active, whatever the village's builder is (or starts)
+	#constructing is accelerated. Re-run the command to refresh it.
+	#Default: 6000 (5 minutes)
+	#
+	#Range: 20 ~ 1000000
+	builderTurboDurationTicks = 6000
+	#Multiplier applied to the money cost of every equipment upgrade the
+	#evolution system buys (weapons, armor pieces, bow enchants, firearms).
+	#Higher = arming an army is a bigger, slower investment. Sell/refund
+	#values of old gear are NOT affected. 1.0 = old prices. Default: 4.0
+	#
+	#Range: 0.1 ~ 100.0
+	equipmentCostMultiplier = 4.0
+	#Per-tick equipment budget each recruit gets is (treasury / recruitCount)
+	#times this multiplier. Lower = the army drains the treasury more slowly,
+	#leaving money for other things. The old hard-coded value was 3.
+	#Default: 1
+	#
+	#Range: 1 ~ 20
+	equipmentBudgetMultiplier = 1
+	#Cap the population of each village center (villagers + recruits counted
+	#together). When a village goes over the cap, surplus villagers are first
+	#relocated to another of the faction's villages that is still below the cap;
+	#if none has room, they are "sold" for money instead (see
+	#populationSellValue). Default: true
+	#
+	populationCapEnabled = true
+	#LEGACY fallback cap. Only used when the growing cap is not in effect
+	#(kept for compatibility). The live per-village cap now grows from
+	#populationCapStart toward populationCapMax as a village prospers.
+	#Default: 75
+	#
+	#Range: 1 ~ 100000
+	populationCap = 75
+	#Starting combined population cap (villagers + recruits) of a newly
+	#founded village. The village begins small and its cap climbs toward
+	#populationCapMax as it stays full and solvent (see
+	#populationCapGrowthStep). This also drives how many building plots the
+	#city lays out (one plot per cap point), so a young village is a hamlet
+	#and a mature one is a full town. Default: 30
+	#
+	#Range: 1 ~ 100000
+	populationCapStart = 30
+	#Hard maximum the growing population cap can ever reach. A city expands
+	#but not indefinitely. When populationCapEnabled is false this value is
+	#used directly as a flat cap. Default: 120
+	#
+	#Range: 1 ~ 100000
+	populationCapMax = 120
+	#Most villagers or recruits a single village may lose to the population
+	#cap in one pass. 0 = no limit (the old behaviour).
+	#
+	#A cap should TRIM, not liquidate. Without this the entire overflow went
+	#in one pass, so any error in the count - or any drop in the cap - was
+	#not a slow drift but an immediate massacre: 84 and 93 recruits gone from
+	#one village in a single second, which from the outside is simply "my
+	#troops are being deleted".
+	#
+	#It costs nothing when the number is right: a village genuinely over cap
+	#is trimmed over the next few cycles instead of in one. Default: 4
+	#
+	#Range: 0 ~ 10000
+	populationCullPerPass = 4
+	#LEGACY step growth. The live cap now tracks BEDS near the capital
+	#(see populationPerBed), not fixed steps, so this value is unused by the
+	#AI growth path. Kept for compatibility. Default: 15
+	#
+	#Range: 1 ~ 100000
+	populationCapGrowthStep = 15
+	#How many population-cap points each BED near the capital is worth. Every
+	#population-cap pass (60s) the live cap is recomputed as
+	#round(beds x populationPerBed), counting beds within the SAME radius as
+	#the hostile no-spawn zone (features.mobSpawnBlockRadius, which itself
+	#grows as the town builds more houses). The result is clamped to
+	#[populationCapStart, populationCapMax] and only ever RATCHETS UP (a
+	#temporary bed miscount never shrinks the cap). So the town grows as beds
+	#accumulate. Default: 1.0
+	#
+	#Range: 0.0 ~ 1000.0
+	populationPerBed = 1.0
+	#Money gained from selling one surplus villager that cannot be relocated to
+	#another village. The amount is split between the normal treasury and the
+	#expansion war chest using economy.expansionIncomeFraction, exactly like
+	#normal income. Default: 50
+	#
+	#Range: 0 ~ 1000000
+	populationSellValue = 50
+	#Share of each village's population cap RESERVED for civilian villagers, so
+	#recruits can't crowd them out. When a center is over its cap, surplus is
+	#taken from villagers only DOWN TO this reserve (round(cap x this)); any
+	#remaining overflow is then taken from RECRUITS instead (relocated to another
+	#faction village first, sold for money only if none has room). This keeps a
+	#civilian base alive — villagers are what generate construction and expansion
+	#income and breed new population — targeting roughly this fraction villagers /
+	#the rest recruits (default 0.25 = about 25% villagers, 75% recruits). BABY
+	#villagers are never counted toward the cap nor sold, so the town can always
+	#grow its own population. Set to 0 for the old behavior (villagers sold first,
+	#recruits fill the whole cap). Default: 0.25
+	#
+	#Range: 0.0 ~ 1.0
+	populationVillagerFraction = 0.25
+	#Seed BABY villagers into an online village that still has room to grow.
+	#This is a free spawn on top of normal vanilla breeding: it exists so a
+	#village that lost its civilians (siege, conscription, a player killing
+	#them) can restart, without waiting for two surviving adults to find each
+	#other.
+	#It only ever fires where a real village would breed anyway: the center
+	#must have at least one FREE bed (an unclaimed minecraft:home POI) within
+	#the population radius, and the babies queued never exceed the number of
+	#free beds. A bedless site (a claimed pillager outpost, a bare road-only
+	#expansion village) therefore produces nothing at all — before this rule
+	#existed it produced a permanent stream of villagers that the population
+	#cap then sold off again, minute after minute.
+	#Set to false to leave population growth entirely to vanilla breeding and
+	#the offline ledger. Default: true
+	#
+	babySpawnEnabled = true
+	#How often (in ticks) each online village is considered for the baby
+	#seeding above. 20 ticks = 1 second. Default: 6000 (5 minutes)
+	#
+	#Range: 200 ~ 720000
+	babySpawnIntervalTicks = 6000
+	#Maximum babies queued per village per cycle. The real spawn is drained
+	#one baby per tick from a global queue, and is additionally clamped by the
+	#free beds and by the room left under the village population cap, so this
+	#is a ceiling and not a guarantee. Default: 5
+	#
+	#Range: 1 ~ 64
+	babySpawnPerCycle = 5
+	#Repair ORPHANED job-site reservations. A workstation (or a Recruits
+	#recruit/bowman/... table) is not "free when nobody stands on it": the game
+	#tracks a ticket in the POI manager, and vanilla only gives it back when the
+	#villager DIES. A villager removed by conscription or by the population cap
+	#used to keep its workstation reserved forever, so no other villager could
+	#ever take that job (mass unemployment) and a recruit table — which has room
+	#for exactly ONE ticket — stopped working entirely. Newly removed villagers
+	#now release their POIs properly; this option additionally cleans up the
+	#reservations ALREADY stuck in an existing world, which persist in the save
+	#and would otherwise never come back.
+	#Only ONLINE villages are scanned (in an offline village the villagers are
+	#not loaded, so a real owner would be indistinguishable from a ghost), and a
+	#reservation is freed only when no loaded villager within the scan radius
+	#plus 64 blocks claims it. Default: true
+	#
+	poiTicketHealEnabled = true
+	#How often (in ticks) the orphaned-reservation repair pass runs over every
+	#online village. It is a cheap POI-manager query, but there is nothing to
+	#gain from running it often: leaks are rare once the release fix is in.
+	#Default: 1200 (60 s)
+	#
+	#Range: 20 ~ 72000
+	poiTicketHealIntervalTicks = 1200
+	#Free leaked BED tickets as well as workstation ones.
+	#
+	#⚠️ OFF by default, and the reason is a server crash. Unlike a
+	#workstation, a bed's ticket is read back by vanilla's ValidateNearbyPoi,
+	#which ERASES the villager's HOME memory when the POI no longer agrees he
+	#holds it - and SleepInBed then calls .get() on that memory. Vanilla is
+	#safe because its entry condition demands HOME be present; Lithium's
+	#ai.task.launch optimisation evaluates those conditions differently, so
+	#an erase landing in the same brain tick as a sleep attempt throws
+	#NoSuchElementException and takes the server down.
+	#
+	#This pass frees a bed no LOADED villager claims, and a villager can
+	#easily be further from its bed than the scan reaches - working, fleeing,
+	#or simply unloaded - so it can take a bed that is genuinely held.
+	#
+	#Turn it on only if leaked bed tickets are actually stopping your
+	#villagers breeding, and preferably without Lithium.
+	#Default: false
+	#
+	poiTicketHealBeds = false
+	#Radius (in blocks) around each village center scanned for orphaned job-site
+	#reservations. Should cover the built-up area of a village; larger values
+	#only make the periodic query slightly heavier. Default: 64
+	#
+	#Range: 16 ~ 256
+	poiTicketHealRadius = 64
+	#When a village runs low on soldiers but still has plenty of villagers,
+	#draft (conscript) some villagers by turning them into BASIC recruits —
+	#like a promotion, but starting from a villager instead of a recruit.
+	#The new recruit joins the village's faction/group automatically. Only
+	#AI (village_) factions conscript; loaded villagers only. Default: true
+	#
+	conscriptionEnabled = true
+	#A village center conscripts villagers only while its recruit count is
+	#BELOW this value. Above it, villagers are left alone. Default: 10
+	#
+	#Range: 0 ~ 100000
+	conscriptionMinRecruits = 10
+	#Minimum villagers a center always keeps: conscription only draws from
+	#the villagers ABOVE this number (so a village needs more than this many
+	#villagers before any are drafted). Default: 10
+	#
+	#Range: 0 ~ 100000
+	conscriptionKeepVillagers = 10
+	#Maximum villagers converted into recruits per village center on each
+	#conscription pass (~60s), so a village ramps up gradually rather than
+	#flipping its whole population at once. Default: 2
+	#
+	#Range: 1 ~ 100
+	conscriptionPerPass = 2
+	#Let OFFLINE village centers conscript too. A loaded village drafts real
+	#villager entities; an offline one has none, so it drafts ON PAPER instead:
+	#the villagers are taken from the abstract population ledger and the
+	#recruits are spawned for real the moment the center loads again. They
+	#count as garrison immediately (including on the map marker), so the
+	#village does not re-draft itself empty while away.
+	#
+	#No chunk is force-loaded for this. Without it a village far from every
+	#player would never raise another soldier, and conscription is the only
+	#way an AI village makes new troops. Default: true
+	#
+	offlineConscriptionEnabled = true
+	#Fraction of the spare villagers (those above conscriptionKeepVillagers)
+	#an OFFLINE center drafts in ONE pass, instead of the slow
+	#conscriptionPerPass drip a loaded village gets every ~60s — an offline
+	#village is never watched, so drip-feeding it would never build an army.
+	#Still capped by the center's recruit deficit (conscriptionMinRecruits).
+	#Default: 0.75
+	#
+	#Range: 0.0 ~ 1.0
+	offlineConscriptionFraction = 0.75
+	#Money a faction keeps in reserve PER RECRUIT. The equipment/promotion/food
+	#spenders only ever draw the SURPLUS above this reserve (reservePerRecruit ×
+	#number of recruits), so a well-run faction accumulates a treasury while an
+	#over-recruited / under-worked one stays broke. This is what makes a faction's
+	#money a meaningful "poverty" signal (used by the rebellion system). Set to 0
+	#to restore the old spend-to-zero behaviour. Default: 40
+	#
+	#Range: 0 ~ 100000
+	economyReservePerRecruit = 40
+	#Let villagers breed without waiting for the vanilla day/night rhythm.
+	#OFF by default, and it used to be ON with no way to turn it off.
+	#It works by ERASING each villager's LAST_SLEPT and LAST_WOKEN brain
+	#memories - the state vanilla's own rest schedule reads - every five
+	#seconds, for every villager in every dimension. That is a very blunt
+	#instrument, and a plausible cause of villagers behaving oddly around
+	#their beds and workstations.
+	#The mod does not need it: population growth already has systems that do
+	#not touch vanilla brain state (the offline population ledger, the free
+	#baby seeder, and the faster growth in VillagerGrowthAndBreedingTweaks),
+	#so leaving this off costs a village nothing except that natural
+	#breeding follows vanilla's clock.
+	#Turn it on only if you specifically want round-the-clock natural
+	#breeding and are satisfied that villager sleep still looks right.
+	#Default: false
+	#
+	breedAnytimeEnabled = false
+	#The wheat-farm FARMER hand-delivers bread to the villagers: he stops
+	#ploughing, walks up to a hungry villager and gives him the loaves (and with
+	#them the willingness to breed). Food is still FREE - nothing is deducted
+	#from the food_grain stock - this only changes WHO hands it over.
+	#
+	#Only ever happens in villages that are already loaded (the farmer and the
+	#villagers must both exist as entities); nothing is force-loaded for it.
+	#A village with no wheat farm, or whose farmer has been killed, therefore
+	#gets no bread from the mod at all and falls back to vanilla villager
+	#farming/breeding speed until it builds one.
+	#
+	#Set to false to restore the old behaviour: bread/carrots/potatoes appear
+	#directly in every loaded villager's inventory, with no farmer involved.
+	#Default: true
+	#
+	farmerFoodDeliveryEnabled = true
+	#How far (blocks) from the WHEAT FARM a farmer will walk to feed a villager.
+	#Measured from the farm building, not from the farmer, so he cannot be towed
+	#across the map one step at a time by a wandering villager.
+	#Keep this comfortably below 64: past that distance the anti-stuck watchdog
+	#considers a worker lost and teleports him back to his site.
+	#Default: 48
+	#
+	#Range: 8 ~ 63
+	farmerFoodDeliveryRadius = 48
+	#A villager counts as HUNGRY (worth a delivery) while he holds fewer than
+	#this many bread. Default: 24
+	#
+	#Range: 1 ~ 64
+	farmerFoodHungryBelow = 24
+	#Loaves handed over per delivery. Together with farmerFoodDeliveryInterval
+	#this sets the village's growth rate. Default: 12
+	#
+	#Range: 1 ~ 64
+	farmerFoodBreadAmount = 12
+	#Ticks a farmer waits between deliveries (also the retry delay when nobody
+	#is hungry). 200 = 10s, matching the old code-granted food pace.
+	#Default: 200
+	#
+	#Range: 20 ~ 24000
+	farmerFoodDeliveryInterval = 200
+	#Give up on a delivery after this many ticks. Guards against a villager the
+	#farmer can never reach (behind a door, up a tower, across a ravine): he
+	#drops the errand and goes back to farming instead of walking forever.
+	#Default: 400
+	#
+	#Range: 100 ~ 12000
+	farmerFoodDeliveryTimeout = 400
+	#Movement speed multiplier of a farmer while carrying bread to a villager
+	#(1.0 = his normal working pace). Default: 1.1
+	#
+	#Range: 0.5 ~ 3.0
+	farmerFoodDeliverySpeed = 1.1
+	#BASELINE FOOD: a loaded villager who is short of bread gets some, whether
+	#or not the village has a farmer to bring it.
+	#
+	#This is the floor under village growth. When the farmer delivery was
+	#introduced it REPLACED this instead of sitting on top of it, so a village
+	#with no wheat farm - or whose farmer was dead, busy, walled off or simply
+	#out of range - fed nobody at all and grew at bare vanilla speed, which in
+	#practice is not at all. The farmer is now a BOOST, not a requirement: he
+	#brings more bread, faster (farmerFoodBreadAmount every
+	#farmerFoodDeliveryInterval) and hands over the willingness to breed with
+	#it, while this keeps every other village ticking over.
+	#
+	#Set to false to make the farmer the only source of food again.
+	#Default: true
+	#
+	villagerBaseFoodEnabled = true
+	#Loaves given per baseline handout. Deliberately smaller than
+	#farmerFoodBreadAmount so a village with a working wheat farm still grows
+	#faster than one without. Default: 6
+	#
+	#Range: 1 ~ 64
+	villagerBaseFoodAmount = 6
+	#Baseline food stops at this many bread. A villager holding this much is
+	#skipped entirely (this is also what keeps the check cheap). Lower than
+	#farmerFoodHungryBelow on purpose: the farmer tops villagers up past the
+	#level decree food maintains. Default: 12
+	#
+	#Range: 1 ~ 64
+	villagerBaseFoodUpTo = 12
+	#Ticks between baseline handouts to the same villager. 600 = 30s, three
+	#times slower than the farmer's default pace. Default: 600
+	#
+	#Range: 20 ~ 24000
+	villagerBaseFoodIntervalTicks = 600
+	#
+	#============================
+	#PRICE LIST (READ-ONLY)
+	#============================
+	#
+	#PROMOTION COSTS (configurable in the 'promotion' category):
+	#- Tier 1 promotion: promotionCostTier1 (default 120)
+	#- Tier 2 promotion: promotionCostTier2 (default 350)
+	#- Tier 3 promotion: promotionCostTier3 (default 750)
+	#
+	#EQUIPMENT COSTS:
+	#- Base weapon/armor cost per piece: Tier1 2 / Tier2 4 / Tier3 8,
+	#  then multiplied by 'equipmentCostMultiplier' (default 4.0).
+	#
+	#SELL / REFUND VALUES (old gear, not affected by the multiplier):
+	#- Tier1: 2   Tier2: 4   Tier3: 8
+	#
+	#FIREARMS (MusketMod), before the equipment multiplier:
+	#- Musket: 10   Blunderbuss: 15   Scoped Musket: 20
+	#
+	priceList_readOnly_doNotEdit = "info"
+	#Yield multiplier while a live worker is actually standing at a FORGE or
+	#a KITCHEN.
+	#
+	#Both processes are passive and keep running while the village is
+	#unloaded - taking that away would stop every unattended village making
+	#ingots or food - so the worker is not what makes them happen. This is
+	#what makes him worth having anyway: the forge and the kitchen produce
+	#more when somebody is really there working them. Set to 1.0 for no
+	#difference. Default: 1.5
+	#
+	#Range: 1.0 ~ 5.0
+	workerPresenceBonus = 1.5
+	#Batches the KITCHEN cooks per economy cycle. Each batch costs 1 coal and
+	#adds 2 units of food, and only runs when the village actually has raw
+	#food to cook - a kitchen improves a harvest, it does not create one.
+	#
+	#The food counter does not distinguish raw from cooked, so "cooked food
+	#is worth more" becomes the only thing that counter can express: more
+	#food. Population growth already runs on the food stock, so a village
+	#with a kitchen grows faster - the effect you want, with no second growth
+	#mechanism to keep in step with the first. The coal cost is what stops it
+	#being a printing press. Default: 2
+	#
+	#Range: 0 ~ 100
+	cookFoodPerCycle = 2
+
+[materials]
+	#Buildings cost REAL materials (WOOD/STONE/SAND/WOOL family units) produced
+	#by worker NPCs at production buildings (lumber camp, mine entrance, sheep
+	#pen) instead of pure construction money. The free list (glass, terrain,
+	#terracotta, torches, iron specials) is still bought with construction
+	#points. false = legacy behaviour: every block is bought with money only.
+	#Default: true
+	#
+	materialsEnabled = true
+	#WOOD units a newly founded village starts with. Sized so a fresh village
+	#can afford its first lumber camp + a small house before production kicks
+	#in (production buildings are a HARD GATE: no lumber camp = no wood
+	#income). Default: 480
+	#
+	#Range: 0 ~ 1000000
+	starterWood = 480
+	#STONE units a newly founded village starts with. Default: 360
+	#
+	#Range: 0 ~ 1000000
+	starterStone = 360
+	#SAND units a newly founded village starts with (sandstone villages —
+	#desert — are almost entirely sand-family). Default: 180
+	#
+	#Range: 0 ~ 1000000
+	starterSand = 180
+	#WOOL units a newly founded village starts with (beds cost 1 wool + 1
+	#wood each). Default: 36
+	#
+	#Range: 0 ~ 1000000
+	starterWool = 36
+	#Village workers melt down the military loot they pick up. Workers are loot
+	#vacuums by design in the Workers mod (they hoover up ANY item dropped within
+	#5.5 blocks), so after a siege the builder and the farmers end up carrying —
+	#and sometimes wearing — the armour, swords and crossbows of the fallen.
+	#With this on, that gear is stripped from them and credited back to THEIR OWN
+	#faction as materials, so the village recycles its dead instead of losing its
+	#arsenal onto a farmer.
+	#Never touches work TOOLS (axe, pickaxe, hoe, shears, bucket), food, building
+	#blocks or harvested goods — only armour, swords, bows, crossbows and shields.
+	#Player-hired workers are never touched.
+	#Default: true
+	#
+	workerSalvageEnabled = true
+	#Fraction of an item's crafting cost recovered when a worker melts down looted
+	#gear. MUST stay below 1.0: equipment is bought with the same counters this
+	#refunds, so a 100% recovery makes a printing press (evolution buys armour for
+	#N ingots, the soldier dies at home, a worker salvages it for N ingots back →
+	#free gear forever). The special-faction cost multiplier is applied on top, so
+	#a discounted faction also salvages for less and cannot arbitrage itself.
+	#Default: 0.5
+	#
+	#Range: 0.0 ~ 1.0
+	workerSalvageRate = 0.5
+	#Maximum units of EACH material family a faction can stockpile PER OWNED
+	#VILLAGE: the effective cap is maxMaterialStock x claimed centers (1 village
+	#= 4000, 2 villages = 8000, ...). When a family hits the cap its production
+	#workers REST until stock drops below 90%. Default: 4000
+	#
+	#Range: 100 ~ 10000000
+	maxMaterialStock = 4000
+	#Every container inside a PLAYER faction's CLAIM counts as that village's
+	#storage automatically.
+	#Designating each chest by hand with /vrsetstorage add was the only way
+	#to give a village storage - a chore repeated for every chest in every
+	#village forever. A faction's claim is its territory, so a chest standing
+	#in it is that village's storage.
+	#/vrsetstorage still works and is the fallback for what this cannot see:
+	#a chest just outside the claim border, or a village whose claim was
+	#drawn oddly.
+	#AI villages are deliberately EXCLUDED. Their chests are already found
+	#through the built-plot and production scans, and their contents are
+	#locked away from players on purpose (the merchant is the sanctioned way
+	#to give an AI village resources) - auto-counting every chest in an AI
+	#claim would fold a player's own chest, left in a village he is standing
+	#in, into that village's economy.
+	#Reads each chunk's block-entity map rather than sweeping the volume, and
+	#never generates a chunk. Default: true
+	#
+	autoCountClaimChests = true
+	#PHYSICAL storage: materials live as REAL ITEMS randomly distributed in the
+	#chests of the village's BUILT structures (players can steal them - theft
+	#really lowers the faction stockpile; items put IN by hand are credited up
+	#to the cap). Deposit-chest contents are moved there on conversion instead
+	#of vanishing; abstract income (offline production, refunds, starter stock)
+	#materializes into the chests on the periodic sync. false = pure abstract
+	#counter (previous behaviour). Default: true
+	#
+	physicalStorage = true
+	#Ticks between physical-storage syncs (theft/donation reconcile, debt burn,
+	#pending materialization) per level. Default: 600 (30 s)
+	#
+	#Range: 100 ~ 24000
+	physicalSyncIntervalTicks = 600
+	#A faction's CAPITAL produces a baseline trickle of every build family
+	#(WOOD/STONE/SAND/WOOL) out of nothing, on top of whatever its production
+	#buildings make. This is what stops a village founded on bare stone or on
+	#an island from being permanently unable to build anything or to re-arm:
+	#it always has SOMETHING coming in, it just comes in slowly.
+	#Only the capital earns it — secondary and conquered villages do not, so
+	#expansion still has to pay for real lumber camps and mines.
+	#It replaced the old emergency material import, which conjured the exact
+	#shortfall of a stalled build for money and so handed out buildings that
+	#cost no materials at all.
+	#false = a village with no production and no trade builds nothing, ever.
+	#Default: true
+	#
+	capitalBaseProductionEnabled = true
+	#Units of EACH build family the capital produces per real minute. It is
+	#paid out on the faction's own economy cycle (every 3000 ticks, at a
+	#per-faction random offset, so factions never all pay at once) as
+	#perMinute x 2.5 units in one go — raising this does not cost extra CPU.
+	#Still clamped by maxMaterialStock like every other credit.
+	#Default: 25
+	#
+	#Range: 0 ~ 100000
+	capitalBaseProductionPerMinute = 25
+	#WOOL the capital produces per real minute, separately from the other
+	#families above.
+	#
+	#Wool is the one build family with almost nothing to spend it on: beds
+	#cost 1 wool each and effectively nothing else does, so at the same rate as
+	#wood and stone a capital banks wool it can never use while its actual
+	#bottlenecks go unfed. It was 25 like everything else and is now a trickle -
+	#enough that a village on bare rock can still bed its people, and no more.
+	#
+	#A sheep pen is now what a village builds if it wants wool for anything
+	#beyond that, which is the point: the baseline exists to stop a village
+	#being permanently stuck, not to replace production buildings.
+	#
+	#Set it equal to capitalBaseProductionPerMinute to restore the old
+	#behaviour. Default: 1
+	#
+	#Range: 0 ~ 100000
+	capitalBaseProductionWoolPerMinute = 1
+	#food_grain units the CAPITAL produces per minute out of nothing, on top of
+	#whatever its wheat farms actually grow (1 unit = 1 bread).
+	#
+	#Food is the one counter with no baseline at all: it comes only from wheat
+	#farms and cow/sheep pens. That was harmless while healing was free, and is
+	#fatal once a soldier's every hit point is paid for in rations - a village
+	#that has not built a farm yet would arm its first wave, spend its starting
+	#stock, and then never heal another man for the rest of the game.
+	#
+	#This is a peacetime buffer, not a war economy: a busy battle can eat eighty
+	#bread a minute, so five keeps a quiet village supplied and makes a wheat
+	#farm the thing that lets it actually campaign. Default: 5
+	#
+	#Range: 0 ~ 100000
+	capitalBaseProductionFoodPerMinute = 5
+	#How often the chests of a LOADED production building are converted into
+	#stockpile units (log = 4 wood, stone block = 1 stone, wool = 1 wool...;
+	#ores go to the faction ore counters). 20 ticks = 1s. Default: 200
+	#
+	#Range: 20 ~ 100000
+	conversionIntervalTicks = 200
+	#Sheep kept alive inside each wool pen (respawned while the village is
+	#loaded if they die or wander off). Default: 4
+	#
+	#Range: 1 ~ 32
+	sheepPerPen = 4
+	#Depth (blocks) of the real mining shaft the village miner digs under the
+	#mine entrance building while the village is loaded. Default: 20
+	#
+	#Range: 3 ~ 200
+	mineShaftDepth = 20
+	#Length (blocks) of each of the 4 horizontal branch tunnels the village
+	#miner digs from the bottom of its shaft once the shaft is complete.
+	#When every branch of a level is exhausted the miner deepens the shaft
+	#and starts a new branch level (down to near bedrock), so the mine keeps
+	#producing. Capped at 48 to stay inside the site watchdog radius.
+	#Default: 24
+	#
+	#Range: 4 ~ 48
+	mineBranchLength = 24
+	#A production worker (lumberjack/animal farmer) is sent to the deposit
+	#chest as soon as it carries this many farmed items, instead of the
+	#Workers default of 128 - deposits become much more frequent. The
+	#village MINER uses 8x this value (it farms huge amounts of stone) and
+	#additionally deposits whenever its inventory is full. Default: 8
+	#(miner threshold: 64 items)
+	#
+	#Range: 1 ~ 128
+	workerDepositThresholdItems = 8
+	#Watchdog: a production worker (lumberjack/miner/animal farmer) that has
+	#not moved for this many ticks while its work area is unfinished, or that
+	#drifted >64 blocks from it (out of the Workers mod's area-binding range),
+	#is teleported back to its building. 20 ticks = 1s. Default: 600 (30s)
+	#
+	#Range: 40 ~ 1000000
+	workerStuckTicks = 600
+	#WOOD units each UNLOADED lumber camp produces per economy cycle (~3000
+	#ticks / 2.5 min). Loaded camps produce via the real lumberjack instead
+	#(never both). Default: 90
+	#
+	#Range: 0 ~ 1000000
+	offlineWoodPerCycle = 90
+	#STONE units each UNLOADED mine produces per economy cycle. Default: 80
+	#
+	#Range: 0 ~ 1000000
+	offlineStonePerCycle = 80
+	#SAND units each UNLOADED mine produces per economy cycle (there is no
+	#dedicated sand building — mines cover the sand family too). Default: 30
+	#
+	#Range: 0 ~ 1000000
+	offlineSandPerCycle = 30
+	#WOOL units each UNLOADED sheep pen produces per economy cycle. Default: 8
+	#
+	#Range: 0 ~ 1000000
+	offlineWoolPerCycle = 8
+	#Multiplier on the small abstract ORE trickle each unloaded mine adds to
+	#the faction ore counters per economy cycle (reserved for the future
+	#equipment-from-materials system; nothing consumes ores yet).
+	#0 = offline mines yield no ores. Default: 1.0
+	#
+	#Range: 0.0 ~ 100.0
+	offlineOreScale = 1.0
+	#Every mine sits on its OWN deposit, fixed for the life of the world.
+	#
+	#The abstract yield of a mine (what it earns while its village is
+	#unloaded, and what a played-out mine earns at all) used to be one
+	#hard-coded list of seven vanilla items, identical for every mine
+	#everywhere and re-rolled every cycle. With this on, each mine instead
+	#gets a SEAM drawn once from its position and the world seed: coal, iron
+	#and copper always (at a rate of its own, 0.4x to 1.6x), plus a few other
+	#ores that this mine has and the next one may not.
+	#
+	#Any ore in the modpack can be one of those seams - the candidates come
+	#from the same index the miner digs by, so a modded ore that generates in
+	#your world can come out of your villages' mines. How LIKELY an ore is,
+	#and how much of it comes out, is read from the ore's own worldgen (veins
+	#per chunk x vein size), so a mod's common ore behaves like a common ore
+	#and the same mod's rare one stays rare, with nothing to configure.
+	#
+	#Set to false to go back to the flat vanilla-only list.
+	#Default: true
+	#
+	mineSeamsEnabled = true
+	#Fewest ores a mine holds BEYOND the coal/iron/copper backbone.
+	#0 means some mines are plain rock and nothing else. Default: 2
+	#
+	#Range: 0 ~ 8
+	mineSeamCountMin = 2
+	#Most ores a mine holds beyond the backbone. Raising this makes every
+	#mine richer and more alike; lowering it makes where a village settles
+	#matter more. Default: 4
+	#
+	#Range: 0 ~ 8
+	mineSeamCountMax = 4
+	#A mine that has been dug out to the bottom of the world keeps producing:
+	#it earns the same ABSTRACT yield an unloaded mine does, even while the
+	#village is loaded and its miner is standing in it.
+	#
+	#The shaft is finite. The miner sinks it level by level to a few blocks
+	#above bedrock (he cannot break bedrock and never tries), mines out the
+	#branches of each level, and when the last one is done there is nothing
+	#in the ground for him ever again. Before this, that mine simply stopped
+	#earning - silently, with the miner still walking about, the building
+	#still standing and nothing anywhere saying why - while the SAME village
+	#left unloaded went on being paid in the abstract. A played-out mine was
+	#worth more asleep than awake.
+	#
+	#Set to false if you would rather a mined-out village really did run out
+	#of stone until you build a mine somewhere else.
+	#Default: true
+	#
+	exhaustedMineKeepsProducing = true
+	#What fraction of the normal abstract yield a played-out mine earns.
+	#1.0 = exactly what the same mine would earn unloaded; 0.5 = half, which
+	#makes running out of rock cost something without ending the village's
+	#stone supply. Applies to stone, sand and the ore trickle alike.
+	#Default: 1.0
+	#
+	#Range: 0.0 ~ 4.0
+	exhaustedMineYield = 1.0
+	#How far from a planned plot the village will look for water before it
+	#builds a FISHERY there. A fishery is the only production building whose
+	#site depends on the terrain rather than the plan - a dock with no water
+	#is a shed - so the draw only proposes one and this decides.
+	#Kept inside the area the village already builds in, so the fishery is
+	#part of the village and not a hut on a distant lake. Default: 48
+	#
+	#Range: 8 ~ 160
+	fisheryWaterRadius = 48
+	#How many blocks deep the water must be to count. A stream, a puddle and
+	#the shallow rim of a pond all read as "water" to a naive test and none
+	#of them is somewhere a fisherman can work. Default: 2
+	#
+	#Range: 1 ~ 16
+	fisheryMinDepth = 2
+	#How many sampled columns must be deep enough before the water counts as
+	#a BODY of water rather than a wet patch. Sampling is on a 4-block
+	#stride, so each one stands for about 16 blocks of surface.
+	#Default: 8 (roughly 128 blocks of open water)
+	#
+	#Range: 1 ~ 200
+	fisheryMinWaterCells = 8
+	#How many FISHING HUTS one village may have. 0 disables them entirely.
+	#
+	#The hut used to be a 2% draw among the production buildings that then
+	#ALSO had to pass the water test - two narrow filters in series, and the
+	#measured result was that it never existed at all: zero huts across 147
+	#production plots in nine worlds, while every other kind appeared. A
+	#feature seen once every couple of worlds is indistinguishable from one
+	#that is missing, which is how it was reported.
+	#
+	#Water decides it: the first production plot with fishable water near it
+	#becomes the village's fishing hut, and an inland village still has none.
+	#
+	#⚠️ SUSPENDED - default 0. The hut is off while its behaviour is being
+	#reworked; an existing config is switched off ONCE (Forge never rewrites a
+	#key a file already has, so a default change alone would reach only people
+	#who have not played). Set this back to 1 to re-enable it: the one-shot
+	#will not undo your choice.
+	#Default: 0
+	#
+	#Range: 0 ~ 8
+	fisheryPerVillage = 0
+	#Village fishermen row out to their fishing spot in a vanilla boat.
+	#
+	#⚠️ This is driven by this addon, not by vanilla or by the Workers mod.
+	#A vanilla boat is only steered when its passenger is a PLAYER - a mob
+	#sitting in one just drifts - and the Workers mod has no boat code at
+	#all, so the rowing here is custom. The fisherman does NOT need it: his
+	#own AI walks to the fishing area and casts from wherever he can stand,
+	#which is what happens with this off.
+	#Turn it off if you see boats drifting away, fishermen stranded on the
+	#water, or abandoned boats accumulating. Default: true
+	#
+	fisheryBoatsEnabled = true
+
+[equipment]
+	#Re-supply a village soldier's SHIELD when it wears out. A mob's shield takes
+	#durability when it blocks and eventually BREAKS — the base Recruits mod never
+	#replaces it, so a shieldman that has blocked enough becomes a permanent
+	#shield-less melee unit (its UseShield goal can no longer fire). When true, a
+	#village soldier that should carry a shield (a Shieldman, or anyone already
+	#holding one) gets a fresh shield once its current one wears below
+	#shieldResupplyDurabilityThreshold, paid for from the faction's iron stock
+	#(shieldResupplyIronCost). A broke faction simply waits until it can afford it.
+	#Never touches player-hired recruits. Default: true
+	#
+	shieldResupplyEnabled = true
+	#Iron ingots consumed from the faction equipment stock for each shield
+	#re-supply. Matches the shield's promotion cost (1 iron). 0 = free. Default: 1
+	#
+	#Range: 0 ~ 64
+	shieldResupplyIronCost = 1
+	#Remaining-durability fraction at or below which a worn shield is replaced.
+	#0.15 = replace once the shield is down to 15% of its durability (or already
+	#broken/empty). Higher = replace sooner (more iron spent), lower = squeeze more
+	#use out of each shield. Default: 0.15
+	#
+	#Range: 0.0 ~ 1.0
+	shieldResupplyDurabilityThreshold = 0.15
+	#Paint the FACTION BANNER onto the shield of every village soldier that carries
+	#one (shieldmen, leaders, promoted units, commanders). Purely cosmetic — it only
+	#writes the banner's pattern/colour onto the shield's item NBT (the same result
+	#as combining a banner and a shield in a crafting table), so a village's garrison
+	#visibly flies its colours. The shield's durability and behaviour are untouched.
+	#Optimised: the banner NBT is composed ONCE per faction and cached, applied
+	#in-place on the same throttled pass as the shield re-supply, and re-written only
+	#when the shield doesn't already match. Default: true
+	#
+	shieldBannerEnabled = true
+	#Recruit weapons/armor/food and class promotions are paid with REAL produced
+	#resources (stone/leather/iron ingot/copper ingot/diamond/food) instead of
+	#economyPoints — a village can only equip what it actually PRODUCES (mine,
+	#cow pen, forge, wheat farm...). Expansion still spends economyPoints
+	#regardless of this flag (out of scope). false = restore the old money-only
+	#evolution/promotion behaviour. Default: true
+	#
+	equipmentMaterialsEnabled = true
+	#Cows bred up to in each cow pen before the animal farmer starts SLAUGHTERING
+	#the excess for leather + beef. Must stay BELOW animalHardCap, or the pen sits
+	#at its ceiling and every calf is culled the moment it is born -- the herd can
+	#never breed and beef/leather production stops. Default: 4
+	#
+	#Range: 1 ~ 32
+	cowsPerPen = 4
+	#A sheep pen keeps sheepPerPen sheep alive as its baseline flock, but once the
+	#flock (breeding) grows past THIS number the animal farmer starts SLAUGHTERING
+	#the excess for mutton, instead of letting it grow forever. Must stay BELOW
+	#animalHardCap, or the addon's hard cull removes the sheep silently (no mutton)
+	#before the farmer ever slaughters them. Default: 5
+	#
+	#Range: 1 ~ 64
+	sheepMaxBeforeSlaughter = 5
+	#ANTI-LAG hard ceiling on the TOTAL animals (adults + babies) allowed inside a
+	#single pen (wool/cow). The Workers animal farmer only slaughters excess ADULTS
+	#and IGNORES babies, so a runaway nursery can grow forever and lag the server,
+	#and the farmer can fall behind or be absent. Once a pen exceeds this many
+	#animals the addon culls the excess ITSELF, directly and cheaply, without
+	#relying on the worker AI. A baby about to be culled is grown to an adult first
+	#(so it drops its items instead of vanishing). Keep this comfortably above
+	#cowsPerPen / sheepMaxBeforeSlaughter so the worker still handles the normal
+	#case. Default: 6
+	#
+	#ANTI-LAG NOTE: this is the single biggest lever on loaded-entity count. Penned
+	#animals are EXEMPT from the global wild-animal cull (they carry the vr_pen_*
+	#tag), so this cap is the only thing bounding them, and it applies per pen per
+	#village -- the profiler showed ~146 penned cows+sheep across 7 online villages
+	#at the old default of 12. Lowering it is the cheapest TPS win available.
+	#
+	#Range: 4 ~ 128
+	animalHardCap = 6
+	#When a pen is below its baseline flock (sheepPerPen / half cowsPerPen) the
+	#addon restocks it. When true the restocked animals are spawned as BABIES that
+	#grow up normally, instead of adults appearing fully grown out of nowhere -- a
+	#herd that was slaughtered or killed off then visibly recovers over time. The
+	#baby still counts toward the baseline (so the pen is not restocked twice) and
+	#toward animalHardCap; it simply produces nothing until it grows. false =
+	#restore the old behaviour of spawning adults. Default: true
+	#
+	penRestockBabies = true
+	#ANTI-LAG: globally cull runaway LOADED animals (not just village pens). Villages
+	#stay chunk-loaded by player proximity and vanilla passive mobs never despawn, so
+	#with the Workers animal farmer breeding any nearby beast, pigs/chickens/cows/etc.
+	#pile up and dominate server tick time (the profiler shows ~half of all loaded
+	#entities are farm animals, while the whole addon is ~1% of the tick). When on, a
+	#periodic pass buckets every loaded overworld animal into a world grid and culls
+	#any species that exceeds wildAnimalMaxPerSpecies per cell (babies first, silently
+	#removed — no drops/XP). NEVER touches tamed/owned animals, named or leashed ones,
+	#mounts (ridden or being ridden), or village-pen animals (vr_pen_* tag). Default: true
+	#
+	wildAnimalOptimize = true
+	#Side (blocks) of the world grid cell used to measure animal density. The per-species
+	#cap (wildAnimalMaxPerSpecies) applies PER CELL, so this sets how spread out animals
+	#must be. Larger = fewer animals allowed over a wide area. Default: 96
+	#
+	#Range: 16 ~ 512
+	wildAnimalGridCell = 96
+	#Max animals of ONE species allowed inside a single wildAnimalGridCell before the
+	#excess is culled. A normal-sized farm stays under this; only runaway piles are
+	#thinned. Default: 12
+	#
+	#Range: 1 ~ 256
+	wildAnimalMaxPerSpecies = 12
+	#How often (ticks) the global animal cull pass runs. Cheap (one iteration over
+	#loaded entities). Default: 200 (10 s)
+	#
+	#Range: 20 ~ 24000
+	wildAnimalIntervalTicks = 200
+	#Max animals removed in a single cull pass (anti-spike). A large backlog is thinned
+	#over several passes instead of all at once. Default: 60
+	#
+	#Range: 1 ~ 10000
+	wildAnimalCullPerPass = 60
+	#ANTI-LAG: hard ceiling on the TOTAL number of loaded overworld animals across the
+	#WHOLE world, on top of the per-cell density cap above. The per-cell cull keeps any
+	#single farm from exploding, but it never bounds the world-wide total: animals spread
+	#thin across many villages all stay under their local cap while together dominating
+	#server tick time (the profiler showed ~975 loaded animals = the single biggest slice
+	#of the tick). When the loaded total exceeds this, the excess is culled -- the animals
+	#FARTHEST from any player first, so herds you can actually see are kept and the ones
+	#nobody is near are thinned (babies before adults at equal distance). Never touches
+	#tamed/owned/named/leashed/mounted or village-pen (vr_pen_*) animals. Respects
+	#wildAnimalCullPerPass (spread over passes, no spike). 0 = disabled (per-cell cull
+	#only). Default: 400
+	#
+	#Range: 0 ~ 100000
+	wildAnimalGlobalCap = 400
+	#ANTI-LAG: periodically MERGE identical ground item stacks that lie near each
+	#other into a single stack. Nothing is ever deleted — the item total is
+	#unchanged, only the number of ItemEntity carrying it drops. This matters far
+	#more than it sounds: every mob with canPickUpLoot (the Workers mod turns it on
+	#for ALL workers) scans for nearby ItemEntity EVERY tick, so with ~1200 loaded
+	#recruits/workers the cost is (pickers x ground items). Vanilla only merges
+	#within ~0.5 blocks, so piles from a siege or an animal slaughter never combine.
+	#Items with an active pickup delay (just dropped by a player) are never touched.
+	#Default: true
+	#
+	groundItemMerge = true
+	#Side (blocks) of the world grid cell inside which identical stacks are merged.
+	#Larger = more aggressive merging, but items can visually "jump" together from
+	#further away. Default: 6
+	#
+	#Range: 1 ~ 64
+	groundItemMergeRadius = 6
+	#How often (ticks) the ground-item merge pass runs. Default: 100 (5 s)
+	#
+	#Range: 20 ~ 24000
+	groundItemIntervalTicks = 100
+	#Max ItemEntity removed by merging in a single pass (anti-spike). A big backlog
+	#is collapsed over several passes instead of all at once. Default: 200
+	#
+	#Range: 1 ~ 10000
+	groundItemMergePerPass = 200
+	#ANTI-LAG: after how many ticks a SPENT arrow that nobody can ever pick up
+	#is removed. 0 disables it.
+	#
+	#An arrow shot by a mob or a recruit is created with pickup DISALLOWED --
+	#only a PLAYER's arrow is ALLOWED, and only a creative player's is
+	#CREATIVE_ONLY -- so nothing in the game can ever collect it. It then sits
+	#in the ground ticking until vanilla removes it at 1200 ticks (60s). A
+	#battle leaves hundreds: 192 were loaded at once on the profiled world.
+	#
+	#Nothing is lost by removing them earlier, because there was never anything
+	#to lose: a player's own arrows and creative arrows are NEVER touched, at
+	#any age. Default: 200 (10s)
+	#
+	#Range: 0 ~ 24000
+	groundArrowCullTicks = 200
+	#ANTI-LAG: how often (ticks) a VILLAGE recruit/worker is allowed to run its
+	#nearby-ItemEntity pickup scan. This is the other half of groundItemMerge: the
+	#cost of loot pickup is (pickers x ground items), that option cuts the items,
+	#this one cuts how often each picker looks. Recruits' own AbstractInventoryEntity
+	#turns canPickUpLoot ON for every recruit and worker, so all of them scan their
+	#surroundings EVERY tick -- the profiler attributes the largest single mod cost
+	#to exactly that vanilla aiStep block. Scans are staggered by entity id, so the
+	#work is spread over the interval instead of spiking on one tick.
+	#
+	#Nothing is lost: ground items live ~5 minutes, so a pickup is only delayed by
+	#up to this many ticks. Keep it modest -- a plain recruit's pickup reach is only
+	#~1 block, so a very long interval lets a walking soldier stride past an item
+	#between two scans (workers reach ~5.5 blocks and are unaffected).
+	#
+	#1 = disabled (vanilla every-tick behaviour). Only village-owned recruits and
+	#workers are throttled; recruits hired by a player keep scanning every tick.
+	#Default: 5
+	#
+	#Range: 1 ~ 100
+	lootScanIntervalTicks = 5
+	#Units of ore ONE coal smelts in the village forge. A real furnace burns a
+	#coal across 8 items; this used to be 1, which made coal - not ore - the
+	#thing every metal economy actually ran out of, and left villages sitting
+	#on hundreds of raw ore they could not convert.
+	#A part-used coal is spent whole, as in a furnace.
+	#1 = the old behaviour, 8 = vanilla-exact. Default: 4
+	#
+	#Range: 1 ~ 64
+	smeltsPerCoal = 4
+	#Raw iron ore (+ equal coal) a village's FORGE converts into iron ingots per
+	#economy cycle (~3000 ticks / 2.5 min), clamped to whatever ore/coal is
+	#actually in stock. Requires at least one built forge. Default: 20
+	#
+	#Range: 0 ~ 1000000
+	smeltIronPerCycle = 20
+	#Raw copper ore (+ equal coal) a village's FORGE converts into copper ingots
+	#per economy cycle. Copper ingots fund chainmail armor (this mod's Recruits
+	#classes have no copper weapon). Default: 15
+	#
+	#Range: 0 ~ 1000000
+	smeltCopperPerCycle = 15
+	#Raw gold ore (+ equal coal) a village's FORGE converts into gold ingots per
+	#economy cycle. Default: 8
+	#
+	#Range: 0 ~ 1000000
+	smeltGoldPerCycle = 8
+	#MODDED ore (+ equal coal) a village's FORGE converts into that mod's ingot
+	#per economy cycle -- tin, lead, silver, osmium, whatever the pack ships.
+	#The village miner has always dug every block in the forge:ores tag, so it
+	#already brings these home; this is what turns them into the ingot the gear
+	#recipes actually ask for. What each ore becomes is read from the SERVER's
+	#own recipes -- furnace, blast furnace, or the pack's own smelter -- so the
+	#pack's balance decides; an ore with no such recipe yields nothing here.
+	#One rate for all of them (the three vanilla ones keep their own settings
+	#above). 0 = off: the ore is still mined and stockpiled, just never smelted.
+	#Default: 10
+	#
+	#Range: 0 ~ 1000000
+	smeltModdedPerCycle = 10
+	#The forge can also CRAFT a metal, not only smelt an ore. Some packs route
+	#their metal through a crafting step -- a copper ingot made by smelting a
+	#blend that is itself crafted from 8 copper nuggets and 1 tin nugget -- and
+	#a furnace has nothing to say about a nugget, so that ingot's counter was
+	#never credited by anything: the miner banked material with no use, and the
+	#Armory rightly refused every piece of gear made of that metal because the
+	#village genuinely could not obtain it.
+	#What a metal costs is read off the pack's OWN recipes (the same walk that
+	#prices Armory gear, so any chain depth and any modded bench is covered).
+	#It only ever spends DEAD-END material -- anything with a smelting route of
+	#its own is left to the ordinary forge line above, where the coal is
+	#charged -- and coal is charged here too, at smeltsPerCoal.
+	#false = off; a pack that needs no crafting step loses nothing either way.
+	#Default: true
+	#
+	alloyingEnabled = true
+	#How many units of metal the forge's workbench may produce per economy
+	#cycle, across all metals together. The same order of magnitude as
+	#smeltModdedPerCycle on purpose: crafting a metal should not be faster than
+	#smelting one. Default: 6
+	#
+	#Range: 0 ~ 1000000
+	alloyPerCycle = 6
+	#Lets the workbench spend INGOTS as well as dead-end material -- real
+	#alloying, e.g. bronze out of copper and tin. On by default because that is
+	#what an alloy IS: "8 copper nuggets + 1 tin nugget, crafted and smelted"
+	#resolves, through the pack's own ingot-to-nuggets recipe, to a fraction of
+	#a copper ingot and a fraction of a tin one, so a village that refuses to
+	#spend ingots can never make bronze at all.
+	#Two rules keep it safe, and neither is optional: it will only make a metal
+	#the village can obtain NO OTHER WAY (never one the forge already smelts
+	#from ore, which would be a conversion nobody asked for), and it never digs
+	#below alloyKeepMetal. false = dead-end material only.
+	#Default: true
+	#
+	alloyFromMetals = true
+	#Ingots of any one metal the workbench must leave alone -- a small buffer so
+	#alloying cannot strip the warehouse bare while the smiths are working.
+	#Kept deliberately LOW: a big floor means a village must sit on a pile of
+	#copper before it can make its first bronze, which from the inside looks
+	#exactly like the feature not working, and the real per-resource protection
+	#already exists and belongs to the player -- the leader's RESERVE in the
+	#merchant's Stock tab, which every spender in the mod already honours.
+	#Only METAL has a floor: nuggets and dusts have no other use, so there is
+	#nothing to protect them from. 0 = spend down to the last ingot.
+	#Default: 8
+	#
+	#Range: 0 ~ 1000000
+	alloyKeepMetal = 8
+	#Whether MODDED ores and ingots count as something the village can produce
+	#when the Armory prices a piece of gear. On (default), a set of tin armor
+	#can be pinned and is paid for out of the tin the village mined; off, the
+	#Armory refuses it as unobtainable exactly as it did before.
+	#This does NOT make them buyable: modded ores are deliberately absent from
+	#the merchant, so mining is the only way a village ever gets one.
+	#Ores that cannot be mined in the overworld are refused either way -- the
+	#vanilla nether/end drops are already listed, and armoryWorldOnly is where
+	#you add a modded ore that only generates outside the overworld.
+	#Default: true
+	#
+	moddedOreArmorySourcing = true
+	#MODDED CHESTS a village treats as storage, on top of the vanilla chest,
+	#trapped chest and barrel. Exact block ids, or a "namespace:*" wildcard.
+	#Most of the storage system never needed this: the designated storage
+	#chest (/vrsetstorage), the stockpile scans, the deposit conversion, the
+	#access protection and the demolition emptying all accept ANY container
+	#block entity, so modded chests already worked there.
+	#This list is for the three places that look at a BLOCK instead - above
+	#all finding a production building's deposit chest inside a structure's
+	#NBT, where there is no block entity to ask, only an id. A production
+	#building whose container was an Iron Chest had no deposit chest at all,
+	#so its worker had nowhere to put what it harvested.
+	#It is a LIST and not "any container" on purpose: furnaces, hoppers and
+	#dispensers are containers too, and a forge contains furnaces - picking
+	#one as the deposit chest would send every harvest into a fuel slot.
+	#The forge:chests tag is NOT usable here: with Iron Chests installed it
+	#still holds only the three vanilla entries.
+	#Entries for a mod that is not installed simply never match, which is
+	#what makes this compat optional with no extra switch.
+	#Ender chests are ALWAYS refused whatever is listed - their contents are
+	#a player's, not the village's.
+	#
+	storageBlocksExtra = ["ironchest:*", "superchest:*"]
+	#MACHINE containers a village must NEVER count as its storage nor deposit
+	#into, on top of the vanilla ones that are always denied (hopper, dropper,
+	#dispenser, furnace / blast furnace / smoker, brewing stand, chiseled
+	#bookshelf, lectern, jukebox). Exact block ids, or a "namespace:*"
+	#wildcard.
+	#Two scans sweep an AREA and take any container block entity they find:
+	#the built plots of a village, and - for a PLAYER faction - every block
+	#entity in the whole 7x7-chunk claim. A hopper is a container, so a player
+	#who built any automation inside his own village had it enrolled as
+	#village storage: the stockpile materialised its pending materials into
+	#his hoppers, those pumped them into his sorting system, and the village
+	#kept refilling them.
+	#This is a DENY list and not an allow list on purpose. The broad "any
+	#container" rule is what makes every modded chest work with no
+	#configuration at all; narrowing those scans to storageBlocksExtra would
+	#silently drop every modded chest nobody listed there. Naming the
+	#machines keeps the open rule open - so add a mod's machines here, not
+	#its chests.
+	#NOTE: the same scan feeds the stockpile RECONCILE, so the first sync
+	#after this rule arrives stops counting whatever was sitting in a denied
+	#container and books it once as a small theft. That is a correction: those
+	#items were a player's machine contents being reported as the village's.
+	#Default: empty (the vanilla machines above are always denied)
+	#
+	storageDeniedContainers = []
+	#CHARCOAL: a village's FORGE burns WOOD into coal when it has run out.
+	#Coal is the single point of failure of the whole metal economy - every
+	#ingot costs one coal, and only the MINE produces coal - so a village
+	#whose miners are dead, or working a seam with no coal in it, silently
+	#stops making ingots and with them armour, shields, promotions and
+	#firearms, while its stockpile still shows piles of raw ore.
+	#Charcoal is the vanilla answer to exactly that, so a village with a
+	#forge and a lumber camp can always dig itself out.
+	#Default: true
+	#
+	charcoalEnabled = true
+	#Only burn wood while coal is BELOW this. Coal is worth more as coal, so
+	#this is a fallback and not a conversion the village runs by preference;
+	#it also stops the kiln the moment the mines start delivering again.
+	#The kiln never overshoots this figure either. Default: 8
+	#
+	#Range: 0 ~ 1000000
+	charcoalCoalBelow = 8
+	#Wood units burned per coal produced. Five, not one, because a kiln burns
+	#fuel to make fuel: the wood that becomes the charcoal plus the wood that
+	#fired the furnace doing it. Default: 5
+	#
+	#Range: 1 ~ 1000
+	charcoalWoodPerCoal = 5
+	#Economy cycles (~3000 ticks / 2.5 min each) a batch of charcoal takes to
+	#burn. The wood is spent when the batch is loaded and the coal arrives when
+	#it finishes, so the kiln is a decision made ahead of needing the metal
+	#rather than an instant conversion of the warehouse into ingots. The kiln
+	#holds ONE batch: nothing new is loaded while a batch is burning.
+	#1 = ready on the next cycle. Default: 2
+	#
+	#Range: 1 ~ 1000
+	charcoalKilnCycles = 2
+	#Most coal a forge can make from wood in one economy cycle (~3000 ticks /
+	#2.5 min). Default: 4
+	#
+	#Range: 0 ~ 1000000
+	charcoalPerCycle = 4
+	#Wood the kiln will NEVER burn into: it only ever spends the surplus above
+	#this figure.
+	#WOOD is the most contended material in the mod - the builder waits on it
+	#constantly - and a village that burned its way out of houses to make
+	#ingots would have traded one stall for a worse one. Measured on SPENDABLE
+	#wood, so a leader's own reserve applies on top of this.
+	#0 = burn wood down to nothing (not advised). Default: 64
+	#
+	#Range: 0 ~ 1000000
+	charcoalMinWood = 64
+	#food_grain units each UNLOADED wheat farm produces per economy cycle (loaded
+	#farms produce via the real farmer worker instead). Default: 40
+	#
+	#Range: 0 ~ 1000000
+	offlineFoodGrainPerCycle = 40
+	#leather units each UNLOADED cow pen produces per economy cycle (from
+	#slaughtering excess cows). Default: 6
+	#
+	#Range: 0 ~ 1000000
+	offlineLeatherPerCycle = 6
+	#food_meat units each UNLOADED cow pen or sheep pen produces per economy cycle
+	#(beef/mutton from slaughtering excess animals). Default: 10
+	#
+	#Range: 0 ~ 1000000
+	offlineMeatPerCycle = 10
+	#food_grain (non-meat) units a Nomad promotion consumes, on top of 1 WOOD +
+	#1 WOOL. Default: 20
+	#
+	#Range: 0 ~ 1000000
+	promotionFoodNomad = 20
+	#food_grain (non-meat) units a Horseman promotion consumes, on top of 2 iron
+	#ingots. Default: 25
+	#
+	#Range: 0 ~ 1000000
+	promotionFoodHorseman = 25
+
+[firearms]
+	#Damage a musket deals for a faction that has BASIC FIREARMS but has not
+	#yet researched MUSKETRY, as a fraction of normal.
+	#
+	#Basic Firearms is a starter technology: it lets a faction open the game
+	#with muskets in its crossbowmen's hands instead of climbing to Gunpowder
+	#and Musketry first. If those early muskets were simply the real thing
+	#arriving sooner, Musketry would be worth nothing to anyone who took the
+	#starter pick, and everyone would take it. The penalty keeps an early gun
+	#an EARLY gun: real reach, real noise, less punch.
+	#
+	#Basic Firearms also caps the ladder at the plain musket; the blunderbuss
+	#and the scoped musket stay behind Musketry. So researching Musketry is an
+	#upgrade in two directions at once.
+	#
+	#1.0 = no penalty (the starter tech becomes a straight shortcut).
+	#Default: 0.6 (-40% damage)
+	#
+	#Range: 0.05 ~ 1.0
+	basicFirearmDamageScale = 0.6
+	#Let factions ARM their ranged troops with Warium / TACZ firearms once
+	#they have researched the matching technology (Firearm Machining for
+	#Warium, Precision Arms for TACZ).
+	#
+	#Researching the technology unlocks the WHOLE allowed pool at once; what
+	#a village can actually field is then decided by what it can AFFORD, so
+	#a poor village carries pistols and a rich one battle rifles. A recruit
+	#keeps the gun it is given -- the pick is stable per recruit, not
+	#re-rolled every pass.
+	#
+	#Only ranged troops are armed: a gun in a melee recruit's hand is a club,
+	#because the firing AI belongs to the bridge addons (recruitswr for
+	#Warium, recruitstacz for TACZ). With the bridge addon MISSING this stays
+	#off for that mod for the same reason.
+	#
+	#Off = only special-faction archetypes ever carry modded firearms.
+	#Default: true
+	#
+	aiFirearmsEnabled = true
+	#May EVERY recruit type carry a firearm, or only the ranged classes
+	#(bowman, crossbowman -- and commanders, which are bowmen by
+	#inheritance)?
+	#
+	#The bridge addons put their shooting goals on AbstractRecruitEntity,
+	#the base of every recruit type, and gate firing on the recruit's ranged
+	#FLAG rather than its class -- and this addon sets that flag when it
+	#hands out a gun. So a swordsman with a rifle really does shoot it; the
+	#old class restriction was never a technical requirement.
+	#
+	#⚠️ Balance, not capability, is why this is OFF by default: with it on,
+	#every soldier a village can afford a gun for becomes a shooter and the
+	#MELEE LINE DISAPPEARS. Off keeps swordsmen and shieldmen as the front
+	#rank and arms only the troops that were already ranged (bowman,
+	#crossbowman, commanders).
+	#
+	#Turn it on for a modern-warfare feel where the whole army shoots.
+	#Default: false
+	#
+	allRecruitTypes = false
+	#NEVER issue a gun whose id contains any of these (case-insensitive
+	#substring match). This is what keeps village patrols off the absurd
+	#end of a gun pack -- belt-fed and anti-materiel weapons -- while
+	#leaving ordinary infantry arms, and yes launchers, available.
+	#
+	#Substring matching on purpose: it also covers guns from packs and
+	#addons this mod has never heard of, which an id whitelist could not.
+	#Grenade launchers and RPGs are deliberately NOT here.
+	#
+	denyPatterns = ["minigun"]
+	#Guns held back until the SECOND level of Precision Arms
+	#(same case-insensitive substring matching as denyPatterns).
+	#
+	#This list used to be part of denyPatterns, which made it a permanent ban
+	#rather than a progression step: the heavy and long-range models could
+	#never be issued at all. They are a research goal now, not contraband, so
+	#the two questions are separate knobs - denyPatterns is "this server never
+	#wants to see it", this is "not yet".
+	#
+	#Only the TACZ tech has a second level, so this only affects TACZ guns;
+	#a pattern here that matches a Warium or musketmod weapon does nothing.
+	#
+	tier2Patterns = ["gatling", "m134", "m249", "rpk", "evolys", "m107", "m95", "machine_gun", "lmg", "hmg"]
+	#Force-allow these gun ids even if a deny pattern matches
+	#(full id, e.g. "tacz:m249"). Escape hatch for a server that wants a
+	#specific heavy weapon back.
+	#
+	allowExtra = []
+	#Which attachment ids count as a MAGNIFIED optic, so that a gun TACZ
+	#classifies as a sniper is fitted with one rather than with a red dot
+	#(case-insensitive substring match on the attachment id path).
+	#
+	#A preference, not a requirement: a rifle that accepts no magnified optic
+	#still gets whatever it does accept rather than going bare.
+	#
+	#It is a list and not a hard-coded rule because magnification is not
+	#readable on the server - TACZ keeps the zoom on its CLIENT index - so the
+	#distinction has to be made by name. The default is TACZ's own convention:
+	#its magnified optics are scope_*, its reflex sights are sight_*. A pack
+	#that names things differently can be taught here.
+	#Empty = no preference, any compatible optic.
+	#
+	sniperScopePatterns = ["scope_"]
+	#Base cost of ONE firearm, in iron ingots, for a sidearm.
+	#
+	#The ladder is per RESOURCE as well as per amount:
+	#  sidearm  = 1x iron
+	#  rifle    = 2x iron + 1x gold
+	#  launcher = 4x iron + 2x gold + 1x diamond
+	#
+	#Deliberately NOT "every figure x2/x4": with one multiplier across all
+	#three, every class needed gold AND diamond, so a village sitting on 600
+	#iron and zero gold could not afford a single pistol -- and since the
+	#check is an AND, the whole pool came back unaffordable and the recruit
+	#was armed with nothing, silently. One missing resource must not blank
+	#the arsenal. Default: 12
+	#
+	#Range: 0 ~ 100000
+	costIron = 12
+	#IRON HELD BACK FOR FIREARMS, counted in GUNS (this many times the iron
+	#price of the cheapest gun the faction can currently build).
+	#Armour, shields, melee weapons and promotions buy iron in ones and twos,
+	#constantly, for every soldier in the village; a gun costs costIron - 12
+	#by default - in a SINGLE purchase. Sharing one pot means the cheap
+	#spenders always win: the balance is drawn back down to nothing between
+	#one evolution pass and the next, so it never reaches 12 and the gun is
+	#never bought, however much iron the village produces over time. That is
+	#a priority inversion, not poverty, and no amount of mining fixes it.
+	#Below this floor iron may only be spent on a firearm.
+	#Counted in guns rather than ingots so re-tuning costIron moves it too.
+	#Nothing is reserved at all for a faction that cannot currently buy a gun
+	#(no firearm technology, or the mod is absent), so villages that will
+	#never field one are not made to hoard metal their soldiers could wear.
+	#A leader's own per-resource reserve still applies to firearms as it does
+	#to everything else - that one is an explicit instruction from a player.
+	#0 = off (the old shared pot). Default: 2
+	#
+	#Range: 0 ~ 1000
+	ironReserveGuns = 2
+	#Gold-ingot cost unit: a rifle costs 1x this, a launcher 2x, a sidearm none. Default: 4
+	#Range: 0 ~ 100000
+	costGold = 4
+	#Diamond cost unit: only a launcher pays it (1x). Default: 1
+	#Range: 0 ~ 100000
+	costDiamond = 1
+	#Base MONEY price of a sidearm (rifle x2, launcher x4), used only on the
+	#legacy money economy -- i.e. when equipment.materialsEnabled is OFF and
+	#gear is bought with the treasury instead of with produced materials.
+	#
+	#Same firearms, same technology gate, same allowed pool; only the till
+	#is different. Sized against the musket line on that same path (10/15/20),
+	#so a sidearm at 15 is a little dearer than a musket and a launcher at 60
+	#is a real purchase. Default: 15
+	#
+	#Range: 0 ~ 1000000
+	costMoney = 15
+	#Price a gun from its OWN crafting recipe instead of the flat class
+	#ladder above.
+	#
+	#The ladder knows three classes, so every pistol in the game costs the
+	#same and every rifle costs the same -- a gun pack's own balance is
+	#ignored, and a TACZ B93R (really 21 iron + 5 logs + 2 lapis) was
+	#charged 12 iron. With this on, a village pays what the weapon actually
+	#takes to build, so a pack that ships cheap and expensive guns keeps
+	#that spread.
+	#
+	#TACZ Gun Smith Table recipes are read as well as ordinary ones. The
+	#LADDER still applies to any gun with no recipe, or one built from
+	#something a village cannot produce, so no weapon ever drops out of the
+	#pool for want of a price.
+	#
+	#Affects both the village arming itself and an Armory pin, so the same
+	#gun costs the same however it was bought. Does not affect the legacy
+	#money economy (equipment.materialsEnabled off), which pays in coin and
+	#has no stockpile to take a bill of materials from. Default: true
+	#
+	recipePricing = true
+	#Aim a soldier's musket for a BULLET instead of for an arrow.
+	#
+	#The base mod fires an AI's musket along y + horizontalDistance * 0.065 -
+	#drop compensation, and a sound idea for a projectile that drops. A
+	#musketmod ball is not one: it leaves the barrel at 4.5 blocks a tick
+	#against an arrow's 1.6, and musketmod applies its own gravity multiplier
+	#(0.5 as shipped) on top. Over 30 blocks that aims about 1.95 blocks high
+	#while the ball falls about 0.5, so the shot passes over the target - at
+	#every range, by an amount that GROWS with distance.
+	#
+	#RIFLING IS WHAT MAKES IT VISIBLE, which is why it reads as a Rifling
+	#bug. Spread is rolled around the aim, so at the stock inaccuracy a fair
+	#share of shots scattered down onto the target and the error looked like
+	#poor accuracy. Rifling tightens the scatter, so the shots go exactly
+	#where they are aimed - over its head. The technology exposed the fault
+	#rather than causing it.
+	#
+	#With this on, the arrow loft is removed and the drop this projectile
+	#really has is put back, computed from the shot's own velocity and from
+	#musketmod's configured gravity - so a pack that retunes gravity is aimed
+	#for correctly instead of being aimed for the shipped number.
+	#
+	#Only ever touches a musketmod bullet fired by an AI. A player's shot
+	#does not come through here at all.
+	#false = the base mod's arrow loft, overshoot and all.
+	#Default: true
+	#
+	fixAiMusketLoft = true
+	#Of the musketeers a village equips at the SECOND rung of the musket
+	#ladder, the fraction that carry a bayonet musket rather than a
+	#blunderbuss.
+	#
+	#The two sit on the same rung on purpose: one is not an upgrade over the
+	#other, they are a line weapon and a close-quarters one, and Musketry
+	#level 1 unlocks both. Which of them a given soldier gets is drawn from
+	#his own UUID, so it is the SAME answer every pass -- a musketeer keeps
+	#the weapon he was issued instead of the village paying to swap the two
+	#back and forth forever.
+	#
+	#1.0 = every rank-2 musketeer carries a bayonet, 0.0 = all blunderbusses.
+	#Default: 0.5
+	#
+	#Range: 0.0 ~ 1.0
+	bayonetShare = 0.5
+	#How far a RIFLED musket's shot drops, as a fraction of how far a scoped
+	#musket's drops.
+	#
+	#musketmod already gives the scoped musket a flatter trajectory
+	#(its own bulletGravityMultiplier); a rifle is measured against that,
+	#so retuning musketmod retunes this with it instead of leaving the two
+	#saying different things.
+	#
+	#0.5 = half the scoped musket's drop (the default). 1.0 = exactly a
+	#scoped musket. 0.0 = a flat shot, which will outrange everything in the
+	#game -- the value is clamped so a rifle can never ignore gravity
+	#entirely.
+	#
+	#Range: 0.0 ~ 1.0
+	riflingDropOfScoped = 0.5
+	#Extra durability on a firearm built by a faction with GUNSMITH MASTERY,
+	#as a fraction of the weapon's normal durability.
+	#
+	#Applies to every musketmod gun the village makes, and travels with the
+	#weapon: one looted or bought off a mastered faction is still the better
+	#weapon, because the quality is in the gun and not in whoever holds it.
+	#
+	#0.25 = a musket lasts 250 shots instead of 200. Default: 0.25
+	#
+	#Range: 0.0 ~ 20.0
+	masteryDurabilityBonus = 2.0
+	#Hard ceiling on a mastered firearm's durability, whatever the bonus above
+	#works out to.
+	#
+	#The bonus is a FRACTION of the weapon's own durability, so it spreads
+	#unevenly across musketmod's range (a musket is 250, a blunderbuss 200, a
+	#scoped musket 150) and a large multiplier would send the toughest of them
+	#somewhere silly. The cap is what actually decides where the ceiling is;
+	#the bonus decides how close to it each weapon gets.
+	#
+	#0 = no ceiling. Default: 800
+	#
+	#Range: 0 ~ 32767
+	masteryDurabilityCap = 800
+	#Extra melee damage on a MASTERED bayonet musket, as a fraction of the
+	#weapon's normal melee damage.
+	#
+	#The figure is applied to the damage the tooltip shows, so 0.25 really
+	#does mean a quarter harder rather than a quarter more than a number
+	#nobody is shown. Written onto the weapon when it is built, so an
+	#existing bayonet musket gains it on the armourer's next round.
+	#
+	#Default: 0.25 (+25%)
+	#
+	#Range: 0.0 ~ 2.0
+	masteryBayonetDamageBonus = 0.25
+	#Durability a soldier with GUNSMITH MASTERY works back into the firearm
+	#in his hands, every five seconds he is not fighting.
+	#
+	#This is the third half of Mastery: the village's muskets no longer
+	#quietly wear out between wars, because the man carrying one knows how
+	#to strip and mend it. It only ever touches the weapon actually held --
+	#a soldier looks after his own gun, not a warehouse -- and never repairs
+	#past new.
+	#
+	#0 = off. Default: 2
+	#
+	#Range: 0 ~ 200
+	masteryRepairPerPass = 2
+	#How long after his last exchange of blows a soldier counts as still
+	#fighting, and so will not stop to work on his firearm.
+	#
+	#Measured from a blow DEALT OR TAKEN rather than from having a target: a
+	#musketeer can hold a target for minutes while never getting near it,
+	#which is the case this exists to allow for. A live target blocks the
+	#repair regardless.
+	#
+	#Default: 200 ticks (10 seconds)
+	#
+	#Range: 0 ~ 12000
+	masteryRepairCombatGraceTicks = 200
+
+[trade]
+	#Enable automatic barter between nearby AI (village_) factions: a
+	#village that is LOW on a material/equipment resource and another
+	#village that has a SURPLUS of it swap resources, each giving up only
+	#what it can spare without becoming low itself. Default: true
+	#
+	enabled = true
+	#How often (in ticks) each faction pair is re-evaluated for a trade. Default: 1800 (90 s)
+	#Range: 100 ~ 72000
+	evalIntervalTicks = 1800
+	#Cooldown (in ticks) between two trades for the SAME pair of villages,
+	#to avoid the same two factions bartering every evaluation. Default:
+	#6000 (5 min)
+	#
+	#Range: 200 ~ 1728000
+	cooldownTicks = 6000
+	#A material family is considered "low" (worth importing) when its stock
+	#is below this fraction of the faction's family cap
+	#(materials.maxMaterialStock × villages owned). Default: 0.15
+	#
+	#Range: 0.0 ~ 1.0
+	lowFraction = 0.15
+	#A material family is considered "surplus" (safe to export) when its
+	#stock is above this fraction of the faction's family cap. Only the
+	#excess ABOVE this line is ever offered, so a village never trades
+	#itself down to being low. Default: 0.5
+	#
+	#Range: 0.0 ~ 1.0
+	surplusFraction = 0.5
+	#Max family units exchanged per resource, per trade. Default: 128
+	#Range: 1 ~ 100000
+	maxUnitsPerTrade = 128
+	#Equipment counters (ingots/leather/food/raw ore) have no cap, so "low"
+	#uses an absolute count instead of a fraction. Default: 5
+	#
+	#Range: 0 ~ 100000
+	equipmentLowThreshold = 5
+	#Absolute count above which an equipment counter is "surplus" (safe to
+	#export the excess above this line). Default: 30
+	#
+	#Range: 1 ~ 100000
+	equipmentSurplusThreshold = 30
+	#Max equipment units exchanged per resource, per trade. Default: 12
+	#Range: 1 ~ 100000
+	equipmentMaxUnitsPerTrade = 12
+
+[merchant]
+	#Village MERCHANT: a worker NPC (one per village center, capital and secondary,
+	#AI and player) that BUYS the resources the village needs and pays EMERALDS.
+	#It replaces donating into chests (AI village chests are locked). It stands on
+	#the tower block at NBT-rel (24,0,9) if the tower has one, otherwise wanders near
+	#the center. Only a player AT WAR with the village may damage it; everyone else
+	#(neutral/allied/own members) can trade and cannot hit it. Default: true
+	#
+	merchantEnabled = true
+	#How many resource rows one merchant's trade screen can hold. If the total number
+	#of tradeable resources exceeds this, the village splits into TWO merchants: one
+	#for BUILD materials (wood/stone/sand/wool) and one for WEAPON materials
+	#(ingots/leather/food). With the default 10 tradeables, keep >=10 for a single
+	#merchant. Raised from 12 to 14 when redstone and lapis joined the
+	#tradeables (13 of them now): an EXISTING config left at 12 will split its
+	#villages into two merchants, which works but is a visible change --
+	#raise it to at least the number of tradeables to keep one. There are 15 today
+	#(gunpowder was the fifteenth), and the default leaves one
+	#spare so the next addition does not split anybody's
+	#villages in two. Default: 16
+	#
+	#Range: 2 ~ 64
+	merchantTradeSlots = 16
+	#AI villages: build-material units (wood/stone/sand/wool) that earn 1 emerald when
+	#the resource is at MAXIMUM need (stock near empty). The effective price is
+	#round(base / needFactor), so it rises (fewer emeralds) as the village's stock
+	#fills, and the trade CLOSES at the stock cap. Higher = resources are worth fewer
+	#emeralds. Default: 12
+	#
+	#Range: 1 ~ 100000
+	buildBaseUnitsPerEmerald = 12
+	#AI villages: weapon-material units (iron/copper/gold ingot, leather, grain, meat)
+	#that earn 1 emerald at maximum need. Lower than the build value because equipment
+	#is scarcer/more valuable to a village. Default: 3
+	#
+	#Range: 1 ~ 100000
+	equipBaseUnitsPerEmerald = 3
+	#AI villages: floor on the need factor while a resource is still below its target,
+	#so a barely-needed resource still trades (at a poor rate) instead of snapping shut.
+	#At/above the target the factor is 0 regardless and the trade closes. Default: 0.1
+	#
+	#Range: 0.0 ~ 1.0
+	minNeedFactor = 0.1
+	#AI villages: the weapon-material stock level (per owned village) at/above which
+	#that material's need is 0 and the merchant stops buying it. Equipment counters
+	#have no hard cap, so this stands in for one. Default: 256
+	#
+	#Range: 1 ~ 10000000
+	equipNeedTarget = 256
+	#PLAYER factions: the starting FIXED price (units per emerald) for every resource,
+	#until the faction leader changes it in the merchant's leader panel. Prices are
+	#shared across all of the faction's merchants. Default: 12
+	#
+	#Range: 1 ~ 100000
+	playerDefaultUnitsPerEmerald = 12
+	#How far from a village centre a MERCHANT POST still counts as that
+	#village's, in blocks.
+	#
+	#A merchant post is an invisible block a builder places to say "the
+	#merchant stands HERE". Without one the merchant's only stall is a
+	#hardcoded column inside the SHIPPED tower, so any hall captured with
+	#/vrstructure - and a sky village's hall, which is not a tower and has no
+	#measured footprint at all - fell through to "wander within
+	#merchantWanderRadius of the centre". He traded, but he had no post: he
+	#drifted, ended up outside, and there was nowhere reliable to find him.
+	#
+	#Ownership is by DISTANCE rather than claim membership, exactly as it is
+	#for landing pads: a post is a block inside a building, and a building may
+	#sit just outside the claim or in a chunk it was never extended to.
+	#
+	#A village with more merchants than posts leaves the extra ones unposted
+	#rather than doubling them up - two merchants on one block is one merchant
+	#you cannot click.
+	#
+	#Range: 8 ~ 256
+	merchantPostRange = 64
+	#How far (blocks) a merchant may wander from its anchor (the tower block, or the
+	#village center when the tower has no (24,0,9) block). Default: 5
+	#
+	#Range: 0 ~ 32
+	merchantWanderRadius = 5
+	#PLAYER factions: minimum ticks between "this merchant has 0 emeralds" chat warnings
+	#to the leader when the leader is near a village whose merchant cannot pay.
+	#Default: 1200 (60 s)
+	#
+	#Range: 100 ~ 72000
+	merchantWarnCooldownTicks = 1200
+	#PLAYER factions: let the faction leader manage his village stock from any of his
+	#merchants — WITHDRAW faction resources (building materials + gear) as real items
+	#(handy when the goods are scattered across many chests and villages), and set a
+	#per-resource RESERVE floor below which the village will not spend that resource on
+	#construction/equipment/promotions/trade (the whole faction, not just one village).
+	#Manual withdrawal ignores the reserve (leader override). Set false to hide these
+	#leader tools and disable all reserves. Default: true
+	#
+	merchantLeaderStockAccess = true
+	#Master switch for merchants SELLING to players (the direction added in 1.0.7.93):
+	#a village hands over goods from its own stock and takes emeralds for them. Before
+	#this a merchant only ever bought, so emeralds flowed one way and a village drowning
+	#in iron had no way to let anybody buy it.
+	#A PLAYER faction sells only what its leader has listed in the merchant screen, at
+	#his price; an AI village sells only its SURPLUS (see merchantAiSellsSurplus).
+	#Nothing is ever sold below the floor the owner keeps: the leader's per-resource
+	#RESERVE for a player faction, the need target for an AI village — the same floor
+	#auto-sell stops at, so the two ways out of a stockpile cannot between them empty it.
+	#Set false to remove the Buy side entirely. Default: true
+	#
+	merchantShopEnabled = true
+	#PLAYER factions: the largest stock a leader may order his village to keep of one
+	#FINISHED GOOD (a sword, a gun, a piece of armour). The village makes them out of its
+	#own materials, one per production pass, and stops at the cap.
+	#The cap bounds the SHELF, not the spending: production only ever pays from stock
+	#above the leader's per-resource RESERVE, so an order cannot take the materials his
+	#troops are armed with. Default: 64
+	#
+	#Range: 1 ~ 1024
+	merchantOrderMaxCap = 64
+	#How often (ticks) a faction makes ONE item toward its production orders. 200 = one
+	#every 10 seconds, so an order of 5 is filled in under a minute and an order of 64
+	#takes about ten. Raising it makes stocking a shop slower and cheaper on the server;
+	#lowering it lets a treasury drain faster. Default: 200
+	#
+	#Range: 20 ~ 24000
+	merchantOrderIntervalTicks = 200
+	#Do AI villages sell their surplus to players? On, a village with more of something
+	#than it needs will part with the excess, priced by how little it needs it, and stops
+	#the moment its stock reaches the level it wants to keep — so it can never sell itself
+	#short. This is what makes a rich neighbour worth visiting rather than only worth
+	#raiding, and gives a landlocked player somewhere to buy the ore his own land lacks.
+	#Off, only player-faction merchants sell and AI villages stay pure sinks.
+	#Requires merchantShopEnabled. Default: true
+	#
+	merchantAiSellsSurplus = true
+	#The merchant's SPREAD: how much worse the buying rate is than the selling rate.
+	#A player receives (buy price / this) units per emerald, so at 1.5 a village that
+	#pays 1 emerald for 12 iron will only hand back 8 iron for that emerald.
+	#⚠️ DO NOT SET THIS TO 1.0 on a server. At 1.0 the two directions of one row form a
+	#closed loop that costs nothing to run — sell a stack, buy it straight back, repeat —
+	#and because an AI village PAYS MORE as its stock falls, the loop is not even
+	#break-even, it is profitable. The spread is what makes a round trip lose money.
+	#Higher = trading is more expensive and villages keep more of their goods.
+	#Default: 1.5
+	#
+	#Range: 1.0 ~ 10.0
+	merchantSellSpread = 1.5
+	#PLAYER factions: master switch for the leader's per-resource AUTO-SELL tools. When
+	#on, a leader can (per resource) set a BUY CAP (stock level above which the merchant
+	#stops buying that resource) and a SELL THRESHOLD (stock level above which the surplus
+	#is automatically SOLD to the nearest faction — AI or player — that needs it, at the
+	#best price, within the attack radius). AI buyers mint the emeralds; player buyers pay
+	#from their own merchant's physical emeralds (skipped if they can't afford it). The
+	#emeralds earned go to the SELLER faction's capital merchant (queued if it's offline).
+	#The feature is opt-in: a faction-wide master toggle plus each resource's own toggle
+	#both start OFF. Set false to hide the Auto-Sell tab and disable all auto-selling.
+	#Default: true
+	#
+	merchantAutoSellEnabled = true
+	#Auto-sell: the maximum units of one resource a faction sells in a single evaluation
+	#pass, so a huge surplus is offloaded gradually instead of dumped at once. Default: 512
+	#
+	#Range: 1 ~ 1000000
+	merchantAutoSellMaxUnitsPerPass = 512
+	#Auto-sell: how often (ticks) surplus auto-selling is evaluated for every player
+	#faction. Cheap (no-op when nothing is configured or over threshold). Default: 1200 (60 s)
+	#
+	#Range: 100 ~ 72000
+	merchantAutoSellIntervalTicks = 1200
+	#GLOBAL TRADE: when the neighbourhood cannot absorb a resource, offer it to the whole
+	#world with NO distance limit. It is a FALL-THROUGH evaluated per resource: anything a
+	#nearby faction already buys stays local trade, only the leftovers travel. Without this,
+	#an isolated village with a huge surplus and no faction inside attackRadius sells
+	#nothing, ever. Default: true
+	#
+	merchantGlobalTradeEnabled = true
+	#GLOBAL TRADE: minimum ticks between two global sales by the SAME faction. This is the
+	#only cost of trading at distance (there is no price penalty), so it is what keeps
+	#nearby partners worth having and makes a large surplus drain steadily instead of
+	#vanishing in one pass. The cooldown starts only when a global sale actually completed,
+	#so a fruitless attempt does not delay the next one. Default: 6000 (5 min)
+	#
+	#Range: 20 ~ 720000
+	merchantGlobalTradeCooldownTicks = 6000
+	#PLAYER factions only: when a faction member buys one of the village's own
+	#recruits — either by hiring a PATROLLING recruit (base-mod cost: recruit 4,
+	#bowman 6, crossbowman 8, shieldman 10, horseman 20, nomad 19) or by buying a
+	#fresh troop from the leader — the faction LEADER gets a discount (half price on
+	#patrolling recruits, full price from the leader) while any other MEMBER pays a
+	#per-type TAX on top. The tax emeralds go into the inventory of the merchant of
+	#the faction village nearest to the buyer (held pending until one spawns). The
+	#leader sets the tax per recruit type (faction-wide) in the merchant's Recruit Tax
+	#tab; the default tax is half the patrol base price. AI-faction hiring is never
+	#affected. Set false to disable the discount/tax entirely. Default: true
+	#
+	recruitBuyTaxEnabled = true
+	#PLAYER factions: the maximum per-type recruit tax the leader can set in the
+	#merchant Recruit Tax tab. The minimum is always 0 (a member then pays the same
+	#base as the leader on patrol / full base from the leader). Default: 128
+	#
+	#Range: 0 ~ 4096
+	recruitTaxMax = 128
+	#What the merchant gets when auto-selling surplus with NO buyer faction,
+	#as a fraction of the leader's own price. 0.6 = 60% of what a real
+	#village would have paid.
+	#
+	#Auto-sell used to need a nearby faction that WANTED the resource, and
+	#"if nobody buys, nothing sells" - so a village with no interested
+	#neighbours sat on its surplus forever with the Auto-Sell tab appearing
+	#to do nothing. It now always converts, but at a worse rate, which is
+	#what keeps trading with real neighbours the better deal instead of
+	#making them ornamental next to a stall that pays full price for
+	#anything. Set to 0 to disable the fallback and restore the old
+	#"a buyer or nothing" rule. Default: 0.6
+	#
+	#Range: 0.0 ~ 1.0
+	autoSellWorldPriceScale = 0.6
+	#How many emeralds a merchant may hold before AUTO-SELL stops topping it
+	#up. 0 (default) = no ceiling.
+	#
+	#This used to be read off the merchant's TRADE RESERVE, and that was a
+	#bug: the reserve is a floor on SPENDING - emeralds the merchant will not
+	#touch when buying from players - and using the same number as a ceiling
+	#on SELLING gave one figure two opposite jobs. A leader who banked 256
+	#emeralds to trade with then had a merchant sitting at exactly 256, which
+	#read as "no room", so auto-sell stopped for EVERY resource of that
+	#faction, permanently: stockpile at the cap, production running into a
+	#wall, the Auto-Sell tab doing nothing - the very symptom auto-sell had
+	#been rewritten to fix.
+	#
+	#So the ceiling is its own number now, and it is off by default. The
+	#leader already bounds what gets sold with the per-resource RESERVE (how
+	#much material to keep) and the SELL THRESHOLD (above which to sell), so
+	#this is only for someone who specifically does not want a village
+	#converting its warehouse into a pile of emeralds.
+	#
+	#Range: 0 ~ 1000000
+	autoSellEmeraldCap = 0
+
+[armory]
+	#AI villages CHOOSE their own equipment instead of walking a fixed
+	#leather -> iron -> diamond ladder.
+	#
+	#A village looks at what its own mines actually deliver, at what every
+	#piece of gear in the modpack is worth (read from the item's own armour,
+	#toughness, damage and speed, so a modded piece is judged exactly as a
+	#vanilla one is), and at what its next technology needs, and writes
+	#itself an Armory doctrine out of what it can genuinely keep supplying.
+	#This is what lets a village that mines a modded ore ever WEAR it.
+	#
+	#Player factions are never touched by this: your Armory is yours.
+	#Default: true
+	#
+	autoGearEnabled = true
+	#How much better a piece must be before an AI village re-arms its troops
+	#with it. 0.15 = it has to beat the current one by 15%.
+	#
+	#Not a tuning knob so much as a brake. Replacing gear melts the old kit
+	#and credits the materials back, so a village that switched on the
+	#slightest advantage would swap its whole army between two near-identical
+	#alloys for ever, paying the shuffle every time. Lower it for a more
+	#responsive (and much noisier) AI; raise it for villages that commit to
+	#what they have.
+	#Default: 0.15
+	#
+	#Range: 0.0 ~ 3.0
+	autoGearUpgradeMargin = 0.15
+	#Over how many economy cycles (2.5 minutes each) a village must be able
+	#to replace a whole rank's kit out of MEASURED production before it will
+	#adopt that kit.
+	#
+	#This is what makes doctrine mean "what we can keep supplying" instead of
+	#"what we can buy once". A village that empties its vaults into one set
+	#of alloy plate per soldier looks magnificent until the first battle and
+	#then has neither armour nor savings. Lower = villages equip more
+	#ambitiously and run dry more often; higher = more conservative armies.
+	#Default: 120 (about five hours of play)
+	#
+	#Range: 1 ~ 10000
+	autoGearSustainCycles = 120
+	#An AI village will not spend on gear the materials its next technology
+	#needs. Turn this off and villages armour up sooner and tech far slower.
+	#Default: true
+	#
+	autoGearRespectResearch = true
+	#How many soldiers share the cost of ONE shield-breaking weapon when the
+	#village decides whether it can afford to issue them.
+	#
+	#Every troop CARRIES a breaker in its pack and draws it only against a
+	#shielded enemy, so unlike a weapon in the hand it is not being worn out
+	#in every fight - the village does not need to be able to replace one per
+	#soldier at once. 3 means the purchase is judged as though a third of the
+	#rank needed a new one; a village that cannot sustain even that issues
+	#none, and its men fight a shield wall with their swords.
+	#
+	#0 = never issue shield breakers.
+	#
+	#⚠️ THIS KEY CHANGED MEANING IN 1.0.7.93TC-145. It used to make one recruit
+	#in three carry the axe as its PRIMARY weapon, which cost a third of every
+	#army its fighting strength permanently in order to be ready for a moment
+	#that might never come. The number you have set still works and still means
+	#"one in N", it now sizes the PURCHASE rather than the battle line.
+	#
+	#Default: 3
+	#
+	#Range: 0 ~ 16
+	autoGearShieldbreakerOneIn = 3
+	#Extra weapons that count as shield-breakers, by item id. Anything listed
+	#here joins the axes in the draw above, and the best of them by damage
+	#per second is what the village actually buys - so a modded weapon that
+	#genuinely breaks a guard is used INSTEAD of an axe when it is the better
+	#weapon, rather than being passed over for one.
+	#
+	#You should not need this for axes. A modded axe is already caught by the
+	#vanilla axe class, by the minecraft:axes tag, and by forge:tools/axe and
+	#forge:tools/axes - the tags such mods use when they do not extend the
+	#class. This is for a weapon that breaks shields WITHOUT being an axe: a
+	#warhammer, a halberd, a mace.
+	#
+	#Why it has to be declared at all: shield-breaking is not an attribute
+	#and there is no API to ask for it. Vanilla implements it as "is this an
+	#axe" inside the player's own attack code, and a mod implements its own
+	#inside its own - so a weapon that breaks guards through arbitrary code
+	#and carries no tag is indistinguishable from any other weapon to
+	#anything outside that mod. Everything else about a weapon (damage,
+	#speed, durability) is read from the item itself and needs no list.
+	#
+	#Datapack authors: the item tag village_recruits:shield_breakers does the
+	#same job and ships with the pack, which is better than asking every
+	#player to edit a config. Ids naming an item nothing registers are
+	#ignored, so listing gear from a mod you have not installed is harmless.
+	#
+	#Example: ["somemod:war_hammer", "othermod:halberd"]
+	#
+	shieldbreakerItems = []
+	#How many troops of one AI faction may have gear REPLACED per equipment
+	#pass. Filling an empty slot, or arming a new recruit, is never limited
+	#by this - only swapping out a working piece the village already paid
+	#for.
+	#
+	#A whole army changing kit in one instant is both a visible stutter and
+	#a large burst of item churn on the server; this makes a faction
+	#re-equip visibly, over a few minutes, like a real rearmament.
+	#PLAYER factions ignore this entirely: when you change your Armory you
+	#see it applied at once.
+	#Default: 2
+	#
+	#Range: 1 ~ 64
+	autoRearmPerPass = 2
+	#Armory picks cost MATERIALS instead of being free. The price is read off the
+	#item's own crafting/smelting RECIPE -- including modded recipes and custom
+	#benches -- and resolved recursively down to what a village actually produces
+	#(a diamond sword becomes 2 diamonds + 1 wood; a crossbow becomes iron, wood
+	#and string). An item the village could never obtain cannot be pinned at all:
+	#anything mined out of naturally generated terrain and produced by no worker
+	#(netherite, quartz, glowstone), and anything dropped only by a BOSS (nether
+	#star). Drops from ordinary mobs (blaze rods, ender pearls) CAN be bought,
+	#paid for with treasury money rather than materials. false = the old
+	#behaviour, every Armory pick free. Default: true
+	#
+	armoryPinCost = true
+	#A slot you have PINNED in the Armory is dressed by that pin and by nothing
+	#else. When the village cannot pay for the piece yet, the slot WAITS: the
+	#soldier keeps whatever he is already wearing and the pin snaps in on the first
+	#pass the materials are there. false = the old behaviour, where an unaffordable
+	#pin fell through to the automatic tier armour -- which meant a village short
+	#of iron for one pass dressed the troop in the default piece instead, and the
+	#explicit choice read as being ignored at random. Weapons have always waited
+	#for their pin (letting the arsenal buy a gun of its own choosing would spend
+	#materials on the wrong weapon); this makes armour behave the same way.
+	#Default: true
+	#
+	armoryPinExclusive = true
+	#Troops can be issued COSMETIC accessories through the Curios API -- capes,
+	#backpacks, goggles, whatever the accessory mods in the pack provide. The
+	#Armory grows an "Accessories" column showing exactly the slots your recruits
+	#have, and each one is bought and paid for like any other Armory pick.
+	#Appearance only: an accessory pinned here grants NO stats, armour or
+	#abilities to the wearer, whatever it does for a player. Does nothing at all
+	#without the Curios mod installed. false = hide the column and issue nothing;
+	#accessories already pinned stay in the save and come back when re-enabled.
+	#Default: true
+	#
+	armoryCurios = true
+	#The Armory also dresses recruits YOU own -- the ones you hired, or put in
+	#one of your own groups. Normally it does not: a bought recruit belongs to
+	#you rather than to the village, so the whole evolution system leaves it
+	#alone and you equip it by hand.
+	#
+	#With this on, your own troops are issued the PINS you set in the Armory
+	#for their rank -- and only the pins. The automatic tier ladder still
+	#leaves them alone, so the village never decides on its own to replace
+	#something you handed a soldier yourself; only an item you explicitly
+	#chose can land on them.
+	#
+	#Two things worth knowing before switching it on: the gear is bought from
+	#the VILLAGE stockpile, so your retinue is equipped at the faction's
+	#expense, and a pin DOES replace whatever that soldier is holding in the
+	#same slot. Your recruits must be in a faction (a scoreboard team with a
+	#village) for it to apply at all. Default: false
+	#
+	armoryOwnedTroops = false
+	#A faction that has researched PRECISION ARMS dresses its troops in modern
+	#military kit instead of iron and diamond -- Modern Mayhem's kevlar, combat
+	#helmets, plate carriers and packs.
+	#
+	#The point is that a uniform MATCHES. The automatic ladder buys each slot
+	#on its own merits, which is right for vanilla armour and looks like
+	#scavenging the moment the pieces have a colour: a black helmet over a tan
+	#chestplate reads as loot rather than as an army. Here each faction is
+	#given one colourway -- black, green or tan, fixed by its id -- and every
+	#soldier in it wears that colour head to foot, so you can tell whose
+	#troops those are across a field.
+	#
+	#Officers wear their faction's colour with a different HELMET and heavier
+	#kit, so a commander is pickable out of a formation without breaking the
+	#uniform.
+	#
+	#Your own Armory pins always win: this dresses only the slots nobody has
+	#spoken for, and it is bought and paid for like any other equipment, so a
+	#faction with the technology and no leather still turns up in iron.
+	#
+	#Does nothing without Modern Mayhem. false = the old behaviour, everyone
+	#in iron and diamond forever. Default: true
+	#
+	armoryModernUniform = true
+	#Multiplies every recipe-derived Armory price. 1.0 = exactly what the recipe
+	#says (a diamond chestplate really costs 8 diamonds). Below 1 makes hand-picked
+	#gear cheaper than crafting it, above 1 makes bespoke equipment a luxury.
+	#Applied after the recipe is resolved and rounded UP, so a cost never falls to
+	#zero. Default: 1.0
+	#
+	#Range: 0.05 ~ 20.0
+	armoryCostScale = 1.0
+	#Treasury money per unit of a MOB-DROP ingredient (blaze rod, ender pearl,
+	#slime ball). A village cannot farm these, so it pays adventurers for them
+	#instead of spending materials it does not have. Each drop carries its own
+	#weight on top of this -- a ghast tear costs several times a bone. Default: 24
+	#
+	#Range: 0 ~ 100000
+	armoryMobDropPrice = 24
+	#How many recipe steps deep the price resolver will follow (sword -> ingot ->
+	#raw ore is 3). Modded packs chain far deeper than vanilla; raising this lets
+	#more of their gear be priced, at the cost of a slower FIRST lookup per item
+	#(results are cached afterwards). Default: 8
+	#
+	#Range: 1 ~ 24
+	armoryMaxRecipeDepth = 8
+	#EXTRA item ids that must be MINED and can never be bought, on top of the
+	#built-in list (netherite, quartz, glowstone, obsidian, flint...). Add a
+	#modpack's ores and geodes here. Note the default for an item this addon
+	#cannot classify is already "refuse", so this list is only needed for things
+	#that would otherwise look buyable -- typically a resource that is ALSO a mob
+	#drop. Example: ["somemod:mythril_ore_chunk"]
+	#
+	armoryWorldOnly = []
+	#EXTRA mob drops a village may BUY with money, as "item=source[,weight]".
+	#The source is only shown in the quote. Prefix it with "boss:" to make the
+	#drop UNBUYABLE, the way a nether star is. The weight multiplies
+	#armoryMobDropPrice (default 1).
+	#Examples: ["somemod:wolf_fang=direwolves,3", "somemod:crown=boss:the Lich"]
+	#
+	armoryMobDrops = []
+	#Things a VILLAGE can make that no player recipe covers, as
+	#"item=SOURCE:rate". The rate is "yield" (that many of the item per ONE
+	#unit of SOURCE) or "yield/cost" when it takes more than one unit.
+	#SOURCE is a material family (WOOD/STONE/SAND/WOOL) or a stockpile counter
+	#(iron_ingot, copper_ingot, minecraft:diamond, leather...). Ships with
+	#wool -> 4 string, so a shepherd village can string its own bows, and
+	#copper -> CHAINMAIL armour (5/8/7/4 ingots per piece), which the tier
+	#ladder has always bought but the Armory could not price because vanilla
+	#has no chainmail recipe. Nothing is added to the game and a player still
+	#cannot craft any of it. Entries here override the built-in ones, and
+	#every entry is also offered in the Armory item picker (that is how you
+	#pin something you cannot obtain yourself to drag in).
+	#Example: ["minecraft:string=WOOL:4", "minecraft:chainmail_helmet=copper_ingot:1/5"]
+	#
+	armoryConversions = []
+
+[convoy]
+	#Villages send physical SUPPLY CONVOYS: a Workers courier and a guard
+	#escort carrying building materials, metals, hides and food between a
+	#faction's own villages, and to an ALLY that is at war.
+	#
+	#Deliberately not everyday trade - auto-sell and AI-to-AI barter still
+	#move goods instantly and invisibly, because nobody would ride out to
+	#protect a routine sale. A convoy is the load worth ambushing: it can be
+	#raided, robbed and escorted, and what it carries only arrives if it
+	#gets there. Default: true
+	#
+	convoyEnabled = true
+	#THE MAP SHOWS EVERY CONVOY AND TROOP COLUMN IN THE WORLD, including
+	#those of factions you have never met.
+	#
+	#false (default) = you see only your OWN and your ALLIES' - the same
+	#answer the rest of the map gives. Three things are never hidden by it:
+	#a player in CREATIVE sees everything (he is inspecting the world, not
+	#playing against it), a player with NO FACTION sees everything (the rule
+	#read literally would leave him a blank map for ever, and unaligned is a
+	#way to play), and a convoy you are ESCORTING is always drawn, whoever
+	#owns it.
+	#
+	#true = the old behaviour. Set it on a server where hunting caravans is
+	#meant to be something you do from the map rather than from the road:
+	#with it off, an enemy convoy is found by meeting one.
+	#
+	#Villages are hidden by the fog of war instead (see the [fog] section);
+	#this key is only about the things that MOVE, which were never fogged
+	#because they are outside every claim and live for minutes.
+	#Default: false
+	#
+	mapShowForeignConvoys = false
+	#How many convoys may be on the road in the whole world at once.
+	#
+	#World-wide, not per faction: with several factions each supplying their
+	#own outposts, 6 was a ceiling the world sat against permanently, so
+	#whichever faction happened to ask first took every slot and the rest
+	#never shipped anything. An unwatched convoy costs a die roll rather than
+	#entities (see the convoy notes), so the real cost of raising this is the
+	#ones a player is actually standing next to. Default: 12
+	#
+	#Range: 1 ~ 64
+	convoyMaxActive = 12
+	#How long a convoy waits for its own escort to load before giving it up
+	#and building a replacement, in ticks. 0 = never wait (the old behaviour,
+	#which BRED convoys - do not).
+	#
+	#A convoy's bodies are despawned when nobody can see them and re-adopted
+	#when somebody can. Adoption can only find entities the level currently
+	#sees, so it answers "none" both for a party that is merely unloaded and
+	#for one whose chunk has just started ticking while its entities are not
+	#visible yet. Treating that answer as "there is no party" is what built a
+	#second one on every crossing of the simulation edge: measured at 6
+	#convoys holding 1340 NPCs.
+	#
+	#A recorded id is the authority - a body that cannot be found is unloaded,
+	#not gone - so this waits. The bound exists only so that an escort really
+	#destroyed without clearing the record cannot strand the convoy for ever.
+	#KEEP IT SHORT. The gap it has to absorb is an entity section becoming
+	#visible, which takes ticks - but the same wait is paid by a convoy whose
+	#old bodies are somewhere else entirely (it despawned while unloaded and
+	#then travelled on), and that one has nothing to adopt and simply sits
+	#there with NO LEAD until the clock expires. Thirty seconds of a
+	#leaderless convoy was worse than the race it closed.
+	#Default: 60 (3 seconds)
+	#
+	#Range: 0 ~ 24000
+	convoyAdoptGiveupTicks = 60
+	#Game ticks a village waits between sending one convoy and the next
+	#(20 ticks = 1 second). Default: 12000 (10 minutes)
+	#
+	#Range: 200 ~ 432000
+	convoyCooldownTicks = 12000
+	#The shortest trip that counts as a convoy, in blocks. A destination
+	#closer than this is not a different village at all, so nothing is sent
+	#there.
+	#
+	#A faction's village centres are often only a few blocks apart, and the
+	#receiver is simply the nearest other one - so without this a convoy was
+	#dispatched to a point inside the village it left, ran out its clock in
+	#a couple of seconds and *arrived* without ever leaving the town square.
+	#
+	#The number is anchored to the city radius (120): two centres closer than
+	#that have overlapping city plans, which is this mod's own definition of
+	#one settlement rather than two. The default sits a margin beyond it and
+	#well under the 320 minimum spacing between properly founded villages, so
+	#real neighbours always qualify and clustered centres never do.
+	#
+	#DOES NOT APPLY when a SKY village is at either end. An island grows no
+	#city plan, so it can never be "one settlement" with the ground below it,
+	#and air is the only link the two have - applying the threshold there was
+	#refusing the one delivery that cannot be made any other way. Such a pair
+	#always flies, at any distance.
+	#Default: 160
+	#
+	#Range: 16.0 ~ 4096.0
+	convoyMinDistance = 160.0
+	#The most a single convoy will carry, counting every resource together -
+	#the ceiling a RICH village reaches. A shipment, not a warehouse.
+	#Default: 320
+	#
+	#Range: 8 ~ 4096
+	convoyMaxUnits = 320
+	#What the POOREST village's convoy carries in total.
+	#
+	#The load is split across every resource worth sending, so a flat
+	#allowance was the whole problem: eleven commodities out of 96 is eight
+	#of each, which is a gesture rather than a shipment - and a capital with
+	#full warehouses sent exactly what a hamlet did. This is the floor, and
+	#wealth carries it up towards convoyMaxUnits. Default: 96
+	#
+	#Range: 8 ~ 4096
+	convoyBaseUnits = 96
+	#Extra units carried per rung of the wealth ladder, up to convoyMaxUnits.
+	#
+	#The rung is the same one that decides how many guards ride along
+	#(convoyGuardWealthPerStep): a bigger escort around the same eight ingots
+	#would be two different opinions of how well-off a village is. 0 = every
+	#convoy carries convoyBaseUnits whatever the faction is worth.
+	#Default: 32
+	#
+	#Range: 0 ~ 1024
+	convoyUnitsPerWealthStep = 32
+	#A village never ships a resource down below this, and never more than
+	#HALF of what sits above it.
+	#
+	#Stockpiles are per FACTION, not per village, so a resupply run between
+	#two of a faction's own villages takes a resource out of the pot and puts
+	#it back into the same pot on arrival - it moves nothing, it only makes
+	#those materials missing for the length of the journey. A low floor
+	#therefore empties the faction's working balance into the road, and the
+	#first thing to go is anything that has to be SAVED UP for: research
+	#stops being affordable long before anyone connects it to the caravans.
+	#Default: 256
+	#
+	#Range: 0 ~ 4096
+	convoyKeepAtHome = 256
+	#How fast a convoy travels while nobody is watching it, in blocks per
+	#second. Loaded convoys walk for real; this is what the journey costs
+	#when it is only a line on a map. Default: 2.5
+	#
+	#Range: 0.2 ~ 20.0
+	convoyBlocksPerSecond = 2.5
+	#How much faster than an ordinary village worker the courier walks.
+	#
+	#A Workers body moves at the speed of something pottering round a village,
+	#which is right for a farmer and wrong for a column crossing a continent:
+	#at roughly a block a second it reads as shuffling rather than travelling,
+	#and every path recalculation shows as a hitch because so little ground is
+	#covered in between.
+	#
+	#⚠ Default 1.0 - NO change. A faster courier was tried and made things
+	#worse: the Workers navigation pathfinds asynchronously, so covering ground
+	#faster than a path can be computed means outrunning it, and the walk
+	#stutters harder rather than smoother. Raise this only if async pathfinding
+	#is off in the Recruits config. Default: 1.0
+	#
+	#Range: 1.0 ~ 4.0
+	convoyPace = 1.0
+	#Extra ticks on top of the estimated journey before a convoy that has
+	#not arrived is written off as lost. Walking around terrain takes longer
+	#than the straight line it is estimated from. Default: 6000
+	#
+	#Range: 200 ~ 432000
+	convoyGraceTicks = 6000
+	#The longest a convoy may exist at all, whatever else is happening
+	#(20 ticks = 1 second). Its cargo is returned to the village that sent it.
+	#
+	#This is a ceiling, not the ordinary timeout - convoyGraceTicks is that.
+	#It exists because a convoy's deadline is pushed back for as long as it is
+	#FIGHTING, so one that never gets clear - pinned between an ambush and a
+	#village, or endlessly re-raided on a hostile route - would otherwise
+	#extend its own life for ever and walk the world until the save ended.
+	#0 disables the ceiling. Default: 36000 (30 minutes)
+	#
+	#Range: 0 ~ 1728000
+	convoyMaxAgeTicks = 36000
+	#Convoy raiders are REAL SOLDIERS taken out of the raiding village, and
+	#they lie in wait ON THE ROUTE ahead of the convoy instead of appearing
+	#in a ring around it.
+	#
+	#So a raid costs the raider something - a village that throws a party at
+	#every caravan on its border thins its own garrison - and the party is
+	#only as good as the men that village actually has. A village with nobody
+	#to spare simply does not raid.
+	#
+	#BANDITS are unaffected: they belong to no village, so they are conjured
+	#wherever they lie in wait, which is the whole point of them.
+	#
+	#Turn this off for the old behaviour, where a raiding party was created
+	#out of nothing at a gear tier. Default: true
+	#
+	convoyRaidersFromVillage = true
+	#How many soldiers a convoy to one of your OWN villages carries.
+	#
+	#A faction has a single stockpile, so carting wood between two of its own
+	#villages moves nothing - it leaves the same pile it arrives in. The one
+	#thing a village genuinely cannot share with itself over distance is MEN,
+	#so an internal convoy is a troop transfer: this many soldiers on top of
+	#the escort, who join the receiving village's garrison on arrival.
+	#Resources are only ever sent to an ALLY, who has a stockpile of their
+	#own and therefore something to receive.
+	#
+	#It is also the MARGIN: an internal convoy is only sent when the sending
+	#village has at least this many more soldiers than the receiving one, or
+	#a faction would shuttle the same men back and forth for ever.
+	#
+	#Set to 0 to stop internal convoys entirely. Default: 6
+	#
+	#Range: 0 ~ 60
+	convoyInternalTroops = 6
+	#Convoy guards are REAL SOLDIERS taken out of the sending village's
+	#garrison, instead of anonymous men conjured for the journey.
+	#
+	#This is what makes an ambush nobody watches an actual fight: the escort
+	#has the armour, health and weapons those men really own, so equipping a
+	#village's troops protects its shipments. With this off, escorts are
+	#spawned from a gear recipe as they were before and a raid out of sight is
+	#settled by a flat die.
+	#
+	#A village that cannot spare anybody still sends its goods - it just gets
+	#the old anonymous guards. Default: true
+	#
+	convoyEscortFromGarrison = true
+	#Soldiers a village keeps at home whatever happens, before any may ride
+	#with a convoy. A village ships constantly, so without a floor it would
+	#escort its own defence away one caravan at a time. Default: 4
+	#
+	#Range: 0 ~ 64
+	convoyEscortGarrisonKeep = 4
+	#Guards riding with the poorest village's convoy. Default: 1
+	#Range: 0 ~ 16
+	convoyGuardsMin = 1
+	#Guards riding with the richest village's convoy. Default: 8
+	#Range: 0 ~ 32
+	convoyGuardsMax = 8
+	#Treasury per extra guard: a village fields one more guard for every this
+	#many points of economy, between the min and the max above. This is what
+	#makes an escort contract read the sender's means - a poor village sends
+	#a courier and a spear, a rich one sends a column. 0 = always the minimum.
+	#Default: 400
+	#
+	#Range: 0.0 ~ 100000.0
+	convoyGuardWealthPerStep = 400.0
+	#How far a guard may fall behind the courier before it is TELEPORTED back
+	#beside it instead of walking. 0 disables the rescue.
+	#
+	#Walking is always tried first: past 28 blocks a guard is out of the
+	#reach of the follow goal, which never re-acquires its subject from
+	#further out, so it is pushed back on foot. That fixes a guard that is
+	#merely slow. It does not fix one on the wrong side of a lake, stuck under
+	#a ledge, or left behind by a fight - the courier keeps going and the
+	#guard never rejoins.
+	#
+	#Deliberately well ABOVE the walking distance: a rescue threshold close to
+	#it would teleport the escort instead of marching it, which is the one
+	#thing an escort is there to look like. Default: 64
+	#
+	#Range: 0.0 ~ 512.0
+	convoyGuardRescueDistance = 64.0
+	#How close a player must be to be told about a convoy setting out,
+	#arriving, being ambushed or being lost. Local, like a battle: caravans
+	#on the far side of the world are not news. Default: 160
+	#
+	#Range: 0.0 ~ 2048.0
+	convoyAnnounceRadius = 160.0
+	#Factions send supplies to ALLIES as well as to their own villages. This
+	#is the only convoy a one-village faction ever sends, and the one that
+	#makes escorting feel like taking a side. Default: true
+	#
+	convoyAllySupport = true
+	#How far a convoy will travel to reach an ally. A convoy walks, so a
+	#caravan sent across the world would spend a whole session on the road
+	#and arrive at a war that is over. Default: 900
+	#
+	#Range: 100.0 ~ 8000.0
+	convoyAllyRange = 900.0
+	#Only supply an ally that is actually fighting someone. Supplies sent to
+	#an ally at peace are just a transfer, and transfers already happen
+	#without needing a courier to survive an ambush. Default: true
+	#
+	convoyAllyOnlyAtWar = true
+	#Convoys can be ambushed - by soldiers of a faction at war with the
+	#sender, and by factionless BANDITS. Turning this off leaves convoys as
+	#pure logistics with nothing to escort them against. Default: true
+	#
+	convoyRaidsEnabled = true
+	#Game ticks between two ambush rolls on the same convoy. Default: 600
+	#Range: 20 ~ 24000
+	convoyRaidIntervalTicks = 600
+	#Chance per roll that an enemy faction within convoyRaidRange ambushes
+	#the convoy. What they seize goes into THEIR storage. Default: 0.25
+	#
+	#Range: 0.0 ~ 1.0
+	convoyRaidChance = 0.25
+	#Chance per roll of a BANDIT ambush - factionless, hostile to everyone,
+	#and the reason a faction at peace still has to guard its own supplies.
+	#Bandits destroy what they take: there is no stockpile behind them.
+	#Default: 0.10
+	#
+	#Range: 0.0 ~ 1.0
+	convoyBanditChance = 0.1
+	#How close a village of an enemy faction must be to the convoy for that
+	#faction to have sent raiders. A convoy crossing enemy country is in
+	#danger; one crossing an empty continent is not. Default: 700
+	#
+	#Range: 32.0 ~ 8000.0
+	convoyRaidRange = 700.0
+	#How many raiders come. Default: 3
+	#Range: 1 ~ 24
+	convoyRaidPartySize = 3
+	#How far from the convoy an ambush appears. Spawned around it rather than
+	#marched at it: raiders setting off from home would arrive at a convoy
+	#that has moved on. Default: 24
+	#
+	#Range: 8.0 ~ 128.0
+	convoyRaidSpawnDistance = 24.0
+	#Emeralds the RECEIVER pays the SENDER per 100 units of cargo actually
+	#delivered.
+	#Until this existed a convoy was pure cost to whoever sent it: it spends
+	#the goods, pays the courier's wage, buys the fuel and risks the cargo to
+	#bandits, while the receiver gets everything and pays nothing. A village
+	#had every reason to keep its surplus at home, which is the opposite of
+	#what a trade system is for.
+	#Only between DIFFERENT factions. A resupply between two of one faction's
+	#own villages is moving your own crate across your own yard, and paying
+	#yourself for it would mint emeralds out of the act of walking.
+	#Billed through the same purse as every other faction-to-faction payment,
+	#so an AI village mints it and a player faction pays emeralds. A
+	#receiver who cannot pay still keeps the goods - they changed hands before
+	#the bill - and both sides are told. 0 = off. Default: 8
+	#Range: 0 ~ 10000
+	freightPayPer100Units = 8
+	#Most a single delivery may earn, whatever its size. Stops one enormous
+	#load being worth more than a war. Default: 256
+	#Range: 0 ~ 100000
+	freightPayCap = 256
+	#Chance that a convoy raider or bandit spawns carrying a FIREARM, when a
+	#firearm mod is installed.
+	#
+	#Gated on the mod existing, not on anyone's research: research decides
+	#what a FACTION may equip its own troops with out of its own industry,
+	#and a bandit has neither. A chance rather than a rule, so meeting an
+	#armed raider is a bad day - an ambush where every man has a rifle stops
+	#being an ambush and becomes a wall. 0 = never. Default: 0.10
+	#
+	#Range: 0.0 ~ 1.0
+	convoyRaiderFirearmChance = 0.1
+	#Loaves of bread a convoy guard (or a raider) marches out with.
+	#
+	#A convoy walks away from every resupply its village has, so whatever
+	#it carries out is all it will ever have. Under the food model a
+	#recruit spends hunger to HEAL, so this is really "how many wounds can
+	#this escort afford on the road" - the old value of 8 was set before
+	#that model existed and left guards starving after a single ambush.
+	#
+	#NOTE: raising this only affects convoys sent from now on, and a
+	#changed default never reaches a config file that already exists -
+	#see /vrconfig reset. Default: 16
+	#Range: 0 ~ 64
+	convoyGuardRations = 16
+	#How long a convoy raider or bandit lives before it is removed, if its
+	#convoy has not already ended (20 ticks = 1 second).
+	#
+	#Raiders are spawned persistence-required - an ambush that evaporated the
+	#moment you stepped away mid-fight would be no ambush - so something has
+	#to end them. A leftover raider is not litter: it is an armed enemy next
+	#to a village, so the village reads a blow exchanged and behaves as if
+	#besieged, suspending worker respawn and holding its workers in cover
+	#while the garrison stays engaged. Default: 6000 (5 minutes)
+	#
+	#Range: 200 ~ 432000
+	convoyRaiderLifetimeTicks = 6000
+	#Standing lost with the robbed faction for killing a convoy's courier -
+	#weighted with assassinating an officer, not with a brawl. It is what
+	#stops robbing convoys being free money. Default: 25
+	#
+	#Range: 0 ~ 1000
+	convoyRobberyRepLoss = 25
+	#How close the contracted escort must be when the convoy arrives, to be
+	#paid. Generous - he has to have travelled with it, not kept it in melee
+	#range - but not absent, or the contract pays for accepting it.
+	#Default: 96
+	#
+	#Range: 8.0 ~ 1024.0
+	convoyEscortArrivalRadius = 96.0
+	#Extra emeralds per raider the escort kills, on top of the flat arrival
+	#fee. Standing next to a convoy and running when it is attacked is not
+	#escorting it. Default: 4
+	#
+	#Range: 0 ~ 256
+	convoyEscortKillBonus = 4
+	#Standing gained with the faction for delivering its convoy. Default: 8
+	#Range: 0 ~ 200
+	convoyEscortRep = 8
+

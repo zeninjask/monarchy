@@ -1,0 +1,1464 @@
+
+#SKY VILLAGES: rare floating islands whose centre piece builds aircraft.
+#Requires the Immersive Aircraft mod AND its Recruits compat addon.
+#Without both, no sky village is generated and the Aeronautics tech is hidden.
+[sky]
+	#Master switch for sky villages.
+	#false = none are raised. Sites already generated are left DORMANT rather
+	#than destroyed, so turning this back on revives them.
+	#⚠️ THIS IS NOT WHAT MAKES THEM GENERATE. Where a structure is placed is read
+	#from DATAPACKS when the world loads, which no .toml can reach, so the
+	#generation switch is the built-in pack 'VR: Sky Villages'. That pack is now
+	#ON by default, so leaving this true is all an ordinary world needs.
+	#Untick the pack in the Data Packs screen to stop sky sites being placed at
+	#all; a world where you untick it stays that way.
+	#What this key is for is a world that has ALREADY generated sky sites and no
+	#longer wants them - the only question a runtime veto can answer, since
+	#unticking the pack cannot unmake the sites it already placed.
+	#It does NOT govern air convoys, the Aircraft technology, or aircraft built
+	#by a GROUND village that researched it. None of those needs an island.
+	enabled = false
+	#Minimum distance (in blocks, measured HORIZONTALLY) an island must keep
+	#from a ground village. 0 = disabled.
+	#Default: 384
+	#
+	#Why a key of its own rather than naturalVillageMinDistance: sky sites are
+	#placed on their OWN structure grid with their own salt (sky_villages.json),
+	#deliberately uncorrelated with the village grid, so an island and a village
+	#site can land arbitrarily close to each other - the two grids cannot see one
+	#another the way two entries in one set can. And an island needs MORE room
+	#than a village does: its satellite islets and bridges reach well past the
+	#island's own radius, and its works are stacked directly above whatever is
+	#on the ground under them.
+	#
+	#It is enforced from BOTH sides: an island refuses to be raised this close to
+	#an existing village, and a ground tower spawner refuses to build this close to
+	#an existing island (there it REPLACES naturalVillageMinDistance, which is
+	#shorter - with only the shorter one on the ground side a village could be
+	#founded at a distance the island itself would have refused).
+	#A site refused by this rule is consumed: the spawner removes itself and marks
+	#its chunk done, so it never retries.
+	#
+	#Only NEW generation is affected: villages and islands already placed stay
+	#where they are.
+	#Range: 0 ~ 5000
+	minVillageDistance = 384
+	#Lowest altitude an island may be raised at.
+	#This NARROWS the band worldgen offers (see sky_villages.json, 170-240):
+	#a site outside the band is left DORMANT rather than destroyed, so widening
+	#this again later revives it. It cannot widen the band beyond worldgen's own.
+	#Range: -64 ~ 320
+	minY = 170
+	#Highest altitude an island may be raised at. See minY.
+	#Keep enough room above it for the hall and its hangar deck (about 10 blocks).
+	#Range: -64 ~ 320
+	maxY = 240
+	#Radius in blocks of the floating island.
+	#This is the whole of the village: nothing widens it later, because a sky
+	#village has no builder and never grows a city plan.
+	#Range: 12 ~ 96
+	islandRadius = 34
+	#How deep the island's keel hangs below its surface at the middle.
+	#Range: 3 ~ 64
+	islandDepth = 12
+	#Blocks of clear air required between the island's keel and the ground below.
+	#Stops an island being lowered into a mountainside, which would leave the
+	#village standing inside rock.
+	#Range: 0 ~ 200
+	groundClearance = 40
+	#How many settlements a SKY faction may found on the GROUND.
+	#Those are ordinary villages in every respect - they grow a city plan and
+	#keep a builder. -1 = no limit.
+	#Range: -1 ~ 64
+	groundSettlementsMax = 2
+	#Aircraft a sky village may keep in its hangar, all airframes together.
+	#One cargo airship is enough to run an air convoy, so this is comfortably
+	#more than a working fleet needs - it bounds the extreme, not the norm.
+	#Range: 0 ~ 64
+	aircraftMax = 10
+	#Tanks a SKY village may keep. Deliberately far below what a ground village
+	#may build: an island has nowhere for a tank to go, so these are for
+	#defending the island itself and for being flown down to a ground settlement.
+	#Ground villages are unaffected by this key.
+	#Range: 0 ~ 16
+	tankMax = 2
+	#Base ticks to assemble one airframe, at a FULLY crewed works.
+	#The elapsed time is this divided by the works' crew efficiency, so an
+	#unattended hangar takes about four times as long. 6000 = 5 minutes.
+	#Range: 20 ~ 720000
+	aircraftBuildTicks = 6000
+	#Iron ('Hardened Steel') for one TRANSPORT airframe. A scout costs a third,
+	#a freighter half again, a warship double.
+	#Range: 0 ~ 4096
+	aircraftIronCost = 64
+	#Gold for one transport or freighter airframe - instruments. Scouts need none,
+	#warships need double.
+	#Range: 0 ~ 1024
+	aircraftGoldCost = 8
+	#Iron ('Hardened Steel') a sky village forges each cycle.
+	#This IS the sky economy's mine: an island has no ore and can never have a
+	#miner, so without it the village could never buy armour, shields, promotions
+	#or aircraft. Modest on purpose - a ground village with two miners out-produces it.
+	#Range: 0 ~ 4096
+	ironPerCycle = 15
+	#Ticks between those deliveries. 1800 = 1.5 minutes.
+	#Range: 20 ~ 720000
+	ironIntervalTicks = 1800
+	#A ground faction must research Aeronautics before it can target, declare a
+	#siege on, or send a battle at a SKY village.
+	#false = sky villages can be attacked by anyone, which in practice means an
+	#army walking in circles underneath one, so leave this on unless testing.
+	requireAeronautics = true
+	#Staff the centre piece with the tank factory's crew - a Foreman and three
+	#Machinists, with seniority earned by service. The Foreman GATES: without him
+	#the works runs at the unattended efficiency in military.toml [tanks] rather
+	#than stopping, or one raid would end a faction's air fleet permanently.
+	worksCrew = true
+	#Air convoys cannot be intercepted. True for now because nothing else in the
+	#world can fly: raiders and bandits are ground parties, so an ambush roll
+	#would be a die with only one face. Turn this off once flying raiders exist.
+	airConvoysSafe = true
+	#A sky village sends its convoys by CARGO AIRSHIP, flown by one of its own
+	#recruits, instead of a courier walking. Needs a freighter parked in the hangar:
+	#a village that has spent its airframes is grounded until it builds another.
+	#false = sky villages fall back to ordinary ground convoys.
+	airConvoys = true
+	#Cargo slots on the freighter, used as the load CEILING (slots x 64 units).
+	#The shipped cargo airship has 80 - five 4x4 blocks - which is what this
+	#defaults to. Upgrade, banner, dye and boiler slots are not cargo and are not
+	#counted. Only lower this if a pack ships a smaller freighter.
+	#Range: 1 ~ 512
+	airConvoySlots = 80
+	#Blocks above the village that an airship is spawned at.
+	#It must clear the hall's own hangar deck and railing: an airship created
+	#inside that geometry is a physics body wedged in blocks.
+	#Range: 2 ~ 64
+	airConvoyLaunchHeight = 14
+	#COAL BLOCKS handed to a convoy pilot as his fuel reserve.
+	#Blocks and not lumps: one block is 16000 ticks of burn against a lump's 1600,
+	#so a stack outlasts any journey instead of needing micro-management.
+	#⚠️ This is NOT optional plumbing. The Recruits compat only ever ASKS about fuel
+	#and never adds any; the VEHICLE feeds itself from its own boiler slot and
+	#nothing feeds that slot. Without this reserve an airship burns what it has and
+	#stops in mid-air. Free on purpose - the decision worth charging for is whether
+	#to build a freighter, not whether it can finish the trip it was sent on.
+	#Range: 1 ~ 64
+	airConvoyFuelStack = 64
+	#Refill the pilot's reserve back to the full stack once he has fewer coal
+	#blocks than this. Topping up to the floor instead of to the full stack would
+	#mean doing it again every minute for the whole journey.
+	#Range: 0 ~ 64
+	airConvoyFuelRefillBelow = 15
+	#Minimum cruising height of a convoy airship, in blocks ABOVE THE GROUND
+	#under it - not an absolute Y. A fixed height is 50 blocks up over plains
+	#and underground in a mountain range, and mountains are what a freighter has
+	#to clear.
+	#Applied by RAISING the Recruits compat's own baseAltitudeAboveGround at
+	#startup, not by pushing the aircraft upward ourselves.
+	#⚠️ An earlier build did push, and it could not work: the compat re-aims
+	#every tick, so holding a craft above its target meant two authorities
+	#shoving opposite ways on one axis - the aircraft locked at the height where
+	#they balanced and could then neither climb NOR descend.
+	#⚠️ THE COMPAT DECLARES A MAXIMUM OF 64 for that key, and in practice does
+	#NOT enforce it on an in-memory set - measured in a live log:
+	#'raised the aircraft compat's cruise altitude 64.0 -> 100.0'. The value is
+	#read back after setting and the accepted one logged, so if a future version
+	#does clamp, the log says so rather than the code believing a number the
+	#mod never accepted. Raised only, never lowered.
+	#⚠️ RAISED 100 -> 250 so a freighter can REACH A SKY VILLAGE. An island sits
+	#around y=180-220 with ground near y=64, i.e. 120-160 blocks up: at 100 the
+	#aircraft cruised UNDERNEATH its destination and hung there until the
+	#delivery timed out. The descent can now climb as well, so being below is
+	#recoverable rather than fatal - but arriving at the right height to begin
+	#with is the difference between a delivery and a long hover.
+	#It does mean ordinary ground-to-ground convoys also fly this high.
+	#0 = leave the compat's altitude alone entirely.
+	#Range: 0 ~ 5000
+	airConvoyMinAltitude = 250
+	#ABSOLUTE ceiling for EVERY aircraft this mod flies, as a world Y.
+	#Distinct from airConvoyMaxAltitude, which is measured ABOVE THE GROUND
+	#under the craft - a relative bound moves with the terrain, so over a
+	#mountain it sits far higher than over plains, and it says nothing at all
+	#about how high a craft may actually get.
+	#This also covers COMBAT aircraft, which had no ceiling of any kind: the
+	#air wing was given a terrain floor and nothing above it.
+	#Deliberately far beyond anything a flight needs - a sky island is around
+	#y=220 - because this is a RUNAWAY GUARD, not a shape for ordinary flight.
+	#A ceiling a legitimate flight can reach is a ceiling that strands a
+	#delivery, which is the fault airConvoyMaxAltitude had at 400.
+	#It bounds only the climb: a craft above it has its upward motion cut and
+	#is never pushed down, because pushing back is what put two authorities on
+	#one axis and locked an aircraft between them.
+	#Range: 320 ~ 1000000
+	aircraftMaxY = 5000
+	#Ceiling of a convoy airship, in blocks above the ground under it.
+	#A RUNAWAY GUARD and nothing else: it exists so a craft that starts
+	#climbing and does not stop is caught, not to shape ordinary flight. The
+	#world height bounds every aircraft long before this does, so at the
+	#default it never fires at all.
+	#It was 400, which is comfortably above anything the compat aims for on
+	#the ground - and NOT comfortably above a floating island plus the
+	#clearance a freighter needs over it. A ceiling that can be reached by a
+	#legitimate flight is a ceiling that stops a delivery.
+	#Range: 16 ~ 8192
+	airConvoyMaxAltitude = 5000
+	#How close to the destination a flight counts as HAVING ARRIVED, measured
+	#horizontally - height is not part of it, because the crates go into the
+	#village's chests wherever the hull happens to be.
+	#⚠️ This is NOT where the descent begins: that is airConvoyApproachRadius,
+	#and the two were the same number until 1.0.7.92TC-35, which is why a
+	#freighter used to stop dead 64 blocks out and hang there. Keep this the
+	#LARGER of the two - it is the tolerance on the arrival, not the target.
+	#Range: 8 ~ 512
+	airConvoyDescendRadius = 64
+	#How many BOMBERS one village keeps in its hangar.
+	#A bomber is a bamboo hopper fitted with a bomb bay and the landing gear
+	#that lets it come down on water. It is priced as a MILITARY airframe
+	#(skyAircraftIronCost x2) and counts against skyAircraftMax like any other.
+	#Kept low on purpose: the bombs are the aircraft mod's own, so a village
+	#with a squadron of these is a village that can empty a battlefield from
+	#out of reach - and nothing in this mod shoots back at aircraft yet.
+	#0 = villages never build bombers.
+	#Range: 0 ~ 16
+	bomberMax = 2
+	#How many CIVILIAN aircraft one village may hold - the cargo freighters,
+	#the settler airships, the scouts.
+	#Counted SEPARATELY from military aircraft: one shared cap made them
+	#compete for the same shed, so a village at its limit could not build the
+	#freighter its convoys need because it was holding bombers, and a fleet of
+	#transports left no room for a single fighter. Infrastructure and weapons
+	#are not the same decision and should not come out of the same pot.
+	#Still bounded by skyAircraftMax, the shed's total.
+	#Range: 0 ~ 64
+	civilianAircraftMax = 8
+	#How many MILITARY aircraft one village may hold - warships, bombers,
+	#interceptors. See civilianAircraftMax for why the two are separate.
+	#Kept lower on purpose: nothing in this mod shoots back at aircraft yet.
+	#Still bounded by skyAircraftMax, the shed's total.
+	#Range: 0 ~ 64
+	militaryAircraftMax = 4
+	#How many INTERCEPTORS one village keeps in its hangar.
+	#A biplane fitted with the rotary cannon - a gun rather than bombs, which
+	#is what makes it the fighter. Priced as a MILITARY airframe.
+	#0 = villages never build interceptors.
+	#Range: 0 ~ 16
+	interceptorMax = 2
+	#A PLAYER faction's villages build aircraft on their own, as an AI
+	#village does.
+	#
+	#It used to be AI-only, and the reasoning was sound as far as it went:
+	#spending a player's stockpile on something he did not order is a
+	#complaint this mod has had before. But applied to aircraft it meant a
+	#player faction could research Aeronautics, pay for it, build the hangar -
+	#and then never obtain a single airframe, because nothing but a test
+	#command would ever put one on the slipway. A capability you can buy and
+	#cannot use is worse than one you cannot buy.
+	#
+	#The hangar's build queue puts the CARGO airship first either way, so an
+	#unattended faction gets logistics before weapons. Armed airframes are
+	#separately gated by armedAircraft.
+	#
+	#false = a player faction's hangars build nothing on their own, and its
+	#leader commissions each airframe himself.
+	#
+	playerFactionsAutoBuild = true
+	#ARMED AIRCRAFT: bombers, interceptors, warships and biplanes.
+	#
+	#OFF BY DEFAULT while the feature settles. It gates BOTH ends, which is
+	#the point: a village neither BUILDS an armed airframe nor DEPLOYS one.
+	#Gating only the deployment would have villages quietly spending iron and
+	#gold on bombers that then sit in a shed for ever - a cost with nothing on
+	#the other side of it, and invisible unless you go and look at the hangar.
+	#
+	#AIR CONVOYS ARE NOT AFFECTED. The freighter and the transport are CARGO
+	#and TRANSPORT airframes; this only ever refuses MILITARY ones, so a
+	#village still builds its cargo airship, still flies its convoys, and
+	#still researches Aeronautics for them.
+	#
+	#airWingPerBattle remains the per-battle CAP - how many may go to one
+	#fight - which is a different question from whether they exist at all.
+	#
+	armedAircraft = false
+	#How many combat aircraft each SIDE may put over one field battle.
+	#Bombers go first (a battlefield is what a bomb bay is for), then
+	#interceptors, so a village holding one of each sends the pair.
+	#WARNING deliberately small. Nothing in this mod shoots back at aircraft
+	#yet, so a flight over a battlefield is very nearly unanswerable - raising
+	#this does not make air power stronger, it makes the ground battle
+	#decorative.
+	#SIEGES are not covered: a siege keeps no record that a battle does.
+	#0 = combat aircraft never join battles (they are still built and stored).
+	#Range: 0 ~ 8
+	airWingPerBattle = 1
+	#Blocks above the battlefield at which a sortie is put into the air.
+	#It is spawned OVER the battle rather than flown in from the village: a
+	#fight lasts minutes and the journey lasts longer, so an aircraft that
+	#commuted would arrive to a battle already decided.
+	#Range: 10 ~ 200
+	airWingAltitude = 40
+	#How long one attack mission stands before it is re-issued.
+	#The aircraft mod's missions are time-boxed and the pilot returns to his
+	#ordinary orders when one lapses, so it is re-asked while the battle runs.
+	#Not simply set enormous: a mission that outlives its battle is an aircraft
+	#still attacking ground its own side now holds.
+	#Range: 100 ~ 12000
+	airWingMissionTicks = 600
+	#How far from the battle's centre a sortie looks for something to hit.
+	#Range: 8 ~ 256
+	airWingRadius = 48
+	#Airspeed, in blocks per tick, a sortie is launched with.
+	#A bomber and an interceptor are FIXED-WING: their lift comes from
+	#airspeed, so one placed in the air at rest is not hovering, it is
+	#stalled - it drops, and the attack order goes to something already on
+	#its way to the ground. Airships hid this, since an envelope holds itself
+	#up at zero speed.
+	#0.6 is about 12 blocks a second, roughly what a climb-out looks like.
+	#Too low and it sinks before the engine catches; there is no need to go
+	#high, the aircraft mod flies it from here.
+	#Range: 0.0 ~ 3.0
+	airWingTakeoffSpeed = 0.6
+	#Blocks of clear air a combat aircraft is kept above whatever is under
+	#it - INCLUDING treetops, which is the point.
+	#A collision floor, not a cruising height: it sits far below what an
+	#attack run aims for, so in ordinary flight it never fires. It only acts
+	#when the aircraft is about to hit something. Reported symptom: the bomber
+	#flew, and rammed into trees - a fighting aircraft comes DOWN to its
+	#target, so it meets terrain constantly where a cruising freighter does
+	#not, and it had no bound of any kind.
+	#0 = off (aircraft may then fly into a hillside or a forest).
+	#Range: 0 ~ 64
+	airWingTerrainClearance = 12
+	#An island grows BRIDGES out to smaller satellite ISLETS.
+	#This replaces the founding road cross, which a sky village used to get
+	#like every other village. On the ground that is a road; at y=220 each
+	#arm followed the terrain to the forest floor 150 blocks below and the
+	#placer filled the carriageway behind it - four colossal dirt walls
+	#hanging off the island. New islands no longer lay them at all.
+	#The islets are also the only room a sky village will ever get: it grows
+	#no city plan, because plots would fall off the edge.
+	#false = no bridges and no islets (and still no road ramps).
+	bridgesEnabled = true
+	#How many satellite islets an island raises around itself, each with a
+	#bridge to it. Bearings are spread evenly and then jittered, never drawn
+	#at random: random bearings put two islets on top of each other about as
+	#often as not, and two overlapping islets are one lumpy islet with two
+	#bridges into it.
+	#4 fills every side of the hall, which is what its four arches are for -
+	#a lower number leaves an arch opening onto empty sky. Above 4 the extra
+	#islets take DIAGONAL bearings and get a bridge with no door, since the
+	#hall has only four walls.
+	#0 = bridges are laid out and none are drawn (the island stays bare, but
+	#it is still recorded as laid out, so the pass does not run again).
+	#Range: 0 ~ 8
+	satelliteIslets = 4
+	#Radius of a satellite islet, in blocks. Same generator as the main
+	#island (SkyIsland) at a smaller size, so an islet reads as a piece of
+	#the same sky and the two shapes cannot drift apart when either is tuned.
+	#Its keel is half the main island's depth.
+	#Range: 4 ~ 48
+	isletRadius = 10
+	#Open air a bridge crosses, in blocks - measured RIM TO RIM, so this
+	#means what it says whatever the two islands' radii are.
+	#Range: 4 ~ 96
+	bridgeGap = 18
+	#Half-width of a bridge deck. 2 = a five-wide deck with a fence railing
+	#on each edge, so three blocks of it are walkable.
+	#The railing is not decoration: an unfenced walkway up here is a fall of
+	#150 blocks, and the villagers using it do not know that.
+	#0 = a single-block deck with no railing at all.
+	#Range: 0 ~ 6
+	bridgeWidth = 2
+	#Structure key of the hall a sky village raises.
+	#
+	#Defaults to the SHIPPED hall, village_recruits:sky_village_centre - the
+	#one the mod ships with, banners and all. Empty = the generated hall,
+	#which is what every island founded before this build already has.
+	#Changing this does NOT alter an island that already exists: a hall is
+	#written once, when the island is raised.
+	#
+	#How: build the hall you want, capture it with /vrstructure, then run
+	#/vrtest key <your key>. The verifier now prints a SKY HALL readiness
+	#report for whatever it is showing you - the four things a hall must carry
+	#and what breaks without each. Put the key here when it reads all OK.
+	#
+	#THE FOUR INVARIANTS, all of which fail silently:
+	#  recruit_block    - WITHOUT IT NO FACTION IS EVER MINTED. Nothing else
+	#                     mints one: a villager claims that block as a POI, a
+	#                     recruit spawns, and only then does the faction
+	#                     exist. Its position in your structure becomes the
+	#                     village CENTRE, and the island's surface level is
+	#                     read off the centre by the bridges, the approach
+	#                     paths, the ramp sweep and every arrival spot.
+	#  villager spawner - there are no villagers at y=220 and none will walk
+	#                     there.
+	#  bed HEAD halves  - the population cap is bed-driven and counts head
+	#                     halves only, so a hall of foot halves is furnished
+	#                     and capped at zero.
+	#  a container      - the starting stock needs somewhere to materialise.
+	#
+	#A structure with no recruit block is REFUSED and the generated hall is
+	#built instead: a visible downgrade beats an island that never becomes a
+	#village with nothing anywhere saying why.
+	#
+	hallStructure = "village_recruits:sky_village_centre"
+	#Which layer of the SKY HANGAR structure is its FLOOR, counting from 0.
+	#
+	#The shipped hangar has two layers of foundation under its floor, so the
+	#floor is the third layer - y=2 - and the placement is dropped by this
+	#much to stand the floor on the island's surface. Left at 0 the building
+	#would float two blocks up with its foundation hanging in open air.
+	#
+	#HOW TO READ IT OFF A STRUCTURE: count the full-width solid layers at the
+	#bottom and take the top one. The shipped hangar is solid across y=0, 1
+	#and 2, so the answer is 2.
+	#
+	#⚠️ IT WAS BRIEFLY 3. A rebuild of the hangar came out with an empty layer
+	#under it, which pushed every layer up by one; the structure has since
+	#been cropped back to its own content, so the floor is on layer 2 again.
+	#If you set this to 3 by hand for one of those builds, put it back to 2 -
+	#an existing config file keeps whatever it was given, because Forge never
+	#rewrites a key that is already there. /vrconfig reset sky confirm also
+	#does it.
+	#
+	#Change it only if you replace the structure with one built differently.
+	#
+	#Range: 0 ~ 32
+	hangarFloorY = 2
+	#Structure key of the SKY HANGAR - the building that houses an island's
+	#aircraft works.
+	#
+	#Empty = the island has no hangar building and therefore NO WORKS CREW.
+	#That is a real consequence rather than a fault: airframes are still
+	#assembled, at the plain unattended rate, because SkyHangar.buildTicks
+	#already falls back when there is no production site to read a crew from.
+	#The island is simply slower until it has a hangar.
+	#
+	#The works used to be the CENTRE PIECE itself, which was the only choice
+	#while the hall was the island's only building - and it made the village
+	#square a factory floor, with a Foreman and three Machinists working in
+	#the middle of the dormitory. It belongs in a building of its own.
+	#
+	#Placed on the main island south-west of the hall, clear of its footprint
+	#and its approach paths, and well inside the island's inscribed radius so
+	#it cannot land over the rim. Registered as a TANK_FACTORY production
+	#site, which is what the Foreman + three Machinists crew system already
+	#answers to - a second crew system would be a second set of answers to
+	#one question.
+	#
+	hangarStructure = "village_recruits:sky_hangar"
+	#Each satellite islet may bridge onward to a BIGGER island, for industry.
+	#
+	#An islet is sized to the one production building it drew, which is the
+	#right size for a farm and far too small for anything that wants room. A
+	#sky village has no other way to expand - it grows no city plan, because
+	#plots would fall off the edge - so this is the second ring, and it is
+	#where a real works district goes.
+	#
+	#The chain is main island -> bridge -> islet -> bridge -> industry island,
+	#so an industry island is reachable on foot the whole way and a patrol can
+	#walk it, rather than being somewhere only an aircraft can get to.
+	#
+	#0 = the old behaviour, islets are the end of the line.
+	#
+	#Range: 0 ~ 3
+	industryIslands = 1
+	#Radius of an industry island, in blocks. Deliberately larger than
+	#isletRadius: this is the one piece of ground a sky village has that is
+	#big enough to put several buildings on.
+	#Its keel matches the main island's, so it reads as a full island rather
+	#than an overgrown islet.
+	#Range: 8 ~ 64
+	industryIslandRadius = 24
+	#Spare ground added to an industry island BEYOND what its own building
+	#needs, in blocks of radius.
+	#industryIslandRadius is only a MINIMUM: an island carrying a big
+	#structure is grown to fit it, and that calculation leaves just enough to
+	#walk round the outside. This is the room left over for anything else -
+	#the city plan reaches these islands once there is ground to build on.
+	#It matters most on the SKY HANGAR's island, which is the largest building
+	#a village raises (37x37 as shipped) and would otherwise be an island that
+	#is entirely hangar.
+	#0 = exactly enough for the one building and no more.
+	#Range: 0 ~ 48
+	industryIslandSpare = 10
+	#LANDING PADS: an invisible, walk-through block that tells an air convoy
+	#where to put down. One block is one pad and a pad is the 3x3 around it -
+	#no multiblock and no assembly step that can be got wrong.
+	#
+	#Without them every flight bound for a village descends onto the same
+	#column of air over its centre and hovers there until it has unloaded. One
+	#aircraft is fine; a village on a busy trade route ends up with a permanent
+	#stack over its square. A pad moves the arrival somewhere a builder chose -
+	#a dock, a roof, a walled yard - and each one is an arrival SLOT, so a
+	#village has as much capacity as it builds.
+	#
+	#WHEN EVERY PAD IS BUSY THE NEXT FLIGHT WAITS. It keeps flying at the
+	#village and never enters its landing zone, i.e. it circles until a pad
+	#frees. Landing beside them anyway would put back the stack pads exist to
+	#remove.
+	#
+	#A village with NO pads behaves exactly as it always did, which is what
+	#makes this safe to add to an existing world.
+	#
+	#The cargo still goes into that village's own containers: the pad is where
+	#the aircraft parks, never where the delivery is credited.
+	#
+	#SWITCHING THIS OFF TAKES THE PAD BLOCKS OUT OF THE WORLD, the way the
+	#basic villager spawner removes its own block once its job is done. A pad
+	#is invisible and, with the feature off, inert - so leaving it behind means
+	#a block you cannot see, cannot mine, and which no longer does anything.
+	#
+	#The PADS THEMSELVES ARE REMEMBERED. Only the block goes: the saved record
+	#stays, so switching this back on restores every pad without replacing a
+	#single block. That matters here more than almost anywhere, because a pad
+	#was never visible - toggling the setting to see what it did would
+	#otherwise leave a village that had silently forgotten where its arrivals
+	#go, with nothing to show you what you had lost.
+	#
+	#Blocks in chunks nobody is near are left until somebody goes there;
+	#force-loading the world to delete an invisible block is a lot of work for
+	#no urgency.
+	#false = pads are inert; every arrival goes to the village centre.
+	#
+	landingPadsEnabled = true
+	#LAUNCH MARKERS: a visible arrow on the ground saying where a village's
+	#aircraft appear and which way they face.
+	#
+	#The other end of the journey from a landing pad, and a separate thing
+	#rather than a pad with a rotation, because it answers a different
+	#question. A pad is a DECK - something lands on it and sits there while it
+	#unloads, so it needs an area and that area is what makes it an arrival
+	#slot. A launch point is a spot and a BEARING: nothing rests on it, so
+	#there is no footprint to reserve and no queue to arbitrate. One block,
+	#one heading, and no 3x3.
+	#
+	#An aerodrome has a runway and a runway has a direction. Without a marker
+	#an aircraft appears over the village square on whatever heading it likes,
+	#which on a village that has built a strip means a freighter standing on
+	#the threshold facing its own hangar.
+	#
+	#BREAKING THE BLOCK KEEPS THE HEADING. That is deliberate and it is the
+	#opposite of every other marker in this mod: place it, look at the arrow,
+	#break it, and the runway keeps its bearing with nothing sticking out of
+	#the tarmac. It is why this block is visible and breakable where a pad is
+	#invisible and unbreakable - a pad has to survive because it IS the
+	#function, a marker only has to survive being aimed.
+	#/vrsky launch clear is how a heading is retired, since breaking no longer
+	#does it.
+	#
+	#Which village a marker belongs to is decided by landingPadVillageRange,
+	#shared with the pads on purpose: an aerodrome is one place, and two
+	#ranges for it would be two answers to one question.
+	#
+	#SWITCHING THIS OFF takes the marker BLOCKS out of the world and keeps
+	#their records, exactly as the pads do - so toggling it cannot lose an
+	#airfield somebody laid out.
+	#false = markers are inert; aircraft appear over the village centre.
+	#
+	launchMarkersEnabled = true
+	#Blocks of clear sky a landing pad needs above it, over its whole 3x3.
+	#
+	#A pad under a roof is a trap, and a silent one: the descent stops
+	#airConvoyLandingClearance above the pad and holds there, so a pad in a
+	#covered hall has the freighter driving itself into the ceiling and
+	#hovering inside it until the delivery times out - while every record says
+	#it arrived exactly where it was sent.
+	#
+	#Checked when the pad is PLACED, so a builder is told at once and the pad
+	#is refused rather than left as an invisible block that does nothing; and
+	#again whenever a flight looks for one, so a pad that is later built over
+	#stops being offered. A village whose pads are all covered falls back to
+	#landing on its centre - losing the pad is a downgrade, losing the convoys
+	#would be a broken village.
+	#
+	#Judged on COLLISION, not on air: a torch, a carpet or grass over a pad
+	#does not stop an aircraft, a pane of glass does. A decorated dock is
+	#still a working dock.
+	#
+	#The effective value is never below airConvoyLandingClearance + 3, since
+	#anything less describes a pad that can never be used.
+	#Default: 12
+	#
+	#Range: 1 ~ 64
+	landingPadHeadroom = 12
+	#How close to the hangar a pad counts as being ON its apron.
+	#
+	#Pads inside this radius are offered before any others, and among
+	#themselves the LEAST RECENTLY USED one is chosen - so arrivals spread
+	#across the whole apron instead of piling onto whichever pad happens to
+	#be nearest the door.
+	#
+	#It is a tier and not a distance for exactly that reason: sorting by exact
+	#distance means the nearest pad wins every time and the rest are never
+	#touched, which is how a village with eleven pads used one.
+	#Default: 48
+	#
+	#Range: 4.0 ~ 256.0
+	landingPadHangarTier = 48.0
+	#How far from a village centre a landing pad still counts as that
+	#village's, in blocks.
+	#Ownership is by DISTANCE rather than by claim membership on purpose: a
+	#builder puts a pad on the roof of the warehouse, which may sit just
+	#outside the claim or in a chunk it was never extended to. Asking 'which
+	#village is this near' answers what the builder meant and cannot leave a
+	#pad belonging to nobody.
+	#Range: 16 ~ 512
+	landingPadVillageRange = 224
+	#A sky faction is founded with the whole GUNSMITHING line already
+	#researched, at full level: Basic Firearms, Gunpowder, Musketry, Firearm
+	#Machining, Precision Arms, Armor Piercing, Rifling and Gunsmith Mastery.
+	#
+	#Why it fits: a sky faction is a small, rich, isolated culture that cannot
+	#dig. It has no mine, no lumber camp and no room to grow one, and its whole
+	#metal economy is the passive trickle the island mints because there is no
+	#ore in a floating rock. What it has instead is workshops - so it fields
+	#the best small arms in the world and can barely feed the factories that
+	#make them. Same kind of grant as Aeronautics: a property of what a sky
+	#village IS rather than something it saves up for.
+	#
+	#The whole branch is granted, not just the three leaves: Armor Piercing,
+	#Rifling and Mastery all sit behind Musketry, and handing out a leaf
+	#without its trunk leaves a faction holding techs whose prerequisites it
+	#has not got.
+	#
+	#Harmless with no firearm mod installed: an unavailable technology reads
+	#as level 0 whatever is stored, and becomes real the day the mod is added.
+	#
+	#false = a sky faction researches guns like anyone else.
+	#Default: true
+	#
+	grantFirearmTechs = true
+	#A sky village is founded with BATTLE MEDICS researched, and the whole
+	#branch under it maxed: Militia, Formations, Special Forces and Elite
+	#Training.
+	#
+	#Why it fits what a sky village is: it cannot replace losses the way a
+	#ground village does. Its population is capped by an island, it has
+	#nowhere to expand into, and it has no mine or lumber camp to fund a levy
+	#from - so every soldier it puts in the field is one it may not be able to
+	#make again. A culture in that position keeps the men it has alive.
+	#
+	#The whole chain is granted, not just the leaf: Battle Medics sits behind
+	#Elite Training behind Special Forces behind Formations behind Militia,
+	#and handing out a leaf without its trunk leaves a faction holding a tech
+	#whose prerequisites it has not got - a state the tree has no other way to
+	#reach.
+	#
+	#Applies to sky villages that ALREADY EXIST as well: the grant re-runs and
+	#only ever raises a level, so an island founded before this build gets it
+	#without a migration.
+	#
+	#false = a sky faction researches medics like anyone else.
+	#Default: true
+	#
+	grantMedicTechs = true
+	#A sky village grows a CITY PLAN and keeps a BUILDER, like any other.
+	#
+	#It used to be refused one, and that was not squeamishness: a city plan
+	#grows out to 120 blocks, an island is 34 across, and the build queue
+	#returns ONE plot which the builder WAITS on rather than skipping - so the
+	#first plot emitted over the rim stops the whole village building anything,
+	#permanently.
+	#
+	#What changed is that there is now somewhere to build: the island has
+	#bridges and satellite islets. So the plan is BOUNDED to the ground the
+	#village actually has instead of the subsystem being switched off - any
+	#unbuilt plot with no solid ground under its footprint is dropped before
+	#the queue ever sees it, the same device the world border already uses.
+	#The test asks the WORLD, not a radius: an island's rim wobbles, and the
+	#islets are good ground that no radius around the centre contains.
+	#
+	#false = the old behaviour, no plan and no builder on an island (it keeps
+	#its repairman either way).
+	#Default: true
+	#
+	skyVillagesBuild = false
+	#Each satellite islet gets a PRODUCTION BUILDING on it.
+	#This is the point of the islets: they are the room a sky village was
+	#missing, and an islet with nothing on it is scenery with a walkway to it.
+	#These buildings are written straight from their structure files when the
+	#islands are raised, which is before any faction exists - so they are
+	#there whatever skyVillagesBuild says, and the city plan is kept off the
+	#ground they and their bridges occupy.
+	#The islet is sized from the building it draws, so a structure can never
+	#overhang into the void (isletRadius is a MINIMUM, not the size).
+	#false = bare islets, bridges and all.
+	isletWorks = true
+	#Production subtypes an islet may NOT be given, by their meta name.
+	#
+	#⛏️ THE MINE IS THE IMPORTANT ONE, and its exclusion is structural rather
+	#than a preference. A mine is not a building that makes stone - it is a
+	#doorway for the miner's shaft goal, which sinks a 1x2 shaft STRAIGHT DOWN
+	#from under the hut, drops a ladder column and cuts branch levels off it.
+	#Under a village that is a mine. Under an islet with a six-block keel it is
+	#a hole punched clean through the bottom, and then a miner standing in open
+	#sky above 150 blocks of nothing, digging at air, for ever. Putting `mine`
+	#back on an islet will do exactly that.
+	#
+	#The other three are excluded because the subtype needs something an island
+	#does not have:
+	#  lumber  - the camp is saplings the lumberjack fells and replants, but he
+	#            ranges for trees, and up there every other tree is on another
+	#            island. A camp that runs dry is a worker walking to the rim.
+	#  fishery - a jetty with no water is a shed. It is already the one subtype
+	#            the ground code refuses to place without water nearby.
+	#  tank_factory - 20x20x31 of authored NBT, bigger than any islet worth
+	#            bridging to, and the sky village registers its own centre
+	#            piece as one already.
+	#
+	#What is left - wheat_farm, cow_pen, sheep_pen, forge, kitchen - are all
+	#self-contained: the work happens inside the building's own walls, on
+	#ground the structure brings with it. That is the property an islet needs.
+	#
+	isletExcludedSubtypes = ["mine", "lumber", "fishery", "tank_factory"]
+	#REPAIR EXISTING SAVES: takes down the road ramps an older build left
+	#hanging under a sky island. Runs once per island, the first time it is
+	#awake, and is then recorded as done - a repair that rewrites blocks must
+	#not re-run on every world load.
+	#
+	#It works by HEIGHT, not by material, and that is the only test available:
+	#a ramp is made of dirt, stone and grass and so is the island. But their
+	#positions cannot overlap - an island is only ever placed where the ground
+	#is more than islandDepth + groundClearance below it - so the band between
+	#the real terrain and the island's keel is open air by construction, and
+	#anything solid in it was put there by us.
+	#
+	#It will not touch: any column inside the island's own footprint (that is
+	#the keel), anything at or above the island's underside (that is where the
+	#bridges are), anything within 2 blocks of the real ground below (so a
+	#hill, a tree or a player's house down there is never in range), or any
+	#column whose chunk is not loaded - reading one would generate terrain.
+	#Default: true
+	#
+	clearOldRamps = true
+	#A BOMBER is never sent to a fight that is over, or close to, one of the
+	#launching faction's OWN claims. Only the INTERCEPTOR flies there.
+	#A bomb is an area weapon and the compat picks its own targets, so a
+	#bombing run above your own village craters the village - and the
+	#friendly-fire guard cannot help with that: it spares your recruits and
+	#workers, not your buildings, not an ally's men and not a player standing
+	#underneath. An interceptor has no such problem.
+	#If no interceptor is available the village sends NOTHING rather than
+	#substitute a bomber.
+	#false = the old behaviour, bombers fly wherever the fight is.
+	bomberSpareOwnClaim = true
+	#An ALLY's claim is spared by the bomber as well as the faction's own.
+	#Their buildings burn the same and their men die the same, and an ally's
+	#village is by definition somewhere our own troops are likely to be
+	#standing - the reason for the rule does not stop at our border.
+	#Alliance is the same both-directions test combat and convoys use, so a
+	#one-sided diplomacy row cannot make the two disagree.
+	#false = only our own claim is spared.
+	#Has no effect where bomberSpareOwnClaim is the only thing switched on;
+	#the two are independent, and turning BOTH off restores the behaviour
+	#before 1.0.7.92TC-49.
+	bomberSpareAllyClaims = true
+	#Extra blocks, on top of airWingRadius, that a fight must be clear of the
+	#faction's own claim before a BOMBER may be sent to it.
+	#The base figure is airWingRadius itself, because that is how far from
+	#the site the mission looks for something to hit - so a claim inside it is
+	#a claim the bomber may attack. This adds a margin on top for a craft
+	#that overshoots and for a bomb that drifts.
+	#Applies to whichever of bomberSpareOwnClaim / bomberSpareAllyClaims
+	#is switched on; ignored when both are off. 0 = no margin.
+	#Range: 0 ~ 256
+	bomberClaimClearance = 32
+	#How close the freighter FLIES before it stops flying and starts coming down.
+	#Small on purpose: this is the point it descends onto, so anything large
+	#lands it short of the village - at 64 it settled outside the claim entirely,
+	#which is what this key was split off to fix. It cruises the whole way in and
+	#then descends more or less vertically onto the centre.
+	#Raise it if aircraft clip the village's own towers on the way down.
+	#Range: 4 ~ 128
+	airConvoyApproachRadius = 12
+	#How fast a freighter comes down, in blocks per tick (x20 = blocks/second).
+	#0.35 = about 7 blocks a second, so a descent from cruising height takes
+	#roughly fifteen seconds and reads as an airship settling rather than
+	#falling. It eases off over the last stretch regardless of this value.
+	#0 = do not drive the descent at all, and leave it to the aircraft mod's own
+	#idle-landing (which is what happened before TC-35: it did not come down).
+	#Range: 0.0 ~ 2.0
+	airConvoyDescentSpeed = 0.35
+	#Blocks above the ground (or above the village centre, whichever is higher)
+	#at which a descending freighter stops and holds.
+	#It deliberately does NOT touch down: the centre of a village is normally the
+	#tower, and the last few blocks of a vertical descent onto a roofline is where
+	#an aircraft clips a building. It hovers at delivery height, hands the cargo
+	#over, and the airframe returns to its hangar - which is also what stops a
+	#freighter sinking into a roof if the ground under it is misread.
+	#Range: 1 ~ 32
+	airConvoyLandingClearance = 6
+	#How hard a descending freighter steers onto the LANDING PAD it was cleared
+	#for, in blocks per tick. Only ever used when a pad is actually held; a
+	#village with no pads is unaffected.
+	#
+	#Why it is needed: the moment a flight enters its landing zone the pilot's
+	#move order is DROPPED, because holding one makes the aircraft compat keep
+	#its cruising altitude and refuse to come down. From then on nothing is
+	#flying the craft, and the descent only bled its leftover horizontal speed
+	#away - so it sank straight down from wherever it happened to be when it
+	#arrived, which is anywhere inside the approach radius. It came down NEAR
+	#the pad rather than ON it.
+	#
+	#This is a gentle nudge, not a second pilot: it eases off as the craft
+	#closes on the deck and stops entirely within half a block, so it settles
+	#rather than hunting side to side. Nothing else writes X/Z during a
+	#descent, so there is no authority to fight.
+	#0 = off (sink where you are, the old behaviour).
+	#Default: 0.08
+	#
+	#Range: 0.0 ~ 1.0
+	airConvoyPadHoming = 0.08
+	#How high above a PAD a flight hovers while it is being unloaded or
+	#serviced, in blocks, measured from the pad itself.
+	#⚠️ THIS IS THE HOLD HEIGHT OVER ANY PAD - a service station, a sky
+	#hangar's apron, or a pad a village built. It is deliberately much lower
+	#than airConvoyLandingClearance (6), which applies when there is NO pad and
+	#the craft is holding over the village CENTRE: that number exists because a
+	#centre is normally a tower and the last few blocks of a descent onto a
+	#roofline is where an aircraft clips a building.
+	#A pad is a flat deck somebody built to be landed on, so there is nothing
+	#to clip - and a freighter that unloads or takes on fuel from six blocks up
+	#does not read as having stopped there at all.
+	#It still never touches down: 2 keeps the hull clear of the deck.
+	#Range: 0.0 ~ 32.0
+	airConvoyMinHoverOverPad = 2.0
+	#May a village build or commission the WARSHIP?
+	#
+	#OFF for now. The warship is the military airship and it is not finished:
+	#it is the one airframe large enough to need a large landing pad, and the
+	#rest of its behaviour - what it does at a war, how it is crewed, what it
+	#is worth - is not settled. Building one today gets a village an
+	#expensive aircraft that mostly parks.
+	#
+	#The LARGE LANDING PAD is deliberately left in and working. It is not the
+	#warship's alone: any Immersive Aircraft addon craft wider than
+	#largePadMinWidth uses one, and a builder who has laid a large deck should
+	#keep it whatever this switch says.
+	#
+	#Turning it on restores the warship everywhere - the hangar's build queue
+	#and /vrsky commission alike - with no other change.
+	#Default: false
+	#
+	warshipEnabled = false
+	#How wide an aircraft must be before it needs a LARGE landing pad.
+	#
+	#Measured off the aircraft's own bounding box, never a list of names: the
+	#warship is the big one this mod ships, but Immersive Aircraft addons ship
+	#their own and a hard-coded list would quietly give one of those the wrong
+	#deck. "Which aircraft are large" is a question the aircraft can already
+	#answer, so it is asked.
+	#
+	#An ordinary pad's deck is 3x3 and a large one's is 5x5, so this is
+	#roughly "wider than a 3x3 deck holds".
+	#Default: 2.6
+	#
+	#Range: 1.0 ~ 16.0
+	largePadMinWidth = 2.6
+	#May a CIVILIAN aircraft use a large landing pad when no ordinary pad is
+	#free?
+	#
+	#Off by default, and that is the point of having two kinds: a large deck
+	#is built for the aircraft that cannot use anything else, and a cargo
+	#airship parked on it while a warship circles is the failure the size
+	#distinction exists to prevent. A large aircraft is NEVER given an
+	#ordinary pad whatever this says - it would sit across the surrounding
+	#blocks with its hull through somebody's roof.
+	#
+	#On, ordinary craft may fall back to a large deck, but still take an
+	#ordinary one first.
+	#Default: false
+	#
+	largePadServesSmallCraft = false
+	#How long a freshly delivered COMMISSIONED airframe glows for the player
+	#who paid for it.
+	#
+	#It is a "your aircraft is ready, it is over there" marker: a village is a
+	#big place and the chat line otherwise gives a coordinate to navigate to
+	#by reading numbers. The glow shows through buildings.
+	#
+	#This is the BACKSTOP, not the usual ending - the glow normally stops the
+	#moment its owner walks up to it (commissionGlowNear). The timer is for an
+	#owner who logged off or never went to look.
+	#0 = no glow at all.
+	#Default: 2400 (two minutes)
+	#
+	#Range: 0 ~ 72000
+	commissionGlowTicks = 2400
+	#How close the OWNER has to get before his commissioned airframe stops
+	#glowing.
+	#
+	#The glow exists to answer "where is it", so the moment that question is
+	#answered it has no further job.
+	#
+	#Checked against the owner and nobody else: a teammate walking past would
+	#otherwise put the marker out for a man who has not been near it, which
+	#leaves him with the coordinate and nothing else.
+	#Default: 25
+	#
+	#Range: 1.0 ~ 128.0
+	commissionGlowNear = 25.0
+	#How many times a ROAD convoy's load a FLIGHT carries, before the
+	#freighter's own hold caps it.
+	#
+	#A freighter is not a cart and was being loaded like one: the road budget
+	#(convoyMaxUnits, 320 by default) was the real limit and the hold cap of
+	#slots x 64 - 5,120 on the shipped cargo airship - never bound. An
+	#airship therefore left with 320 units and eighty cargo slots of which
+	#eight were used.
+	#
+	#AIR ONLY. The road budget is a balance decision about carts, ambushes
+	#and escort contracts; scaling the two together would re-tune every
+	#ground convoy in the world as a side effect of filling an airship.
+	#
+	#⚠️ This raises the CEILING, not the load. A convoy still takes only half
+	#of what each resource has spare above convoyKeepAtHome, so a poor
+	#village sends exactly what it sent before and only a village with a real
+	#surplus fills a hold. The true ceiling stays airConvoySlots x 64 - tune
+	#THAT to change how much an airframe can physically carry.
+	#Default: 16 (320 x 16 = 5,120, so the HOLD becomes the limit)
+	#
+	#Range: 1.0 ~ 200.0
+	airConvoyLoadFactor = 16.0
+	#The hangar MAKES aircraft fittings out of the village's own materials and
+	#refits a freighter for the flight it is about to make.
+	#
+	#Off = an airframe keeps whatever it was built with and nothing is charged.
+	#Prices are Immersive Aircraft's own recipes flattened into the counters a
+	#village keeps (iron/copper/gold/coal) - see sky/FittingWorks. The exotic
+	#ingredients of a nether engine (netherite, blaze rods, magma cream) are
+	#PRICED rather than demanded: a village has no way to obtain them, so
+	#requiring the real items would make that engine permanently uncraftable.
+	#Default: true
+	#
+	fittingWorksEnabled = true
+	#How many times airConvoyMinJourney counts as a LONG HAUL, for choosing
+	#which engine a freighter is refitted with before a flight.
+	#
+	#At or above it the eco engine goes in - fuel is what limits a long
+	#flight. Below it the nether engine does, because over a short distance
+	#fuel is not the problem and speed is.
+	#
+	#Expressed as a multiple of the distance at which a faction already
+	#decides to fly at all, rather than as its own number of blocks: two
+	#unrelated notions of "a long journey" would drift apart the first time
+	#either was tuned.
+	#Default: 2.5
+	#
+	#Range: 1.0 ~ 20.0
+	ecoEngineJourneyFactor = 2.5
+	#How long a freighter hovering over its destination is given to come DOWN
+	#before it delivers from where it is.
+	#A flight is over when it is above the claim, not when it has touched the
+	#ground: the crates go into the village's chests either way. Landing is how
+	#an arrival LOOKS, and a landing that never completes must not be able to
+	#hold a paid-for delivery hostage - the aircraft would hang over the village
+	#for ever and the load would eventually be written off as lost.
+	#So the descent is attempted, given this long, and then the delivery happens
+	#regardless. Raise it if you would rather always see a landing; 0 = deliver
+	#the instant it is overhead, with no descent at all.
+	#Range: 0 ~ 12000
+	airConvoyDescendGraceTicks = 200
+	#Chance that a GROUND village which has researched Aeronautics sends a
+	#given convoy by air instead of by road.
+	#⚠️ Air convoys ADD VARIETY, they do not replace ground ones. A ground
+	#village still has roads and its couriers still work, and flying every
+	#shipment would quietly delete the ground convoy system for that faction -
+	#including the escort contract, the ambush and the raid, none of which an air
+	#convoy has. 0 = ground factions never fly their cargo (they can still build
+	#aircraft); 1 = they always do.
+	#SKY villages are NOT affected by this key: their capital is an island with no
+	#road off it, so they always fly.
+	#Range: 0.0 ~ 1.0
+	airConvoyGroundChance = 0.25
+	#Cruise speed of a convoy aircraft, in BLOCKS PER TICK (x20 for blocks
+	#⚠️ RENAMED from airConvoySpeed, which meant a MULTIPLIER. The two cannot
+	#share a key: Forge never rewrites a key an existing file already has, so a
+	#config carrying the old 1.6 would have been read as 1.6 BLOCKS PER TICK -
+	#32 m/s - by the new code. Any leftover airConvoySpeed line is ignored and
+	#can be deleted.
+	#per second). 0 = no assist, the airframe flies at its own speed.
+	#0.35 is about 7 m/s - a little above a sprinting player, which reads as
+	#purposeful without being silly for an airship.
+	#⚠️ An ABSOLUTE target, deliberately not a multiplier. The vehicle computes
+	#each tick's motion from the previous tick's, so a per-tick multiplier
+	#COMPOUNDS: 1.6x applied sixty times a second does not settle at 1.6x, it runs
+	#away until it hits its cap and sits there. That is what made a 'moderate' 1.6
+	#produce an airship pinned at 18 m/s.
+	#Never brakes a craft already slower by its own choice, and approaches the
+	#target by at most 5% a tick.
+	#Range: 0.0 ~ 2.0
+	airConvoyCruiseSpeed = 0.35
+	#Beyond this distance a village that CAN fly always flies - the
+	#chance rolls stop applying.
+	#At this range a road is not a risk worth taking: a courier walking it is
+	#hours of exposure to everything in between, and stopping that toll is the
+	#whole reason a faction builds a freighter.
+	#Below it the ordinary mix still applies, so short and middling hauls keep
+	#to the road - and keep the escort contract, the ambush and the raid with
+	#them.
+	#A faction that cannot fly is unaffected: it walks the distance as always.
+	#0 = off, distance never forces a flight.
+	#Range: 0 ~ 16384
+	airConvoyAlwaysBeyond = 800
+	#FALLBACK model-yaw offset, in degrees. Normally unused.
+	#The offset between the entity's yaw and where its MODEL points is derived
+	#automatically from the vehicle's own getForwardDirection(), per airframe,
+	#so no hand calibration is needed. This value is used only if that method
+	#cannot be read - a mod update renaming it degrades to this rather than to
+	#a silently wrong heading.
+	#The entity's yaw is already correct - measured in flight, yaw 161.9
+	#against a bearing of 161.9 - but an Immersive Aircraft vehicle is a
+	#bbmodel whose forward axis need not be the axis Minecraft calls yaw 0, so
+	#a perfectly-aimed entity can still be DRAWN across its own course. That
+	#offset lives in that mod's model files and cannot be derived here, which
+	#is why this is a setting rather than a fixed number.
+	#NOTE this also rotates the course: thrust is applied along the vehicle's
+	#forward direction, which comes FROM yaw. Use it to make the model lead,
+	#not to trim the route.
+	#Range: -180.0 ~ 180.0
+	airConvoyModelYawOffset = 0.0
+	#How far off course, in DEGREES, an aircraft may be before we correct
+	#its heading at all.
+	#The Recruits compat also steers the vehicle every tick, toward a target
+	#that is close to ours but never identical - so without a deadband the two
+	#tug the heading a degree or two back and forth constantly: correct on
+	#average, visibly unsteady.
+	#Inside this band nothing is written and the compat's own turn runs to
+	#completion; outside it we bring the nose back round.
+	#0 = correct always (unsteady), 180 = never correct.
+	#Range: 0.0 ~ 180.0
+	airConvoyTurnDeadband = 25.0
+	#How fast a convoy aircraft may turn, in DEGREES PER TICK.
+	#3.0 is a wide, deliberate arc - an airship should not pivot.
+	#The Recruits compat turns its own aircraft at about 5 deg/tick, so
+	#anything much above that overwrites a turn already in progress rather
+	#than helping it: two authorities on one axis, which is what made earlier
+	#attempts at this look like no rotation at all.
+	#Range: 0.5 ~ 15.0
+	airConvoyTurnRate = 3.0
+	#Shortest journey, in blocks, that a GROUND village will send by air.
+	#Flying is for distance: a freighter is an expensive, slow-to-build answer to
+	#a long haul, and sending one two villages down the road wastes the airframe
+	#on a trip a courier walks perfectly well - and takes the load out of reach of
+	#the escort contract and the ambush, which are what make a short convoy
+	#interesting to a player.
+	#Checked BEFORE the wartime roll: a war does not make a short journey worth an
+	#aircraft, it only raises how often a LONG one flies.
+	#0 = distance is not considered. SKY villages ignore this entirely - their
+	#capital is an island with no road off it, so they always fly.
+	#Range: 0 ~ 8192
+	airConvoyMinJourney = 400
+	#As airConvoyGroundChance, but while the faction is AT WAR with anyone.
+	#An air convoy is the one shipment that cannot be intercepted - every
+	#raiding party in this mod is a ground party - so a faction with a war on
+	#and the aircraft to do something about it should not be sending crates down
+	#a road through a warzone at its peacetime odds. This is also what the
+	#freighter is FOR: one cargo airship keeps a faction supplied while its roads
+	#are unsafe.
+	#Deliberately below 1.0 by default: a faction permanently at war would
+	#otherwise stop using ground convoys entirely, and the ground convoy system -
+	#escort contracts, ambushes, raids - is most of what makes a war visible.
+	#SKY villages are unaffected: their capital always flies.
+	#Range: 0.0 ~ 1.0
+	airConvoyWartimeChance = 0.85
+	#Blocks of clear air an aircraft is kept above the ground BENEATH IT.
+	#A collision floor, not a cruising height: the compat is asked to cruise at
+	#airConvoyMinAltitude, so this sits far below what it aims for and never fires
+	#in normal flight. It only acts when the craft is genuinely about to hit
+	#terrain, and is released inside airConvoyDescendRadius so it can still land.
+	#0 = off (an aircraft may then fly into a hillside).
+	#Range: 0 ~ 64
+	airConvoyTerrainClearance = 10
+	#A faction's aircraft fly its BANNER (in the banner slot) and its COLOUR
+	#(on the hull), like its towers and its soldiers' shields already do.
+	#An airframe seen from a distance is otherwise anonymous, and an aircraft is
+	#the one thing in this mod normally seen from far away and from underneath.
+	#Costs nothing: the banner is a copy of the faction's own and the hull colour
+	#is a property, so no dye item is consumed. A craft with no banner or dye slot
+	#is simply skipped.
+	aircraftLivery = true
+	#A SKY faction may only found its ground settlements while it can FLY.
+	#The settlers themselves travel exactly as they always have; what the
+	#aircraft buys is the right to plant a colony down there at all - an island
+	#with no aircraft has no way to reach the ground.
+	#A sky faction is granted the Aircraft technology at founding, so this
+	#normally passes; it bites only where the tech genuinely is not available
+	#(banned by an admin, tree switched off, or the aircraft mods absent).
+	#GROUND factions are never affected by this key.
+	groundSettlementsNeedAircraft = true
+	#Civilian air convoys burn a per-faction fuel reserve.
+	#Off restores the old behaviour exactly: fuel is minted from nothing and
+	#a flight can never run dry. Service stations still work with this off -
+	#they simply top a craft up that was never going to run out.
+	#MILITARY sorties (warships, bombers, interceptors) are NOT affected by
+	#this key at any setting: their fuel is minted as it always was, so a war
+	#already in progress cannot be grounded by turning this on.
+	aviationFuelEnabled = true
+	#Largest aviation reserve a faction may hold, in COAL BLOCKS.
+	#The reserve is a buffer between the mine and the aerodrome, not a second
+	#stockpile: a cap this size is roughly four full flights' worth, so a
+	#village that stops mining stops flying within a few journeys.
+	#Range: 0 ~ 100000
+	aviationFuelCap = 256
+	#Coal BLOCKS moved from the faction's coal counter into the aviation
+	#reserve each economy cycle, while the reserve is below its cap.
+	#Costs coalPerFuelBlock coal per block moved.
+	#Range: 0 ~ 10000
+	aviationFuelPerCycle = 8
+	#Let a flight reach THROUGH the aviation reserve into the faction's own
+	#coal when the reserve cannot cover what it needs.
+	#The reserve is a BUFFER in front of the coal counter, filled at
+	#aviationFuelPerCycle blocks per economy cycle. That pace is right for
+	#stockpiling and far too slow to answer a flight that needs fuel now: a
+	#village sitting on hundreds of coal would be told it had none, and its own
+	#aerodrome would advertise itself as shut, until enough cycles had run.
+	#The separation the buffer exists for is unaffected - it is still what a
+	#flight burns, the pull still respects the leader's reserve and the firearm
+	#floor, and the forge still cannot take fuel back out of it. Only the
+	#timing changes.
+	#Turn this OFF to make the reserve a hard ceiling on how fast a faction can
+	#fuel aircraft, whatever it has mined. Default: true
+	aviationFuelFromStores = true
+	#Coal BLOCKS a civilian air convoy burns per 1000 blocks flown.
+	#The aircraft mod burns its own fuel and over a journey the amount is
+	#invisible: one coal block is 16,000 ticks of boiler and a 1835-block
+	#flight lasts about 5,200, so a whole delivery consumed about a THIRD of
+	#ONE block out of a 64-block load. Reported as a freighter 'stuck at 52%
+	#fuel' - it was not stuck, its journey cost nothing.
+	#That silently cancelled everything built on a flight running LOW: the
+	#divert threshold could never be reached by flying, so no aircraft ever
+	#went looking for a service station unless it launched short, and no
+	#upgrade that changes fuel consumption changed anything visible.
+	#This is the bill the addon charges instead, and it is what the airframe's
+	#fitted upgrades and the wartime throttle both multiply.
+	#At the default a 64-block load covers about 5300 blocks before dropping
+	#under airConvoyFuelDivertBelow, so a short hop is free and a long haul
+	#needs a station. 0 = off (the old behaviour). Default: 12.0
+	#Range: 0.0 ~ 500.0
+	airConvoyFuelPerThousandBlocks = 12.0
+	#Fly convoys harder in wartime and easier in peacetime.
+	#A war at EITHER end - the sender's or the receiver's - buys speed with
+	#fuel, because a convoy that arrives after the siege is decided delivered
+	#nothing. A world with no war anywhere spends hours to save coal instead.
+	#The throttle multiplies with the airframe's fitted upgrades, because it
+	#is the same trade made by the pilot rather than by the workshop.
+	#Decided ONCE at dispatch: the estimate becomes the deadline, so a treaty
+	#signed mid-flight must not retroactively lengthen a journey the convoy
+	#was never flown to. Default: true
+	urgencyEnabled = true
+	#Journeys SHORTER than this (blocks) are always flown normally, whatever
+	#the diplomacy says.
+	#A throttle is a trade and a short hop has nothing to trade for: 30% more
+	#fuel to arrive a few seconds earlier buys nothing, and a leisurely cruise
+	#over the same hop saves a fraction of one coal block and delays a
+	#delivery for it. Default: 600
+	#Range: 0 ~ 100000
+	urgencyShortHaulBlocks = 600
+	#Speed multiplier for a wartime flight. 1.35 = arrives in about 74% of
+	#the normal time. Default: 1.35
+	#Range: 1.0 ~ 4.0
+	urgencyWarSpeed = 1.35
+	#What that speed costs, as a fuel multiplier. Default: 1.5
+	#Range: 1.0 ~ 8.0
+	urgencyWarFuel = 1.5
+	#Speed multiplier when NOTHING in the world is at war. Below 1 = slower.
+	#Default: 0.85
+	#Range: 0.25 ~ 1.0
+	urgencyPeaceSpeed = 0.85
+	#What that saves, as a fuel multiplier. Default: 0.8
+	#Range: 0.1 ~ 1.0
+	urgencyPeaceFuel = 0.8
+	#Coal spent per coal BLOCK of aviation fuel. 9 is the vanilla recipe and
+	#the same conversion the merchant already uses for coal blocks.
+	#Range: 1 ~ 64
+	coalPerFuelBlock = 9
+	#When an air convoy lands, loose COAL is packed into coal BLOCKS - in the
+	#station's chests where it puts down, and in the pilot's own pack when it
+	#gets home.
+	#Everything in this system is counted in blocks: the boiler burns them, the
+	#reserve holds them, a station's price is quoted against them. Loose coal
+	#still counts, at coalPerFuelBlock, but it takes nine slots to say what one
+	#could - so a station stocked by hand with lumps fills up with its own
+	#stock.
+	#Only WHOLE blocks are made and the remainder is left alone: rounding up
+	#would mint fuel out of eight lumps, and discarding it would destroy a
+	#player's coal.
+	compactCoalOnLanding = true
+	#A civilian flight goes looking for a service station when its reserve
+	#falls below this many COAL BLOCKS (a lump of coal counts as a ninth of
+	#one, so 20 blocks is also 'about 180 coal').
+	#Below airConvoyFuelRefillBelow it will take the faction reserve instead
+	#rather than come down somewhere it cannot be served.
+	#Range: 0 ~ 1000
+	airConvoyFuelDivertBelow = 20
+	#A flight goes looking for a service station once its fuel falls below
+	#this PERCENTAGE of a full load (airConvoyFuelStack).
+	#A range rather than one number, for two reasons. Expressed against a full
+	#load it keeps meaning what it says if the stack size is ever retuned; and
+	#every flight picking the same instant to divert would send a whole
+	#aerodrome's worth of freighters onto one deck at once, which is a queue
+	#rather than an economy.
+	#The share is fixed per flight, taken from the convoy's own id, so a
+	#freighter sitting exactly on the boundary cannot flicker between
+	#diverting and turning back.
+	#airConvoyFuelDivertBelow above stays an absolute FLOOR in blocks, so
+	#raising it deliberately is not overruled by a percentage. Default: 30
+	#Range: 1 ~ 100
+	airConvoyDivertPercentMin = 30
+	#The top of that range. Default: 40
+	#Range: 1 ~ 100
+	airConvoyDivertPercentMax = 40
+	#The LAST RESORT: once a flight is below this percentage of a full load
+	#it draws on the faction's AVIATION RESERVE instead of waiting
+	#for a station.
+	#Deliberately far below airConvoyDivertPercentMin, and that ordering is
+	#the whole design. A flight goes SHOPPING first, and only reaches into
+	#its faction's own fuel when nowhere would sell to it - so a village with
+	#stations on its routes lives off them and keeps its reserve, and one
+	#without burns through what it has mined.
+	#Reversing the two would mean no flight ever visited a station: it would
+	#always be topped up out of the reserve before it ever read as low.
+	#Like the divert band this is a RANGE fixed per flight from the convoy's
+	#own id, so freighters do not all dip into the reserve on the same tick.
+	#Default: 5
+	#Range: 1 ~ 100
+	airConvoyReservePercentMin = 5
+	#The top of that range. Default: 10
+	#Range: 1 ~ 100
+	airConvoyReservePercentMax = 10
+	#What percentage of a full load the /vrsky TEST dispatch leaves a flight
+	#with.
+	#The test exists to watch a freighter find a player's service station, and
+	#for that it has to actually BE low - emptying the faction's reserve stopped
+	#being enough once a flight could fuel from the village's coal on the
+	#ground. So the tanks are trimmed to this directly, after everything else
+	#has filled them.
+	#Kept well under airConvoyDivertPercentMin so the flight is looking for a
+	#station on its very first pass. Default: 15
+	#Range: 1 ~ 99
+	testLowFuelPercent = 15
+	#Landing pads may be registered as SERVICE STATIONS with a Service Marker
+	#(a stick with the debug stick's glint). A registered pad refuels civilian
+	#air convoys for a fee its owner sets, and a registered LARGE pad displays
+	#as a Service Pad.
+	#Off leaves every registration in the save untouched and simply stops them
+	#being offered, so switching it back on loses nothing.
+	serviceStationsEnabled = true
+	#How far off its course a low flight will divert to reach a station, in
+	#blocks. Measured HORIZONTALLY from the aircraft - not from either end of
+	#the journey, and not through the air: a convoy cruises 250+ blocks up,
+	#so counting height would put a station directly beneath it out of range.
+	#The NEAREST usable station within this radius wins.
+	#1000 is deliberately generous. A convoy only diverts when it is actually
+	#low, an air route is well over a thousand blocks long, and a station the
+	#flight cannot reach is a station that never trades - so the failure mode
+	#of too small a number is an economy that silently does nothing, while the
+	#failure mode of too large a one is merely a longer detour.
+	#CHANGING THIS DEFAULT DOES NOT AFFECT AN EXISTING WORLD - Forge never
+	#rewrites a key a config file already has. Edit sky.toml, or use
+	#/vrconfig reset sky confirm.
+	#Range: 16 ~ 4000
+	serviceDivertRange = 1000
+	#How far a Service Marker looks when SHIFT-clicking away from a pad to
+	#clear the nearest one.
+	#A pad is an invisible property of a position - it may have no block at
+	#all, and even when it does the deck is nine blocks of ordinary floor
+	#with an unmarked centre. It cannot be aimed at and cannot be mined, so
+	#proximity is the only handle a player has on a misplaced one.
+	#Bounded so a stray shift-click on a fence post cannot delete a pad on
+	#the far side of the village - a deletion the player would only discover
+	#the next time a freighter failed to arrive. Default: 16
+	#Range: 1 ~ 128
+	markerClearRange = 16
+	#What 100 blocks of detour is worth, in emeralds, when a flight chooses
+	#between service stations.
+	#A flight used to take the NEAREST usable deck and never look at the
+	#price, so with two open stations on one route it flew past a 20-emerald
+	#pad to a 30-emerald one every time because it was a few blocks closer.
+	#Price alone would be just as wrong - a stop far off the route burns fuel
+	#and eats the delivery deadline - so both are counted in the same unit:
+	#the fee, plus the distance valued at this rate. A cheaper station wins
+	#unless it is far enough away to cost more to reach than it saves.
+	#Higher = flights care more about staying on course and will pay to do
+	#it. 0 = always take the cheapest, however far. Default: 2.0
+	#Range: 0.0 ~ 1000.0
+	serviceDetourCostPer100 = 2.0
+	#How far from the pad the station's chest may stand, in blocks.
+	#The chest is where the fuel comes OUT of and the payment goes IN to, so a
+	#station with no chest in range cannot trade and is skipped.
+	#Range: 1 ~ 32
+	serviceChestRange = 6
+	#How many containers one station may connect to. Any container counts -
+	#chest, barrel, hopper, a modded crate.
+	#Connected AUTOMATICALLY on registration: whatever is standing on the
+	#forecourt is part of it, and pointing at them would be a second setup
+	#step for something already said by putting them there.
+	#Nearest first, ties broken by position so the same ones are chosen every
+	#pass. The cap is what stops a station in a warehouse district quietly
+	#adopting somebody else's storage.
+	#Range: 1 ~ 32
+	serviceChestMax = 4
+	#Coal BLOCKS a station hands over in one visit, if it has them.
+	#A station with fewer serves what it has and the flight moves on.
+	#Range: 1 ~ 1000
+	serviceFuelPerVisit = 32
+	#A service station stays visible to flight routing while nobody is near it,
+	#using the stock last SEEN in its chests.
+	#
+	#A station's stock lives in chests in the world, and chests can only be
+	#read while their chunk is loaded - but convoys fly over unloaded land by
+	#design. Without this, a station is offered to flights only while somebody
+	#is standing near it, so in multiplayer another player's station is
+	#invisible most of the time and silently never trades. Single player
+	#barely shows the problem, because you are always near your own.
+	#
+	#It decides only which station is worth flying TO. The arrival re-checks
+	#the chests for real - the aircraft is standing on the deck, so they are
+	#loaded - and a flight sent to a station that has since been emptied is
+	#refused and carries on, which is what already happened when a chest was
+	#emptied mid-journey. That arrival check also updates the remembered
+	#figure, so an emptied station stops attracting flights after one of them
+	#rather than for ever.
+	#false = only stations whose chunks are loaded right now can be chosen.
+	#Default: true
+	#
+	serviceRememberStock = true
+	#Emeralds a newly registered station charges per visit, before its owner
+	#sets its own price with the Service Marker.
+	#Range: 0 ~ 1024
+	serviceDefaultFee = 8
+	#Highest flat emerald fee a station owner may set. A station that asks
+	#more than a faction will pay is simply never used, so this is a guard
+	#against a typo rather than a balance lever.
+	#Range: 0 ~ 4096
+	serviceMaxFee = 64
+	#Highest goods tax a station owner may set, as a PERCENT of the cargo
+	#aboard. Taken in whole items, so a small load may pay nothing.
+	#Range: 0 ~ 100
+	serviceMaxGoodsTax = 25
+	#How long a flight sits on a service pad while it refuels, in ticks.
+	#600 = 30 seconds. THE FUEL AND THE PAYMENT MOVE AT THE END of it, not
+	#on touchdown: the wait IS the refuelling, so a flight driven off before
+	#it finishes leaves with nothing and the owner is paid nothing.
+	#The wait is the point rather than a cost: a parked freighter is the ONLY
+	#moment an air convoy is reachable by anything, so this is the window in
+	#which a station can be robbed and a raiding party can arrive.
+	#TAKING DAMAGE RESTARTS THE CLOCK, in full. Nobody goes on pumping fuel
+	#while they are being shot at, and without it an attacker only had to
+	#survive the remainder of a timer that was already running - so a raid
+	#arriving late was no raid at all. It also means a crew that is kept under
+	#fire never leaves, which is what makes a sustained attack on a station
+	#worth mounting rather than a nuisance.
+	#0 makes servicing instant and closes the window entirely.
+	#Range: 0 ~ 24000
+	serviceDwellTicks = 600
+	#A flight PARKED at a service pad may be ambushed, even though
+	#airConvoysSafe keeps it safe in the air.
+	#Those two are not in conflict. airConvoysSafe exists because every raiding
+	#party in this mod is a GROUND party, so an ambush on something a thousand
+	#blocks up would be soldiers spawned under an airship they can neither reach
+	#nor see - a die with one face. A freighter standing on a deck is exactly
+	#the case that reasoning does not cover, and it is the first time raiders
+	#and bandits have anywhere to meet an air convoy at all.
+	#false = a parked flight is as untouchable as a flying one.
+	serviceRaidsEnabled = true
+	#Chance that ONE refuelling stop is jumped, rolled when the fuelling
+	#begins.
+	#A roll of its own, because the periodic one cannot do this job:
+	#convoyRaidIntervalTicks is 600 and the dwell is 600, so a station visit
+	#saw at most one ordinary roll and usually none, depending on where in the
+	#cycle the flight happened to arrive. A window that exists to be dangerous
+	#must not have its danger decided by whether a shared timer lined up.
+	#This is the RAIDER roll only: a faction at war with the customer and
+	#near enough to have sent somebody, which is the version with a motive and
+	#somewhere to take the cargo. It needs a war nearby to fire at all.
+	#BANDITS are a separate, independent roll - see serviceBanditChance -
+	#because they need neither.
+	#Range: 0.0 ~ 1.0
+	serviceRaidChance = 0.3
+	#Chance that BANDITS jump a refuelling stop. 0.20 = 20%.
+	#Intended band: 0.15 - 0.25.
+	#⚠️ This is the DIRECT probability, not a share of serviceRaidChance. It
+	#was briefly the latter, which meant the effective odds were the product of two
+	#keys (0.30 x 0.60 = 18%) and could not be read off either of them - so
+	#nobody could set 'bandits raid one stop in five' without doing the
+	#arithmetic first. Rolled independently, exactly as the road's own ambush
+	#does with convoyBanditChance.
+	#Bandits need no war and no nearby village, which is what keeps refuelling
+	#risky for a faction at peace with the world: without them a station on a
+	#quiet continent would be perfectly safe and an escort would never be
+	#worth paying for.
+	#Raiders are tried FIRST and are a separate roll - see serviceRaidChance.
+	#Range: 0.0 ~ 1.0
+	serviceBanditChance = 0.2
+	#How far a new VILLAGE must stay from a service station, in blocks.
+	#Applies to worldgen towers, to settlers founding a colony, and to a
+	#player planting a centre by hand.
+	#A station is a place somebody chose and built: a village appearing on top
+	#of it takes the pad into a claim, makes the deck the village's own
+	#aerodrome (so it serves that faction for nothing), and can demolish the
+	#chests the business runs on. None of that is recoverable by the owner.
+	#500 is deliberately larger than a village's own spacing - a claim only
+	#has to not overlap another claim, while a station has to stay out of the
+	#way of everything a village GROWS into.
+	#Range: 0 ~ 8000
+	serviceStationVillageKeepout = 500
+	#How far /vrsky pad clear looks for a pad to remove, in blocks.
+	#A landing pad drops nothing, cannot be mined and removes its own block
+	#once registered, so without that command a pad in the wrong place is
+	#permanent for anyone without creative - and it is invisible, so he
+	#cannot even point at the mistake.
+	#Range: 1 ~ 256
+	padClearRange = 24
+	#How near a station's pad a parked flight counts as being ON that
+	#station's deck - which is what makes robbing it a robbery of THAT
+	#station rather than an ordinary attack in the countryside.
+	#Range: 1 ~ 64
+	serviceDeckRadius = 12
+	#Emeralds a convoy pilot earns for a delivery that arrives.
+	#Paid on ARRIVAL only: a flight that is lost pays nobody.
+	#Range: 0 ~ 512
+	pilotPayPerDelivery = 8
+	#Most a pilot will carry. Earnings past this are banked into the faction
+	#treasury when he gets home, so he keeps flying and keeps earning - and
+	#what he carries stays worth robbing without ever becoming a fortune.
+	#360 is a little under six stacks: enough that intercepting a flight at a
+	#service station is worth the trouble and the standing it costs, which is
+	#the whole point of the purse being carried rather than banked.
+	#Held on the convoy record and transferred onto the
+	#pilot while he is loaded - a pilot's body is discarded every time the
+	#convoy leaves simulation distance, so money kept only as items would be
+	#destroyed on every crossing.
+	#Range: 0 ~ 2304
+	pilotPurseCap = 360
+	#Robberies before a faction stops dealing with the robber ANYWHERE.
+	#The first robbery always blacklists the station it happened at; this is
+	#how many it takes before every station that player owns is refused too.
+	#0 disables the faction-wide step and leaves only the per-station ban.
+	#Range: 0 ~ 100
+	serviceDistrustAfter = 3
+	#Standing lost with the robbed faction per robbery, on top of whatever
+	#killing its people already costs. A faction leader can forgive this with
+	#/vrcontracts pardon, which also restores station trust; an AI village
+	#never forgets.
+	#Range: 0 ~ 10000
+	serviceRobberyRepLoss = 40
+	#How long a Service Marker handed out by /vrsky marker lasts, in
+	#minutes, before it disappears from the player's inventory.
+	#The marker is a creative item, so without the command a SURVIVAL player
+	#cannot open a station at all. It is lent rather than given: the tool is
+	#needed for the half-minute it takes to mark a deck, and a permanent one
+	#would sit in a hotbar forever after.
+	#0 means it never expires - the loan becomes a gift.
+	#Range: 0 ~ 1440
+	serviceMarkerMinutes = 10
+	#How many service stations one player may have open at once.
+	#The Service Marker PLACES the landing pad as well as marking it, which
+	#is what makes a station reachable in survival at all - and also what
+	#makes it cheap to litter a map with them. This is the limit on that.
+	#Closing one (sneak + right-click) frees the slot again.
+	#0 means no limit.
+	#Range: 0 ~ 1000
+	serviceStationsPerPlayer = 3
+

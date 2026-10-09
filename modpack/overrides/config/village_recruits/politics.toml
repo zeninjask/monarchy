@@ -1,0 +1,1824 @@
+
+[diplomacy]
+	#Enable situational automatic diplomacy between villages.
+	#Weak factions seek allies and avoid wars, strong ones bully weaker
+	#neighbors, and overextended factions sue for peace.
+	#
+	enabled = true
+	#Base probability a NEUTRAL pair of neighbors declares war each
+	#diplomacy cycle, before situational modifiers. Higher = more wars.
+	#War-heavy default: 0.30
+	#
+	#Range: 0.0 ~ 1.0
+	warBias = 0.3
+	#Base probability a NEUTRAL pair of neighbors forms an alliance each
+	#diplomacy cycle, before situational modifiers. Lower = fewer alliances.
+	#War-heavy default: 0.06
+	#
+	#Range: 0.0 ~ 1.0
+	allyBias = 0.06
+	#Extra alliance chance when two neutral neighbors share a common enemy.
+	#This is the main driver of "everyone allies" cascades, so keep it low
+	#for a war-heavy world. War-heavy default: 0.10
+	#
+	#Range: 0.0 ~ 1.0
+	sharedEnemyAllyBonus = 0.1
+	#War-chance reduction per existing war the aggressor already has.
+	#Strong factions (ratio > 0.6) ignore this and can fight on multiple
+	#fronts. War-heavy default: 0.03
+	#
+	#Range: 0.0 ~ 1.0
+	multiWarPenalty = 0.03
+	#Base probability an ENEMY pair sues for peace each diplomacy cycle,
+	#before situational modifiers. Lower = wars last longer.
+	#War-heavy default: 0.015
+	#
+	#Range: 0.0 ~ 1.0
+	peaceBias = 0.015
+	#Base probability an alliance breaks each diplomacy cycle. Higher =
+	#more fragile, shifting alliances. War-heavy default: 0.06
+	#
+	#Range: 0.0 ~ 1.0
+	allyBreakBias = 0.06
+	#How strongly a dominant faction is driven to conquer. Scales the
+	#war chance a much-stronger faction has against weaker neighbors and
+	#its tendency to betray weaker allies. 0 = off. War-heavy default: 1.0
+	#
+	#Range: 0.0 ~ 4.0
+	ambition = 1.0
+	#Extra alliance chance for two small/weaker neutral neighbors that
+	#share a nearby EXPANDING faction (a neighbor that already owns more
+	#than one village and is bigger than both of them). Lets the little
+	#factions band together to survive an expanding power. 0 = off.
+	#Default: 0.35
+	#
+	#Range: 0.0 ~ 1.0
+	survivalAllyBonus = 0.35
+	#ALLIANCE BLOCS. A war is fought by whole alliances, not by two factions:
+	#when anybody declares war, every faction allied to the declarer - and
+	#every faction allied to THOSE, all the way down the chain - goes to war
+	#with every faction allied to the victim.
+	#
+	#Peace works the same way round. You cannot sign with one member of a bloc
+	#and keep fighting the rest: making peace makes it with the whole alliance.
+	#
+	#Nobody is asked and no dice are rolled. An ally who wants no part of a
+	#war gets out by BREAKING THE ALLIANCE, which is a decision rather than a
+	#coin toss - and a player faction dragged in is told in chat exactly which
+	#war it is in and which ally caused it.
+	#
+	#Turn this off for purely bilateral wars, where an alliance obliges
+	#nobody. Default: true
+	#
+	allyCallToArmsEnabled = true
+	#ALLY GARRISON LOANS. When an allied village loses a fight, its allies
+	#send it a contingent of their own soldiers - who march there like any
+	#other column, then STAY.
+	#
+	#Lent men keep their own faction: their banner, their team and their name
+	#all still say who they belong to. They garrison and defend the host, and
+	#while any of them is alive the host village cannot be conquered - the
+	#same rule that applies to any living defender.
+	#
+	#Only AI factions lend on their own. A player faction's troops are the
+	#player's to send. Default: true
+	#
+	allyGarrisonLoans = true
+	#How many soldiers one ally lends per call. Each lending village keeps
+	#attack.minGarrison at home whatever happens. Default: 3
+	#
+	#Range: 0 ~ 64
+	allyGarrisonLoanMen = 3
+	#A PLAYER faction never changes its relations on its own: when the AI wants
+	#an alliance, a peace, or to call it into an ally's war, the faction LEADER
+	#gets a clickable offer and decides. An AI DECLARING WAR on a player faction
+	#is never gated — that is the AI's own decision to make. Turn this off to
+	#let the automatic diplomacy rewrite player relations as it does for the AI.
+	#Default: true
+	#
+	playerDiplomacyConsent = true
+	#How long the leader has to answer a diplomatic offer before it lapses.
+	#Default: 2400 ticks (2 minutes)
+	#
+	#Range: 200 ~ 24000
+	playerDiplomacyOfferTicks = 2400
+	#Let a player faction leader drive diplomacy from the base mod's diplomacy
+	#screen with proper two-sided meaning:
+	#  - DECLARING WAR is immediate and MUTUAL (the target goes to war back, and
+	#    both sides' allies are called to arms);
+	#  - LEAVING AN ALLIANCE (set an ally to neutral) is immediate and mutual, the
+	#    war-declaration equivalent for alliances;
+	#  - SUING FOR PEACE or OFFERING AN ALLIANCE is a REQUEST: an AI target decides
+	#    situationally (a winning AI refuses peace, a weak one accepts an alliance),
+	#    a player target's leader gets a clickable accept/refuse offer.
+	#Player<->player peace/alliance only work when BOTH factions own at least one
+	#village. Actions toward a faction with no village (a 'ghost' record) do nothing.
+	#Turn off to restore the vanilla base-mod behaviour (one-sided writes).
+	#Default: true
+	#
+	playerDiplomacyInitiate = true
+	#Minimum ticks between a player's peace/alliance REQUESTS to the same faction
+	#(war and leaving an alliance are immediate and not gated). Matches the AI's own
+	#per-pair diplomacy cooldown. Default: 3600 ticks (3 minutes)
+	#
+	#Range: 200 ~ 72000
+	playerDiplomacyRequestCooldown = 3600
+
+[rebellion]
+	#Enable village rebellions. A SECONDARY village (never the capital) of a
+	#faction that owns more than one village can break away when it is badly
+	#supplied, its faction is losing wars, or it sits exposed near enemy
+	#villages with a thin garrison. Its leader (always) plus a score-scaled
+	#number of its recruits defect into a new rebel faction that is instantly
+	#at war with the parent and immediately besieges its own village.
+	#Default: true
+	#
+	rebellionEnabled = true
+	#How often (in ticks) each faction's secondary villages are evaluated for
+	#rebellion. Default: 2400 (~2 minutes)
+	#
+	#Range: 100 ~ 1000000
+	rebellionEvalInterval = 2400
+	#Rebellion score (0..1) a village must reach to rebel. Higher = rarer,
+	#angrier rebellions. Default: 0.7
+	#
+	#Range: 0.0 ~ 1.0
+	rebellionThreshold = 0.7
+	#Weight of the poverty/poor-supply factor in the rebellion score. Default: 0.4
+	#Range: 0.0 ~ 1.0
+	rebellionWeightPoverty = 0.4
+	#Weight of the losing-wars factor in the rebellion score. Default: 0.35
+	#Range: 0.0 ~ 1.0
+	rebellionWeightWar = 0.35
+	#Weight of the exposed-frontier factor in the rebellion score. Default: 0.25
+	#Range: 0.0 ~ 1.0
+	rebellionWeightFrontier = 0.25
+	#Sub-weight (inside the poverty factor) of low treasury reserve. Default: 0.4
+	#
+	#Range: 0.0 ~ 1.0
+	rebellionPovertyWeightMoney = 0.4
+	#Sub-weight (inside the poverty factor) of poorly-equipped recruits. Default: 0.3
+	#Range: 0.0 ~ 1.0
+	rebellionPovertyWeightEquip = 0.3
+	#Sub-weight (inside the poverty factor) of starving / low-morale recruits. Default: 0.3
+	#Range: 0.0 ~ 1.0
+	rebellionPovertyWeightFood = 0.3
+	#At the maximum rebellion score, this fraction of the village's NON-leader
+	#garrison defects (the leader always defects on top). Actual defectors =
+	#round(score × (garrison-1) × this). Default: 0.7
+	#
+	#Range: 0.0 ~ 1.0
+	rebellionMaxDefectorFraction = 0.7
+	#A village needs at least this many recruits in its garrison to bother
+	#rebelling. Default: 6
+	#
+	#Range: 2 ~ 100000
+	rebellionMinGarrison = 6
+	#After a village rebels (win or lose) it cannot rebel again for this many
+	#ticks. Default: 24000 (~20 minutes)
+	#
+	#Range: 100 ~ 100000000
+	rebellionCooldownTicks = 24000
+	#Radius (blocks) used to weigh nearby enemy strength vs the village's own
+	#garrison for the exposed-frontier factor. Matches the attack/frontline
+	#range (attack.radius / autoBalance.frontlineRange) so a village counts
+	#as exposed to any enemy village actually within striking distance, not
+	#only ones almost touching it. Default: 700
+	#
+	#Range: 16 ~ 100000
+	rebellionLocalRadius = 700
+
+[claims]
+	#How close two registered centres of the SAME faction have to be before
+	#they are treated as one village, in blocks.
+	#
+	#Villages are meant to be founded at least 320 blocks apart, and almost
+	#everything is keyed by centre on that assumption: one merchant, one NPC
+	#group (so one elected leader), one commander roster, one builder. A
+	#second centre registered a few blocks inside the first one's streets is
+	#therefore not seen as a misplaced centre - it is seen as TWO OF
+	#EVERYTHING standing in the same village square, which is how it gets
+	#noticed.
+	#
+	#Within this radius one centre speaks for the village and the others
+	#field no merchant, group or officers of their own. Nothing is deleted:
+	#production sites and roads already keyed to the extra centre keep
+	#working, so an existing world tidies itself up without losing anything.
+	#
+	#64 matches the distance at which a village's NPC group is already
+	#looked up elsewhere in the mod, so the same question has one answer.
+	#Set to 0 to switch the rule off and go back to one of everything per
+	#registered centre. Default: 64
+	#
+	#Range: 0 ~ 320
+	sameVillageRadius = 64
+	#Banners inside the village's centre tower fly the owning faction's
+	#banner — the same one shown on the map and in the diplomacy screen —
+	#instead of the plain ones baked into the tower's structure file.
+	#Applied when the village is founded and again whenever the centre
+	#changes hands (conquest, rebellion, a capital lost and split up), so
+	#a captured village stops flying the loser's colours.
+	#Only banners INSIDE the tower's own measured footprint are repainted:
+	#decorative banners a player put up in the square or on the houses are
+	#never touched. Default: true
+	#
+	centerBannersFollowFaction = true
+	#The elected village leader carries his faction's banner on his back,
+	#raised above his shoulders so it stays visible when you look at him
+	#face-on — the same banner shown on the map and in the diplomacy screen.
+	#Purely cosmetic and client-rendered: the server only tells nearby
+	#clients WHICH recruit is a leader; turning this off stops that signal
+	#so no banner is drawn. Only the one elected leader per village carries
+	#it (road commanders and ordinary soldiers do not). Default: true
+	#
+	leaderBannerEnabled = true
+	#Repair worlds where claiming land created villages.
+	#Until now every claim a faction owned was read as one of its
+	#villages. That is true for AI villages (the mod makes one claim per
+	#village) but not for a PLAYER faction, whose claims are all drawn by
+	#hand: every extra chunk claimed around the capital turned into a
+	#village centre of its own, with a garrison, a builder, a merchant and
+	#a square on the map. New ones can no longer appear; this cleans up the
+	#ones already saved.
+	#A registered centre is dropped only when its chunk is LOADED (so the
+	#check can actually look) and nothing physical is there: no city plan,
+	#no measured centre tower and no recruit table within 24 blocks. A
+	#village founded by hand always has the table, so it is never touched.
+	#Only the bookkeeping is removed - the centre leaves the faction record
+	#and the map and its NPC group is dissolved (the soldiers live on and
+	#join the nearest village). NO block is broken and NO claim is deleted:
+	#the claim came first, the player drew it, and deleting a claim is what
+	#demolishes a village. The land stays claimed exactly as it was.
+	#Default: true
+	#
+	phantomCenterHeal = true
+	#Instantly conquer an enemy claim that has NO defenders left.
+	#The base Recruits mod requires ~10 attackers and a long siege to
+	#take a claim. With this enabled, a claim with no defending recruits
+	#or players inside is captured almost immediately as soon as at
+	#least 'minAttackers' enemy combatants (recruits OR real players of
+	#an enemy faction) stand inside it. Defended claims are unaffected
+	#and still use the normal base-mod siege. Default: true
+	#
+	fastUndefendedConquest = true
+	#How many enemy combatants (recruits or real players) must be inside
+	#an undefended claim to instantly capture it. Default: 1
+	#
+	#Range: 1 ~ 100
+	fastConquestMinAttackers = 1
+	#While a claim is under the base-mod SIEGE, do NOT let its capture
+	#timer advance as long as the defending village's NPC group still has
+	#a real recruit present (alive, loaded, not marched off to attack).
+	#The base mod only counts defenders physically inside the claim chunk,
+	#so a village whose garrison was patrolling just outside could still
+	#fall on the timer; this blocks the timer until the garrison is
+	#actually cleared. Default: true
+	#Note: this only applies to claims that ARE a village (a village
+	#center sits in the claim's center chunk). A claim a player made
+	#around their own base has no village center and no garrison, so
+	#its siege timer always advances, defenders inside or not.
+	#
+	siegeRequireGarrisonCleared = true
+	#During a siege, teleport a defending recruit that the attackers can
+	#NEITHER reach NOR hurt straight to the nearest attacker, so it has
+	#to fight. A defender sealed in blocks, dropped down a cave or walled
+	#in still counts as garrison, which freezes the capture timer (see
+	#'siegeRequireGarrisonCleared') forever: the village could never be
+	#taken. Being "in the fight" is measured by HITS, not by line of
+	#sight, pathing or targeting: a defender that took damage from a
+	#besieger, or dealt damage to one (ranged and blocked hits count),
+	#is never touched. Default: true
+	#
+	siegeStuckDefenderRescue = true
+	#The last defenders of a besieged village glow, so an assault can find
+	#them.
+	#
+	#The end of a siege is the part that stalls: once the garrison is down to
+	#a handful, the survivors are exactly the ones nobody can find - in a
+	#cellar, on a roof, wedged behind a haystack at the far end of the claim -
+	#and the assault stands around while the timer runs. The stuck-defender
+	#teleport below handles a defender who can neither reach nor be reached;
+	#this handles one who is perfectly reachable and simply has not been
+	#spotted. Default: true
+	#
+	siegeHighlightLastDefenders = true
+	#Glow only once this many defenders or fewer are left, so it marks the
+	#STRAGGLERS instead of lighting up a whole garrison and turning every
+	#siege into a wallhack. Attackers are never marked - the defender is the
+	#one who is hard to find. Default: 5
+	#
+	#Range: 0 ~ 64
+	siegeHighlightBelow = 5
+	#How long (ticks) a defender must go without dealing OR taking a hit
+	#from a besieger, while attackers are inside its claim, before it is
+	#teleported to them.
+	#Checked once per base-mod siege tick (every 100 ticks), so values
+	#are rounded up to a multiple of 100. Default: 600 (30s)
+	#
+	#Range: 100 ~ 24000
+	siegeStuckDefenderTimeoutTicks = 600
+	#Once a besieged village is down to its last defenders, keep pulling the
+	#STRAGGLERS back to the centre for as long as the siege lasts.
+	#The garrison is already recalled once, when the siege STARTS - but that
+	#describes one instant and says nothing about the minutes that follow. In
+	#those minutes a defender walks back out on patrol, chases an enemy and
+	#loses it, gets teleported away by an anti-stuck rescue, or was simply not
+	#LOADED when the siege began (the start recall skips those and never comes
+	#back). What is left is the tail of every siege: two or three men at the
+	#edges of the claim, the besiegers walking in circles, and the capture
+	#timer frozen by defenders nobody can find.
+	#A defender that has dealt or taken a hit recently is never moved - it is
+	#already in the fight, which is what the recall is for. Default: true
+	#
+	siegeRecallStragglers = true
+	#Only recall stragglers once this many defenders or fewer are left. At
+	#full strength the stragglers are not the problem yet, and dragging the
+	#whole garrison to the centre every pass would dismantle a working defence
+	#- patrols, commander formations, archers on their positions - to fix
+	#something that is not happening. Default: 5
+	#
+	#Range: 0 ~ 64
+	siegeRecallStragglersBelow = 5
+	#How far (blocks) from the village centre a defender must be to count as
+	#a straggler worth recalling. Default: 48
+	#
+	#Range: 8.0 ~ 256.0
+	siegeRecallStragglerDistance = 48.0
+	#How long (ticks) a siege may be frozen by a garrison whose every
+	#remaining member is UNLOADED before the capture timer is allowed to run
+	#anyway. 0 disables the give-up (the old behaviour: an unloaded member
+	#freezes a siege for ever).
+	#'siegeRequireGarrisonCleared' counts members that are merely unloaded, on
+	#the deliberate rule that unloaded is not dead. That rule is right, but it
+	#has no exit: a member whose chunk never comes back - it wandered past the
+	#besiegers' force-load bubble, or its record outlived a body nothing can
+	#resolve - cannot be found by the attackers, cannot be lit up by the
+	#last-defender glow, and cannot be teleported in by the stuck-defender
+	#rescue, because all three need an entity that exists. The village then
+	#becomes untakeable and the war never ends.
+	#The clock only runs while NOT ONE member is loaded, and resets the moment
+	#any of them turns up, so a normal siege - where the assault force-loads
+	#the village and the garrison is right there - never comes near it.
+	#Default: 2400 (2 minutes)
+	#
+	#Range: 0 ~ 720000
+	siegeUnloadedGarrisonGiveupTicks = 2400
+	#The same rescue for the OTHER side: during a siege, teleport an
+	#attacking village recruit that has neither hit nor been hit by the
+	#defending side straight to the nearest defender, so it has to fight.
+	#An attacker walled out, dropped in a hole or stranded on a roof never
+	#clears the garrison and never dies: the assault never resolves, and
+	#while its troops stand on the claim the wartime peace lock keeps the
+	#two factions at war (see WartimePeaceLock). If no defending recruit
+	#is left loaded, it is sent to a PLAYER of the defending faction
+	#inside the claim instead - at that point he is the last defender.
+	#Only recruits deployed by a village assault are moved; recruits hired
+	#by a player are left to their owner's orders. Default: true
+	#
+	siegeStuckAttackerRescue = true
+	#How long (ticks) an attacker inside the besieged claim must go
+	#without dealing OR taking a hit from the defending side before it is
+	#teleported onto it.
+	#Checked once per base-mod siege tick (every 100 ticks), so values
+	#are rounded up to a multiple of 100. Default: 600 (30s)
+	#
+	#Range: 100 ~ 24000
+	siegeStuckAttackerTimeoutTicks = 600
+	#When a PLAYER faction's LEADER leaves the team, the base Recruits
+	#mod always disbands the whole faction (deletes the team, its
+	#claims, and its RecruitsFaction record) even if the faction still
+	#owns conquered villages. When enabled, if the faction owns at
+	#least one village (claim) at that moment, it is NOT disbanded:
+	#ownership instead passes to a fake/AI owner (like an
+	#auto-generated village faction) and the faction keeps existing
+	#with its claims, recruits and remaining members intact. Factions
+	#with no villages are still disbanded as before. Default: true
+	#
+	playerFactionOrphanToFakeOwner = true
+	#The mirror case of playerFactionOrphanToFakeOwner: a PLAYER faction
+	#keeps its LEADER but loses its LAST village. When enabled the faction
+	#is NOT disbanded - it goes into EXILE. Name, banner, leader, every
+	#member, the surviving soldiers, the treasury and the research all stay;
+	#only the territory is gone, and it holds no land until it takes a
+	#village back or founds a new one. A faction is a team, a roster and an
+	#army in the field, none of which is territory.
+	#When disabled, a player faction that loses its last village is
+	#dissolved instead.
+	#Either way the LADDER below it still applies and cannot be turned off:
+	#a faction with nobody left to keep it for is removed, and if the
+	#removal does not take, its remaining members are made FACTIONLESS by
+	#hand. A player stranded on a team whose faction no longer exists cannot
+	#leave it, cannot be recruited by anyone else, and fails every faction
+	#check he passes through - so that outcome is never allowed to stand.
+	#Default: true
+	#
+	playerFactionSurvivesLastVillage = true
+	#Once a rescued player faction has passed to the fake/AI caretaker
+	#owner (see playerFactionOrphanToFakeOwner) because its LAST player
+	#left, treat it as a full AI village faction: it then builds itself,
+	#auto-expands, auto-attacks / declares wars, has its secondary
+	#villages rebel, and takes part in AI diplomacy, trade and
+	#conscription — exactly like a naturally-founded village_ faction.
+	#When disabled, such a caretaker faction stays passive: it still
+	#exists, defends and is a valid target, but never takes offensive
+	#initiative and its builders wait for a (non-existent) leader's
+	#consent. Default: true
+	#
+	orphanFactionActsAsAi = true
+	#Repair faction records that still list a village they no longer own.
+	#Older versions removed a conquered village from the LOSER's record with
+	#an exact position match, which failed whenever the two copies of the
+	#center disagreed on Y — so the previous owner kept the village in its
+	#record forever. That stale entry makes the OLD owner keep building (and
+	#spawning a builder) inside a village that now belongs to someone else:
+	#for a player-owned village the construction then ignores the leader's
+	#build consent entirely, because the consent is asked of the right
+	#faction while a different record is the one building.
+	#Conquest itself was fixed, but records already saved in an existing
+	#world are not — hence this heal, which only affects worlds created
+	#before the fix. A center is dropped only when the village's CLAIM names
+	#a DIFFERENT, existing faction; an unloaded village (no claim readable)
+	#is never touched. Default: true
+	#
+	healForeignCenters = true
+	#AI villages get a NAME instead of a coordinate: Ashbrook, Ravenhollow,
+	#Stonewatch rather than village_128_65_-320.
+	#The faction ID is unchanged - half this mod gates on that prefix, and
+	#the id doubles as the scoreboard team name. What changes is the DISPLAY
+	#name, which is what you actually read on the map, in diplomacy messages
+	#and in conquest announcements, and where one string of numbers is
+	#indistinguishable from the next. Same mechanism the boss archetypes
+	#already use for their proper names.
+	#The name is DERIVED from the village's chunk coordinates, so the same
+	#village is always called the same thing, nothing has to be persisted or
+	#migrated, and villages founded before this feature are named on load.
+	#Turning it off leaves new villages named by id; villages already named
+	#keep their names, since the name lives on the scoreboard team.
+	#Default: true
+	#
+	villageNamesEnabled = true
+	#Crossing into a village's claim shows its NAME on the action bar,
+	#coloured by your relation with it (green your own, aqua an ally, red at
+	#war, yellow neutral).
+	#Naming villages is only half the point of naming them: a name nobody is
+	#ever told is still a coordinate. This is what makes the names mean
+	#something on the ground instead of only on the map.
+	#Fires on the CHANGE, never on the state, so standing still inside a
+	#village does not repeat it; leaving is silent. Default: true
+	#
+	villageAreaAnnounce = true
+	#A member of an AI faction may BUILD in its villages once he has earned
+	#that faction's regard (see aiMemberTrustMinReputation).
+	#Breaking and placing blocks is granted per-player by the faction LEADER
+	#from his menu - but an AI faction has no human leader, so in an AI
+	#village no member could EVER be granted it: the door was shut and
+	#nobody existed who could open it. Standing opens it.
+	#This used to be a plain 5-minute clock, which meant joining a faction
+	#and walking off to chop wood was enough: you came back to a village
+	#with no protection left, which reads as the protection breaking. Time
+	#proves nothing. Reputation is already the record of what you have done
+	#FOR that faction (contracts finished) and TO it (its dead), so it is
+	#the one measure a faction with nobody at the helm can use.
+	#This covers BLOCKS ONLY. An AI village's chests are never opened by
+	#standing, however high: its storage is the faction's wealth and the
+	#MERCHANT is the intended way to move resources in or out. Breaking a
+	#container is refused for the same reason, so building rights are not a
+	#way to empty a chest without opening it.
+	#PLAYER factions are untouched - their leader is right there, and
+	#granting permissions automatically would override the decision that
+	#menu exists to make. Default: true
+	#
+	aiMemberTrustEnabled = true
+	#Standing a member must have with an AI faction before it lets him build
+	#in its villages. The bands are Neutral 0..19, Trusted 20..49,
+	#Honoured 50..79, Champion 80+, so the default is the first band in
+	#which a village genuinely thinks well of you.
+	#Standing is earned by finishing that faction's contracts, which are
+	#offered to players who belong to NO faction - so the intended path is
+	#to work for a village as a free agent first and enlist afterwards.
+	#0 trusts every member the moment he joins (the old behaviour, minus
+	#the wait). Default: 20
+	#
+	#Range: 0 ~ 10000
+	aiMemberTrustMinReputation = 20
+	#Let any faction member right-click one of their own villages on the world
+	#map (interactive mode) and pick "Teleport" to warp themselves — and their
+	#nearby owned recruits — to that village center, without needing creative
+	#mode or admin rights. Default: true
+	#
+	claimTeleportEnabled = true
+	#Radius (in blocks) around a teleporting player within which their owned
+	#recruits are teleported along with them. Default: 32
+	#
+	#Range: 0 ~ 128
+	claimTeleportRecruitRadius = 32
+	#Recruits carried along by one of YOUR teleports (travel to your own
+	#village, answer a defence call, join an assault) are set to FOLLOW you on
+	#arrival.
+	#
+	#Without this they keep whatever order they had before the jump, which is
+	#almost never what you want at the other end: a recruit that was holding a
+	#position walks back towards the spot it was holding - hundreds of blocks
+	#away, in another village - so the escort you brought with you scatters
+	#the moment it lands. Following is also what the escort was already doing
+	#in practice, since it was standing next to you when you left.
+	#
+	#Recruits that were already following you are unaffected, and the rally
+	#button has its own rules (it deliberately preserves standing orders).
+	#Default: true
+	#
+	teleportEscortFollows = true
+	#Move a player who logs back in inside a village that was CONQUERED
+	#while they were offline. Logging out in your own village and finding
+	#it in enemy hands at login used to drop you in the middle of the new
+	#garrison, unarmed (your own recruits fought and died offline), and
+	#you were killed before you could react. The player is sent to the
+	#nearest village of their own faction, else the nearest ALLIED
+	#village, else open ground away from the lost village, and is told in
+	#chat why they moved.
+	#Only fires when the claim CHANGED OWNER while the player was away
+	#and the new owner is at war with them. Logging out inside an enemy
+	#village on purpose (an ambush at login) is a real tactic and is left
+	#alone: nothing changed there while you were gone. Creative and
+	#spectator players are never moved. Default: true
+	#
+	evacuateOnLoginInConqueredVillage = true
+	#When the evacuated player has NO village of their own and no allied
+	#village left, how far (in blocks) from the lost village to look for
+	#open ground. Rings further out are tried if the first is unusable.
+	#The spot is always on the surface under open sky, never in a cave and
+	#never in water or lava. Default: 300
+	#
+	#Range: 64 ~ 4000
+	loginEvacuationRetreatDistance = 300
+	#Minimum distance (in blocks) an evacuation retreat spot must keep
+	#from EVERY other village/claim in the world, so a player fleeing one
+	#village is not dropped on the doorstep of the next one. Raising this
+	#above the spacing between your villages can leave no valid spot, in
+	#which case the player is simply not moved. Default: 160
+	#
+	#Range: 0 ~ 2000
+	loginEvacuationMinVillageDistance = 160
+
+[leader]
+	#When a recruit is promoted to village leader, equip it with a full set
+	#of enchanted DIAMOND gear (helmet, chestplate, leggings, boots, sword,
+	#shield). Set to false to leave leaders in their normal troop equipment
+	#(they keep whatever gear their tier grants). Existing leaders keep any
+	#gear already granted until they are re-elected. Default: true
+	#
+	diamondGearEnabled = true
+	#Give village leaders their special powers: the combat buff aura (self
+	#and nearby group members get Resistance/Strength/Speed), the initial
+	#promotion buffs (Resistance/Strength/Health Boost) and the three active
+	#abilities (no-friendly-fire explosion, upward "sky throw", and a
+	#self Resistance+Regeneration when low on health). Set to false to make
+	#leaders ordinary soldiers with no auras or abilities. Default: true
+	#
+	powersEnabled = true
+	#How long a newly elected village leader waits before he comes into his
+	#diamond gear, his buff aura and his three abilities, in ticks.
+	#
+	#He IS the leader from the moment he is elected - he gives the orders and
+	#wears the banner - he is simply an ordinary soldier in the fight for this
+	#long. Without the delay, killing a leader produced a fully armoured,
+	#buffed replacement on the same tick, so cutting the head off a village
+	#achieved nothing whatever: there was no moment at which the village was
+	#leaderless in the only sense that matters while you are standing in it.
+	#
+	#The clock keeps running while the village is asleep and across a server
+	#restart (it is an absolute world tick stored on the recruit), so a
+	#village cannot be kept permanently unled by unloading it, and reloading
+	#cannot re-arm a leader early.
+	#
+	#Set to 0 to arm a leader the instant he is elected (the old behaviour).
+	#Leaders already standing in a saved world are unaffected - they keep the
+	#gear they have and are never stripped by this.
+	#Default: 1200 (one minute)
+	#
+	#Range: 0 ~ 72000
+	investitureDelayTicks = 1200
+	#Allow players who joined a village (village_) faction to right-click
+	#their village leader and open a chat menu offering free food and the
+	#option to request a war against another faction. Default: true
+	#
+	interactionEnabled = true
+	#Right-clicking your village leader opens a SCREEN instead of printing a
+	#menu into chat. The same options, in a window styled on the base mod's
+	#own panels, plus a scrolling roster for the village permissions - a
+	#member list printed as chat lines scrolls away the moment anything else
+	#is said.
+	#
+	#It can also be opened from the world map: right-click one of your own
+	#claims and choose "Village leader", so you do not have to walk there.
+	#
+	#Hiring troops and choosing who to attack are pages of the same window:
+	#the troop list with your own price, the destination groups with bulk
+	#buttons, and the war list with each village's banner, your relation to
+	#it and whether you have scouted it.
+	#
+	#Only a REBELLION still answers in chat, and food is a single action -
+	#neither is a menu, so there is nothing to draw. The screen closes for
+	#the rebellion so the leader's reply is not hidden behind it.
+	#
+	#false restores the chat menu everywhere. Default: true
+	#
+	leaderPanelUi = true
+	#The largest number of troops that may be bought from a leader in one
+	#order.
+	#
+	#Raising an army one click at a time was the complaint: each purchase
+	#reprinted the menu, so twenty soldiers meant forty interactions. The
+	#group list now carries [x5] [x10] [x25] buttons beside each destination,
+	#and only the ones at or below this value are shown.
+	#
+	#The order stops at the first refusal - the base mod owns both the
+	#emerald payment and your recruit limit - so buying ten when you can
+	#afford six gives you six and says so. Nothing is refunded or rolled
+	#back, because nothing was overcharged.
+	#
+	#Set to 1 to remove the bulk buttons and restore one-at-a-time buying.
+	#Default: 25
+	#
+	#Range: 1 ~ 256
+	hireMaxPerPurchase = 25
+	#How many loaves of bread the leader hands out each time a faction
+	#member asks for food. Default: 32
+	#
+	#Range: 1 ~ 1024
+	foodAmount = 32
+	#Cooldown (in ticks) between food handouts, per player. 20 ticks = 1
+	#second. Default: 600 (30 s)
+	#
+	#Range: 0 ~ 1728000
+	foodCooldownTicks = 600
+	#How long (in ticks) the leader "thinks" before answering a war
+	#request. 20 ticks = 1 second. Default: 60 (3 s)
+	#
+	#Range: 0 ~ 1200
+	warThinkTicks = 60
+	#Allow village (village_) faction members to right-click their leader
+	#and buy, for emeralds, the elite troop types that in the base mod can
+	#only be obtained by PROMOTING recruits. The bought troops are owned by
+	#and follow the buyer. Captain/Siege Engineer are only offered when the
+	#required mod (smallships / siegeweapons) is installed. Default: true
+	#
+	hireEnabled = true
+	#Emerald cost to hire a base Recruit from the leader. Default: 6
+	#Range: 0 ~ 1024
+	hireCostRecruit = 6
+	#Emerald cost to hire a Shieldman from the leader. Default: 15
+	#Range: 0 ~ 1024
+	hireCostShieldman = 15
+	#Emerald cost to hire a Bowman from the leader. Default: 9
+	#Range: 0 ~ 1024
+	hireCostBowman = 9
+	#Emerald cost to hire a Crossbowman from the leader. Default: 12
+	#Range: 0 ~ 1024
+	hireCostCrossbowman = 12
+	#Emerald cost to hire a Nomad from the leader. Default: 30
+	#Range: 0 ~ 1024
+	hireCostNomad = 30
+	#Emerald cost to hire a Horseman from the leader. Default: 30
+	#Range: 0 ~ 1024
+	hireCostHorseman = 30
+	#Emerald cost to hire a Captain from the leader (only available when
+	#the smallships mod is installed). Default: 64
+	#
+	#Range: 0 ~ 1024
+	hireCostCaptain = 64
+	#Emerald cost to hire a Siege Engineer from the leader (only available
+	#when the siegeweapons mod is installed). Default: 64
+	#
+	#Range: 0 ~ 1024
+	hireCostSiegeEngineer = 64
+	#Allow a MEMBER of a village (village_) faction to right-click that
+	#village's leader and incite a rebellion that founds the PLAYER'S OWN
+	#faction. The leader accepts only if the village is discontent enough
+	#(same RebellionScore as AI rebellions) AND the player brings enough of
+	#their own recruits. On accept the player founds a faction the normal
+	#base-mod way (banner -> name/claim color/troop color); then the leader
+	#+ a fraction of the garrison defect to the player and besiege the
+	#village. Default: true
+	#
+	playerRebelEnabled = true
+	#Minimum number of the player's OWN recruits (nearby, owned by the
+	#player) required for the leader to take a player-started rebellion
+	#seriously. Below this the leader refuses ("too few soldiers of your
+	#own"). Default: 3
+	#
+	#Range: 0 ~ 500
+	playerRebelMinRecruits = 3
+	#Minimum village discontent (0..1, same RebellionScore as AI rebellions)
+	#for the leader to accept a player-started rebellion. Lower than the AI
+	#rebellion threshold since the player is actively pushing. Default: 0.5
+	#
+	#Range: 0.0 ~ 1.0
+	playerRebelThreshold = 0.5
+	#Cap on the fraction of the village garrison (excluding the leader, who
+	#always defects) that joins the player. Actual defectors scale with the
+	#village's discontent up to this cap. Default: 0.6
+	#
+	#Range: 0.0 ~ 1.0
+	playerRebelMaxDefectorFraction = 0.6
+	#Cooldown (ticks) before the same parent faction can be hit by another
+	#player-started rebellion. 20 ticks = 1 second. Default: 6000 (5 min)
+	#
+	#Range: 0 ~ 1728000
+	playerRebelCooldownTicks = 6000
+	#After the leader accepts, how long (ticks) the player has to found their
+	#faction (raise their banner) before the offer lapses. 20 ticks = 1
+	#second. Default: 1200 (60 s)
+	#
+	#Range: 100 ~ 72000
+	playerRebelAcceptExpiryTicks = 1200
+
+[expansion]
+	#Enable the village expansion mechanic.
+	#When a faction has enough money it will pick one of its
+	#villages, send some settlers to a far empty spot and, after
+	#a delay, found a brand new village belonging to that faction.
+	#
+	enabled = true
+	#Money a faction must spend to found a new village. Paid from the
+	#SEPARATE expansion war chest (see economy.expansionIncomeFraction),
+	#not the normal treasury. This is the price of the faction's FIRST
+	#expansion; every later one is dearer (see costGrowth). Default: 3000
+	#
+	#Range: 1 ~ 1000000
+	cost = 3000
+	#EXPONENTIAL EXPANSION COST: each village a faction already owns
+	#multiplies the price of the NEXT one.
+	#
+	#    price = cost * costGrowth ^ (villages already owned - 1)
+	#
+	#At the default 1.6 and cost 3000 a faction pays 3000 for its second
+	#village, ~7.7k for its fourth, ~31k for its sixth, ~201k for its
+	#ninth. A flat price meant a faction that could afford one expansion
+	#could afford them ALL: income scales with the villages you own, so
+	#expansion paid for more expansion and a successful faction (or a
+	#fresh rebel one that inherited a working economy) sprawled across the
+	#map. Every village founded is permanent server load -- chunks to
+	#force-load, entities, builders, its own AI -- so the runaway case is
+	#also the laggy one.
+	#
+	#1.0 = OFF, the old flat price at every step. Above ~2.0 most factions
+	#stall at four or five villages. Default: 1.6
+	#
+	#Range: 1.0 ~ 4.0
+	costGrowth = 1.6
+	#Minimum distance (in blocks) the new village must be from every
+	#other existing village center. Lower = villages can pack closer
+	#together (easier to find a spot). Default: 320
+	#
+	#Where the number comes from: a fully grown village reaches
+	#CityPlanGenerator.MAX_CITY_RADIUS = 120 blocks from its center, so
+	#two villages need 240 blocks between centers just to stop their
+	#plots physically overlapping -- that is edge-to-edge with ZERO gap.
+	#320 = 2x120 + 80 blocks of breathing room. The old 240 default was
+	#exactly the touching minimum, and the one before it (120) had the
+	#two cities building on the same ground.
+	#
+	#This also gates NEW settle spots against natural tower spawners
+	#that have not generated yet, so an expansion can no longer be
+	#founded next to a village that simply had not woken up.
+	#
+	#Range: 16 ~ 5000
+	minDistanceFromOtherCenters = 320
+	#Do naturally generated tower spawners found a village?
+	#Default: true
+	#
+	#Set to false if you want the world's villages to be YOURS: no
+	#addon village is ever founded by world generation, so the only
+	#way a village comes into existence is a player building one.
+	#(A player-founded village outside any claim still mints an AI
+	#faction -- that is intended and unchanged.)
+	#
+	#What is and is not blocked:
+	#  - naturally generated tower spawners: BLOCKED;
+	#  - a tower spawner a PLAYER placed by hand: still works;
+	#  - a tower spawner placed by an AI faction's expansion: still
+	#    works (an existing faction growing is not world generation);
+	#  - vanilla villages: untouched, they keep generating.
+	#
+	#The spawner is left in the ground, dormant, instead of being
+	#destroyed: flip this back to true and the villages it would have
+	#founded come back. Nothing is lost permanently.
+	#
+	#IMPORTANT -- pair this with the built-in datapack
+	#'VR: No Natural Villages'. This option is a RUNTIME veto: the
+	#world generator has already decided that this site belongs to the
+	#tower instead of a vanilla village, so vetoing it here leaves the
+	#site EMPTY (no village of any kind). The datapack removes the
+	#tower from the village structure set altogether, so every site
+	#goes back to a real vanilla village -- but it only applies to
+	#chunks generated after you enable it, which is why this runtime
+	#option exists as well (it works on an already generated world,
+	#and can be toggled at any time).
+	#
+	naturalVillagesEnabled = true
+	#May a village founded at NIGHT come into existence without waiting
+	#for dawn? Default: true
+	#
+	#A tower does not create the faction: a villager has to claim the
+	#recruit table, become a recruit, and THAT spawn is what mints the
+	#village. Vanilla only lets a villager walk to a reserved job site
+	#while it is idle, working or playing -- at night (and at dusk) it
+	#reserves the table and then stands still until morning, and because
+	#a recruit table accepts a single reservation, nobody else can try
+	#either.
+	#
+	#That is not merely a delay for a village founded far from you: it is
+	#kept loaded for remoteTowerBootstrapTicks and that hold is never
+	#renewed, so the whole window can elapse with the villagers standing
+	#around, leaving a tower with no faction that nothing ever retries.
+	#
+	#When true, a tower that is still factionless after a few seconds
+	#converts ONE nearby adult villager itself -- the same thing the
+	#villager would have done, same head count, same place. It stands
+	#down entirely whenever a villager could do it the vanilla way, so
+	#in daylight it changes nothing, and it spends at most one villager
+	#per tower.
+	#
+	#Set to false to restore the old behaviour: villages founded at night
+	#wait for morning, and remotely founded ones may not appear at all.
+	#
+	nightFoundingNudge = true
+	#May a tower spawner found its village ON WATER (a lake, a river, a
+	#pond) instead of being vetoed? Default: true
+	#
+	#When true, a spawner whose ground is water is placed at the water
+	#surface and the tower's foundation fills the water beneath it (the
+	#same dirt/sand fill every building already gets on a slope), so the
+	#village floats on a solid platform instead of the site being lost.
+	#
+	#TRUE OCEANS are ALWAYS excluded regardless of this setting: an ocean
+	#is deep and open, so a village there would drop a huge column of fill
+	#and sit alone at sea. The exclusion is by biome (the vanilla
+	##minecraft:is_ocean tag), so only real ocean biomes are blocked --
+	#lakes and rivers inside a land biome are still allowed.
+	#
+	#Set to false to restore the old behaviour: any water below the
+	#spawner vetoes the village (the spawner is removed and its chunk
+	#marked done).
+	#
+	allowVillagesOverWater = true
+	#Does the addon respect the WORLD BORDER? Default: true
+	#
+	#When true, nothing the addon does crosses the border:
+	#  - no new village is founded outside it (expansion spots, the
+	#    leader's build-here map command, and natural tower spawners --
+	#    a vetoed natural spawner is left dormant, so widening the
+	#    border later lets it found its village after all);
+	#  - a village claim never includes a chunk that is not fully
+	#    inside it (the claim just ends at the border);
+	#  - no block is ever placed outside it: roads and bridges stop at
+	#    the border, and city plots that would straddle it are not laid
+	#    out (existing plans drop their still-unbuilt outside plots).
+	#
+	#Villages that already exist outside the border are NOT removed --
+	#they simply stop growing past it.
+	#
+	#Set to false to restore the old behaviour (the addon ignored the
+	#border completely).
+	#
+	respectWorldBorder = true
+	#How much room INSIDE the world border a new village center needs,
+	#in blocks. Default: 120
+	#
+	#A grown village reaches CityPlanGenerator.MAX_CITY_RADIUS = 120
+	#blocks from its center, so a center closer than that to the border
+	#would be a village cut in half forever: roads ending in nothing,
+	#plots that can never be built, half the claim unusable. This
+	#margin is what a new center must keep from the border.
+	#
+	#0 = only the center block itself has to be inside (villages may be
+	#founded right against the border and will simply build inwards).
+	#Ignored entirely when respectWorldBorder is false.
+	#
+	#Range: 0 ~ 2000
+	worldBorderMargin = 120
+	#Do SECONDARY villages build themselves up, or do they stay road-only?
+	#Default: true
+	#
+	#A faction's capital lays out a city plan and erects buildings on it.
+	#A village founded by EXPANSION used to get a claim, a tower and the
+	#starting road cross but never a city plan -- and since the persistent
+	#village BUILDER is spawned only for a center that has a plan, such a
+	#village had no builder either and stayed four empty streets forever.
+	#With this on, a secondary center gets its own plan, sized by its OWN
+	#beds, and grows like any other village.
+	#
+	#Only villages WE founded are affected: the plan is created only where a
+	#village_recruits tower has been placed and measured. A plain vanilla
+	#village that a faction merely annexed into its claim is never given a
+	#plan, so no building is ever erected on top of the houses it already
+	#has.
+	#
+	#Set to false for the old behaviour (only the capital and conquered
+	#ex-capitals build).
+	#
+	secondaryVillagesBuild = true
+	#Forbid founding a village inside the chunks vanilla keeps loaded
+	#around WORLD SPAWN. Default: true
+	#
+	#Those chunks never unload, so a village there is ONLINE for ever:
+	#its economy, builder, squads and merchant tick with nobody near
+	#them for the whole life of the server, and none of the addon's
+	#offline/abstract savings can ever apply to it. It is also the one
+	#place every player passes through, so a faction claiming it takes
+	#the communal base into its territory -- build protection, roads
+	#and demolition included.
+	#
+	#Applies to every way a village is born: a naturally generated
+	#tower spawner, a sky island, an AI expansion, and a recruit table
+	#placed by hand (the player is told in chat why nothing was
+	#founded). Only the OVERWORLD has spawn chunks, so a modded
+	#dimension is never affected.
+	#
+	#Existing worlds are safe: this only refuses to CREATE a center.
+	#A village already standing in the spawn chunks keeps working and
+	#is never dismantled.
+	#
+	#NOTE: changing a default only affects config files that do not
+	#exist yet -- an existing world keeps its written value. Use
+	#/vrconfig reset politics confirm to go back to defaults.
+	#
+	avoidWorldSpawnChunks = true
+	#Half-side, in CHUNKS, of the square around world spawn where no
+	#village center may be founded. 0 = disabled. Default: 9
+	#
+	#9 is the real reach of the vanilla spawn ticket in 1.20.1: the
+	#level places a START region ticket of radius 11 on the spawn
+	#chunk (chunk level 33-11 = 22) and entity ticking is level <= 31,
+	#so 31-22 = 9 chunks around spawn tick for ever. 1.20.1 has no
+	#spawnChunkRadius gamerule to read instead.
+	#
+	#Raise it if you also want a GROWN village's works kept out: a
+	#center just outside the square still lays roads and lots up to
+	#120 blocks (7-8 chunks) into it, so about 17 covers that too.
+	#
+	#Range: 0 ~ 64
+	worldSpawnKeepoutChunks = 9
+	#Minimum distance (in blocks) a NATURALLY generated tower spawner
+	#must keep from an already existing village center before it is
+	#allowed to build its village. 0 = disabled (old behaviour).
+	#Default: 320
+	#
+	#Why this is separate from minDistanceFromOtherCenters: that one
+	#decides where the AI CHOOSES to settle and you may want it large,
+	#while this one decides how much of the naturally generated world
+	#gets suppressed. Sharing a single value would mean that spacing
+	#out the AI also deletes natural villages.
+	#
+	#A spawner vetoed by this rule removes itself and marks its chunk
+	#as done, so it never retries. This check runs when the spawner
+	#activates -- the moment at which every village is registered --
+	#which is why it also repairs EXISTING worlds: spawners already
+	#sitting in the ground near a village will now refuse to build.
+	#
+	#Range: 0 ~ 5000
+	naturalVillageMinDistance = 320
+	#Minimum distance (in blocks) a village founded BY HAND -- a player
+	#(or a villager) using a recruit table, which turns that block into a
+	#new village center -- must keep from an already existing village
+	#center. Too close and no village is created: the recruits are still
+	#enlisted into the nearest faction, they simply do not found a
+	#settlement of their own. 0 = disabled (old behaviour).
+	#Default: 275
+	#
+	#Why a separate key from naturalVillageMinDistance: that one is
+	#checked when a naturally generated TOWER SPAWNER activates, this one
+	#when a bare recruit table mints a center -- a path that had no
+	#distance check at all, so two villages could end up 40 blocks apart.
+	#A center that sits inside a measured tower is exempt here: it was
+	#already judged by the tower rules when the tower was placed.
+	#
+	#The number comes from CityPlanGenerator.MAX_CITY_RADIUS = 120: a
+	#grown village is 240 blocks across, so 240 is "touching with zero
+	#gap" and 275 leaves a little breathing room. It is deliberately a
+	#bit SHORTER than the 320 of the natural/expansion rule: those two
+	#CHOOSE where to put a village and can afford to be picky, while this
+	#one REFUSES what a player deliberately tried to build -- at a full
+	#320 a site the AI itself would have settled could be denied to him.
+	#
+	#Range: 0 ~ 5000
+	manualVillageMinDistance = 275
+	#Radius (in blocks) around a refused village site within which online
+	#players are told, in chat, that the new village would be too close to
+	#an existing one. 0 = never tell anyone. Default: 64
+	#
+	#Range: 0 ~ 512
+	manualVillageNotifyRadius = 64
+	#How far (in blocks) from the chosen village the game looks for a
+	#valid settle spot. Must be larger than minDistance. Default: 700
+	#
+	#Range: 100 ~ 10000
+	searchRadius = 700
+	#Delay (in ticks) between sending the settlers and the new village
+	#actually being built. 20 ticks = 1 second. Default: 12000 (10 min)
+	#
+	#Range: 200 ~ 1728000
+	delayTicks = 12000
+	#A village group must have at least this many members before it can
+	#spare settlers for an expansion. Default: 8
+	#
+	#Range: 2 ~ 200
+	minMembersToExpand = 8
+	#Fraction of a village's members (excluding the leader) that are sent
+	#out as settlers to found a new village. Default: 0.5 (about half)
+	#
+	#Range: 0.0 ~ 1.0
+	settlerFraction = 0.5
+	#Settlers travel ON PAPER instead of being teleported to the building
+	#site as real entities.
+	#
+	#Expansion used to force-load TWO places for the whole job: the origin,
+	#because settlers could only be picked from LOADED entities, and the
+	#building site, because otherwise the men unloaded and the expansion
+	#stalled. A village expanding on the far side of the world kept both
+	#areas simulated for minutes, for an event no player could see.
+	#
+	#With this on, a settler is a record. He becomes a real recruit only
+	#while a player is within settlerRevealRadius, and goes back to being a
+	#record when nobody is near - so you can still walk up to a building
+	#site, find the settlers and kill them to stop it, and an expansion
+	#nobody is watching costs nothing to run.
+	#
+	#Off = the old behaviour: settlers are always physically present.
+	#Default: true
+	#
+	abstractSettlers = true
+	#How close (blocks) a player must be for a building site's settlers to
+	#appear as real recruits.
+	#
+	#They stop being real again at 1.5x this distance, never at the same
+	#one: with a single threshold a player standing exactly on it would
+	#spawn and despawn the whole party every pass.
+	#
+	#Only meaningful with abstractSettlers on. Default: 80.0
+	#
+	#Range: 16.0 ~ 256.0
+	settlerRevealRadius = 80.0
+	#Raise settlers from the village's own GARRISON - the weakest soldiers
+	#first - instead of drafting new civilians.
+	#
+	#This is how expansion has always really worked: the old physical path
+	#took soldiers out of the village group and never looked at the civilian
+	#population at all. Turning it off makes a colony cost civilians instead,
+	#which sounds reasonable and in practice stops expansion dead: a village
+	#must keep conscriptionKeepVillagers (10) civilians and send minSettlers
+	#(4), so it needs FOURTEEN villagers before it can found anything, and
+	#real villages sit well below that.
+	#
+	#Drafting still happens as a FALLBACK whenever the garrison cannot spare
+	#enough men, so a village with soldiers to spare sends them and one
+	#without still expands if it has the people.
+	#
+	#Weakest-first is measured by assessment/MusterRoll, which weighs a
+	#soldier from his stored record - armour, health, weapon, elite - so an
+	#offline village ranks its men exactly as a loaded one does.
+	#Default: true
+	#
+	settlersFromGarrison = true
+	#How many soldiers a village keeps for itself when raising settlers from
+	#its garrison. It will never send men below this number.
+	#
+	#Founding a colony must not be a way to disarm yourself: without a floor
+	#a village would happily march its whole defence off to a building site
+	#and then be taken by the first raiding party that arrived.
+	#Default: 4
+	#
+	#Range: 0 ~ 1000
+	settlerGarrisonKeep = 4
+	#Minimum number of (loaded) settlers actually sent to found a new
+	#village, regardless of settlerFraction. Default: 4
+	#
+	#Range: 1 ~ 200
+	minSettlers = 4
+	#Maximum number of village centers a single faction may own (via
+	#expansion). 0 = unlimited. Default: 0
+	#
+	#Range: 0 ~ 1000
+	maxCentersPerFaction = 0
+	#Only expand when the faction is not under net military threat.
+	#Prevents factions from founding new villages while losing wars.
+	#Default: true
+	#
+	requireSafe = true
+	#Max allowed threat level to still expand when requireSafe is on.
+	#threat = nearby enemy strength - own strength. 0 = expand only when
+	#not outmatched nearby. Higher = bolder. Default: 0
+	#
+	#Range: -100000.0 ~ 100000.0
+	maxThreatLevel = 0.0
+	#While a faction is building a new village, players within this many
+	#blocks of the construction site are warned (which faction, where, and
+	#how much time is left) so they can rush in and kill the settlers to
+	#stop it. Set the same radius decides who is told when a build fails.
+	#Default: 100
+	#
+	#Range: 0 ~ 1000
+	interruptNotifyRadius = 100
+	#Should naturally generated villages be founded OUTSIDE your
+	#simulation and render distance? Default: BOOTSTRAP
+	#
+	#The tower spawner block runs on a block-entity ticker, and block
+	#entities only tick inside the SIMULATION distance. Chunks between
+	#simulation and render distance (e.g. sim 15, render 32) are fully
+	#loaded but never ticked, so the spawner sits there dormant and the
+	#village only appears once you walk close to it. The separate
+	#remoteTowerDiscoveryRadiusChunks option can also discover tower
+	#sites beyond render distance without loading the intervening chunks.
+	#
+	#  OFF            = old behaviour. Villages are founded only inside
+	#                   the simulation distance.
+	#  STRUCTURE_ONLY = the tower is BUILT as soon as the chunk loads,
+	#                   but nothing else happens. Cheapest option, and
+	#                   it pre-generates the skyline -- but note it does
+	#                   NOT give you a village: the faction, center,
+	#                   claim and name are all created by a recruit
+	#                   SPAWNING near the tower, which needs ticking.
+	#                   You get an empty building until you visit.
+	#  BOOTSTRAP      = the tower is built and then kept loaded for
+	#                   remoteTowerBootstrapTicks, so villagers spawn,
+	#                   the faction is minted and the population ledger
+	#                   is seeded. The village then drops offline and
+	#                   keeps growing through the normal offline model.
+	#
+	#BOOTSTRAP is the only mode that actually populates your world with
+	#factions you have never visited. It is also the only one that costs
+	#server time: each founding briefly force-loads a 128-block bubble.
+	#If your server starts to lag while exploring, lower
+	#remoteTowerMaxPerTick first, then switch to STRUCTURE_ONLY or OFF.
+	#
+	#Allowed Values: OFF, STRUCTURE_ONLY, BOOTSTRAP
+	remoteTowerActivation = "BOOTSTRAP"
+	#Radius, in chunks around every player, in which deterministic
+	#natural tower sites are discovered even beyond render distance.
+	#Default: 64 chunks (1024 blocks)
+	#
+	#This does NOT load the whole square. At the default village
+	#spacing, a 64-chunk radius contains roughly 16 candidate chunks
+	#out of 16,641 total chunks. Only those candidates are briefly
+	#loaded and inspected for the actual tower-spawner block.
+	#
+	#0 disables proactive loading beyond render distance; already
+	#loaded chunks are still handled by remoteTowerActivation.
+	#Lower this if distant terrain generation is too expensive.
+	#
+	#Range: 0 ~ 256
+	remoteTowerDiscoveryRadiusChunks = 64
+	#Maximum candidate tower chunks requested each remote-tower pass.
+	#The pass runs once per second. Default: 1
+	#
+	#Candidate loading may generate new terrain, so keeping this at 1
+	#spreads the work out instead of generating every possible tower
+	#site in the same tick. This is separate from
+	#remoteTowerMaxPerTick, which limits actual village founding.
+	#
+	#Range: 1 ~ 8
+	remoteTowerDiscoveryLoadsPerPass = 1
+	#Legacy compatibility key. Remote towers are now streamed by block rather
+	#than by horizontal template layer, because vanilla rescans the entire
+	#template for every layer and one layer could still freeze a tick. Ignored.
+	#
+	#Range: 1 ~ 16
+	remoteTowerPlacementLayersPerTick = 1
+	#BOOTSTRAP/STRUCTURE_ONLY remote discovery: maximum tower blocks written
+	#per server tick. The template palette is selected once and each block is
+	#visited once, so this is a real spike bound rather than a layer cadence.
+	#
+	#Raise it to finish remote towers sooner; lower it if block updates still
+	#cause visible stutter. A deliberately player-placed tower remains atomic.
+	#Default: 128
+	#
+	#Range: 8 ~ 4096
+	remoteTowerPlacementBlocksPerTick = 128
+	#Wall-clock ceiling in MICROSECONDS (1000 = 1 ms) for one tick of remote
+	#tower block streaming. Checked between blocks, with at least one block
+	#always written so an unusually expensive block slows rather than stalls.
+	#
+	#RAISE it to finish towers sooner on a machine with headroom. LOWER it if
+	#exploring new land makes the world stutter. Set to 0 to remove the
+	#ceiling entirely (the behaviour of every build before this one).
+	#Default: 1500 (1.5 ms)
+	#
+	#Range: 0 ~ 50000
+	remoteTowerPlacementBudgetMicros = 1500
+	#BOOTSTRAP mode only: how long (in ticks) a freshly founded remote
+	#village is kept loaded so it can actually come into existence.
+	#20 ticks = 1 second. Default: 600 (30 seconds)
+	#
+	#It must cover the whole chain villager spawn -> faction minted ->
+	#claim created -> population ledger seeded. Too short and you get a
+	#tower with no faction, which nothing will ever retry. Longer is
+	#safer but every extra second is a force-loaded chunk bubble.
+	#
+	#This hold is taken ONCE and never renewed, so it always expires and
+	#the village always goes offline afterwards.
+	#
+	#Range: 100 ~ 12000
+	remoteTowerBootstrapTicks = 600
+	#How many remote villages may be founded per drain pass (the queue is
+	#drained once per second). Default: 1
+	#
+	#This is the main lag dial for the feature. Flying over unexplored
+	#terrain can queue up many tower chunks at once; without a cap they
+	#would all place their structure and take their chunk bubble in the
+	#same tick. Founding them one at a time spreads the cost out and
+	#nothing is lost -- the queue just drains a little more slowly.
+	#
+	#Range: 1 ~ 20
+	remoteTowerMaxPerTick = 1
+	#Maximum number of tower chunks waiting to be founded. Beyond this,
+	#newly loaded tower chunks are ignored. Default: 64
+	#
+	#A safety valve, not a tuning knob: it only matters if the offline
+	#action throttle stays saturated while you keep exploring. Dropping a
+	#queued chunk is harmless -- it will be picked up again the next time
+	#that chunk loads.
+	#
+	#Range: 1 ~ 4096
+	remoteTowerQueueLimit = 64
+	#Biomes in which a village CENTRE may not be founded.
+	#
+	#Ice above all: an ice sheet is not ground - the "surface" is a slab
+	#floating on open water, and everything the village then builds sits on
+	#it. Matched by biome id, because there is no vanilla tag meaning "icy"
+	#and a tag invented here would not cover a modded biome anyway.
+	#
+	#Three forms are accepted:
+	#  "minecraft:ice_spikes"  exact id
+	#  "somemod:*"             every biome of that mod
+	#  "frozen"                any id CONTAINING that word, so one entry
+	#                          covers frozen_ocean, deep_frozen_ocean and
+	#                          frozen_river
+	#
+	#Only the CENTRE is checked - a village on solid ground may still run a
+	#road out over ice. Empty the list to allow villages anywhere.
+	#
+	villageBiomeBlacklist = ["frozen", "ice_spikes", "snowy_slopes", "jagged_peaks"]
+	#A village founded by hand - a player puts down a recruit table, a
+	#villager uses it, a recruit spawns and the place becomes a village -
+	#also raises the centre TOWER, the way a village from worldgen or from
+	#expansion already does. Without it such a village gets roads, a claim
+	#and a name, and stands on an empty field.
+	#
+	#OFF by default on purpose: a 48-block tower appearing around a block
+	#somebody just placed is a large and irreversible surprise, and plenty of
+	#players put a recruit table down meaning to build their own base around
+	#it. Turn it on if you want hand-founded villages to look like the
+	#others.
+	#
+	#The shipped tower carries its own recruit table, so the block being
+	#replaced comes back inside the building. Never fires where a tower
+	#already stands. Default: false
+	#
+	recruitBlockSpawnsTower = false
+
+[special]
+	#Chance that a NEW natural village is founded as a SPECIAL faction: its
+	#own name and banner, its own arsenal, gear bought at a discount, and
+	#its own rivalries.
+	#This decides HOW MANY villages are special. WHICH archetype each one
+	#gets is a separate, weighted draw among the available types (see each
+	#type's "weight"). So: set this to 1.0 and every village belongs to some
+	#faction, with the weights dividing up the map.
+	#Archetypes come from datapacks (data/<namespace>/vr_factions/*.json -
+	#see docs/datapack-factions.md) or from built-in Java types like Warium.
+	#Rolled ONCE, when the village first becomes a faction, and then saved
+	#- a reload never re-rolls, and an existing world never turns a normal
+	#village into a special one afterwards. Use /vrspecial to test without
+	#waiting on this roll.
+	#Only natural villages roll: breakaway rebels and capital-loss splits
+	#never become special. (A special village's own expansion colonies DO
+	#stay special - they are extra centers of the same faction, not new
+	#factions.)
+	#The roll needs at least one available type; with none, nothing special
+	#is ever created.
+	#0 = disable special factions entirely. Default: 0.01 (1%)
+	#
+	#Range: 0.0 ~ 1.0
+	specialFactionChance = 0.01
+	#Multiplier on EVERY equipment and promotion material cost for a
+	#special faction - they are a boss, their gear is cheap.
+	#0.25 = pays a quarter of the normal materials. Applies symmetrically
+	#to buybacks (recycling old gear), or buying cheap and selling at full
+	#price would print infinite materials.
+	#A cost is never reduced below 1 unit: a boss still has to run a real
+	#economy (mine, forge, production buildings) - it just gets there about
+	#four times faster. 1.0 = no discount. Default: 0.25
+	#
+	#Range: 0.01 ~ 1.0
+	specialFactionCostMultiplier = 0.25
+	#Name pool for a WARIUM special faction (requires the Warium mods:
+	#'crusty_chunks' + 'recruitswr'). One is picked at random per boss
+	#village, preferring a name no other boss is using.
+	#This is the DISPLAY name only - the faction id stays village_x_y_z.
+	#
+	wariumNames = ["The Iron Legion", "Warium Company", "The Powder Kings", "The Gunmetal Host", "Ashfall Battalion", "The Leadstorm Clan"]
+	#A Warium boss faction never pays for ammunition: its soldiers' ammo
+	#slots are kept topped up for free on every equipment pass.
+	#Set to false and they will only ever have the ammo Warium itself gives
+	#them when they spawn - they will run dry and stop shooting.
+	#Default: true
+	#
+	wariumFreeAmmo = true
+
+[contracts]
+	#WHICH VILLAGERS may be turned into a Noble Villager.
+	#Becoming a Noble is a ONE-WAY conversion: the villager is replaced by a
+	#Noble, which has no profession and no trades, and nothing in the game
+	#gives it back. That is fine for a villager nobody minds losing and very
+	#much not fine for one you spent a stack of emeralds levelling.
+	#With this on, only these may be converted:
+	#  - the JOBLESS (this is the base mod's own rule);
+	#  - NITWITS, if nobleFromNitwits is on;
+	#  - villagers still at LEVEL 1 that have never been traded with, if
+	#    nobleFromUntradedVillagers is on.
+	#The "never traded with" test is vanilla's own - it is exactly the test
+	#vanilla uses to decide whether a villager may lose its profession - so a
+	#villager you have invested in is protected by the same rule that already
+	#protects its job.
+	#The check is also repeated when the conversion timer runs out, not only
+	#when it starts, so a villager that found work in the meantime is left
+	#alone.
+	#Off = the base mod's behaviour, untouched. Default: true
+	#
+	nobleSourceRestrict = true
+	#May a NITWIT become the village Noble? A nitwit never takes a job and
+	#never offers a trade, so it costs the village nothing. Default: true
+	#
+	nobleFromNitwits = true
+	#May an EMPLOYED but never-traded-with villager (level 1, no trades made)
+	#become the village Noble?
+	#WARNING: a level-1 librarian nobody has traded with is exactly a
+	#librarian you have been rerolling for Mending. It has a profession and
+	#an offer, it just has not been used yet - and this setting cannot tell
+	#that apart from a spare farmer. Turn it OFF if you keep librarians
+	#waiting to be traded with. Default: true
+	#
+	nobleFromUntradedVillagers = true
+	#If a village has gone this long with NO Noble Villager, spawn one at its
+	#recruit table instead of waiting for a villager to become one.
+	#
+	#The base mod only ever makes a Noble by CONVERTING a villager, and only
+	#one that qualifies (jobless, or the narrower cases above) with enough
+	#others nearby. A village whose villagers are all employed, or that has
+	#very few, or that just lost its Noble to a raid, therefore waits
+	#forever - and a village with no Noble offers factionless players no
+	#contracts at all, with nothing on screen to say why.
+	#
+	#Nothing is consumed: the case this exists for is a village with no
+	#villager to spare, so taking one would either fail for the same reason
+	#or cost a worker it needed. A Noble neither fights nor trades.
+	#
+	#Ignored entirely when the base mod's own NobleVillagerSpawns is off -
+	#that switch means the server does not want Nobles, and this must not
+	#reverse it. Default: true
+	#
+	nobleFallbackEnabled = true
+	#Ticks a village must be awake with no Noble before one is spawned at its
+	#recruit table. The clock only runs while the village is loaded, and is
+	#reset the moment a Noble appears - including one the base mod's own
+	#conversion produces, which is given the chance to happen first.
+	#Default: 3600 (three minutes)
+	#
+	#Range: 200 ~ 1728000
+	nobleFallbackDelayTicks = 3600
+	#The Noble Villager's CONTRACT BOARD, and the per-faction standing
+	#("reputation") that goes with it.
+	#A player who belongs to no faction can sneak-click a village's Noble
+	#Villager and take paid work from it: cull the monsters pressing on the
+	#village, stand watch through the night, haul it a material it has run
+	#out of, hunt the soldiers of a faction it is at war with, or break a
+	#siege while one is actually happening. Finishing a contract pays
+	#emeralds and STANDING with that faction; killing its people costs
+	#standing.
+	#Standing is tracked per player and per FACTION (not globally, and not
+	#per village), and it decides which tier of work a village will offer:
+	#Disliked or worse gets nothing, Neutral gets everyday jobs, Trusted
+	#gets bounties, Honoured gets the dangerous work.
+	#Contracts are offered ONLY by AI villages and ONLY to players with no
+	#faction - a faction member already has the Leader menu, and a village
+	#paying its own citizens to defend it would be a money loop.
+	#Turning this off hides the board, stops all standing changes and stops
+	#the boards being generated. Contracts already accepted stay in the save
+	#and come back if it is turned on again. Default: true
+	#
+	contractsEnabled = true
+	#How many offers a village keeps on its board at once.
+	#A village only posts work it actually needs done, so a peaceful,
+	#well-supplied village will sit below this number - this is a ceiling,
+	#not a quota. Default: 3
+	#
+	#Range: 1 ~ 8
+	boardSize = 3
+	#Ticks between one village's board being reconsidered (20 ticks = 1s).
+	#This is also how often that village's monster pressure is sampled, so
+	#lowering it makes the board react faster AND costs more entity scans.
+	#Default: 6000 (5 minutes)
+	#
+	#Range: 200 ~ 720000
+	boardRefreshTicks = 6000
+	#How long a village waits before a player may ask it for work again
+	#(the "Look for work" button at the Noble), in ticks.
+	#
+	#The board otherwise fills on its own timer, which is right for a world
+	#ticking along and wrong for the player standing in front of the Noble
+	#with an empty board and no way to know whether waiting will produce
+	#anything. Asking posts whatever the village qualifies for right now.
+	#
+	#It only ever fills EMPTY slots and never rerolls an offer already
+	#posted, so asking twice cannot improve on asking once - there is
+	#nothing to farm, and this cooldown only bounds the cost of the
+	#generation pass. Per VILLAGE, not per player: the cost belongs to the
+	#village, and two players asking in turn should not cost twice what one
+	#asking twice does. Default: 600 (30 seconds)
+	#
+	#Range: 0 ~ 24000
+	boardManualRefreshCooldown = 600
+	#How long an untaken offer stays on the board before it lapses.
+	#Keeps a board honest: work posted because the village was besieged
+	#should not still be on offer an hour after the battle ended.
+	#Default: 36000 (30 minutes)
+	#
+	#Range: 1200 ~ 1728000
+	offerLifetimeTicks = 36000
+	#How long a player has to finish a contract once accepted.
+	#A contract whose objective is already MET is never taken away for
+	#lateness - the work is done and the pay is owed, the player just has
+	#not walked back to the Noble yet.
+	#Default: 24000 (one full Minecraft day)
+	#
+	#Range: 1200 ~ 1728000
+	contractDurationTicks = 24000
+	#How many contracts one player may carry at once, across all factions.
+	#Default: 2
+	#
+	#Range: 1 ~ 10
+	maxActivePerPlayer = 2
+	#Multiplier on every contract's emerald payout.
+	#The emeralds are MINTED by the AI village, exactly as an AI village
+	#mints the emeralds its merchant pays walk-up sellers with - so this is
+	#a pure faucet into the world economy. Lower it on a server where
+	#emeralds are already plentiful. Default: 1.0
+	#
+	#Range: 0.0 ~ 10.0
+	rewardEmeraldScale = 1.0
+	#Multiplier on the STANDING each contract pays.
+	#Raise it to make a faction's trust quick to earn, lower it for a long
+	#mercenary career. Losses are NOT scaled by this - see
+	#reputationLossPerVillager/Soldier. Default: 1.0
+	#
+	#Range: 0.0 ~ 10.0
+	rewardRepScale = 1.0
+	#Standing lost for handing a contract back unfinished.
+	#Small on purpose: walking away should sting without making it safer to
+	#let a contract silently expire than to say so. 0 = free to abandon.
+	#Default: 2
+	#
+	#Range: 0 ~ 100
+	abandonRepPenalty = 2
+	#Blocks from the village centre within which monsters count - both for
+	#measuring how harassed a village is and for a monster kill counting
+	#towards a cull contract. Default: 64
+	#
+	#Range: 16 ~ 256
+	mobRadius = 64
+	#Blocks from the village centre within which killing a besieger counts
+	#towards a Break the Siege contract. Chasing the routed survivors home
+	#is deliberately not part of the job. Default: 96
+	#
+	#Range: 16 ~ 400
+	siegeRadius = 96
+	#Blocks from the village centre a player must stay within to be
+	#standing watch. Default: 64
+	#
+	#Range: 16 ~ 256
+	watchRadius = 64
+	#Ticks a player must spend inside the village during darkness for a
+	#Long Watch contract to count.
+	#A Minecraft night is about 10000 ticks, so the default leaves slack for
+	#a player who steps out briefly - but not for one who arrives at 4am.
+	#The count resets at dawn if it was not met: the deal is a whole night.
+	#Default: 6000
+	#
+	#Range: 200 ~ 24000
+	nightWatchTicks = 6000
+	#Ceiling on a village's stored monster-pressure score, so one very bad
+	#night cannot fund a month of monster contracts. Default: 60
+	#
+	#Range: 1 ~ 10000
+	mobPressureCap = 60
+	#How much pressure a village sheds each time it is sampled and found
+	#quiet. This is what makes a village that has had a peaceful week stop
+	#advertising for monster hunters. Default: 2
+	#
+	#Range: 0 ~ 1000
+	mobPressureDecay = 2
+	#Pressure added when a villager, worker or Noble is actually KILLED by a
+	#monster. Weighted far above a monster merely standing nearby, because
+	#it is the difference between a village being near monsters and a
+	#village losing people to them. Default: 10
+	#
+	#Range: 0 ~ 1000
+	pressurePerCasualty = 10
+	#Pressure at or above which a village will post monster-culling work.
+	#Default: 8
+	#
+	#Range: 0 ~ 10000
+	mobPressureForCull = 8
+	#Pressure at or above which a village will post a night watch. Lower
+	#than the cull threshold: a village gets nervous before it gets
+	#overrun. Default: 4
+	#
+	#Range: 0 ~ 10000
+	mobPressureForWatch = 4
+	#A building material (wood/stone/sand/wool) counts as SHORT when the
+	#village holds less than this fraction of its own storage capacity.
+	#Judged against capacity rather than a flat number because a large
+	#village needs more wood to feel comfortable than a hamlet.
+	#Default: 0.25
+	#
+	#Range: 0.0 ~ 1.0
+	shortageBuildFraction = 0.25
+	#An equipment counter (iron, gold, coal, leather, grain...) counts as
+	#SHORT below this many units. Flat, because these have no storage
+	#capacity to measure against. Default: 32
+	#
+	#Range: 0 ~ 100000
+	shortageWeaponUnits = 32
+	#Ticks before the "this village has work" hint is shown to the same
+	#player again. The hint only ever appears for a player with no faction
+	#who right-clicks a Noble normally. Default: 6000 (5 minutes)
+	#
+	#Range: 0 ~ 1728000
+	hintCooldownTicks = 6000
+	#Floor on a player's standing with one faction. Reaching it does not
+	#make the faction attack on sight - it only closes the contract board.
+	#Default: -100
+	#
+	#Range: -10000 ~ 0
+	reputationMin = -100
+	#Ceiling on a player's standing with one faction. Default: 100
+	#
+	#Range: 1 ~ 10000
+	reputationMax = 100
+	#Standing lost for killing one of a village's CIVILIANS - a villager
+	#inside its claim, one of its workers, or its Noble.
+	#This is what stops the board being farmed by a player who takes work in
+	#the morning and raids the village in the afternoon. Default: 4
+	#
+	#Range: 0 ~ 1000
+	reputationLossPerVillager = 4
+	#Standing lost for killing one of a village's SOLDIERS. Higher than a
+	#civilian: a village forgives a brawl less easily than an accident.
+	#Recruits a player has HIRED are never counted - they belong to that
+	#player, not to the village that raised them. Default: 6
+	#
+	#Range: 0 ~ 1000
+	reputationLossPerSoldier = 6
+	#Standing lost for killing an OFFICER - a village commander, or the
+	#village's elected leader. Counted as an ASSASSINATION.
+	#Weighted far above an ordinary soldier because it is not a brawl that
+	#got out of hand: a village can replace a spearman, and it notices when
+	#somebody goes after the man giving the orders. Two of these is enough
+	#to take a stranger from Neutral to refused at the gate.
+	#Unlike other losses this one is announced the moment it happens, since
+	#a tier crossing may be several kills away and by then the player would
+	#not know which kill was the one that mattered. Default: 25
+	#
+	#Range: 0 ~ 10000
+	reputationLossPerAssassination = 25
+	#Standing has CONSEQUENCES beyond the contract board: a faction that
+	#dislikes you refuses to let you enlist, and one that hates you attacks
+	#you on sight.
+	#Set to false and reputation only ever gates contracts - a player can
+	#still walk into a village he has been raiding all week and join it.
+	#Default: true
+	#
+	reputationHostilityEnabled = true
+	#Standing at or below which an AI faction REFUSES to enlist you. The
+	#village still tolerates you - it simply will not have you in its army.
+	#Defaults to the top of the "Disliked" band, so the refusal lines up
+	#with the standing the player is shown rather than being an invisible
+	#second threshold. The proximity invitation stops appearing at the same
+	#point, so the mod never offers an enlistment it will then refuse.
+	#Default: -10
+	#
+	#Range: -10000 ~ 0
+	joinDeniedBelow = -10
+	#Standing at or below which a faction BARS you for good and attacks on
+	#sight - its soldiers treat you as an enemy wherever they find you, with
+	#no declaration of war needed (a factionless player has no faction id
+	#for the diplomacy system to hold a relation with, which is exactly why
+	#this lives in targeting instead).
+	#Their escort troops are hostile too: whoever is hostile to the master
+	#makes no exception for his guards.
+	#Defaults to the top of the "Hated" band. Players in creative or
+	#spectator are never targeted, as everywhere else.
+	#Must be at or below joinDeniedBelow to make sense; it is not clamped,
+	#so an operator can invert them deliberately if they want hostility
+	#without a refusal stage. Default: -50
+	#
+	#Range: -10000 ~ 0
+	hostileBelow = -50
+	#A village that has been wronged badly enough puts a PRICE ON THE HEAD
+	#of the one player who did it.
+	#Two consequences: a HUNT contract on that village's board that any
+	#other free agent may take, and - if one of its own patrols SEES him -
+	#its soldiers coming for him in person.
+	#STRICTLY PERSONAL: the bounty names one player. His faction-mates are
+	#never on it and are never hunted for what he did.
+	#The wanted man is told when somebody ACCEPTS the contract, but never
+	#WHO took it: being warned is what makes it a rivalry he can act on
+	#rather than an ambush, and not knowing the hunter is what keeps it
+	#dangerous. Default: true
+	#
+	bountyEnabled = true
+	#Standing at or below which a village posts a bounty. Defaults to the
+	#same point at which it starts attacking on sight, so "they want me
+	#dead" and "they have put a price on me" are one event rather than two
+	#thresholds a player has to learn separately. Default: -50
+	#
+	#Range: -10000 ~ 0
+	bountyBelow = -50
+	#Emeralds a bounty pays. Far above ordinary work on purpose: this is the
+	#village spending real money to be rid of somebody. Default: 96
+	#
+	#Range: 0 ~ 10000
+	bountyRewardEmeralds = 96
+	#Standing a bounty pays. Large, because standing is the currency of the
+	#reputation shop - collecting one bounty should be a real step towards
+	#the gear on the top shelf. Default: 40
+	#
+	#Range: 0 ~ 10000
+	bountyRewardRep = 40
+	#How long a bounty stays on the board before it lapses. Much longer than
+	#ordinary work: a grudge outlasts a wheat delivery.
+	#Default: 216000 (3 hours)
+	#
+	#Range: 1200 ~ 17280000
+	bountyLifetimeTicks = 216000
+	#The village also sends its OWN soldiers after the wanted man.
+	#This is what makes bounties work in single player, where there is
+	#nobody to take the contract.
+	#It starts only when one of the village's patrols actually SPOTS him -
+	#same faction, alive, with line of sight - and only while the village is
+	#near enough to answer (attack.radius). There is NO timer: a village
+	#does not dispatch a posse across the world after somebody it cannot
+	#see. Default: true
+	#
+	bountyHuntingParty = true
+	#How close a village soldier must be to SPOT the wanted man and raise
+	#the manhunt. Line of sight is also required, so this is a maximum
+	#rather than a guarantee. Default: 32
+	#
+	#Range: 4 ~ 128
+	bountySpotRadius = 32
+	#How many soldiers a manhunt sends. Default: 4
+	#
+	#Range: 1 ~ 20
+	bountyPartySize = 4
+	#How far from the wanted man the party appears.
+	#They are placed AROUND him rather than marched out of the village:
+	#marching would cross mostly-unloaded terrain (the problem the scouting
+	#system needed an abstract travel timer for), and unlike a scout,
+	#soldiers that arrive late arrive at nothing because he has moved.
+	#Far enough to be seen coming. Default: 24
+	#
+	#Range: 8 ~ 128
+	bountyPartyDistance = 24
+	#Ticks before the same village will send another party after the same
+	#player. Without it, standing in sight of a patrol would spawn soldiers
+	#continuously. Default: 6000 (5 minutes)
+	#
+	#Range: 200 ~ 720000
+	bountyPartyCooldownTicks = 6000
+	#A village SCOUTS a wanted man before it sends anybody to kill him.
+	#
+	#With this on, the first answer to a sighting is one scout, not a party.
+	#He takes time to arrive, he looks at what the man is wearing and how many
+	#recruits stand with him, and only then does the village decide how many
+	#soldiers the job is worth - so an armoured player with an escort is
+	#answered by a real force and an unarmed wanderer is not.
+	#
+	#A scout will NOT approach a man standing inside a village that is not the
+	#scouting faction's own. He waits outside until you come out, which means
+	#living behind somebody else's walls genuinely hides you.
+	#
+	#Turn this off for the old behaviour: one fixed party of bountyPartySize,
+	#sent the instant you are seen, whatever you are carrying. Default: true
+	#
+	huntScoutFirst = true
+	#How long a scout takes to reach the man he was sent to look at.
+	#
+	#He travels ABSTRACTLY - the ground between a village and a wanted man is
+	#mostly unloaded, and a body walking it would be a body standing still.
+	#This is also how long he keeps waiting each time he finds you inside
+	#somebody else's village. Default: 600 (30 seconds)
+	#
+	#Range: 20 ~ 72000
+	huntScoutTravelTicks = 600
+	#How far away the scout stands when he arrives.
+	#
+	#He is put down as a real soldier so that being found is something you can
+	#SEE, but far enough out that he is a warning rather than an attack.
+	#Default: 40
+	#
+	#Range: 8.0 ~ 128.0
+	huntScoutStandoff = 40.0
+	#How long a scout's report is worth acting on before the village has to
+	#look again. Gear changes. Default: 12000 (10 minutes)
+	#
+	#Range: 200 ~ 720000
+	huntReportLifetimeTicks = 12000
+	#How much of a player's measured combat strength one soldier is reckoned
+	#to be worth when the village decides how many to send.
+	#
+	#LOWER means bigger hunting parties. The strength scale is the same one
+	#every other decision in this mod uses, so a bare-handed player is around
+	#1 and a fully armoured one with a good weapon is several times that.
+	#Every recruit standing with him adds a man on top. Default: 1.5
+	#
+	#Range: 0.1 ~ 20.0
+	huntStrengthPerMan = 1.5
+	#The most men a village will ever send after one player, however well
+	#equipped he is. A village that empties itself over a single man has lost
+	#more than it can win. Default: 12
+	#
+	#Range: 1 ~ 60
+	huntPartyMax = 12
+	#How many soldiers a village keeps at home no matter what when it drafts a
+	#hunting party.
+	#
+	#Hunters are REAL men out of the garrison now, not bodies conjured for the
+	#job, so hunting costs the village something and a village with nobody to
+	#spare simply does not hunt. Default: 4
+	#
+	#Range: 0 ~ 60
+	huntGarrisonKeep = 4
+	#How long a hunting party stays in the field before its survivors go home.
+	#
+	#They are filed straight back onto their village's books - wounds, kit and
+	#whatever they picked up - so a hunt is a loan of soldiers rather than a
+	#permanent loss. Set to 0 to leave them out there for ever (not
+	#recommended: nothing else will ever remove them).
+	#Default: 24000 (20 minutes)
+	#
+	#Range: 0 ~ 720000
+	huntLifetimeTicks = 24000
+	#How far a hunting party will CHASE you.
+	#
+	#The men are re-aimed at wherever you are while you stay inside this
+	#range, so running does not simply lose them - you have to actually get
+	#away. Beyond it they stop following and go home.
+	#
+	#RAISE it for relentless hunters. LOWER it if you would rather be able to
+	#shake them off by crossing a valley. Setting it very high is not
+	#recommended: a party that follows you across continents holds chunks
+	#doing it, and makes being wanted a permanent condition of play.
+	#Default: 160
+	#
+	#Range: 16.0 ~ 512.0
+	huntPursuitRange = 160.0
+	#How far around the player a scout counts the recruits that belong to him.
+	#Default: 24
+	#
+	#Range: 4.0 ~ 128.0
+	huntEscortScanRadius = 24.0
+	#The REPUTATION SHOP on the Noble's contract board: gear a village will
+	#part with for someone who has earned its trust, paid for in STANDING.
+	#Reputation is the CURRENCY, not a key - buying a diamond set drops you
+	#back down the bands and can close the contracts that earned it. That
+	#trade (gear now against access later) is the feature: it stops standing
+	#being a one-way ratchet, and a player who kits himself out has spent
+	#his welcome and has to work it back.
+	#Stock is a built-in vanilla list plus whatever firearms the installed
+	#mods can actually produce. Default: true
+	#
+	repShopEnabled = true
+	#Stock the shop with firearms from whichever gun mods are installed
+	#(musketmod / Warium / TACZ), with the ammunition that makes them work.
+	#Auto-detected rather than configured, which is the only way to cover
+	#TACZ: its guns are DATA-DRIVEN, so a whole gun pack is a handful of
+	#item types carrying NBT and no list could enumerate them.
+	#Unlike a faction equipping its own troops, this is NOT gated on
+	#researching the firearm technology - a village selling a weapon to an
+	#outsider for a favour owed is a different transaction from a faction
+	#building guns out of its own industry, and the price is standing that
+	#took real work to earn. The [firearms] deny list is still honoured.
+	#Default: true
+	#
+	repShopFirearms = true
+	#Multiplier on every shop price, in standing.
+	#For scale at 1.0: a shield is 10, a Sharpness V diamond sword 30, a
+	#full Protection IV diamond set 60, a rifle 40. The reputation ceiling
+	#is 100 by default, so the top shelf really does cost most of what a
+	#player has. Default: 1.0
+	#
+	#Range: 0.1 ~ 10.0
+	repShopPriceScale = 1.0
+

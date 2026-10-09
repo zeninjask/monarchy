@@ -1,0 +1,3989 @@
+
+[attack]
+	#How long (in ticks) a village stays "claimed" by the faction that
+	#launched an attack on it. While the lock holds, OTHER factions cannot
+	#attack that same village (only the attacking faction can send more
+	#troops). Also applied while a claim is under siege. 20 ticks = 1s.
+	#Default: 3600 (3 min)
+	#
+	#Range: 0 ~ 1728000
+	targetLockTicks = 3600
+	#Enable situational automatic attacks between enemy villages.
+	#Villages only attack when the odds are favorable and they can
+	#spare troops without leaving home undefended.
+	#
+	enabled = true
+	#Base cooldown (in ticks) between attacks launched by the same
+	#faction. Scaled down when the faction is stronger. Default: 12000 (10 min)
+	#
+	#Range: 200 ~ 1728000
+	baseCooldownTicks = 12000
+	#Max distance (blocks) between attacker and defender centers. Default: 700
+	#Range: 50 ~ 5000
+	radius = 700
+	#Minimum local strength ratio attacker/(attacker+defender) required
+	#to launch an attack. 0.5 = even odds. Default: 0.55
+	#
+	#Range: 0.0 ~ 1.0
+	minStrengthRatio = 0.55
+	#Minimum members that must stay behind to defend the attacking
+	#village (on top of the attack party).
+	#
+	#A village that marches everybody out is a village anyone can walk into,
+	#and it is the ATTACKER who chooses the moment - so the men held back are
+	#the only thing standing between a successful raid and losing the place
+	#that launched it.
+	#
+	#NOTE: this is NOT what a field battle reserves. That is
+	#battles.keepGarrison, deliberately a separate and smaller number,
+	#because a battle is a prelude fought by the field army whose survivors
+	#march home, not a party leaving for a siege. Raising this one used to
+	#make field battles quietly impossible; it no longer does.
+	#Default: 10
+	#
+	#Range: 0 ~ 200
+	minGarrison = 10
+	#Cap on the reserve above, as a FRACTION of the village's own deployable
+	#strength. The reserve actually applied is the SMALLER of minGarrison and
+	#this fraction of the garrison, with a floor of 2 men.
+	#
+	#minGarrison on its own is an absolute number, and an absolute number is
+	#a wall for a young village: at the default of 10, plus minAttackers,
+	#nothing could attack anything until it had fifteen deployable troops -
+	#so wars were declared, alliances signed, and the first battle of the
+	#world waited for a village big enough to field an army twice the size
+	#of the one defending against it. This is why the early game had
+	#diplomacy but no fighting. With the fraction, a village of ten keeps
+	#four at home and can march six; a village of forty still keeps only the
+	#flat ten, so nothing changes once a faction is grown.
+	#
+	#1.0 restores the old behaviour exactly (the flat number always wins).
+	#Lower = small villages go to war sooner and defend themselves worse.
+	#Default: 0.4
+	#
+	#NOTE: a default only reaches a config file that does not exist yet -
+	#Forge never rewrites a key it can already read. An established world
+	#keeps whatever is written in military.toml; edit it there, or use
+	#/vrconfig reset military confirm.
+	#
+	#Range: 0.0 ~ 1.0
+	minGarrisonFraction = 0.4
+	#Equip and promote the attack party right before it deploys, paid from
+	#the attacking faction's real materials exactly like the normal evolution
+	#pass. An OFFLINE village never runs that pass (it only walks LOADED
+	#entities), so without this its attackers march with whatever gear they
+	#had the last time a player happened to be nearby, no matter how big the
+	#stockpile they built up meanwhile. Only the attack party is prepared:
+	#the defenders are loaded by the battle itself, so the ordinary pass
+	#reaches them. Default: true
+	#
+	equipAttackersOnDeploy = true
+	#When a village launches an assault, send a clickable [JOIN] chat
+	#invite to every real online player of the attacking faction. Players
+	#who join (and their nearby recruits) are teleported to the enemy
+	#village after a delay. Default: true
+	#
+	playerJoinEnabled = true
+	#Delay (in ticks) between the [JOIN] invite and the teleport of the
+	#players who joined. 20 ticks = 1 second. Default: 900 (45 s)
+	#
+	#Range: 100 ~ 72000
+	joinDelayTicks = 900
+	#Radius (in blocks) around a joined player within which their owned
+	#recruits are teleported along with them. Default: 32
+	#
+	#Range: 4 ~ 128
+	joinRecruitRadius = 32
+	#When one of a faction's villages is attacked, send a clickable
+	#[DEFEND] chat invite to every real online player of the DEFENDING
+	#faction. The invite shows the forces in play (attacking vs defending
+	#recruits) before they decide. Players who join (and their nearby
+	#recruits) are teleported to their own village to defend it. Default: true
+	#
+	defensePlayerJoinEnabled = true
+	#How long (in ticks) the [DEFEND] invite stays valid after a village
+	#is attacked. 20 ticks = 1 second. Default: 1200 (60 s)
+	#
+	#Range: 100 ~ 72000
+	defenseJoinWindowTicks = 1200
+	#Radius (in blocks) around a defending player within which their owned
+	#recruits are teleported along with them. Default: 32
+	#
+	#Range: 4 ~ 128
+	defenseJoinRecruitRadius = 32
+	#Keep a village's road COMMANDERS at home. They are never picked for a
+	#siege, a field battle or a skirmish, an expansion settler party, or a
+	#rebellion, and they are not counted among the soldiers a village can
+	#send — so the number an order reports and the number that marches agree.
+	#They still command their squads and still fight when the village itself
+	#is attacked.
+	#Setting this false restores officers marching with a party, sized by
+	#battles.commandersJoining. Default: true
+	#NOTE: changing a default only affects config files that do not exist
+	#yet; use /vrconfig reset military confirm to take the new value.
+	#
+	deployExcludeCommanders = true
+	#Keep NOMADS at home: never picked for a siege, a field battle or a
+	#skirmish, an expansion settler party, or a rebellion, and not counted
+	#among the soldiers a village can send. They still defend the village.
+	#Default: true
+	#
+	deployExcludeNomads = true
+	#Keep HORSEMEN at home: never picked for a siege, a field battle or a
+	#skirmish, an expansion settler party, or a rebellion, and not counted
+	#among the soldiers a village can send. They still defend the village.
+	#Default: true
+	#
+	deployExcludeHorsemen = true
+	#Allow an attacking faction to call in reinforcements from its OTHER
+	#nearby villages when the local odds are not already comfortable.
+	#Each contributing village keeps its minimum garrison. Default: true
+	#
+	reinforceEnabled = true
+	#Max distance (blocks) from the attacking village to another owned
+	#village for it to send reinforcements. Default: 800
+	#
+	#Range: 50 ~ 10000
+	reinforceRadius = 800
+	#Only call reinforcements when the local strength ratio
+	#attacker/(attacker+defender) is BELOW this value. 1.0 = almost
+	#always reinforce, 0.0 = never. Default: 0.75
+	#
+	#Range: 0.0 ~ 1.0
+	reinforceOddsThreshold = 0.75
+	#Fraction of each contributing village's spare troops (above its
+	#minimum garrison) that join the attack. Default: 0.5
+	#
+	#Range: 0.0 ~ 1.0
+	reinforceFraction = 0.5
+	#Minimum fraction of the attacking village's non-leader members that
+	#march out in an attack party. The actual size is rolled randomly
+	#between this and attackPartyMaxFraction each attack. Default: 0.6
+	#
+	#Range: 0.0 ~ 1.0
+	attackPartyMinFraction = 0.6
+	#Maximum fraction of the attacking village's non-leader members that
+	#march out in an attack party. Should be >= attackPartyMinFraction.
+	#Default: 0.8
+	#
+	#Range: 0.0 ~ 1.0
+	attackPartyMaxFraction = 0.8
+	#Smallest attack party the fraction is allowed to shrink to (as long as
+	#the village actually has that many spare non-leader members). Default: 5
+	#
+	#Range: 1 ~ 500
+	minAttackers = 5
+	#HYBRID OFFLINE PLAY: when a village launches an attack, temporarily
+	#force-load (and tick) BOTH the attacking and the defending village
+	#centers, so the battle actually happens even if no player is anywhere
+	#near either village. The chunks are released again after the battle
+	#window (offlineBattleLoadTicks). Without this, an attack on a village
+	#far from every player silently does nothing (no entities are loaded to
+	#teleport or to fight). Default: true
+	#
+	offlineBattleLoadingEnabled = true
+	#How long (in ticks) the attacker and defender centers stay force-loaded
+	#after an attack is launched, i.e. how long the battle is given to play
+	#out before the chunks may unload again. 20 ticks = 1 second.
+	#Default: 6000 (5 min)
+	#
+	#Range: 200 ~ 1728000
+	offlineBattleLoadTicks = 6000
+	#Short delay (in ticks) between force-loading the villages and actually
+	#deploying the attackers, so the freshly loaded chunks and their entities
+	#are ready first. Only used when offlineBattleLoadingEnabled is on and no
+	#players are being waited on (the player [JOIN] delay already covers the
+	#warmup otherwise). 20 ticks = 1 second. Default: 100 (5 s)
+	#
+	#Range: 0 ~ 1200
+	offlineBattleWarmupTicks = 100
+	#Hard ceiling (in ticks) for the READINESS wait that follows the warmup.
+	#A force-load asks vanilla for a whole region of chunks and they reach
+	#entity-ticking a few at a time, so the defending garrison materializes
+	#gradually: deploying on the warmup alone dropped the attackers into an
+	#empty village and the defenders then trickled into an already-lost
+	#battle. After the warmup the assault waits until the defender center
+	#ticks AND its loaded defender count stops growing; this is how long it
+	#may wait before deploying anyway. 20 ticks = 1 second. Default: 600 (30 s)
+	#
+	#Range: 0 ~ 6000
+	offlineBattleReadyTimeoutTicks = 600
+	#OFFLINE VILLAGES: stop VILLAGE-OWNED recruits and workers from
+	#force-loading the chunks around themselves.
+	#
+	#The base Recruits mod makes every recruit/worker (workers extend
+	#AbstractChunkLoaderEntity too) force-load a 3x3 of chunks around
+	#itself and keep it ENTITY-TICKING, so a village full of them never
+	#actually goes offline even when it is far outside every player's
+	#simulation distance: it keeps fully simulating (and producing),
+	#which defeats the abstract offline-economy model and costs
+	#performance. When enabled, that self-chunk-loading is cancelled for
+	#entities owned by a village (the internal AI owner) or not owned by
+	#anyone, so those villages truly freeze past the simulation distance
+	#and switch to abstract offline income.
+	#
+	#Recruits HIRED/owned by a real player are NOT affected: the moment a
+	#player owns a recruit it stops being a village recruit and keeps the
+	#base mod's companion chunk-loading (so it can still patrol into
+	#unloaded chunks). Deliberate addon force-loads for battles/expansion
+	#(see offlineBattleLoadingEnabled) are unaffected. Default: true
+	#
+	disableVillageChunkLoading = true
+	#STARTUP LAG: release leftover chunk tickets IMMEDIATELY at world load
+	#instead of keeping their villages online for up to ~100s to verify them.
+	#
+	#The base Recruits mod persists a per-entity chunk ticket in the world
+	#save for every recruit/worker that was force-loading its chunks. On load
+	#Forge reinstalls them all at once, so a batch of village centers ticks
+	#simultaneously — the startup lag spike. Tickets owned by a known village
+	#member are always dropped at load. This option controls the REST (owners
+	#not currently in any group): with it ON they are released right away, and
+	#the few that were genuine player companions re-create their own ticket on
+	#their next chunk change (base-mod behavior). With it OFF they are held
+	#force-loaded and fully simulated while a deferred sweep verifies each one,
+	#which is what keeps "most centers online" for a minute or two after login.
+	#
+	#Only takes effect when disableVillageChunkLoading is on. Default: true
+	#
+	purgeOrphanTicketsAtLoad = true
+
+[combat]
+	#ANTI-LAG: for how many ticks a soldier remembers whether he can WALK to
+	#a particular enemy. 0 disables the cache.
+	#
+	#Deciding that costs a full pathfind, and in the profile taken on a real
+	#world it was this addon's single most expensive line on the server
+	#thread (~14 ms per second): four different systems each ask it for up to
+	#8 candidates, on their own cooldowns, and a FAILED path is the dearest
+	#of all because it searches the whole reachable area before giving up --
+	#which is precisely what a village shooting at something behind a wall
+	#does, over and over.
+	#
+	#The answer is also thrown away as soon as either body has moved more
+	#than 3 blocks, so a soldier closing in on an enemy re-tests at once
+	#instead of waiting for this to expire. Raising it saves more CPU;
+	#lowering it makes a soldier notice a newly reachable enemy sooner.
+	#Default: 20 (1s)
+	#
+	#Range: 0 ~ 200
+	reachCacheTicks = 20
+	#How much a soldier holding a FIREARM adds to its side's combat
+	#strength, when a faction weighs an attack.
+	#Strength used to count only armour and health, so a garrison armed with
+	#muskets or rifles was rated exactly the same as the same men with
+	#nothing in their hands - an AI could not tell a small, superbly
+	#equipped village from a small, defenceless one, and would march on the
+	#first quite happily.
+	#For scale: an unarmoured recruit is worth about 1.4, a full-diamond one
+	#about 4.4. The default of 3.0 therefore makes a rifle roughly as
+	#significant as a full set of armour, which is about right for a weapon
+	#that kills at range before the melee even arrives.
+	#Covers musketmod, Warium and TACZ - including TACZ gun packs nobody
+	#has enumerated, because the test is the same one the Armory uses to
+	#decide whether a weapon needs unlocking. Default: 3.0
+	#
+	#Range: 0.0 ~ 20.0
+	firearmStrengthBonus = 3.0
+	#Multiplier on the strength a MELEE weapon contributes. Scales off the
+	#weapon's own damage bonus, so 0 for a wooden sword up to 4 for
+	#netherite; a bow or crossbow counts as 1.5.
+	#0 = go back to ignoring melee weapons entirely and judge a garrison on
+	#armour and health alone. Default: 0.35
+	#
+	#Range: 0.0 ~ 5.0
+	meleeStrengthScale = 0.35
+	#Reduce the damage that real players take from recruit NPCs. When
+	#disabled, players take full damage. Default: true
+	#
+	playerDamageReductionEnabled = true
+	#Multiplier applied to damage dealt to a player by a recruit using a
+	#melee weapon, bow or crossbow. 0.5 = players take half damage.
+	#Default: 0.5
+	#
+	#Range: 0.0 ~ 1.0
+	playerDamageFromRecruitsMult = 0.5
+	#Multiplier applied to damage dealt to a player by a recruit wielding a
+	#gun/musket (MusketMod weapons). 0.25 = players take a quarter of the
+	#damage. Default: 0.25
+	#
+	#Range: 0.0 ~ 1.0
+	playerDamageFromGunRecruitsMult = 0.25
+	#Cap the damage a real player can take from a SINGLE recruit hit to a
+	#fraction of the player's MAX health, so recruits can't one-shot a
+	#player (works with mods that raise max HP: the cap scales with the
+	#player's real max HP). Any damage above the cap is converted into
+	#knockback instead. This applies to ALL recruits including elites, so
+	#elites — which hit players harder — produce noticeably more knockback.
+	#Default: true
+	#
+	playerDamageHpCapEnabled = true
+	#Maximum damage a single recruit hit may deal to a player, as a
+	#fraction of the player's MAX health. 0.25 = at most 25% of max HP per
+	#hit (5 damage at 20 HP, 10 damage at 40 HP). The excess is turned into
+	#knockback. Default: 0.25
+	#
+	#Range: 0.01 ~ 1.0
+	playerDamageHpCapFraction = 0.25
+	#How strongly the damage that exceeds the HP cap is converted into
+	#knockback. This is a scale on the excess damage (excess * scale =
+	#knockback strength, clamped so it stays noticeable but never launches
+	#the player). Higher = more knockback per point of blocked damage.
+	#Default: 0.12
+	#
+	#Range: 0.0 ~ 1.0
+	playerDamageHpCapKnockback = 0.12
+	#Village workers (builder, miner, farmer, lumberjack, merchant, etc.)
+	#fight back when attacked, but they are FREE and are NOT counted as
+	#defenders when the village mounts an attack. To stop them acting like
+	#free extra soldiers, the damage they deal to recruits and real players
+	#is scaled down (see workerDamageMult). When disabled, workers deal full
+	#damage. Default: true
+	#
+	workerDamageReductionEnabled = true
+	#Multiplier applied to the damage a village worker deals to a recruit or
+	#a real player (melee or, if it ever wields one, ranged). 0.1 = workers
+	#do a tenth of their normal damage. Default: 0.1
+	#
+	#Range: 0.0 ~ 1.0
+	workerDamageMult = 0.1
+	#Soldiers never attack VILLAGERS. Workers are NOT covered and stay
+	#killable - a worker is a legitimate target, a shopkeeper is not.
+	#
+	#Without this, an assault kills a village's civilians before its
+	#garrison. The reason is not that anybody aims at them: the base mod puts
+	#every villager standing in a claim onto the OWNER FACTION'S scoreboard
+	#team (ClaimEvents.takeOverVillager), and this addon reads an entity's
+	#faction from exactly that team - so a villager in a village you are at
+	#war with looks, to the targeting, like an enemy soldier. The base mod
+	#already excludes villagers in its own attack rules; this restores the
+	#same rule on the addon's side.
+	#
+	#Nothing is lost by it: a siege is decided by the RECRUITS in the claim
+	#(the defender roster is recruit-only), so a village still falls when its
+	#soldiers do.
+	#
+	#Turn it off only if you want civilian casualties. Default: true
+	#
+	protectVillagers = true
+	#Soldiers do not HUNT workers - they only fight one that has attacked
+	#them first.
+	#
+	#A lumberjack, a miner or a merchant is still a legitimate casualty of
+	#war, unlike a villager (protectVillagers above), and one who defends
+	#himself is treated as the combatant he has just become. What this stops
+	#is an assault spreading out across the fields to cut down farmhands
+	#while the garrison holds the walls - neither the fight the attacker
+	#ordered nor one the defender can lose in any interesting way.
+	#
+	#It also keeps the workers' own alarm meaningful: they raise it, and the
+	#SOLDIERS answer it.
+	#
+	#The grudge lasts about five seconds - long enough to finish the exchange
+	#he started, short enough that one blow does not make him an objective
+	#for the rest of the war.
+	#
+	#Turn it off to have workers hunted like any other enemy. Default: true
+	#
+	workersOnlyIfAttacked = true
+	#In a battle or a siege, the soldiers around you are OUTLINED - your side
+	#in one colour, the enemy in another.
+	#
+	#A melee between two villages is a crowd of near-identical villagers in
+	#near-identical gear, and the player standing in it cannot tell who is on
+	#his side. Your OWN troops are outlined too, which is the case that needs
+	#it most: an escort you brought yourself, in a fight between two AI
+	#factions mobbing each other around you.
+	#
+	#Ally BLUE, enemy RED. If your own soldiers' UNIT COLOUR is red the two
+	#swap, so red still means the colour you already think of as yours.
+	#Villages you are at peace with are not coloured at all - they are not
+	#your quarrel.
+	#
+	#⚠️ Only while a battle or siege is actually being fought, and only for
+	#soldiers within highlightRadius of a player. Villagers are never
+	#outlined: they are not combatants (see protectVillagers), and marking
+	#them would put a target on the people that rule protects.
+	#
+	#The COLOUR is chosen on each player's own client, because "ally" depends
+	#on who is looking - two players on opposite sides of the same battle see
+	#the same soldier differently. That also means this option's colour
+	#behaviour follows each player's own config file.
+	#Default: true
+	#
+	combatHighlight = true
+	#How far from a player soldiers are outlined during a fight, in blocks.
+	#
+	#This bounds the cost: only players near the fighting are looked at, and
+	#only soldiers near THEM are marked - a battlefield can hold two dozen
+	#men and a siege far more, and lighting all of them would mark soldiers
+	#nobody can see.
+	#
+	#Raising it does NOT make the outlines cost more to draw: the game only
+	#renders an outline for what is actually on screen. What it costs is the
+	#effect being applied to more entities each pass.
+	#Default: 48
+	#
+	#Range: 0 ~ 256
+	highlightRadius = 48
+	#Remove the post-hit invulnerability ("i-frames") for recruit NPCs so
+	#they can be hit in rapid succession, making battles more realistic and
+	#lethal. Real players keep their normal i-frames so they are not killed
+	#instantly. Default: true
+	#
+	recruitNoInvulnFrames = true
+	#How long (in ticks) a player stays HOSTILE to a village faction after
+	#hitting one of its recruits OR one of its VILLAGERS. While hostile, that
+	#faction's recruits retaliate and defend against the player (the whole
+	#garrison, not just the one that was hit). A player who never attacks is
+	#NOT engaged, so they can still walk up to the village center to join the
+	#faction. Hostility is per-faction (attacking village A does not stop you
+	#joining village B) and refreshes on every further hit. Hitting a
+	#villager only marks you hostile - it does not call the garrison over,
+	#so a misclick does not start a battle. Members and allies of the owning
+	#faction, and players in creative/spectator, are never marked.
+	#20 ticks = 1 second.
+	#Default: 2400 (2 min)
+	#
+	#Range: 20 ~ 1728000
+	retaliationDurationTicks = 2400
+	#How far (blocks) from a village center its garrison DETECTS and RESPONDS to
+	#enemies. Used consistently by squad enemy-scanning, the small-village group
+	#attack coordinator, and worker alerts, so the whole village (roads, plots,
+	#workers out to this radius) is defended. Should be at least the village's
+	#radius (see maxCityRadius). Bigger = more responsive big villages but slightly
+	#larger periodic enemy scans. Default: 120
+	#
+	#Range: 24.0 ~ 400.0
+	garrisonDefenseRadius = 120.0
+	#HOLD-THE-LINE: when a squad's threat is out near the village edge (past the
+	#engage radius but still inside the chase leash), the squad does NOT charge out
+	#to it. Instead it rallies at a point between the enemy and the village center
+	#(holdRadiusFraction out) and WAITS, baiting the enemy to come in; it only
+	#charges once the enemy crosses the engage radius, OR immediately if a held
+	#soldier is actually taking fire. Combined with the chase leash, this stops a
+	#fleeing/kiting enemy from dragging the whole garrison out of town. Default: true
+	#
+	holdBaitEnabled = true
+	#Bait only THINKING enemies. Holding the line and waiting is an answer to
+	#KITING: an enemy that backs off on purpose to drag the garrison out of town
+	#— an enemy faction's recruits (swordsman, shieldman, bowman, ...) or a
+	#player. A zombie does none of that: it walks at the nearest thing it can see
+	#and, if it cannot reach it (a drop, water, a wall), it just stands there —
+	#so the garrison formed up and waited for an approach that was never coming.
+	#With this on, a threat zone made only of hostile MOBS is charged whatever
+	#its distance from the center; the chase leash (chaseLeashFraction) still
+	#caps how far a soldier can be pulled, so nothing is really given up. A MIXED
+	#zone (a mob standing with enemy soldiers) counts as a thinking enemy — that
+	#is precisely the case the bait exists for. Set to false to bait everything,
+	#mobs included (the old behaviour). Default: true
+	#
+	holdBaitOnlyVsRecruits = true
+	#Inner engage radius as a FRACTION of garrisonDefenseRadius. An enemy within
+	#this distance of the center is charged normally; between here and the chase
+	#leash the squad HOLDS/baits (see holdBaitEnabled). Default: 0.5 (~60 blocks
+	#at the default garrison radius of 120).
+	#
+	#Range: 0.1 ~ 1.0
+	engageRadiusFraction = 0.5
+	#Where the squad forms up while baiting, as a FRACTION of garrisonDefenseRadius:
+	#the rally point sits this far out from the center along the line toward the
+	#enemy (a forward picket). Should be >= engageRadiusFraction and < 1.0.
+	#Default: 0.7 (~84 blocks at the default garrison radius).
+	#
+	#Range: 0.1 ~ 1.5
+	holdRadiusFraction = 0.7
+	#Hard chase leash as a FRACTION of garrisonDefenseRadius: an enemy farther than
+	#this from the village center is dropped entirely (no threat zone forms, targets
+	#are cleared) so soldiers can never be kited/lured beyond it. Should be >= 1.0.
+	#Default: 1.3 (~156 blocks at the default garrison radius).
+	#
+	#Range: 1.0 ~ 3.0
+	chaseLeashFraction = 1.3
+	#If a MELEE soldier chases the same enemy for this many ticks without ever
+	#reaching melee range (a kiting ranged enemy, an enemy on a ledge/over water it
+	#cannot path to) AND without closing the gap, it breaks off and returns to its
+	#rally/center instead of trailing forever. 20 ticks = 1 second. Default: 100 (5 s)
+	#
+	#Range: 20 ~ 100000
+	chaseGiveupTicks = 100
+	#When an enemy RECRUIT (a hostile faction soldier, NOT a random mob) is detected
+	#within garrisonDefenseRadius of a village center, all of that village's workers
+	#EXCEPT miners drop their job and rush to the center (faster than their normal
+	#work pace), holding there until no enemy recruits remain, then return to work.
+	#Miners keep working underground. Default: true
+	#
+	workerEvacuateEnabled = true
+	#Movement speed multiplier used while a worker is rushing to the center to take
+	#cover (their normal work pace is ~0.8-1.0, so keep this above that to make the
+	#evacuation visibly faster than normal). Default: 1.5
+	#
+	#Range: 1.0 ~ 3.0
+	workerEvacuateSpeed = 1.5
+	#When a village comes under ATTACK (a siege begins on its claim), instantly
+	#RECALL its whole NPC garrison to the center: every group member is teleported
+	#next to the center and DROPS its previous target, so soldiers lured away or
+	#scattered on patrol snap home to defend the center instead of being picked off
+	#in the open. Members already sent off to attack another village are not recalled.
+	#Default: true
+	#
+	recallOnAttackEnabled = true
+	#Radius (blocks) of the ring around the center on which recalled soldiers are
+	#placed. Small so they hold TIGHT around the center; the normal defense AI then
+	#re-engages the attackers standing on the claim. Default: 8
+	#
+	#Range: 2.0 ~ 60.0
+	recallRadius = 8.0
+	#Village faction soldiers never wander off to sleep in a bed. In the base
+	#Recruits mod a hurt/low-morale recruit leaves its post at night to find a
+	#bed (RestGoal); for a standing garrison that means the walls empty out at
+	#night. With this on, faction SOLDIERS stay on duty 24/7 (nobles/traders and
+	#player-owned recruits are unaffected). See soldierPassiveRegen for how they
+	#recover HP/morale instead. Default: true
+	#
+	soldierNoSleep = true
+	#Since no-sleep soldiers can no longer heal in a bed, let them slowly heal
+	#HP and recover morale over time while OUT of combat (no target, not part of
+	#an attack party). Keeps the garrison battle-ready without beds. Default: true
+	#
+	soldierPassiveRegen = true
+	#How often (ticks) an out-of-combat soldier heals soldierRegenAmount HP and a
+	#little morale. 20 ticks = 1 second. Default: 40 (every 2 s)
+	#
+	#Range: 5 ~ 100000
+	soldierRegenIntervalTicks = 40
+	#HP restored per regen interval to an out-of-combat soldier. Default: 1.0
+	#
+	#Range: 0.0 ~ 100.0
+	soldierRegenAmount = 1.0
+	#Ranged soldiers (bow/crossbow/musket) fight from afar instead of charging
+	#into melee. When the squad manager drives a fight, a ranged unit stops
+	#advancing once it is within rangedKeepDistance of its target (and backs off
+	#if the enemy closes in), leaving the actual shooting to its own ranged
+	#attack goal. Default: true
+	#
+	rangedKeepDistanceEnabled = true
+	#Preferred distance (blocks) a ranged soldier keeps from its target while
+	#fighting under squad control. It holds ground between about half this and
+	#this distance, and retreats if the enemy gets closer than half. Default: 10
+	#
+	#Range: 3.0 ~ 40.0
+	rangedKeepDistance = 10.0
+	#A ranged soldier whose shot is BLOCKED (a wall, a house corner, a tree, the
+	#wrong side of a drop) looks for a spot around its target with a clear line of
+	#fire instead of standing there shooting the wall. If it finds no such spot
+	#within this many ticks it gives up on shooting and closes in like any other
+	#soldier (which then falls under chaseGiveupTicks and the return home), so it
+	#never freezes with a target it cannot hit. 20 ticks = 1 second. Default: 100 (5 s)
+	#
+	#Range: 20 ~ 100000
+	rangedLosGiveupTicks = 100
+	#SUPPRESSING THE LAST SEEN POSITION. When a ranged soldier loses sight of its
+	#target it holds its ground and keeps the spot it last saw the enemy in covered,
+	#for this many ticks, before it starts hunting for a new firing spot (see
+	#rangedLosGiveupTicks) or gives up and closes in.
+	#An enemy that ducks behind a corner is usually about to come back out of it, so
+	#leaving the firing line the instant it disappears is exactly wrong. It also
+	#matters for TACZ: that addon's suppressive-fire goal only runs WITHOUT line of
+	#sight and aims at the last known position, and our movement code used to drag
+	#the shooter away mid-burst.
+	#The soldier only holds when it really could put rounds on that spot - a
+	#remembered position behind a wall is skipped immediately - so archers and
+	#musketeers, which have no blind-fire goal at all, never stand around doing
+	#nothing.
+	#The give-up timer starts AFTER this window: the two waits are consecutive, not
+	#overlapping. 20 ticks = 1 second. 0 disables it. Default: 200 (10 s)
+	#
+	#Range: 0 ~ 24000
+	rangedSuppressionTicks = 200
+	#The same suppression window, for a soldier holding a SQUAD AUTOMATIC
+	#(a belt-fed weapon: TACZ's own MG classification).
+	#
+	#Keeping a position under fire so nobody can move through it is what a
+	#machine gun is FOR, so it holds far longer than a rifleman does - ten
+	#seconds is a burst, thirty is suppression. Everything else about the
+	#behaviour is identical: it still needs a recent sighting of the SAME
+	#enemy, a line of fire to the remembered spot, and to be inside the firing
+	#band, so a gunner never stands blazing at a wall.
+	#
+	#Only TACZ ships belt-fed weapons, so this has no effect with Warium or
+	#musketmod. 0 disables suppression for machine gunners specifically.
+	#Default: 600 (30 s)
+	#
+	#Range: 0 ~ 12000
+	rangedSuppressionTicksAutomatic = 600
+	#A recruit holding a TACZ gun SEES through the cover its bullets go through.
+	#Every shooting decision in the game asks hasLineOfSight, which is stopped by
+	#leaves, fences and glass - none of which stop a TACZ bullet. So a rifleman
+	#behind a tree was judged blind: the aimed-fire goal stood down and the
+	#INACCURATE suppression burst took over, our squads decided he had no line of
+	#fire and eventually charged him into melee, and he never acquired targets
+	#through foliage at all.
+	#What counts as see-through is asked of TACZ itself, live: its bullet_ignore
+	#block tag (iron bars, fences, fence gates and leaves as shipped), its
+	#PassThroughBlocks config list, and glass/panes/bars while its DestroyGlass
+	#option is on. Editing the TACZ config or a datapack therefore moves this with
+	#it, and nothing is assumed on our side.
+	#Only TACZ guns: arrows, muskets and Warium rounds are stopped by leaves like
+	#anything else, and telling those troops otherwise would leave them shooting a
+	#hedge forever.
+	#Costs nothing when the shot is already clear or genuinely walled off.
+	#false = recruits are as blind as vanilla. Default: true
+	#
+	bulletSightThroughCover = true
+	#HOLD-THE-LINE escalation from SUSTAINED FIRE. With holdBaitEnabled a threat
+	#sitting between engageRadius and the chase leash is only baited: the squad
+	#waits and just the archers shoot at it. That posture escalates when a soldier
+	#is HIT (takingFire) — but archers plinking from the line are never hit, so an
+	#enemy that never advances was shot at forever while the rest of the garrison
+	#stood by and the village never reacted. If our own ranged soldiers have been
+	#firing at the same threat for this many ticks, the zone turns hot and the
+	#whole group charges it, exactly as if it had drawn blood. 20 ticks = 1 second.
+	#Set to 0 to disable the escalation (pure bait posture). Default: 60 (3 s)
+	#
+	#Range: 0 ~ 24000
+	rangedSustainedFireTicks = 60
+	#Rescue soldiers that fall into a cave/hole while patrolling. A managed
+	#soldier that is stuck (no horizontal progress) AND more than
+	#stuckBelowSurface blocks below the village surface for stuckTimeoutTicks is
+	#first given a chance to climb out (see the climb system); if it is still
+	#stuck it is hard-teleported back to its squad zone. Other soldiers never
+	#path down toward a fallen member. Default: true
+	#
+	stuckRecoveryEnabled = true
+	#How many blocks below the village surface a patrolling soldier must be to
+	#count as "fallen into a hole" for stuck recovery. Default: 4
+	#
+	#Range: 2 ~ 64
+	stuckBelowSurface = 4
+	#How long (ticks) a soldier must be stuck below the surface before it is
+	#teleported back to its squad. 20 ticks = 1 second. Default: 200 (10 s)
+	#
+	#Range: 20 ~ 100000
+	stuckTimeoutTicks = 200
+	#How long (ticks) a soldier must stay in water before it is rescued: a
+	#soldier swimming in circles in a river or a lake is stuck, not patrolling.
+	#A patrolling soldier is teleported back to its squad zone / village center;
+	#a soldier marching to attack another village is instead put on the nearest
+	#road or bridge (falling back to the nearest dry land), so the assault is not
+	#cancelled. Having a target does NOT protect a soldier (swimming forever
+	#after an enemy it never reaches is exactly the case to break) -- only
+	#actually trading blows does, see 'stuckWaterCombatGraceTicks'. Soldiers
+	#riding or being carried are never affected.
+	#On dry land the counter drains at half the rate it fills, so a ford is
+	#harmless but a soldier bobbing in and out of a lake edge is still rescued.
+	#20 ticks = 1 second. 0 disables the water rescue. Default: 200 (10 s)
+	#
+	#Range: 0 ~ 100000
+	stuckWaterTimeoutTicks = 200
+	#How recently (ticks) a soldier must have DEALT or TAKEN a hit for the water
+	#rescue above to leave it alone. Ranged hits and shield-blocked hits count.
+	#A soldier really fighting in the water is never pulled out of the fight;
+	#one that only keeps a target it cannot reach is.
+	#20 ticks = 1 second. 0 makes the water rescue ignore combat entirely.
+	#Default: 100 (5 s)
+	#
+	#Range: 0 ~ 100000
+	stuckWaterCombatGraceTicks = 100
+	#Apply the water rescue above to the recruits a PLAYER hired as well, not
+	#only to village soldiers. Same conditions (stuckWaterTimeoutTicks plus the
+	#combat grace), but the destination is where that recruit was told to be:
+	#the position it was ordered to move to, the entity it protects, its owner
+	#when following, or its hold position -- falling back to the nearest dry
+	#land. It always lands on dry, standable ground and never inside a block.
+	#A recruit whose owner (or the entity it protects) is swimming or boating
+	#nearby is never pulled out: that swim is an order, not a snag.
+	#The cave/hole rescue is NEVER applied to a player's recruits -- a player
+	#may legitimately send them down a ravine or a mine.
+	#Default: true
+	#
+	stuckWaterRescuePlayerRecruits = true
+	#Village workers (lumberjack, miner, farmer, shepherd, rancher, builder) raise
+	#the alarm for their faction when they are attacked or spot an enemy nearby, so
+	#the garrison/nearest squad converges to defend them. Default: true
+	#
+	workerAlertEnabled = true
+	#Radius (blocks) around an attacked/threatened worker in which a faction enemy
+	#triggers the alarm and within which its own garrison is called to respond.
+	#Default: 24
+	#
+	#Range: 4.0 ~ 128.0
+	workerAlertRadius = 24.0
+	#When a recruit is what provoked a creeper (the creeper is targeting a recruit,
+	#or a recruit was the last mob to hurt it), its explosion does NO block damage
+	#— so recruits fighting creepers around a village don't crater the builds and
+	#terrain. Entity damage is unchanged (the creeper still hurts what it hits).
+	#Applies everywhere, not only inside claims. Default: true
+	#
+	creeperBlockDamageSuppress = true
+	#Heavily reduce the knockback recruits receive from ALL attacks, so they
+	#hold their ground in battle. The reduction is skipped while a recruit is
+	#climbing a wall (so it is not shaken off the ladder). Default: true
+	#
+	recruitKnockbackReductionEnabled = true
+	#Multiplier applied to knockback strength taken by recruits. 0.05 = they
+	#only feel 5% of the normal knockback. 1.0 = normal.
+	#
+	#Knockback still EXISTS at this value - it is meant to be felt as a small
+	#stagger rather than as a shove. A line that is pushed apart by every blow
+	#cannot hold a wall or a gate, and archers behind it end up shooting their
+	#own men in the back.
+	#
+	#⚠️ WAS 0.15 BEFORE 1.0.7.93TC-145. A config file that already exists keeps
+	#whatever it was given - Forge never rewrites a key that is already there -
+	#so an established world does NOT pick this up. Set it by hand, or use
+	#/vrconfig reset military confirm (which resets every other key in
+	#military.toml too).
+	#
+	#Default: 0.05
+	#
+	#Range: 0.0 ~ 1.0
+	recruitKnockbackMultiplier = 0.05
+	#Upward "hop" applied to a recruit when it is hit while standing on the
+	#ground. The horizontal knockback stays reduced (recruitKnockbackMultiplier)
+	#so they hold their ground. 0.4 ~= vanilla's full vertical knockback,
+	#0.0 = no hop at all.
+	#
+	#Kept just above zero rather than at zero: a hit that moves a soldier not
+	#at all reads as the blow having missed, and the tiny lift is the only
+	#feedback a melee line gives that it is being worked on. It is small
+	#enough that nobody is lifted out of a formation.
+	#
+	#⚠️ WAS 0.4 BEFORE 1.0.7.93TC-145 - a bounce big enough to throw men out of
+	#a line. A config file that already exists keeps whatever it was given -
+	#Forge never rewrites a key that is already there - so an established world
+	#does NOT pick this up. Set it by hand, or use
+	#/vrconfig reset military confirm (which resets every other key in
+	#military.toml too).
+	#
+	#Default: 0.05
+	#
+	#Range: 0.0 ~ 1.0
+	recruitKnockbackVertical = 0.05
+	#A ranged recruit STANDS STILL while it draws, charges or reloads, and
+	#moves at reduced speed for a moment after the shot.
+	#
+	#Without it archery costs nothing: a bowman walks, flees and chases at
+	#full speed with the string back, so there is no moment at which a charge
+	#can punish him and no reason to bring anything else. The draw is now the
+	#commitment.
+	#
+	#Applies to bows, crossbows and muskets - anything worked through the
+	#vanilla "using an item" state - and so covers a bowman, a crossbowman and
+	#a nomad alike.
+	#
+	#MODERN FIREARMS (TACZ, Warium) are deliberately NOT affected. What this
+	#models is HANDLING, and the weapons genuinely differ: a longbow needs a
+	#static stance and the whole body to draw, a musket needs powder, ball and
+	#ramrod - which is why drill manuals put ranks at a halt to do it - and a
+	#magazine change is routine on the move. A rifleman keeping his feet while
+	#reloading is the reason this rule exists, not a hole in it: it is what
+	#makes a medieval line commit to its ground and a modern one not have to.
+	#
+	#false = the old behaviour, shooters move freely at all times.
+	#Default: true
+	#
+	rangedDisciplineEnabled = true
+	#How long a shooter moves at reduced speed after loosing a shot.
+	#20 ticks = 1 second.
+	#
+	#It ends early when he starts to draw again (by then he is rooted anyway,
+	#so the two rules never fight) and when he switches to a MELEE weapon - a
+	#man who has decided to close is no longer an archer and should not be
+	#walking like one.
+	#
+	#MOUNTED shooters are exempt from this part. A nomad is a bowman on a
+	#horse and the horse is the entire reason the unit exists; slowing him
+	#after every shot would delete it rather than balance it. He is still
+	#rooted while actually drawing.
+	#
+	#0 = no recovery penalty, only the rooting. Default: 20
+	#
+	#Range: 0 ~ 200
+	rangedRecoverTicks = 20
+	#Share of its normal speed a shooter keeps during rangedRecoverTicks.
+	#0.5 = half speed. 1.0 = no penalty. 0.0 = rooted for the whole recovery.
+	#Default: 0.5
+	#
+	#Range: 0.0 ~ 1.0
+	rangedRecoverSpeed = 0.5
+	#How long a HORSEMAN or NOMAD stays in water before he gives up the horse.
+	#20 ticks = 1 second.
+	#
+	#A horse is buoyant, so a mounted recruit who walks into deep water is
+	#pushed up and falls back for ever - the horse visibly bobs - and neither
+	#the mount nor the rider can get out of it, because a passenger issues no
+	#movement of his own. The pair floats there for the rest of the save.
+	#
+	#When this runs out the rider dismounts, wades to the nearest dry footing
+	#(see mountWaterBailShoreRadius) and fights on foot. The horse is removed,
+	#because leaving it behind leaves the bobbing horse this exists to fix -
+	#EXCEPT a horse belonging to a player, which is only dismounted, never
+	#deleted.
+	#
+	#0 = off: mounted recruits stay on their horses in water. Default: 100 (5 s)
+	#
+	#Range: 0 ~ 12000
+	mountWaterBailTicks = 100
+	#How far (blocks) a recruit dismounting in water looks for dry footing.
+	#Kept SMALL on purpose: this is wading ashore, not a rescue, and a
+	#generous radius would teleport a man across the river he was supposed to
+	#be stopped by. Finding no bank leaves him swimming, which he can do -
+	#being on the horse is the thing that stopped him.
+	#
+	#Cost is the cube of this number in block reads, once, when a mount times
+	#out. Default: 6
+	#
+	#Range: 2 ~ 16
+	mountWaterBailShoreRadius = 6
+	#A recruit that strikes while FALLING lands a critical hit, on the same
+	#conditions and for the same 1.5x damage a player's crit uses (falling,
+	#off the ground, not on a ladder, not in water, not blinded, not riding,
+	#not sprinting).
+	#
+	#This is a rule about the world rather than about a unit: a man who drops
+	#off a wall onto your head has done the thing crits exist to reward, and it
+	#would be strange for that to work only when a player does it. It also
+	#gives terrain a say in an assault - attacking downhill or off a rampart is
+	#worth something.
+	#
+	#Workers never crit. Default: true
+	#
+	recruitCritsEnabled = true
+	#ELITES, village LEADERS and named COMPANIONS (Reve, HEROBRINE) jump in
+	#melee to earn the falling crit above. HEROBRINE's summons do NOT, and
+	#neither does any ordinary soldier.
+	#
+	#A jump is a real cost - it gives up the ground, and a man in the air is
+	#not blocking - so handing it to every recruit would turn every melee in
+	#the world into a hopping match. Giving it to the units that are already
+	#meant to feel dangerous is what makes an elite read as a better FIGHTER
+	#rather than as a bigger health bar.
+	#
+	#Requires recruitCritsEnabled. Default: true
+	#
+	recruitCritJumpEnabled = true
+	#The melee swing interval the jump is timed against, in ticks.
+	#
+	#There is no "about to swing" hook on a mob, so the jump is timed off the
+	#PREVIOUS landed blow: a jump takes about six ticks to reach its apex, so
+	#leaving the ground shortly before the next swing is due puts the recruit
+	#on the way down as it lands. This must match the melee attack interval of
+	#the recruits mod (20 ticks = 1 second) or the jumps land out of step and
+	#simply stop producing crits.
+	#
+	#Raise it if a content mod slows melee swings down. It changes WHEN they
+	#jump, never how hard they hit. Default: 20
+	#
+	#Range: 4 ~ 200
+	recruitCritJumpInterval = 20
+	#A recruit armed with a bow, a crossbow or a musket fights hand to hand
+	#with the SWORD or AXE in its pack instead of clubbing with the gun,
+	#when an enemy is close enough to hit it.
+	#
+	#The base mod already draws the blade - its melee goal does it the
+	#moment the fight closes - but each of the three ranged goals puts the
+	#gun back into the hand on the very next tick, from inside the question
+	#"should I be shooting?". They win every tick, so a musketeer with a
+	#sword AND an axe in his pack still beat people with the musket, and a
+	#shooter never appeared to draw the shield breaker either. This lets go
+	#of the hand while the enemy is in reach, and takes it back the moment
+	#he is not.
+	#
+	#Only applies to a recruit that HAS a sword or an axe to draw: an archer
+	#with nothing else in his pack keeps exactly the behaviour he had, or
+	#suppressing his bow would take his weapon away and give him nothing. A
+	#musket WITH A BAYONET needs no rule and is untouched - it is already a
+	#melee weapon and the melee goal is happy to keep it.
+	#
+	#Set false to go back to clubbing.
+	#Default: true
+	#
+	meleeDrawEnabled = true
+	#A recruit carrying a shield-breaking weapon (an axe, or anything listed
+	#in armory.shieldbreakerItems / the village_recruits:shield_breakers tag)
+	#DRAWS it when its target is blocking with a shield, and puts it away
+	#again afterwards.
+	#
+	#The weapon is carried in the pack, so it costs a soldier nothing in
+	#fighting strength - unlike the old behaviour, where one recruit in three
+	#carried an axe as its primary weapon and fought its whole war with the
+	#worse weapon to be ready for a moment that might never come.
+	#
+	#ANY recruit with a breaker in its pack does this, whoever gave it to
+	#them; only the BUYING of one is a village matter (see
+	#armory.autoGearShieldbreakerOneIn).
+	#
+	#Default: true
+	#
+	shieldBreakerSwitchEnabled = true
+	#Minimum ticks between drawing the shield breaker, and how long a target
+	#must go WITHOUT blocking before it is put away again. 20 ticks = 1s.
+	#
+	#⚠️ This is the bound on a real exploit, not a tuning knob for feel. A
+	#shield can be raised and lowered as fast as a player likes, and drawing a
+	#weapon interrupts the swing it was in the middle of - so without a limit,
+	#flicking an offhand shield on and off would stop a soldier ever landing a
+	#blow. At the default a player toggling his shield can cost a recruit at
+	#most one swing every five seconds.
+	#
+	#It is also why the axe is not put away the instant a shield drops: a man
+	#who toggles keeps meeting the axe (he plainly has a shield), while a man
+	#whose shield actually broke stops blocking for good and sees the sword
+	#come back after this long.
+	#
+	#Lower it and the switch becomes more responsive AND more abusable.
+	#Default: 100 (5s)
+	#
+	#Range: 20 ~ 1200
+	shieldBreakerSwitchTicks = 100
+	#A recruit holding a shield breaker CHOPS at a raised guard instead of
+	#waiting for a full swing - the same trade a player makes against a
+	#shield: many fast blows, each for a fraction of its damage, every one of
+	#which can still disable the shield.
+	#
+	#Without it a mob has no such option at all. It has no attack-strength
+	#ticker: the melee goal swings on a fixed interval, always at full damage,
+	#and nothing can make it come sooner - so a recruit facing a shield stood
+	#hitting it once a second and having the whole blow absorbed. That is what
+	#made a shield wall feel unanswerable even after the village had bought
+	#axes for it.
+	#
+	#⚠️ It fires ONLY while the target is actually blocking AND the recruit
+	#holds a shield breaker, and that is load-bearing rather than fussy: a
+	#partial-charge flurry is a raw damage GAIN against an unarmoured target,
+	#so letting it happen generally would turn every melee in the world into a
+	#spam-fest. Against a raised shield nearly all of it is absorbed and what
+	#it actually buys is the disable.
+	#
+	#Default: true
+	#
+	shieldBreakerFlurryEnabled = true
+	#How far a flurry blow is charged, 0.1 = 10%.
+	#
+	#It sets both halves of the trade at once, exactly as it does for a
+	#player. The blows come one per this share of a normal swing (0.1 = ten
+	#times as often) and each lands for vanilla's own attack-strength curve,
+	#0.2 + charge^2 * 0.8 - so at 0.1 a blow does about a fifth of its damage.
+	#
+	#1.0 = ordinary full-strength swings, i.e. no flurry.
+	#Default: 0.1
+	#
+	#Range: 0.05 ~ 1.0
+	shieldBreakerFlurryCharge = 0.1
+	#Protect every recruit (Workers included) from player-PvP explosion
+	#tactics based on end crystals and invalid respawn explosions. Disable
+	#this to restore vanilla damage and knockback for those sources.
+	#Default: true
+	#
+	recruitCrystalProtectionEnabled = true
+	#End-crystal and respawn-anchor damage taken by recruits is divided by
+	#this number. 25 means 25x less damage; 1 means normal damage. Vanilla
+	#represents exploding beds and respawn anchors with the same
+	#bad-respawn-point damage type, so this protection necessarily covers
+	#both. Default: 25
+	#
+	#Range: 1.0 ~ 1000.0
+	recruitCrystalDamageDivisor = 25.0
+	#Completely remove the velocity imparted to recruits by protected
+	#end-crystal / bad-respawn-point explosions. This is separate from the
+	#general recruit knockback multiplier because vanilla explosions write
+	#velocity directly instead of firing LivingKnockBackEvent. Default: true
+	#
+	recruitCrystalNoKnockback = true
+	#Clean up Corpse-mod bodies created for dead recruits. Only recruit
+	#corpses are touched; player corpses are never touched. Default: true
+	#
+	recruitCorpseCleanupEnabled = true
+	#Lifetime of a recruit corpse outside this addon's villages and outside
+	#active battles. 20 ticks = 1 second. Default: 3000 (2 min 30 s)
+	#
+	#Range: 20 ~ 720000
+	recruitCorpseDespawnTicks = 3000
+	#Minimum lifetime of a recruit corpse inside a Village Recruits Addon
+	#village while no battle is active. Each corpse receives a stable time
+	#between this and recruitCorpseVillageMaxTicks, preventing a simultaneous
+	#cleanup spike. Default: 200 (10 s)
+	#
+	#Range: 20 ~ 720000
+	recruitCorpseVillageMinTicks = 200
+	#Maximum randomized lifetime inside an addon village with no battle.
+	#Values below recruitCorpseVillageMinTicks are clamped to the minimum at
+	#runtime. Default: 300 (15 s)
+	#
+	#Range: 20 ~ 720000
+	recruitCorpseVillageMaxTicks = 300
+	#Corpses retained in each active field battle or contested addon village.
+	#Once a fight exceeds this count, only its oldest excess corpses become
+	#eligible for staggered cleanup. Default: 100
+	#
+	#Range: 0 ~ 10000
+	recruitCorpseBattleLimit = 100
+	#Maximum recruit corpses removed per level per second. This budget covers
+	#normal expiry and battle overflow together, preventing mass-death cleanup
+	#from becoming a lag spike. Default: 4
+	#
+	#Range: 1 ~ 100
+	recruitCorpseCleanupPerPass = 4
+	#Should a recruit holding his shield TURN to face whoever is shooting
+	#him?
+	#Minecraft only blocks damage arriving from the direction the blocker is
+	#facing, so a recruit with his shield up and his back to an archer takes
+	#every arrow in full - the shield looks raised and does nothing. Turning
+	#him is what makes it work at all.
+	#Turn this off only if you want the shield to be purely a matter of
+	#where his own AI happens to be looking.
+	#Default: true
+	shieldFaceShooter = true
+	#How long after being hit a recruit keeps facing his attacker while
+	#blocking, in ticks (20 = 1 second).
+	#Long enough to bridge an archer reload, short enough that he does not
+	#keep his back to a live fight because somebody shot him once.
+	#Default: 100 (5 seconds)
+	#Range: 1 ~ 12000
+	shieldFaceMemoryTicks = 100
+	#How long a recruit keeps his shield up after the reason for raising
+	#it went away, in ticks (20 = 1 second).
+	#This fixes a base-mod behaviour: a recruit raises his shield while an
+	#enemy is DRAWING a bow, and the archer stops using the bow the very
+	#instant he shoots - so the shield came down on the same tick the
+	#arrow left the string. He blocked the draw, which is harmless, and
+	#stood unguarded for the flight, which is the part that hurts.
+	#20 covers an arrow crossing about sixty blocks.
+	#
+	#DEFAULT 0 (OFF). It is off because holding a shield and eating are the
+	#same hand: while the guard is up the recruit cannot eat, and a recruit
+	#who cannot eat cannot heal. In a long fight the base mod raises the
+	#shield again the moment it wants to and this re-holds each time it
+	#drops, so a soldier can end up inside a hold nearly all the time. A
+	#hungry recruit is now released immediately whatever this is set to, but
+	#the trade is real and the safe side of it is off.
+	#Default: 0
+	#Range: 0 ~ 200
+	shieldHoldTicks = 0
+
+[food]
+	#RECRUITS EAT LIKE PLAYERS.
+	#
+	#The base mod gives a recruit one number, hunger (0-100), which drains on a
+	#clock and above 70 grants a free 0.4 HP/s trickle. Food therefore buys
+	#PERMISSION to heal rather than the healing itself, and permission is nearly
+	#free: one loaf holds a man over the line for thirteen minutes, which is
+	#some three hundred hit points out of a single piece of bread. Nothing an
+	#army could do would run it out of supplies, so nothing it did needed
+	#supplying.
+	#
+	#With this on, food is a CURRENCY SPENT PER HIT POINT, exactly as it is for
+	#a player: healing costs exhaustion, exhaustion drains saturation and then
+	#hunger, and one HP costs about 7.5 hunger. A loaf is worth roughly seven
+	#hit points. Nobody heals from a quarter health to full on one full belly,
+	#and an army at war eats.
+	#
+	#Turning this OFF restores the base mod's model completely - the free
+	#trickle, the clock drain and the morale Regeneration all come back.
+	#Default: true
+	#
+	foodModelEnabled = true
+	#Hunger needed for SLOW regeneration (1 HP per 4 s). Vanilla's 18/20 on the
+	#recruit's 0-100 scale. FAST regeneration (1 HP per 0.5 s) additionally
+	#needs a completely full belly and some saturation left, which is vanilla's
+	#rule and is why a well-fed soldier recovers so much faster than a fed one.
+	#Default: 90
+	#
+	#Range: 0 ~ 100
+	regenHungerGate = 90
+	#Exhaustion charged per HP regenerated. Vanilla's 6.0; at 4 exhaustion per
+	#food point and 5 hunger per point that is 7.5 hunger per hit point.
+	#LOWER = food goes further and battles cost less. Default: 6.0
+	#
+	#Range: 0.0 ~ 100.0
+	exhaustionPerHeal = 6.0
+	#Exhaustion per landed melee blow. Vanilla's 0.1. Default: 0.1
+	#Range: 0.0 ~ 100.0
+	exhaustionPerAttack = 0.1
+	#Exhaustion per wound taken. Vanilla's 0.1. Default: 0.1
+	#Range: 0.0 ~ 100.0
+	exhaustionPerDamage = 0.1
+	#Exhaustion per jump. Vanilla's 0.05. Default: 0.05
+	#Range: 0.0 ~ 100.0
+	exhaustionPerJump = 0.05
+	#Exhaustion per block WALKED. Vanilla charges a player nothing for walking
+	#(only sprinting, and nothing in this mod sets a recruit sprinting), so the
+	#default is 0 and an army only eats when it FIGHTS: a garrison at peace
+	#costs nothing forever, and an offline village needs no marching accounts.
+	#
+	#Raise it if you want supply lines to matter - at 0.01 a recruit spends one
+	#food point every 400 blocks marched, so a long campaign has a cost.
+	#Default: 0.0 (marching is free)
+	#
+	#Range: 0.0 ~ 10.0
+	exhaustionPerBlockWalked = 0.0
+	#A recruit at zero hunger takes starvation damage, as a player does. It will
+	#not kill outright - damage stops at half a heart, so a starving soldier is
+	#crippled and useless rather than dead, and feeding him brings him back.
+	#Default: true
+	#
+	starvationEnabled = true
+	#How many food items a soldier is kept topped up to. Under the player model
+	#a ration is real: roughly 2 bread per retreat-and-heal, so 5 is about two
+	#and a half recoveries before he needs resupply.
+	#
+	#WARNING: every top-up in the mod used to fire only when a pack was
+	#COMPLETELY EMPTY and then hand over a single item, which under paid healing
+	#leaves every soldier permanently one bite from nothing. They now top up
+	#whenever they are BELOW this floor. Default: 5
+	#
+	#Range: 0 ~ 64
+	rationFloor = 5
+	#Food units a NEW village is founded with, credited once to its food_grain
+	#stock (1 unit = 1 bread). A starting village of 16 villagers that arms 8 of
+	#them spends 40 on first rations alone, so two stacks give it a war or two
+	#of margin while its wheat farm gets built.
+	#
+	#Granted ONCE per faction and remembered on the faction record, so a world
+	#reload does not re-gift it. Default: 128
+	#
+	#Range: 0 ~ 100000
+	startingFoodStock = 128
+	#Food units an OFFLINE village spends per economy cycle for every 10 recruits
+	#it has. An unloaded village has no entities to hand bread to, so this is the
+	#abstract stand-in for the ration top-ups a loaded one actually pays - both
+	#scale with the size of the army.
+	#
+	#WARNING: without it the drain inverts. A loaded recruit only spends food
+	#when he FIGHTS, so a village would eat nothing while you are away and start
+	#eating the moment you arrived. Set to 0 for that behaviour.
+	#Default: 1
+	#
+	#Range: 0 ~ 1000
+	offlineUpkeepPerTenRecruits = 1
+	#A badly wounded recruit that HAS food breaks off the fight, gets clear,
+	#eats, and goes back in once he has recovered. What a player does.
+	#
+	#He ignores every order while withdrawing and resumes them the moment he is
+	#done. A recruit with an empty pack never enters the state at all, or he
+	#would disengage every few seconds for the whole battle and never land a
+	#blow. Player-owned recruits can be told never to retreat, per recruit, from
+	#the recruit screen. Default: true
+	#
+	retreatToEatEnabled = true
+	#Fraction of max health at or below which a recruit tries to withdraw.
+	#Default: 0.25
+	#
+	#Range: 0.0 ~ 1.0
+	retreatHealthFraction = 0.25
+	#Fraction of max health at which he considers himself fit and rejoins the
+	#fight. Must be above retreatHealthFraction or he would return still
+	#wounded and immediately withdraw again. Default: 0.6
+	#
+	#Range: 0.0 ~ 1.0
+	retreatReturnHealthFraction = 0.6
+	#How long a recruit who FAILED to get clear - cornered, cut off, or caught
+	#before he could eat - fights on before trying again. 20 ticks = 1 second.
+	#This is what stops a whole line evaporating at once: men who cannot break
+	#contact go back to fighting, so some make it out and some do not.
+	#Default: 300 (15 s)
+	#
+	#Range: 20 ~ 100000
+	retreatRetryTicks = 300
+	#How far from the enemy he tries to get before eating. Default: 16.0
+	#
+	#Range: 4.0 ~ 128.0
+	retreatDistance = 16.0
+	#Hard ceiling on one withdrawal, after which he rejoins whatever his health.
+	#A retreating recruit ignores his orders, so this is the guarantee that no
+	#recruit can be lost to the state for ever if something goes wrong reaching
+	#safety. Default: 600 (30 s)
+	#
+	#Range: 20 ~ 100000
+	retreatMaxTicks = 600
+	#How long a withdrawal stays at full speed before he begins to tire, in ticks.
+	#The first seconds are meant to be a clean break - that is the behaviour
+	#working. After this he keeps running with his back turned at
+	#retreatSlowSpeedKept of his speed, so a player or an enemy who commits to
+	#the chase can run him down. Without it a retreat is a guaranteed escape,
+	#and a guaranteed escape is not a decision anybody has to make.
+	#Raise it to make withdrawing safer, lower it to make it a gamble.
+	#Default: 60 (3 s)
+	#
+	#Range: 0 ~ 100000
+	retreatSlowAfterTicks = 60
+	#The share of his speed a tiring runner keeps, after retreatSlowAfterTicks.
+	#0.5 = half speed, which is comfortably catchable on foot. 1.0 disables the
+	#slowdown entirely and restores a guaranteed escape.
+	#Applied as a share rather than a flat amount, so it means the same thing
+	#for a mounted horseman as for a footsoldier.
+	#Default: 0.5
+	#
+	#Range: 0.05 ~ 1.0
+	retreatSlowSpeedKept = 0.5
+	#Apply the same tiring slowdown to ANY recruit running away, not only to
+	#one withdrawing to eat.
+	#A man who breaks and runs (panic, or the base mod's own flee state) used
+	#to keep every point of his speed for as long as he liked, so chasing him
+	#down on foot was impossible and a rout was a guaranteed escape - the very
+	#thing retreatSlowAfterTicks exists to prevent for the OTHER kind of
+	#running away. Uses retreatSlowAfterTicks and retreatSlowSpeedKept, so
+	#there is one answer to "how fast does a fleeing soldier move" instead of
+	#two that disagree.
+	#Workers are not covered: the food model does not govern them at all.
+	#Default: true
+	#
+	slowAllFlight = true
+	#A meal only counts once the recruit has actually FINISHED eating it.
+	#The base mod grants the whole meal - the healing and the hunger - on the
+	#first tick of the eating animation, so a recruit who started eating and
+	#was interrupted a tick later had already eaten. Fed properly, the food is
+	#put back in his pack and he gets nothing until he eats it through.
+	#Set false to restore the base mod's instant meal.
+	#Default: true
+	#
+	mealMustFinish = true
+	#How close an enemy has to get before a withdrawing recruit gives up on
+	#escaping and turns to fight, in blocks.
+	#A man who cannot shake his pursuer is better off fighting than being cut
+	#down from behind at half speed, and a soldier who keeps jogging away
+	#while an enemy hits him looks broken. When this triggers he goes back to
+	#fighting and may not try to withdraw again for retreatRetryTicks.
+	#0 = never turn and fight; he keeps running until he is safe or
+	#retreatMaxTicks expires.
+	#Default: 4.0
+	#
+	#Range: 0.0 ~ 64.0
+	retreatCorneredDistance = 4.0
+	#Hard CEILING, in hit points, on the health at which a recruit falls back
+	#to eat. He leaves at whichever is LOWER of retreatHealth (a fraction of
+	#his maximum) and this.
+	#The fraction alone is right for an ordinary 20 HP soldier and wrong for
+	#a tough one: a quarter of a 60 HP elite is 15 HP, so the strongest men
+	#in the army would be the first to walk out of the fight.
+	#Default: 10.0
+	#Range: 0.5 ~ 1024.0
+	retreatHealthCap = 10.0
+	#The same ceiling for a recruit whose MAXIMUM health is above
+	#retreatToughMaxHealth. A heavier man may absorb a little more before
+	#pulling out - but not proportionally more, which is the whole point of
+	#capping it at all.
+	#Default: 15.0
+	#Range: 0.5 ~ 1024.0
+	retreatHealthCapTough = 15.0
+	#Maximum health above which a recruit counts as TOUGH and uses
+	#retreatHealthCapTough instead of retreatHealthCap.
+	#Default: 100.0
+	#Range: 1.0 ~ 4096.0
+	retreatToughMaxHealth = 100.0
+	#How far a withdrawing recruit looks for enemies he should break line of
+	#sight with, in blocks.
+	#He will not settle down to eat while an archer still has a clear shot at
+	#him - standing still is the point of the retreat, so doing it in the
+	#open makes him a better target than he was in the line.
+	#Only ever measured for a recruit who is actively withdrawing, and at
+	#most the four nearest count.
+	#Default: 24.0
+	#Range: 0.0 ~ 128.0
+	coverRange = 24.0
+	#How many times in a row a withdrawing recruit may look for cover and
+	#find none before he gives up on hiding.
+	#Giving up means, in order: get behind a shieldman, run home, or turn
+	#round and fight. He searches again roughly every half second and
+	#keeps running away between attempts, so the default is about two and
+	#a half seconds of looking.
+	#Set to 1 to make him give up on the first failed search - which is
+	#how it behaved before, and which made a retreat end almost the
+	#instant it started on open ground.
+	#Default: 5
+	#Range: 1 ~ 40
+	coverGiveUpTries = 5
+	#May a wounded recruit who can find NO cover take shelter behind a
+	#friendly shieldman instead?
+	#The shieldman plants himself, raises his shield and faces the shooters
+	#until the wounded man is fed. On open ground - a desert, a plain - a
+	#shield is the only cover there is.
+	#Costs the shieldman a few seconds out of the fight. Turn off if you
+	#would rather nobody ever left the line for somebody else.
+	#Default: true
+	shelterEnabled = true
+	#How far a wounded recruit will look for a shieldman to shelter behind,
+	#in blocks. Default: 16.0
+	#Range: 1.0 ~ 64.0
+	shelterRange = 16.0
+	#Hard ceiling on how long a shieldman stays planted covering somebody,
+	#in ticks (20 = 1 second).
+	#No soldier may be taken out of a battle indefinitely by somebody else
+	#lunch, however well the arrangement is going.
+	#Default: 400 (20 seconds)
+	#Range: 20 ~ 12000
+	shelterMaxTicks = 400
+	#How close an enemy must get to the SHIELDMAN before he abandons the
+	#shelter and fights, in blocks.
+	#Standing still with a shield up is cover against arrows and suicide
+	#against a man with an axe - the shield-breaker system exists to punish
+	#exactly that.
+	#0 = he holds regardless.
+	#Default: 5.0
+	#Range: 0.0 ~ 32.0
+	shelterBreakDistance = 5.0
+	#May a wounded recruit who has broken contact join his village ON PAPER
+	#when that village is too far away to be simulated?
+	#He is stored whole - name, experience, kills, gear, everything - and put
+	#back as the same man when a player brings the village back into the
+	#world. Without this he has nowhere to go and simply eats in the open.
+	#He is never removed while a player could see it happen, and never while
+	#an enemy is near: see the two distances below.
+	#Default: true
+	abstractJoinEnabled = true
+	#A recruit will not join his village on paper while any player is within
+	#this many blocks of him.
+	#Removing an entity is instant and looks it: a soldier vanishing in front
+	#of a player is indistinguishable from a despawn bug, whatever is
+	#happening underneath. Raise it if you still see one go.
+	#0 = never mind who is watching (not recommended).
+	#Default: 96.0
+	#Range: 0.0 ~ 512.0
+	abstractJoinPlayerDistance = 96.0
+	#A recruit will not join his village on paper while an enemy is within
+	#this many blocks.
+	#Leaving the world is the ultimate escape, so it must not become a way
+	#out of a fight he is losing - he has to have genuinely broken contact.
+	#Default: 32.0
+	#Range: 0.0 ~ 256.0
+	abstractJoinClearDistance = 32.0
+
+[squads]
+	#Enable per-road squad patrolling. A village splits its garrison into patrol
+	#squads built from the ROAD TREE: one squad per LEAF of the built road network
+	#(the 4 cross arteries at first, then a squad per branch as branches are built),
+	#and each squad patrols ONLY its own road - the chain of points from the center
+	#out to that road's tip, back and forth. Squad count = number of leaf roads,
+	#capped by soldiers (never more squads than soldiers, min 1 soldier each); if
+	#roads outnumber soldiers a squad covers several roads. The village keeps its
+	#single elected leader (he captains squad 0). When enemies are detected, squads
+	#assigned to each enemy cluster merge into a combat group with a randomly picked
+	#lead (replaced immediately if he dies) that marches straight at the enemy;
+	#members with an enemy in range attack it (attacking beats following), the rest
+	#follow the lead. There is NO retreat - the garrison always engages, even
+	#outnumbered - and multiple enemy positions are engaged simultaneously (one
+	#combat group per cluster). Default: true
+	#
+	squadsEnabled = true
+	#A village needs at least this many loaded soldiers before it bothers
+	#splitting into per-road squads. Below this (or with fewer than 2 built leaf
+	#roads) it stays one group with one leader (legacy patrol). Default: 2
+	#
+	#Range: 2 ~ 100000
+	squadMinSoldiersToSplit = 2
+	#LEGACY / unused: kept for config compatibility. Squad count is now derived
+	#from the road tree (one squad per leaf road, min 1 soldier each), not from a
+	#fixed minimum squad size. Default: 3
+	#
+	#Range: 1 ~ 100000
+	squadMinSize = 3
+	#LEGACY / unused: kept for config compatibility. Squad COUNT is now the number
+	#of leaf roads (bounded by soldiers), not a function of built plots. Default: 6
+	#
+	#Range: 1 ~ 100000
+	squadPlotsPerZone = 6
+	#Radius (blocks) of the fallback ring patrol used only when a squad has NO
+	#built road to walk (village without a road network yet). With roads, each
+	#squad walks its own road instead. Default: 40
+	#
+	#Range: 8.0 ~ 200.0
+	squadZoneRadius = 40.0
+	#LEGACY / unused: kept for config compatibility. Squads now patrol their own
+	#road out to its tip, so patrol reach scales with the roads themselves rather
+	#than a scaled ring. Default: true
+	#
+	squadZoneScaleWithSize = true
+	#LEGACY / unused: kept for config compatibility. See squadZoneScaleWithSize.
+	#Default: 0.66
+	#
+	#Range: 0.1 ~ 1.0
+	squadZoneSizeFraction = 0.66
+	#How often (ticks) each village repartitions its garrison into squads
+	#(assigns captains and zones). Cheap; combat movement runs every tick between
+	#repartitions. Default: 40 (2 s)
+	#
+	#Range: 5 ~ 100000
+	squadRebuildInterval = 40
+	#PERFORMANCE: peacetime patrol MOVEMENT (soldiers physically walking their
+	#roads) only runs while at least one player is within this many blocks of
+	#the village center. Beyond it the garrison simply stands guard instead of
+	#pathfinding roads nobody can see. Threat detection, target adoption and
+	#combat are NOT affected - they always run, so a village still defends
+	#itself normally when attacked with no player around. 0 = always patrol
+	#(previous behavior). Default: 150
+	#
+	#Range: 0.0 ~ 100000.0
+	peacePatrolPlayerRange = 150.0
+	#Debug: broadcast a chat message every time a patrol/squad soldier CHANGES
+	#where it is heading (patrol waypoint -> enemy -> follow lead -> ...). Useful
+	#to diagnose soldiers that go back and forth instead of reaching an enemy. To
+	#avoid spam, only the village CLOSEST to each player emits messages to that
+	#player (not every village at once). Can also be toggled in-game with
+	#/vrsquaddebug. Default: false
+	#
+	squadDebug = false
+	#Enable AI village COMMANDERS: a village fields real patrol-leader officer
+	#entities (the base Recruits 'patrol_leader') that lead patrols in tight line
+	#formations and run the coordinated attack controller (charge / advance / hold /
+	#retreat) on contact. One commander per patrol road (bounded by soldiers), with
+	#the first being the village's leader-commander. When enabled and a village has
+	#enough soldiers/roads, commanders REPLACE the squad movement for that village
+	#(the squad system stays as the fallback when commanders are off, the village is
+	#offline, or it has too few soldiers/roads). Turn OFF to fall back to the plain
+	#squad patrols. Default: true
+	#
+	commandersEnabled = true
+	#Minimum loaded soldiers required per commander. The number of commanders a
+	#village fields is capped at floor(soldiers / this), so a small garrison gets
+	#one commander and only a large one gets several. Default: 4
+	#
+	#Range: 1 ~ 100000
+	commanderMinSoldiersEach = 4
+	#HARD CAP on commanders per village center, whatever its size says.
+	#Default: 10
+	#
+	#Range: 1 ~ 100
+	commanderMaxPerVillage = 10
+	#Commanders a village wants at its SMALLEST, before it has built anything.
+	#Commander count now scales with the size of the village - the number of
+	#plots it has actually built - between this and commanderMaxPerVillage.
+	#It used to be dictated by the number of ROADS, which is 2-4 leaves and
+	#does not grow with the town: a capital of thirty buildings and a
+	#two-house outpost fielded the same officers. Roads are still what each
+	#commander PATROLS, assigned round-robin, just no longer what sets the
+	#count.
+	#This is what the village WANTS. It is still bounded by how many soldiers
+	#there are to lead (commanderMinSoldiersEach), so a large empty village
+	#does not field ten officers and nobody else. Default: 5
+	#
+	#Range: 1 ~ 100
+	commanderMinPerVillage = 5
+	#Built plots at which a village is considered FULL SIZE and wants the
+	#maximum number of commanders. Below this the want scales linearly from
+	#commanderMinPerVillage. Default: 24
+	#
+	#Range: 1 ~ 500
+	commanderFullSizePlots = 24
+	#What a commander does on enemy contact while patrolling:
+	#0 = CHARGE (break off and attack), 1 = HOLD (stop and form up where it stands),
+	#2 = KEEP_PATROLLING (report/ignore, only fight if directly engaged).
+	#Default: 0 (CHARGE)
+	#
+	#Range: 0 ~ 2
+	commanderEnemyAction = 0
+	#Give commanders a faction-colored ARMOR TRIM on their armor so officers stand
+	#out from regular recruits (who are never trimmed). Purely cosmetic and free -
+	#no material cost. Default: true
+	#
+	commanderArmorTrims = true
+	#Make the village's elected LEADER itself a commander: its entity is swapped
+	#into a patrol_leader body (keeping its gear, name and role), so the leader
+	#personally leads the central patrol in formation and runs the attack controller
+	#- instead of a separate leader-commander standing in for it. When the
+	#leader-commander dies the village re-elects a normal soldier and it is promoted
+	#again on the next pass. Turn OFF to keep the elected leader an ordinary soldier
+	#and field a dedicated stand-in leader-commander instead. Default: true
+	#
+	commanderPromoteLeader = true
+	#How large a share of the garrison the LEADER-commander (the central
+	#patrol, index 0) gets relative to a road commander. Soldiers are now split
+	#as EVENLY as possible across all commanders, then the leader gets a heavier
+	#weight: 2.0 = the leader commands roughly twice as many soldiers as each
+	#road commander; 1.0 = a perfectly even split. Default: 2.0
+	#
+	#Range: 1.0 ~ 10.0
+	commanderLeaderSoldierShare = 2.0
+	#How fast a commander moves while PATROLLING (not in combat). The base mod
+	#leaves patrol_leaders at NORMAL, which is slower than the commander's own
+	#marching soldiers, so it constantly trails the line - and because a target
+	#(combat) is what moves it at full speed, it looks slow on patrol and only
+	#speeds up after it spots an enemy (reverting to slow after a reload clears
+	#the target). Set the patrol pace directly:
+	#0 = SLOW (0.4), 1 = NORMAL (0.6), 2 = FAST (1.0, keeps pace / leads).
+	#Default: 2 (FAST)
+	#
+	#Range: 0 ~ 2
+	commanderPatrolSpeed = 2
+	#Make commanders ARCHERS: a commander spawns holding a BOW (with free arrows)
+	#and is flagged ranged, so it stays BEHIND the line and shoots enemies from a
+	#distance instead of charging into melee - it directs its soldiers and provides
+	#fire support rather than fighting hand-to-hand. It keeps a sword sidearm in its
+	#inventory and auto-switches to it to defend itself when an enemy gets right on
+	#top of it, then returns to the bow. Applies to ALL commanders, including the
+	#promoted leader-commander. Turn OFF to keep commanders as melee (sword + shield).
+	#NOTE: the actual bow-firing comes from the base Recruits/Warium ranged AI - this
+	#only equips the bow and marks the commander ranged. Default: true
+	#
+	commanderRanged = true
+	#Let an ARCHER commander (commanderRanged=true) KEEP a shield in its offhand
+	#instead of dropping it when it takes up the bow. In practice the base ranged AI
+	#fires the bow perfectly well with a shield equipped, so an archer commander can
+	#both shoot AND raise its shield — and, with shieldBannerEnabled on, that shield
+	#flies the faction banner. Turn OFF to restore the old behaviour (archer
+	#commanders go shield-less so nothing competes for the offhand). Only affects
+	#RANGED commanders; melee commanders always carry a shield. Default: true
+	#
+	commanderRangedShield = true
+	#Let a village ADOPT the ownerless recruits standing in it.
+	#
+	#A recruit a player DISBANDS keeps nothing: the base mod clears its owner,
+	#its group AND its scoreboard team, so the village it is standing in cannot
+	#see it at all - it is not in the garrison, it does not count towards the
+	#population cap, no commander leads it and nothing ever tidies it up. A
+	#player who bought a hundred recruits and disbanded them was left with a
+	#hundred permanent, unowned bodies the village had no way to absorb or sell.
+	#
+	#With this on, an ownerless recruit that is inside a village's CLAIM (or
+	#within adoptStrayRecruitRadius of one of its centres) joins that village
+	#like any recruit born there: team, roster, group, leader and goals. From
+	#that moment the population cap counts it, and sells it like any other
+	#over-cap soldier if the village has no room for it.
+	#
+	#Only ever touches recruits that belong to NOBODY - not your escort, not a
+	#worker, not a commander, courier, scout or settler. Default: true
+	#
+	adoptStrayRecruits = true
+	#How far (blocks) from a village CENTRE an ownerless recruit is still
+	#considered to be "in" that village, for villages whose claim does not
+	#cover where it is standing. Default: 48
+	#
+	#Range: 8 ~ 128
+	adoptStrayRecruitRadius = 48
+
+[command]
+	#THE CHAIN OF COMMAND. A village leader reads what his commanders can see -
+	#how many enemies, and WHAT THEY ARE CARRYING - and tells each commander what
+	#to do: close with them, stand off and shoot, hold the line, or keep away
+	#because that group cannot win. He also moves soldiers between commanders, so
+	#a captain in the back line can reinforce one at the front.
+	#
+	#Under that, every soldier looks after himself. He is pulled out of the line
+	#to heal while he is still obeying orders; below that he withdraws whether he
+	#was told to or not; and if he is nearly dead in a fight that is already lost
+	#he leaves the village for good.
+	#
+	#Turning this OFF returns to the previous behaviour: squads charge or hold on
+	#geometry alone and nobody ever retreats.
+	#
+	enabled = true
+	#How many ordinary soldiers a PLAYER is worth when a leader sizes up a threat.
+	#Above 1 on purpose: a player heals, retreats, comes back, brings friends and
+	#does not stop at nightfall, so weighing him as one body sends garrisons into
+	#fights they cannot win. Set to 1 to weigh a player purely on his gear.
+	#
+	#Range: 1.0 ~ 20.0
+	playerThreatWeight = 3.0
+	#How much stronger than the enemy a group must be before its leader tells it to
+	#CLOSE with them. Strength is gear-weighted (armour, health, weapon), not a head
+	#count. Below this it holds or skirmishes instead.
+	#
+	#Range: 0.1 ~ 10.0
+	engageRatio = 0.9
+	#Below this strength ratio the leader tells a group to KEEP AWAY entirely - it
+	#falls back toward the village and does not fight. This is what stops four
+	#soldiers being fed one at a time into a raid they cannot stop.
+	#
+	#Range: 0.0 ~ 5.0
+	avoidRatio = 0.35
+	#A group with at least this fraction of its men carrying ranged weapons is told
+	#to SKIRMISH - keep its distance and shoot - instead of closing, when it is not
+	#strong enough to charge outright.
+	#
+	#Range: 0.0 ~ 1.0
+	skirmishRangedFraction = 0.5
+	#How far, in blocks, a skirmishing group tries to stay from the enemy it is
+	#shooting at.
+	#
+	#Range: 4.0 ~ 48.0
+	skirmishStandoff = 14.0
+	#Minimum ticks between two changes of captain for the SAME soldier. A man who is
+	#reassigned every few seconds spends the battle walking between commanders and
+	#fights nobody.
+	#
+	#Range: 20 ~ 12000
+	transferCooldownTicks = 200
+	#How many soldiers the leader may move between commanders in one decision. Kept
+	#small so reinforcement looks like a trickle of men rather than a whole line
+	#teleporting sideways.
+	#
+	#Range: 1 ~ 32
+	transferMaxPerPass = 3
+	#Fraction of his maximum health at which a commander ORDERS a soldier out of the
+	#line to eat and heal. He is still obeying orders here - this is the difference
+	#between a fighting retreat and a rout - and he comes back when he is patched up.
+	#
+	#Range: 0.0 ~ 1.0
+	rotateHealth = 0.55
+	#Fraction of maximum health at which a soldier withdraws WHETHER OR NOT he was
+	#told to. His life is worth more to him than his orders. A man under an explicit
+	#hold-the-line order still holds.
+	#
+	#Range: 0.0 ~ 1.0
+	panicHealth = 0.3
+	#Fraction of maximum health below which a soldier may DESERT - leave the village
+	#for good and join a neighbouring one as a refugee. Health alone is not enough:
+	#the fight also has to be lost (see breakStrengthRatio and breakLossFraction). A
+	#man losing a fight he is winning does not run.
+	#
+	#Range: 0.0 ~ 1.0
+	breakHealth = 0.15
+	#Fraction of maximum health at which a COMMANDER stops leading from the front. He
+	#keeps commanding - his men fight on - he simply stops being the one in reach of
+	#the enemy. He is not disobeying anybody here.
+	#
+	#Range: 0.0 ~ 1.0
+	commanderStandoffHealth = 0.5
+	#Fraction of maximum health at which a COMMANDER pulls his whole squad back,
+	#ignoring what the leader told him. He also does this when his squad has taken
+	#more than breakLossFraction casualties, however healthy he is himself.
+	#
+	#Range: 0.0 ~ 1.0
+	commanderRetreatHealth = 0.3
+	#Half of the test for "this fight is lost": own gear-weighted strength below this
+	#fraction of the enemy's.
+	#
+	#Range: 0.0 ~ 2.0
+	breakStrengthRatio = 0.4
+	#The other half of "this fight is lost": this fraction of the squad already dead.
+	#Also what makes a commander retreat regardless of his own health.
+	#
+	#Range: 0.0 ~ 1.0
+	breakLossFraction = 0.6
+	#THE THIRD DOOR OUT, and the only one that does not look at the enemy at all:
+	#this fraction of a squad dead means the survivors break, whatever the odds
+	#were supposed to be.
+	#
+	#It exists because the other two weigh the enemy by his GEAR, and gear does not
+	#predict what somebody actually does. A player in no armour with one very good
+	#weapon scores about as much as a single soldier, so a garrison being taken
+	#apart by him was measured as winning comfortably right up to the last man. What
+	#a soldier can actually see is not the enemy's armour rating - it is that his
+	#own squad is dead and he is the only one left.
+	#
+	#Set to 1.0 to require literally everybody else to be dead, or above 1.0 to
+	#close this door.
+	#
+	#Range: 0.0 ~ 2.0
+	routLossFraction = 0.75
+	#Whether the man who commands a war party is given the base mod's own
+	#commander body, with the faction banner on his back, when the party is sent
+	#out. Appearance only: he gets no buffs, no better gear and no leader powers,
+	#and he obeys the same morale thresholds as everybody else.
+	#
+	#Turn this off to leave attack forces looking like an undifferentiated crowd.
+	#
+	fieldCommanderBody = true
+	#THE SECOND DOOR OUT. A man breaks and deserts when the odds are this hopeless,
+	#HOWEVER healthy he is: own gear-weighted strength below this fraction of the
+	#enemy's, AND breakLossFraction of his own side already dead. Both halves are
+	#needed, so this never fires in a fight that is merely going badly.
+	#
+	#It exists because the first door needs him to be nearly dead as well, and the
+	#case that made no sense was the untouched last survivor of a five-a-side that
+	#the other team won without a casualty. He stood and fought. Nobody would.
+	#
+	#Set to 0 to close this door and keep only the nearly-dead one.
+	#
+	#Range: 0.0 ~ 2.0
+	routStrengthRatio = 0.35
+	#How long a soldier is passed over for rotation after an ordered withdrawal did
+	#not actually happen - almost always because he had no rations to go and eat.
+	#
+	#Without this the cap on simultaneous withdrawals is spent every pass on the same
+	#men, who never leave the line, and nobody who COULD be rotated ever is.
+	#
+	#Range: 20 ~ 24000
+	rotateRetryTicks = 200
+	#At most this fraction of a squad may be withdrawing to heal at any one moment.
+	#
+	#This exists because without it the feature destroys itself: a whole line crosses
+	#the rotate threshold within a few seconds of each other, everybody leaves at
+	#once, and what should look like a fighting retreat looks like the garrison
+	#vanishing. Men over the cap fight on and rotate out as slots free up. Panic and
+	#desertion are NOT capped - a man who is about to die does not wait his turn.
+	#
+	#Range: 0.0 ~ 1.0
+	maxWithdrawFraction = 0.4
+	#Whether a broken soldier may leave his village for good and join the nearest
+	#village that is not at war with him, as an ordinary recruit. He keeps his gear
+	#and his old faction never gets him back; a COMMANDER who deserts arrives demoted
+	#to a basic recruit.
+	#
+	#Applies to AI villages and to a PLAYER FACTION's village garrison alike. It
+	#never applies to recruits a player owns personally - those only ever fall back
+	#to heal, exactly as they do today.
+	#
+	#Turn this off to keep retreating and healing but never lose anybody.
+	#
+	desertionEnabled = true
+	#How far, in blocks, a deserter will look for a village that will take him. If
+	#there is none he simply flees the field instead - he is never deleted.
+	#
+	#700 matches the range this mod uses for the other things a village does at a
+	#distance, an attack expedition included, and it is deliberately not a walking
+	#distance: a deserter travels as an ABSTRACT one-man troop column, so the
+	#journey costs the server nothing whether it is 80 blocks or 700. The old 512
+	#was picked before that was true of him and only made isolated villages unable
+	#to lose anybody.
+	#
+	#Range: 64 ~ 4096
+	refugeSearchRadius = 700
+
+[movement]
+	#How many blocks a recruit is willing to drop down while pathfinding
+	#to follow a player or move around. The base Recruits mod hard-codes
+	#this to 1, so recruits refuse to step off any ledge taller than a
+	#single block (and can get stuck on roofs/high ground). Recruits also
+	#take NO fall damage from falls up to this same height, so they can
+	#always climb down a drop they are willing to path off. Set to 1 to
+	#restore vanilla Recruits behavior. Default: 5
+	#
+	#Range: 1 ~ 10
+	recruitMaxPathDropHeight = 5
+	#How many blocks a HORSE ridden by a recruit can step up without jumping.
+	#This is applied only while a recruit is aboard; the horse's original
+	#value is restored on dismount. Default: 2.0
+	#
+	#Range: 0.5 ~ 4.0
+	recruitHorseStepHeight = 2.0
+	#Fall-damage multiplier for a HORSE ridden by a recruit when the fall is
+	#taller than recruitMaxPathDropHeight. Falls up to that height do no
+	#damage. 0.5 means half damage; 0 disables all mounted horse fall damage;
+	#1 restores normal damage above the safe height. Default: 0.5
+	#
+	#Range: 0.0 ~ 1.0
+	recruitHorseFallDamageMultiplier = 0.5
+	#Let recruits actually OPEN fence gates and wooden doors that their path
+	#goes through. The base Recruits mod already treats a closed gate/door as
+	#walkable for pathfinding, but its open-door goal never runs (it requires
+	#a vanilla GroundPathNavigation, while recruits use the async one), so
+	#recruits walk into closed gates and stay there - the classic "soldier or
+	#worker stuck inside an animal pen that has a gate". Set to false to
+	#restore vanilla Recruits behavior. Default: true
+	#
+	gateOpeningEnabled = true
+	#Allow recruits to climb straight up vertical walls (spider-like) when a
+	#reachable target is above them and the ground path is blocked by a wall.
+	#When false, recruits keep the vanilla Recruits pathfinding only.
+	#Default: true
+	#
+	climbEnabled = true
+	#How many consecutive ticks a recruit must be pressed against a wall
+	#(with its navigation target higher up) before it starts climbing. Higher
+	#values make recruits prefer walking around obstacles first. Default: 15
+	#
+	#Range: 1 ~ 100
+	climbStuckTicks = 15
+	#Vertical climb speed in blocks per tick (20 ticks/second). 0.15 ≈ 3
+	#blocks/second, similar to a player on a ladder. Default: 0.15
+	#
+	#Range: 0.05 ~ 0.5
+	climbUpSpeed = 0.15
+	#Maximum number of blocks a recruit will climb in one attempt before
+	#giving up (avoids climbing forever up an unreachable target). Default: 24
+	#
+	#Range: 1 ~ 128
+	climbMaxHeight = 24
+	#When a recruit is climbing only because it is following its group
+	#LEADER, it will not climb more than this many blocks above the leader's
+	#own height. Climbing higher than the leader never helps reach it (e.g.
+	#scaling a tall pillar next to a leader standing on the ground): once the
+	#recruit passes this margin the climb is aborted and normal navigation /
+	#walk-around resumes. Does not affect climbing toward a combat target or a
+	#move order. Default: 5
+	#
+	#Range: 1 ~ 64
+	climbMaxBlocksAboveLeader = 5
+	#Allow recruits to also climb DOWN a wall/cliff (placing temporary
+	#ladders) when their target is well below them and the drop is too tall
+	#to just walk off. Mirrors the up-climb. When false, recruits only climb
+	#up. Default: true
+	#
+	climbDescendEnabled = true
+	#Vertical descent speed in blocks per tick while climbing down a wall
+	#(20 ticks/second). 0.15 ≈ 3 blocks/second. Default: 0.15
+	#
+	#Range: 0.05 ~ 0.5
+	climbDownSpeed = 0.15
+	#Minimum drop height (in blocks) below a recruit before it will consider
+	#climbing DOWN a wall. Smaller drops are left to normal pathfinding (which
+	#can already step/fall down short heights). Default: 4
+	#
+	#Range: 2 ~ 32
+	climbDescendMinDrop = 4
+	#For TALL walls, prefer walking around instead of climbing when a
+	#walkable ground route to the target actually exists. Short walls (see
+	#climbTallWallThreshold) are still climbed immediately. When false,
+	#recruits climb any wall they get stuck on as before. Default: true
+	#
+	climbPreferWalkAroundTallWalls = true
+	#A wall TALLER than this many blocks triggers the walkable-route check
+	#(walk around if possible). Walls at or below this height are treated as
+	#"short" and climbed straight away. Default: 6
+	#
+	#Range: 2 ~ 64
+	climbTallWallThreshold = 6
+	#After deciding to walk around a tall wall, how many ticks to suppress
+	#re-evaluation/climbing so the recruit follows the ground path instead of
+	#being re-checked every tick. Default: 40
+	#
+	#Range: 10 ~ 200
+	climbWalkAroundCooldownTicks = 40
+	#While climbing, place temporary ladders on the wall so the ascent looks
+	#natural. These ladders drop NOTHING and vanish automatically (see
+	#climbLadderLifetimeSeconds). They only replace air/replaceable blocks and
+	#never overwrite player-placed blocks. Default: true
+	#
+	climbLadderTrail = true
+	#How many seconds a temporary climb ladder stays before it is removed
+	#(without dropping an item). Default: 4
+	#
+	#Range: 1 ~ 60
+	climbLadderLifetimeSeconds = 4
+	#While a recruit is climbing (on a ladder/climbable) it is immune to fall
+	#damage; when it gets off the ladder this immunity lingers for this many
+	#seconds before expiring, so it can safely drop off the top of a climb.
+	#If the recruit is HIT while climbing, the immunity is revoked immediately
+	#(for the rest of that climb). Set 0 to disable. Default: 7
+	#
+	#Range: 0 ~ 60
+	climbFallImmunitySeconds = 7
+	#When a recruit gets pressed against a plain FENCE or WALL (not a fence gate —
+	#those are opened by the gate goal) with its destination on the other side, and
+	#a walkable ground route to that destination actually exists (a gate elsewhere,
+	#an opening), send it AROUND instead of leaving it stuck against the post. A
+	#fence has no solid face to hook a climb ladder onto, so the wall-climb never
+	#engaged for it and the recruit just stood there — the "they act like they can
+	#walk through the fence and get stuck on it" case. Only triggers when a real way
+	#around exists and the recruit isn't actively trading blows. Default: true
+	#
+	climbWalkAroundFences = true
+	#While a recruit is actively climbing a wall it is immune to suffocation
+	#(in-wall) damage, so it can "dig itself up" THROUGH blocks without dying
+	#when its head briefly pokes into solid terrain (overhangs, embankments,
+	#pure-spider climbs with the ladder trail off). The immunity lasts only for
+	#the duration of the climb; a recruit that stops climbing while genuinely
+	#buried suffocates normally. Set false to restore vanilla suffocation.
+	#Default: true
+	#
+	climbNoSuffocation = true
+	#Emit block-breaking particles of the surrounding block at the top of a
+	#climbing recruit, so it looks like it is digging/tunnelling itself up
+	#through the wall. Purely cosmetic (server-driven, throttled, no block is
+	#actually broken and no sound is played). Set false to disable. Default: true
+	#
+	climbDigParticles = true
+	#Let a climbing recruit "dig" STRAIGHT UP through a solid ceiling to escape a
+	#fully enclosed space (a closed box/room). When it climbs a wall and hits a
+	#solid roof it cannot step off onto, it phases vertically up through the
+	#ceiling block(s) — one block or several stacked — and lands on top. No block
+	#is ever broken (the recruit noclips up, so player builds stay intact) and it
+	#is protected from suffocation on the way. The whole climb, including the dug
+	#ceiling, is bounded by climbMaxHeight. Set false so a closed roof contains
+	#recruits (they climb the wall but cannot pass the ceiling). Default: true
+	#
+	climbDigThroughBlocks = true
+	#Vertical speed (blocks/tick) at which a recruit digs up through a ceiling
+	#when climbDigThroughBlocks is on. Lower = a slower, more visible tunnelling.
+	#Default: 0.25
+	#
+	#Range: 0.05 ~ 1.0
+	climbDigSpeed = 0.25
+	#Log recruit climb decisions to the server console (throttled). Useful to
+	#diagnose why recruits do/don't climb. Default: false
+	#
+	climbDebug = false
+	#Make recruits swim much faster. The base Recruits mod leaves them at
+	#the vanilla mob swim speed, which is very slow and lets them drown or
+	#fall badly behind while crossing rivers/lakes. When true, a recruit
+	#that is actively swimming has its horizontal water speed multiplied
+	#(see waterSpeedMultiplier). When false, recruits swim at vanilla speed.
+	#Default: true
+	#
+	waterSpeedEnabled = true
+	#How many times faster recruits swim when waterSpeedEnabled is true.
+	#3.0 = roughly triple the vanilla swim speed. The boosted speed is
+	#capped so it never exceeds a normal land-walk pace (prevents runaway
+	#acceleration in water). 1.0 = no boost. Default: 3.0
+	#
+	#Range: 1.0 ~ 10.0
+	waterSpeedMultiplier = 3.0
+	#Add a "Rally" button at the centre of the Movement page of the base mod's
+	#group command screen (the one with Move / Follow / Hold Position). Pressing
+	#it teleports the recruits of the SELECTED groups to where you are standing,
+	#a few at a time. Recruits that have taken damage recently are left where
+	#they are (see rallyDamageWindowTicks). Recruits that were FOLLOWING you keep
+	#following; recruits that were moving to, or holding, a position are given the
+	#spot you pressed the button on as their new hold position.
+	#Turning this off does not remove the button (that is drawn by each
+	#player's client, which cannot see this file) - the server simply refuses
+	#the command and says so in chat. Default: true
+	#
+	rallyEnabled = true
+	#How long (in ticks, 20 = 1 second) a recruit must go WITHOUT taking damage
+	#before it may be rallied. FALL damage does not count - a soldier that hurt
+	#itself coming down a hill to reach you is not in a fight. The test is redone
+	#when its turn in the queue actually comes up, so a recruit that gets hit
+	#while waiting is left behind. Default: 400 (20 seconds)
+	#
+	#Range: 0 ~ 24000
+	rallyDamageWindowTicks = 400
+	#How many recruits are teleported per batch. Together with
+	#rallyBatchIntervalTicks this is the whole anti-lag rule: the cost per tick
+	#stays the same no matter how large your army is, only the rally takes
+	#longer. Raise it only if your server can afford the bigger spikes.
+	#Default: 2
+	#
+	#Range: 1 ~ 64
+	rallyRecruitsPerBatch = 2
+	#Ticks between two batches (20 = 1 second). With the defaults (2 every 10
+	#ticks) about 4 recruits arrive per second. Default: 10
+	#
+	#Range: 1 ~ 200
+	rallyBatchIntervalTicks = 10
+	#How far (in blocks) around you the rally looks for your recruits. Only
+	#recruits that are currently LOADED can be teleported at all, so raising this
+	#past your server's simulation distance changes nothing. Default: 256
+	#
+	#Range: 16 ~ 1024
+	rallySearchRadius = 256
+	#Extra cooldown (in ticks) after a rally FINISHES before you may start
+	#another. A rally already in progress always blocks a new one regardless of
+	#this value; this only stops the button being spammed once the last recruit
+	#has landed (each press rescans the nearby entities). 0 = no extra
+	#cooldown. Default: 100 (5 seconds)
+	#
+	#Range: 0 ~ 24000
+	rallyCooldownTicks = 100
+
+[troopmove]
+	#Enable moving troops between two villages of the SAME faction.
+	#Used both by the player command (map menu "Move troops") and by
+	#the AI frontline auto-balancing below. Default: true
+	#
+	enabled = true
+	#Moved troops WALK. Instead of being teleported, they leave their village
+	#as a column that travels the map and only joins the destination when it
+	#gets there - so distance costs time, a march can be met on the road, and
+	#reinforcements that are beaten never arrive.
+	#
+	#It also lets an OFFLINE village send and receive troops at all, which
+	#the teleport could not: it needed both ends loaded, so most villages,
+	#most of the time, could do neither.
+	#
+	#Turn this off to go back to the instant transfer. Default: true
+	#
+	abstractColumns = true
+	#How close a player must be for a marching column to put real soldiers on
+	#the ground. Beyond 1.5x this they go back to being a record.
+	#
+	#The gap between the two is deliberate: with a single threshold, a player
+	#standing exactly on it spawns and despawns the whole column every pass.
+	#Default: 80
+	#
+	#Range: 16.0 ~ 512.0
+	columnRevealRadius = 80.0
+	#Soldiers marching with a column WALK with it.
+	#The column's position is a record that advances on a timer, and the men
+	#standing on it were never told to go anywhere - so they stood still,
+	#fell behind, and were teleported forward the moment they were more than
+	#columnRevealRadius out. What a player saw was a line of statues jumping
+	#along the road.
+	#They are now given the record's position as somewhere to march to, which
+	#they re-aim at as it moves. A man in a fight is not marched - his own
+	#combat AI outranks it - and the teleport stays as the recovery for a man
+	#who is genuinely STUCK rather than as the way the column travels.
+	#Default: true
+	#
+	columnWalk = true
+	#How far the column's position has to move before the men are re-aimed at
+	#it, in blocks.
+	#Re-aiming makes each soldier recompute his route, so re-aiming every pass
+	#would be pathfinding paid for nothing - the record only advances a few
+	#blocks a second. Default: 6
+	#
+	#Range: 1 ~ 128
+	columnRallySlack = 6
+	#How many times columnRevealRadius a man who is STILL WALKING may fall
+	#behind before he is teleported to the column anyway.
+	#Inside this, a soldier who is on his feet and closing the gap is left to
+	#close it. Beyond it he is snapped up regardless: he is on the wrong side
+	#of a lake or a cliff and no amount of walking is going to fix it.
+	#A man who is not walking at all, or who failed to get any closer since
+	#the last pass, is teleported as soon as he is outside the radius - that
+	#is the stuck case the teleport exists for.
+	#1.0 = teleport as soon as he is outside the radius, walking or not (the
+	#behaviour before columnWalk existed). Default: 2.0
+	#
+	#Range: 1.0 ~ 8.0
+	columnTeleportSlack = 2.0
+	#Minimum members that must always stay behind in the SOURCE village
+	#when troops are moved away from it (the leader is never moved and is
+	#counted on top of this). Default: 3
+	#
+	#Range: 0 ~ 200
+	minGarrison = 3
+	#Let AI (village_) factions automatically redistribute their troops
+	#between their own villages, draining quiet interior villages to
+	#reinforce the ones closest to enemy and neutral villages (the
+	#frontline). Default: true
+	#
+	autoBalanceEnabled = true
+	#Cooldown (in ticks) between auto-balancing moves by the same
+	#faction. 20 ticks = 1 second. Default: 6000 (5 min)
+	#
+	#Range: 200 ~ 1728000
+	autoBalanceCooldownTicks = 6000
+	#Max distance (blocks) between a donor village and a recipient village
+	#for the AI to move troops between them. Default: 800
+	#
+	#Range: 50 ~ 10000
+	autoBalanceRadius = 800
+	#Fraction of a donor village's spare troops (above the minimum
+	#garrison) that are moved to the frontline in a single balancing
+	#step. Default: 0.5
+	#
+	#Range: 0.0 ~ 1.0
+	autoBalanceFraction = 0.5
+	#Distance (blocks) at which a foreign (enemy/neutral) village stops
+	#contributing to a village's frontline priority. Closer foreign
+	#villages = higher priority = more reinforcements. Default: 700
+	#
+	#Range: 50 ~ 10000
+	frontlineRange = 700
+	#Weight of proximity to the nearest ENEMY village in the frontline score. Default: 1.0
+	#Range: 0.0 ~ 100.0
+	weightEnemy = 1.0
+	#Weight of proximity to the nearest NEUTRAL village in the frontline score. Default: 0.5
+	#Range: 0.0 ~ 100.0
+	weightNeutral = 0.5
+	#When an AI faction's CAPITAL (its main center) has enemy/neutral
+	#villages with real strength nearby, give it EXTRA reinforcement
+	#priority in the auto-balancer above, so more troops flow to the
+	#capital. Losing a capital shatters a faction, so it is worth defending
+	#harder. A safe interior capital gets no bonus; secondary villages still
+	#keep their minimum garrison (troopmove.minGarrison). Default: true
+	#
+	capitalDefenseEnabled = true
+	#Strength of the capital's extra priority. The bonus added to the
+	#capital's frontline score is weight x threatFraction, where
+	#threatFraction (0..1) is nearby hostile strength relative to own
+	#strength around the capital. Higher = more troops pulled to a
+	#threatened capital. Default: 1.5
+	#
+	#Range: 0.0 ~ 100.0
+	capitalDefenseWeight = 1.5
+	#Radius (blocks) around the capital within which enemy/neutral strength
+	#is measured to decide how threatened the capital is. Matches the attack/
+	#frontline range (attack.radius / autoBalance.frontlineRange) so an enemy
+	#village within striking distance counts as a threat, not only one almost
+	#touching the capital. Default: 700
+	#
+	#Range: 16 ~ 2000
+	capitalDefenseThreatRadius = 700
+	#How much NEUTRAL (non-enemy, non-ally) strength near the capital counts
+	#toward the threat, relative to enemy strength (1.0). Default: 0.5
+	#
+	#Range: 0.0 ~ 1.0
+	capitalDefenseNeutralWeight = 0.5
+
+[elites]
+	#Enable rare "elite" super-recruits that spawn randomly among village
+	#recruits. They are stronger than leaders (more health, damage and attack
+	#speed) and carry special names, but can NEVER be elected village leader,
+	#so they are free to march out and attack. Default: true
+	#
+	eliteEnabled = true
+	#Probability that a newly spawned village recruit becomes an elite. Keep
+	#it low — elites are meant to be rare champions. Default: 0.05 (5%)
+	#
+	#Range: 0.0 ~ 1.0
+	eliteSpawnChance = 0.05
+	#Max-health multiplier applied to elite recruits. Default: 2.5
+	#Range: 1.0 ~ 20.0
+	eliteHealthMultiplier = 2.5
+	#Attack-damage multiplier applied to elite recruits. Default: 2.0
+	#Range: 1.0 ~ 20.0
+	eliteDamageMultiplier = 2.0
+	#Attack-speed multiplier applied to elite recruits. Default: 1.5
+	#Range: 1.0 ~ 10.0
+	eliteAttackSpeedMultiplier = 1.5
+	#Movement-speed multiplier applied to elite recruits. Default: 1.15
+	#Range: 1.0 ~ 5.0
+	eliteMovementSpeedMultiplier = 1.15
+	#When true, elite recruits ignore the player-damage-reduction debuff:
+	#they deal FULL damage to real players (unlike ordinary recruits, whose
+	#damage to players is reduced by the combat settings). Default: true
+	#
+	eliteNoPlayerDamageDebuff = true
+	#Give elites a strong hand-crafted netherite armor+sword set on spawn.
+	#When FALSE (the default), elites do NOT get special gear: instead they
+	#rely on much higher stats (see eliteArmorBonus / eliteKnockbackResistance
+	#below) and on their special abilities (eliteAbilitiesEnabled), while still
+	#picking up ordinary tier gear from the evolution system like any recruit.
+	#Default: false
+	#
+	eliteGiveEquipment = false
+	#Flat ARMOR points permanently added to an elite (on top of any armor it
+	#wears). Compensates for not handing elites special gear: a full netherite
+	#set is ~20 armor. Default: 16.0
+	#
+	#Range: 0.0 ~ 30.0
+	eliteArmorBonus = 16.0
+	#Flat ARMOR TOUGHNESS points permanently added to an elite (reduces damage
+	#from heavy hits, like netherite armor does). Default: 8.0
+	#
+	#Range: 0.0 ~ 20.0
+	eliteArmorToughnessBonus = 8.0
+	#Flat KNOCKBACK RESISTANCE permanently added to an elite (0 = none, 1 =
+	#cannot be knocked back at all). Makes a champion hold its ground.
+	#Default: 0.6
+	#
+	#Range: 0.0 ~ 1.0
+	eliteKnockbackResistance = 0.6
+	#Give elites special abilities and permanent minor buffs (fire resistance,
+	#and a "second wind" that heals them with Regeneration + Resistance when
+	#they drop below 40% health in combat). Default: true
+	#
+	eliteAbilitiesEnabled = true
+	#Reve respawn delay after death, in ticks. Default: 3000 (2:30)
+	#Range: 0 ~ 72000
+	reveRespawnTicks = 3000
+	#Emerald BLOCKS taken from the player to buy HEROBRINE. Default: 150
+	#Range: 0 ~ 100000
+	herobrineCostEmeraldBlocks = 150
+	#HEROBRINE's exact level-1 maximum health. He gains 2 HP per level. Default: 500
+	#Range: 1.0 ~ 1000000.0
+	herobrineMaxHealth = 500.0
+	#Flat attack-damage bonus added to HEROBRINE. Default: 20
+	#Range: 0.0 ~ 10000.0
+	herobrineDamageBonus = 20.0
+	#Chance for each HEROBRINE melee hit to become a critical hit. Default: 0.10 (10%)
+	#Range: 0.0 ~ 1.0
+	herobrineMeleeCriticalChance = 0.1
+	#Total damage multiplier of a HEROBRINE melee critical hit. Default: 5.0
+	#Range: 1.0 ~ 100.0
+	herobrineMeleeCriticalMultiplier = 5.0
+	#Attack-speed multiplier for HEROBRINE. Default: 4.0
+	#Range: 0.1 ~ 100.0
+	herobrineAttackSpeedMultiplier = 4.0
+	#Movement-speed multiplier for HEROBRINE. Stacks with long-distance running. Default: 2.0
+	#Range: 0.1 ~ 100.0
+	herobrineMovementSpeedMultiplier = 2.0
+	#Damage dealt by each normal HEROBRINE lightning strike. Default: 25
+	#Range: 0.0 ~ 10000.0
+	herobrineNormalLightningDamage = 25.0
+	#Targets struck by normal lightning before level 20. Default: 2
+	#Range: 1 ~ 64
+	herobrineNormalLightningBolts = 2
+	#Targets struck by normal lightning at level 20. Default: 4
+	#Range: 1 ~ 64
+	herobrineLevel20LightningBolts = 4
+	#Normal lightning cooldown in ticks. Default: 200 (10 seconds)
+	#Range: 1 ~ 72000
+	herobrineNormalLightningCooldownTicks = 200
+	#Level-20 normal lightning cooldown. Default: 150 (7.5 seconds)
+	#Range: 1 ~ 72000
+	herobrineLevel20LightningCooldownTicks = 150
+	#Damage dealt by level-15 major lightning. Default: 40
+	#Range: 0.0 ~ 10000.0
+	herobrineMajorLightningDamage = 40.0
+	#Major lightning cooldown in ticks. Default: 600 (30 seconds)
+	#Range: 1 ~ 72000
+	herobrineMajorLightningCooldownTicks = 600
+	#Level-20 major lightning cooldown. Default: 400 (20 seconds)
+	#Range: 1 ~ 72000
+	herobrineLevel20MajorLightningCooldownTicks = 400
+	#Level-10 combat teleport cooldown. Default: 100 ticks (5 seconds)
+	#Range: 1 ~ 72000
+	herobrineTeleportCooldownTicks = 100
+	#Level-20 combat teleport cooldown. Default: 50 ticks (2.5 seconds)
+	#Range: 1 ~ 72000
+	herobrineLevel20TeleportCooldownTicks = 50
+	#Horizontal radius of major-lightning craters. Village-protected blocks are never changed. Default: 3
+	#Range: 0 ~ 16
+	herobrineCraterRadius = 3
+	#Depth of major-lightning craters. Village-protected blocks are never changed. Default: 2
+	#Range: 0 ~ 16
+	herobrineCraterDepth = 2
+	#Maximum personal soldiers from levels 5-19. Default: 7
+	#Range: 0 ~ 256
+	herobrineSummonCap = 7
+	#Maximum personal soldiers at level 20. Default: 15
+	#Range: 0 ~ 256
+	herobrineLevel20SummonCap = 15
+
+[rewards]
+	#When true, real players who JOINED an assault ([JOIN] invite) and whose
+	#side WINS (the target village is conquered) are paid emeralds. A failed
+	#attack pays nothing. Default: true
+	#
+	assaultRewardEnabled = true
+	#Emeralds paid to each joined player per defender that was present at the
+	#START of the attack, on a winning assault. Default: 1
+	#
+	#Range: 0 ~ 64
+	assaultRewardPerDefender = 1
+
+[intel]
+	#INTELLIGENCE GATHERING: a faction must FIND a village before it can
+	#attack it.
+	#Without this, an AI faction reads a neighbour's exact garrison strength
+	#the moment they become enemies, from any distance - it always knows
+	#where everyone lives. With it, a faction that notices a stranger sends
+	#a scouting party (a Scout plus one melee, one bowman and two
+	#crossbowmen) which is placed well away from the target and walks in.
+	#Only when the scout arrives can sieges and attacks against that village
+	#begin.
+	#A faction goes looking when it SEES a reason to: enemy soldiers near
+	#its land, or a factionless mercenary carrying a contract from a village
+	#it has never heard of. It also goes looking when it wants to attack
+	#somewhere it does not know - otherwise a war with a neighbour it never
+	#bumped into would never become a battle.
+	#ONLY the AI is gated. A player commanding his own troops from the map,
+	#or forcing an attack by command, is never blocked: the base Recruits
+	#mod already lets a player reveal the map himself. What is gated is a
+	#village choosing its own target - an AI village, or a player's village
+	#running under standing auto-attack orders.
+	#NOTE for existing worlds: nobody has scouted anything yet, so AI
+	#attacks will pause until scouts have been out. That is the feature
+	#working. Set this to false to restore the old behaviour exactly.
+	#Default: true
+	#
+	enabled = true
+	#Player factions send scouting parties of their own.
+	#Worth having even if you never use auto-attack orders: the reports go
+	#to the faction leader in chat and the knowledge shows up in /vrintel,
+	#so it is how a player faction learns what is around it.
+	#Set to false and a player faction never spawns a party (and, if it uses
+	#auto-attack orders, never attacks anything it has not been told about).
+	#That includes a party the LEADER orders by hand from the world map, so
+	#turning this off takes the Send scouts command away too - it is one
+	#statement about player factions and scouting, not two.
+	#Default: true
+	#
+	playerFactionsScout = true
+	#A factionless player carrying a CONTRACT from an unknown village makes
+	#that village worth investigating.
+	#This is the contract board feeding the war machine: taking work from a
+	#village and then walking through its neighbour's land is how that
+	#neighbour finds out the place exists. Set to false to keep contracts
+	#out of intelligence entirely. Default: true
+	#
+	contractorDetection = true
+	#Blocks around one of its own village centres within which a faction
+	#notices enemy soldiers or mercenaries. Only ONLINE villages notice
+	#anything - a village nobody is near is not watching its borders.
+	#Default: 96
+	#
+	#Range: 16 ~ 512
+	detectionRadius = 96
+	#Furthest a scouting party will be sent, measured from the observer's
+	#nearest village to the target. Defaults to the same 700 as attack.radius
+	#so anything reachable by an army is reachable by a scout - a shorter
+	#range here would leave villages permanently unattackable.
+	#Default: 700
+	#
+	#Range: 32 ~ 4000
+	scoutMaxRange = 700
+	#How far from the TARGET the party is placed before it starts walking.
+	#The party is put on the line back towards its own village, so it
+	#approaches from the right side.
+	#Not zero, or scouting would be a formality; not the whole way from
+	#home, because the party would then be out of simulation range for the
+	#entire march and any terrain trap would swallow it. If the observer's
+	#own village is already closer than this, the party simply starts at
+	#home. Default: 200
+	#
+	#Range: 16 ~ 2000
+	scoutSpawnDistance = 200
+	#How close the scout must get to the village centre to have found it.
+	#Generous on purpose: the last stretch is usually through the target's
+	#own patrols, and demanding the scout stand on the town square would
+	#mean almost every mission ends in a fight it cannot win. Default: 40
+	#
+	#Range: 4 ~ 200
+	arriveRadius = 40
+	#Movement speed multiplier while marching. Below 1.0 so a party is
+	#visibly travelling rather than sprinting across the map, and so a
+	#defender has time to intercept it. Default: 0.75
+	#
+	#Range: 0.1 ~ 2.0
+	scoutSpeed = 0.75
+	#Assumed travel rate, used ONLY to decide when a party that is out of
+	#simulation range has arrived.
+	#A scouting march is mostly spent in unloaded chunks, where there is no
+	#entity to measure; force-loading a corridor across the map for a
+	#reconnaissance walk would cost more than the battle it is scouting for.
+	#Raise it to make offline scouting finish sooner. Default: 2.0
+	#
+	#Range: 0.1 ~ 20.0
+	travelBlocksPerSecond = 2.0
+	#Ticks after which a scouting party is given up on, even if nothing
+	#visibly went wrong. Acts as a floor: a mission is always allowed at
+	#least twice its estimated travel time. Default: 12000 (10 minutes)
+	#
+	#Range: 600 ~ 720000
+	missionTimeoutTicks = 12000
+	#Ticks before a faction will send another party at a village whose last
+	#mission failed. Stops a faction feeding parties one after another into
+	#a village that kills them. Default: 6000 (5 minutes)
+	#
+	#Range: 200 ~ 720000
+	retryCooldownTicks = 6000
+	#How many scouting parties one faction may have in the field at once.
+	#Each party is five entities, so this is the real cost control.
+	#Default: 1
+	#
+	#Range: 1 ~ 8
+	maxMissionsPerFaction = 1
+	#Remove the party once it has reported (or failed).
+	#They are despawned rather than walked home: a party left outside an
+	#enemy village would be engaged immediately and would need retreat AI, a
+	#route home and a second arrival to resolve - all to deliver a report
+	#already delivered. Set to false and the survivors are left standing
+	#where they finished, which will litter scouted villages with abandoned
+	#soldiers. Default: true
+	#
+	despawnPartyOnReport = true
+	#Ticks after which knowledge of a village goes stale and it must be
+	#scouted again. 0 = knowledge never expires.
+	#This is the knob that turns the fog back on behind you. Left at 0 the
+	#map is learned once and stays learned, which is the gentler default for
+	#a long-running server; set it (say 720000 = 10 hours) and a faction has
+	#to keep looking at a neighbour it means to attack.
+	#Default: 0
+	#
+	#Range: 0 ~ 100000000
+	intelExpiryTicks = 0
+	#A village your faction has SCOUTED stops being hidden by the base mod's
+	#fog of war: its claim is outlined, filled, named and can be clicked on
+	#the world map, instead of showing as an unexplored blank.
+	#
+	#The TERRAIN under it stays black, and that is not a limitation that can
+	#be lifted: the base mod decides a chunk is explored by asking whether
+	#your own client has drawn map pixels for it, which only happens by
+	#being there. A scout reports a settlement, not a survey of the
+	#countryside - so you learn that the village exists, who owns it and
+	#where its borders run, and the ground around it stays unknown until
+	#somebody walks it.
+	#
+	#Does nothing when the base mod's fog of war is off (everything is
+	#visible already) or when intelligence gathering is off above.
+	#Default: true
+	#
+	intelRevealsClaims = true
+	#How long one of YOUR villages must wait between scouting missions you
+	#order by hand from the world map.
+	#
+	#It is the only limit on ordered reconnaissance - the mission itself
+	#costs nothing and takes nobody out of the garrison, exactly like an AI
+	#one, so without a cooldown a leader could carpet the map with parties
+	#and learn the whole world in a minute. Ordering from a DIFFERENT
+	#village is not blocked by this, so a large faction genuinely does scout
+	#faster than a small one.
+	#Default: 2400 (two minutes)
+	#
+	#Range: 0 ~ 720000
+	orderCooldownTicks = 2400
+	#How far from the point you click on the map a scouting order will look
+	#for a village to investigate.
+	#
+	#You order a scout by clicking a PLACE, not a marker, so that you can
+	#send one into land you have never seen - which is the entire point of
+	#scouting. This is how close that click has to be to the village you are
+	#hoping is there. Too small and aiming at an unexplored region is
+	#guesswork; too large and one click at the edge of the map finds
+	#something a long way from where you pointed.
+	#Default: 128
+	#
+	#Range: 16 ~ 1024
+	orderSearchRadius = 128
+
+[fog]
+	#FOG OF WAR on this addon's own map markers.
+	#
+	#TURNING THE BASE MOD'S FOG OFF TURNS THIS OFF TOO. A server owner who
+	#sets RecruitsServerConfig.FogOfWarEnabled = false has said what he wants,
+	#and from where he stands there is ONE map with ONE fog on it - that the
+	#village markers belong to an addon is our implementation detail, not a
+	#second policy he should have to go and find. Before, turning it off
+	#un-hid the base mod's claims and left every village marker still hidden,
+	#which reads as broken rather than as switched off.
+	#
+	#This key can still be turned off ON ITS OWN, which is the case the base
+	#switch cannot express: keep the base mod's claim fog, but show this
+	#addon's villages. The two are ANDed - fog is on only if nobody has
+	#switched it off.
+	#
+	#The base Recruits mod already hides CLAIMS in chunks you have not
+	#explored (RecruitsServerConfig.FogOfWarEnabled). This addon's village
+	#markers went straight past that: every village in the world, with live
+	#garrison counts, was sent to every client. Our markers were the leak.
+	#With this on, a village you have never seen is not sent at all, and one
+	#you have seen but are not near travels as a frozen MEMORY - the numbers,
+	#and the OWNER, as of the last time you looked. A village conquered while
+	#you were away is therefore not announced to you by the map.
+	#Four ways to see a village: your own and allied villages (always, live),
+	#walking near one, your faction's scouts finding it, and buying what a
+	#village knows from its Noble.
+	#Diplomatic relations are NEVER fogged - who you are at war with is
+	#decided by your own faction, not discovered by looking at a map.
+	#EXISTING WORLDS: every village that already exists when this first runs
+	#is remembered as it is at that moment, so nobody loses a map he has
+	#already filled in; fog applies to villages founded afterwards.
+	#Default: true
+	#
+	enabled = true
+	#Allied factions' villages are never hidden and always show live
+	#numbers. Set to false and an ally's territory fogs over like anyone
+	#else's - you would then have to scout your own allies, which is
+	#consistent but not usually what an alliance is for. Default: true
+	#
+	alliesAlwaysVisible = true
+	#Blocks from a village centre within which a player discovers it, and
+	#within which his memory of it is kept current.
+	#Generous by design: a village's fields and roads reach a long way out,
+	#and a player who has walked through the outskirts has plainly seen the
+	#place. Default: 128
+	#
+	#Range: 16 ~ 512
+	discoveryRadius = 128
+	#How long a sighting still counts as CURRENT before the marker starts
+	#being drawn as a memory (faded, with its age beside it).
+	#Only needs to outlast the gap between two discovery passes, so the
+	#marker of a village you are standing in does not flicker between live
+	#and remembered. Default: 200 (10 seconds)
+	#
+	#Range: 40 ~ 24000
+	freshTicks = 200
+	#A village Noble will SELL what its faction knows about its neighbours.
+	#Buying reveals every village that faction has actually scouted (plus
+	#its own), at the age and garrison figures ITS scouts recorded - buying
+	#a rumour does not make it fresh. A village that has never sent a scout
+	#anywhere has nothing to sell.
+	#This is the main reason for a factionless player to care about the
+	#intelligence system at all. Default: true
+	#
+	nobleSellsIntel = true
+	#Emeralds a Noble charges for what it knows. Default: 24
+	#
+	#Range: 0 ~ 4096
+	nobleIntelCost = 24
+	#Minimum contract tier (i.e. standing band) before a village will sell
+	#you its intelligence at all: 1 = Neutral, 2 = Trusted, 3 = Honoured.
+	#Set above 1 so that standing buys something a stranger cannot simply
+	#pay for - a village does not tell the first passer-by where its
+	#neighbours' garrisons are. Default: 2 (Trusted)
+	#
+	#Range: 1 ~ 3
+	nobleIntelMinTier = 2
+
+[battles]
+	#FIELD BATTLES: fighting that happens OUTSIDE the walls, before a siege.
+	#Two factions at war can meet in the open two ways.
+	#A SKIRMISH is a raid on a garrison near its own village. Its only
+	#effect is the men it kills - there is no morale debuff or hidden
+	#modifier, the softening IS the bodies, so a defender who loses one
+	#literally has fewer men on the wall and you can count them.
+	#A BATTLEFIELD is a pitched battle at a site between the two villages,
+	#and it decides the siege: win it and the siege launches at once and
+	#REINFORCED, lose it and the attacker will not approach that village for
+	#a while.
+	#NEITHER IS REQUIRED. A faction may still march straight to a siege
+	#exactly as before - battles are the better play, not a gate.
+	#Both sides are the villages' REAL soldiers, teleported out of their
+	#garrisons, never spawned for the occasion; that is what makes the
+	#casualties mean anything. A garrison is never emptied below
+	#attack.minGarrison to fight one. Default: true
+	#
+	battlesEnabled = true
+	#Chance that an attack the AI has decided on becomes a SKIRMISH in the
+	#field instead of going straight to a siege. Default: 0.35
+	#
+	#Range: 0.0 ~ 1.0
+	skirmishChance = 0.35
+	#Chance that it becomes a full BATTLEFIELD instead. Rolled first, so
+	#this and skirmishChance share the same draw and their sum is the
+	#chance of any field battle at all. Default: 0.2
+	#
+	#Range: 0.0 ~ 1.0
+	battlefieldChance = 0.2
+	#Soldiers each side commits to a skirmish. Default: 5
+	#
+	#Range: 1 ~ 100
+	skirmishTroops = 5
+	#Soldiers each side commits to a battlefield. Default: 20
+	#
+	#Range: 1 ~ 200
+	battlefieldTroops = 100
+	#Elites a side tries to bring to a FIELD BATTLE, when it has any.
+	#"At least this many if they exist" - never a blocker. Default: 2
+	#
+	#Range: 0 ~ 50
+	eliteMin = 2
+	#Most elites a side may bring to a FIELD BATTLE. The cap gives way only
+	#when there are not enough ordinary soldiers to fill the party - marching
+	#short would lose the fight the cap exists to protect them for.
+	#Default: 4
+	#
+	#Range: 0 ~ 50
+	eliteMax = 4
+	#Elites a side tries to bring to a SKIRMISH. A raid is the cheapest way
+	#to lose a village's best men, so it risks the fewest. Default: 1
+	#
+	#Range: 0 ~ 50
+	skirmishEliteMin = 1
+	#Most elites a side may bring to a SKIRMISH. Default: 2
+	#Range: 0 ~ 50
+	skirmishEliteMax = 2
+	#Elites a side tries to bring to a SIEGE. The most of any fight: taking
+	#or holding a village is what a village keeps elites FOR. Default: 4
+	#
+	#Range: 0 ~ 50
+	siegeEliteMin = 4
+	#Most elites a side may bring to a SIEGE. Default: 5
+	#Range: 0 ~ 50
+	siegeEliteMax = 5
+	#Village COMMANDERS that may march with an attack - a siege or a field
+	#battle. Officers make the party fight as a unit instead of a crowd, and
+	#the base leader AI they run coordinates whoever is assigned to them.
+	#
+	#The elected LEADER-commander is never taken: he holds the village, the
+	#same reason the group leader is never drafted. Only road commanders go,
+	#so a village needs more than one commander before any of them can
+	#leave. Set to 0 to keep every officer at home. Default: 2
+	#
+	#Range: 0 ~ 10
+	commandersJoining = 2
+	#Troops MARCHING PAST a battle join it.
+	#
+	#A column that walks within range of a fight it has a reason to be in
+	#stops being a column: if it belongs to one of the two armies (or to an
+	#ally of one) its men reinforce that side and count towards who wins. If
+	#it is merely at war with one side or with both, its men fight but
+	#reinforce NOBODY - and because a battle anyone outside the two armies
+	#has killed in cannot be won, wading into somebody else's war denies it
+	#to both of them.
+	#
+	#Only military columns. Settler parties and goods convoys keep walking,
+	#and bandits never join anything. Default: true
+	#
+	passingJoinEnabled = true
+	#How close a marching column has to come to a battle before it is drawn
+	#into it. Default: 64
+	#
+	#Range: 8.0 ~ 512.0
+	passingJoinRadius = 64.0
+	#How far from the battle site each side is set down.
+	#
+	#A siege deploys 100 blocks out because the party has to arrive OUTSIDE
+	#a village and march in. A field battle has no walls to approach - both
+	#sides are simply meeting - and reusing the siege distance meant troops
+	#materialising a hundred blocks from the fight and spending the battle
+	#walking to it. Default: 40
+	#
+	#Range: 8 ~ 200
+	battleDeployDistance = 40
+	#How much of a battle site must be DRY LAND for the fight to happen
+	#there, as a fraction of the ground sampled across the whole area both
+	#sides deploy into (battleDeployDistance).
+	#
+	#Battles are fought on land. The site used to be judged on its single
+	#centre column, so a point one block past the shore of a lake passed and
+	#then most of two armies was set down in the water - swimming instead of
+	#fighting. Sampling the area they actually stand in is what makes "on
+	#land" mean the field and not the flagpole.
+	#
+	#Columns in unloaded chunks are not counted either way: reading them
+	#would generate terrain, and treating them as water would forbid every
+	#battle between two sleeping villages. The site is re-checked when the
+	#battle really starts, by which time its chunks are held.
+	#
+	#Lower = battles tolerate ponds and river crossings; 1.0 = every sampled
+	#column must be dry. Default: 0.85
+	#
+	#Range: 0.0 ~ 1.0
+	siteMinLandFraction = 0.85
+	#Both sides must be able to field at least this many, or no battle
+	#happens. A one-sided fight is not a battle, it is a walk - and
+	#committing the attacker's men to it would strip a garrison for
+	#nothing. Default: 3
+	#
+	#Range: 1 ~ 50
+	minTroops = 3
+	#Blocks from the DEFENDER's village that a skirmish is fought, measured
+	#towards the attacker. Close, because it is a raid on that garrison.
+	#The site is pushed further out if it would land inside a claim - a
+	#field battle inside somebody's territory is a siege by another name.
+	#Default: 150
+	#
+	#Range: 32 ~ 1000
+	skirmishDistance = 150
+	#Blocks from the defender's village that a battlefield is fought.
+	#Further out, on ground neither side owns. Default: 240
+	#
+	#Range: 32 ~ 2000
+	battlefieldDistance = 240
+	#How long a skirmish runs before it is called. If both sides are still
+	#standing when time is up the DEFENDER holds the field, because the
+	#attacker is the one who had to achieve something and did not.
+	#Default: 3600 (3 minutes)
+	#
+	#Range: 200 ~ 72000
+	skirmishDurationTicks = 3600
+	#How long a battlefield runs before it is called. Default: 6000 (5 min)
+	#
+	#Range: 200 ~ 72000
+	battlefieldDurationTicks = 6000
+	#Extra attackers the siege gets after WINNING a battlefield, on top of
+	#the defenders it would normally be sized against. This is the whole
+	#reward for fighting in the open first. Default: 6
+	#
+	#Range: 0 ~ 100
+	battlefieldSiegeBonus = 6
+	#How decisively the stronger side wins a fight NOBODY WATCHED.
+	#
+	#A fight out of sight is settled by comparing what both sides are
+	#carrying - armour, health, weapon, elite status - rather than by the
+	#flat die it used to be, in which four diamond-armoured guards protected
+	#a caravan exactly as well as one unarmed courier.
+	#
+	#This exponent sharpens the strength ratio. At 1.0 a side twice as strong
+	#wins 2 fights in 3, which is very kind to the weaker side for a number
+	#meant to make equipment matter; at 2.0 the same pair is 4:1. It is never
+	#certain at any value - a 51/49 fight that always went the same way would
+	#make the stronger side untouchable and raiding pointless.
+	#Default: 2.0
+	#
+	#Range: 1.0 ~ 6.0
+	abstractCombatDecisiveness = 2.0
+	#Largest share of the LOSING side that dies in a fight nobody watched.
+	#
+	#Scaled by how badly it was outmatched, so a narrow defeat costs far less
+	#than a rout. The dead are really dead: they are struck off the records
+	#and do not come back.
+	#Default: 0.75
+	#
+	#Range: 0.0 ~ 1.0
+	abstractCombatLoserLosses = 0.75
+	#Largest share of the WINNING side that dies in a fight nobody watched.
+	#
+	#Scaled by how CLOSE it was, so a narrow win costs nearly as much as a
+	#defeat and a crushing one costs almost nothing. Without this a strong
+	#faction could farm fights for free, and there would be no reason ever to
+	#avoid one.
+	#Default: 0.35
+	#
+	#Range: 0.0 ~ 1.0
+	abstractCombatWinnerLosses = 0.35
+	#Ticks before the same pair of factions fights another field battle.
+	#Set on ANY outcome, not just a defeat: two factions should not grind
+	#battle after battle in the same field, and the losing side needs time
+	#to rebuild before it is hit again. Default: 12000 (10 minutes)
+	#
+	#Range: 200 ~ 720000
+	battleCooldownTicks = 12000
+	#Minimum staging time before a newly created abstract battle or siege
+	#may deal damage. This guarantees that faction members can read and use
+	#the clickable join/inspect message even when one army badly outnumbers
+	#the other. 20 ticks = one second. Default: 300 (15 seconds).
+	#
+	#Changing this default does not rewrite an existing military.toml; use
+	#/vrconfig reset military confirm to adopt future defaults.
+	#
+	#Range: 0 ~ 6000
+	abstractJoinGraceTicks = 300
+	#After LOSING a battlefield, ticks before the attacker will besiege that
+	#village. Keyed on the village, not the faction: being beaten in the
+	#field outside one village says nothing about its chances elsewhere.
+	#Default: 24000 (20 minutes)
+	#
+	#Range: 200 ~ 720000
+	siegeBlockTicks = 24000
+	#Soldiers a village keeps at home when it marches out to a FIELD BATTLE.
+	#The group leader is never taken and is counted on top of this.
+	#
+	#Deliberately separate from attack.minGarrison, which this used to
+	#borrow. That number answers a different question - how many defenders
+	#to leave behind when an assault party goes off to a siege it may not
+	#come back from - and a server that raises it for that reason was
+	#silently making field battles impossible: a village needs
+	#keepGarrison + minTroops soldiers before it can give battle at all, so
+	#at minGarrison 10 an eleven-man village had ZERO spare and every battle
+	#it was offered came back "impossible". With the siege gate on, that
+	#reads in game as attacks going straight to a siege with no battle ever
+	#appearing.
+	#
+	#A field battle is a prelude fought by the field army, and the survivors
+	#march home, so the reserve is smaller than a siege's by design.
+	#Default: 3
+	#
+	#Range: 0 ~ 200
+	keepGarrison = 3
+	#Send a clickable [JOIN] invite when a field battle starts, to the online
+	#members of BOTH factions in it.
+	#
+	#A siege has always done this (attack.playerJoinEnabled): its members get
+	#a prompt and a deploy delay to answer it. A battle had only the
+	#/vrbattles join command, which works but which nobody finds unless they
+	#already know it exists - so in practice players fought sieges and
+	#watched battles happen without them.
+	#
+	#The invite goes to faction MEMBERS wherever they are, not only to
+	#whoever is standing near the field: the point of it is to bring the
+	#faction to the fight. The separate local announcement
+	#(battles.announceRadius) is unchanged and still tells bystanders.
+	#Default: true
+	#
+	battleJoinInviteEnabled = true
+	#A field battle must be WON before that village may be besieged.
+	#Armies meet in the open first; only then does the siege begin. Applies
+	#to AI factions and to players alike (map order, leader menu and
+	#delegated auto-orders); the operator command /vrforceattack stays an
+	#override.
+	#
+	#IMPORTANT - this cannot block warfare outright, by design. If a battle
+	#is IMPOSSIBLE between the two villages, the siege proceeds as if the
+	#gate were off: either side unable to field 'minTroops' spare soldiers,
+	#no valid battle site, or the whole battle feature turned off. Only a
+	#battle that COULD be fought and was not yet holds the siege back.
+	#Without that rule the weakest villages - the ones that cannot spare
+	#three soldiers - would be permanently unconquerable, and any future bug
+	#that stopped battles opening would silently stop every war in the
+	#world. Set to false to restore the old behaviour, where a battle is the
+	#better play rather than a requirement. Default: true
+	#
+	requireBattleBeforeSiege = true
+	#After WINNING a field battle (skirmish or battlefield), ticks during
+	#which the winner may besiege that village. Keyed on the village and on
+	#the attacking faction, like siegeBlockTicks.
+	#
+	#A window rather than a single use: an assault repelled for a technical
+	#reason should not cost a whole battle to retry. A window rather than
+	#forever: a victory a day old should not still be opening gates.
+	#Only used when requireBattleBeforeSiege is true. Default: 24000
+	#(20 minutes)
+	#
+	#Range: 200 ~ 720000
+	siegeAuthTicks = 24000
+	#Blocks within which players are told a battle has started or ended.
+	#Local rather than server-wide: a field battle between two AI villages
+	#on the far side of the world is not news, and a long war would fill
+	#chat with it. Default: 260
+	#
+	#Range: 0 ~ 4000
+	announceRadius = 260
+	#A field battle shows a BOSS BAR with how many men each side still has,
+	#to the players of the two factions fighting it and to nobody else.
+	#
+	#A battle is fought outside every claim, far enough out that a player on
+	#one of the two sides can stand in the middle of it and not know whether
+	#he is winning. The counts already existed - they are recomputed every
+	#pass - they were simply only visible through /vrbattles.
+	#
+	#Deliberately NOT shown to everyone. A third party watching two
+	#neighbours maul each other would read the size of both armies off the
+	#bar for free, which is the intelligence the scouting system exists to
+	#make a faction pay for.
+	#
+	#The bar is a tug of war rather than a countdown: it fills towards
+	#whichever side has more men standing. Default: true
+	#
+	bossBar = true
+	#How close to a battle you must be for its boss bar to show, in blocks.
+	#
+	#Being in one of the two factions is not enough on its own. Without this
+	#the bar hung on the screen of every member of both sides wherever they
+	#were - mining, building, in another dimension - for the whole length of
+	#a battle they had no part in and could not reach. The bar is for the
+	#player who is IN the fight.
+	#
+	#Comfortably wider than the deploy circle so it appears as you ride up
+	#rather than snapping on once you are already in the melee.
+	#Default: 200
+	#
+	#Range: 16 ~ 2000
+	bossBarRange = 200
+	#A SIEGE or a DEFENCE shows a boss bar too: the garrison against whoever
+	#is in the field around the village.
+	#
+	#Separate from bossBar above because the two are fed by different things.
+	#The field-battle bar rides on the battle's own pass, where the armies are
+	#already counted; a village under assault has no such record, so this one
+	#is driven by looking at the village - which is also what makes it work
+	#for an assault that never becomes a base-mod siege at all, for a raid too
+	#small to trip the siege threshold, and for the whole approach before the
+	#attackers reach the walls.
+	#
+	#Uses bossBarRange above for how close you must be to see it. Shown to the
+	#two factions, and to any unaligned player who has picked a side in that
+	#fight (see sideCommitment). Default: true
+	#
+	siegeBossBar = true
+	#Throwing the first punch in somebody else's battle or siege COMMITS you
+	#to the other side for the rest of that fight.
+	#
+	#While committed: your blows on your own side do nothing and theirs on you
+	#do nothing; the side you hit comes for you and for the recruits you
+	#hired; and if your side wins while you are still there, you gain standing
+	#with them (see /vrcontracts standing).
+	#
+	#The first hit decides - not the last - so joining a fight is a decision
+	#rather than a switch you can flick by hitting whoever is nearest. A
+	#player who already belongs to one of the two factions is committed to his
+	#own side from the start and cannot be committed against it.
+	#
+	#Set to false to go back to a player being nobody's ally in a village war:
+	#able to stab both sides in the same minute, and owed nothing by either.
+	#Default: true
+	#
+	sideCommitment = true
+	#How many villagers or workers you must strike before hitting civilians
+	#commits you to the other side. Hitting a SOLDIER always commits you at
+	#once; this is the allowance for civilians only.
+	#
+	#It exists so one misplaced swing in a crowded street cannot enlist you in
+	#a war, while a man cutting down the third civilian he has come across has
+	#clearly chosen. Counted across DIFFERENT bodies as well as the same one,
+	#so finishing off one villager is not a free pass to start on the next.
+	#
+	#Set to 0 to make a civilian commit you as fast as a soldier.
+	#Default: 3
+	#
+	#Range: 0 ~ 64
+	sideCommitmentCivilianStrikes = 3
+	#Standing gained with the faction you fought for when it wins the fight
+	#you were committed to.
+	#
+	#FLAT and once per fight, never per kill: a per-kill reward could be
+	#ground out forever on a border skirmish between two AI neighbours, while
+	#a single award for the outcome requires the fight to actually be won.
+	#Losing costs nothing - you took the risk.
+	#
+	#For scale, see the reputation tiers under [contracts]: 20 is Trusted.
+	#Set to 0 to make fighting for a village earn nothing. Default: 15
+	#
+	#Range: 0 ~ 1000
+	sideCommitmentReward = 15
+	#How close to the fight you must be when it ends to be paid for it, in
+	#blocks.
+	#
+	#Without it a player could commit with a single arrow and then collect
+	#from the other side of the map for a war he took no part in. Default: 200
+	#
+	#Range: 16 ~ 4000
+	sideCommitmentRewardRange = 200
+	#How long a commitment survives with nothing happening, in ticks.
+	#
+	#A commitment normally ends when its fight resolves. This is the backstop
+	#for a fight that stops existing without ever resolving - a server
+	#restart, or a chunk that unloads with the last two combatants inside it -
+	#because a commitment that outlived its war would leave a player unable to
+	#harm a faction he has forgotten he ever helped, with nothing in the game
+	#to tell him why. Default: 6000 (five minutes)
+	#
+	#Range: 200 ~ 72000
+	sideCommitmentTimeoutTicks = 6000
+	#How far a player may get from a fight he joined before he counts as
+	#having RUN FROM IT, in blocks.
+	#Joining a side makes the other side hunt you and earns you standing when
+	#your side wins. Neither should survive walking away: a player who leaves
+	#was not in the battle, and being able to commit with one arrow and then
+	#watch the rest of it from a hilltop is not taking part.
+	#Leaving ends the commitment - no reward, and the enemy stops treating you
+	#as one of the combatants (the retaliation marker still lapses on its own
+	#timer, so they do not forgive you instantly).
+	#Leaving the DIMENSION always counts, whatever this is set to.
+	#0 = never, distance is ignored. Default: 160
+	#
+	#Range: 0 ~ 4000
+	commitmentLeaveDistance = 160
+	#How long a player has to be that far away before it counts, in ticks.
+	#A fight in the open moves, and a bowman working the flank of a battle can
+	#be a long way from its centre without having left it. The grace period is
+	#what separates fighting at a distance from leaving.
+	#Default: 200 (10 s)
+	#
+	#Range: 20 ~ 24000
+	commitmentLeaveGraceTicks = 200
+	#Soldiers in a field battle keep to their CAPTAIN instead of each running
+	#at the battle site on their own.
+	#Every man was sent to one fixed point picked when the battle started, so
+	#a war party arrived as a spread-out crowd and never re-formed: the
+	#captain the chain of command appoints was a body with a banner that
+	#nobody actually followed. With this on, the point each soldier walks to
+	#is wherever his captain is now, so the party moves as one and closes as
+	#one. A man who is fighting is not pulled off his enemy - his own melee
+	#AI outranks the march - and when the captain falls the party reverts to
+	#the battle site.
+	#Default: true
+	#
+	followCaptain = true
+	#How far a captain has to move before his party is re-aimed at him, in
+	#blocks.
+	#Re-aiming makes each soldier recompute his route, so following the
+	#captain block by block would be a pathfinding cost paid many times a
+	#second for a formation nobody can see tighten. Raise it for cheaper,
+	#looser cohesion; lower it for a tighter column.
+	#Default: 8
+	#
+	#Range: 1 ~ 128
+	captainRallySlack = 8
+	#Once a side is down to this many men or fewer, its SURVIVORS GLOW.
+	#A battle is decided long before it ends. With two or three men left the
+	#remaining work is FINDING them - and what actually happens is that the
+	#last survivor wanders into a ravine, behind a hill or into water, and
+	#the battle grinds on to its deadline with two dozen soldiers looking
+	#for him. Lighting the stragglers up is the cheap answer: nothing is
+	#teleported, the winners simply have something to walk towards.
+	#Only the LOSING side glows - both sides would be a floodlight, and
+	#glowing from the start would give away a force that has not lost yet.
+	#The map marker turns yellow at the same moment.
+	#0 = never glow. Default: 3
+	#
+	#Range: 0 ~ 50
+	glowBelow = 3
+	#How long each application of the glow lasts. Deliberately SHORT and
+	#re-applied every pass, so it lapses on its own the moment the battle
+	#ends or the man dies - nothing has to remember to take it off a soldier
+	#who survived and went home. Default: 100 (5 seconds)
+	#
+	#Range: 20 ~ 2400
+	glowTicks = 100
+	#When a skirmish, a field battle or a siege ends, the whole FACTION
+	#reacts to it - not just the village that fought.
+	#
+	#Before this a fight was purely local: the men who fought were released
+	#back into their patrols and every other village carried on as if nothing
+	#had happened. A faction could lose three battles in a row and keep
+	#launching a fourth, because the only thing that remembered a defeat was
+	#a per-pair cooldown, which says "not these two, not yet" and nothing at
+	#all about how the war is going.
+	#
+	#Three reactions: a faction-wide POSTURE the AI reads, WORD to every
+	#online member wherever they are, and TROOPS moved toward a village that
+	#was just threatened. Each has its own switch below. Default: true
+	#
+	warReactionEnabled = true
+	#How long a faction stays in the mood its last fight put it in.
+	#
+	#It EXPIRES so that a war is a sequence of moods rather than a permanent
+	#label, and only the LAST outcome counts - wins and losses do not
+	#accumulate into a score, because what steers a faction is the thing that
+	#just happened to it, not its record.
+	#
+	#Default: 12000 ticks (10 minutes)
+	#
+	#Range: 200 ~ 168000
+	warReactionTicks = 12000
+	#Tell every online member of the faction when one of its fights ends.
+	#
+	#Sent to the faction rather than broadcast to the server: this is its own
+	#news. The existing announcement only reaches players standing near the
+	#fighting, so a battle across the map was invisible to the faction that
+	#fought it - which is the faction it mattered to. Default: true
+	#
+	warReactionAnnounce = true
+	#After a WIN, multiply the faction's attack retry cooldown by this - it
+	#presses the advantage instead of waiting out the usual pause.
+	#
+	#A multiplier on the existing cooldown rather than a second timer, so the
+	#config that tunes how often a faction attacks keeps meaning what it says
+	#and this only bends it. 1.0 = no change. Default: 0.4
+	#
+	#Range: 0.05 ~ 1.0
+	warReactionWinCooldownScale = 0.4
+	#After a DEFEAT, how much extra the faction wants the MILITARY research
+	#branch, as a bonus on its research score.
+	#
+	#A flat addition on the same footing as the firearm and armour bonuses -
+	#it lifts a branch without overriding what the village actually needs, so
+	#a faction whose warehouse is bursting still buys Warehousing.
+	#0 = off. Default: 70.0
+	#
+	#Range: 0.0 ~ 1000.0
+	warReactionResearchBonus = 70.0
+	#After a DEFEAT, move soldiers from the faction's other villages toward
+	#the one that was threatened. Default: true
+	#
+	warReactionReinforce = true
+	#Most soldiers any ONE other village will send. Each source still keeps
+	#attack.minGarrison of its own, so a faction cannot strip a second
+	#village bare answering the loss of a first. Default: 3
+	#
+	#Range: 0 ~ 64
+	warReactionReinforcePerVillage = 3
+	#Most soldiers the whole faction will move in one reaction, across all
+	#its villages. Default: 8
+	#
+	#Range: 0 ~ 128
+	warReactionReinforceMax = 8
+	#How far a village can be from the threatened one and still send men.
+	#
+	#The movement is a TELEPORT, so this is what keeps it reading as
+	#reinforcement rather than as troops blinking across the map: a faction
+	#spread over a continent should not empty a village a thousand blocks
+	#away into a fight it could never have reached in time. Default: 700
+	#
+	#Range: 32.0 ~ 5000.0
+	warReactionReinforceRadius = 700.0
+	#A fight plays its own MUSIC, in place of Minecraft's soundtrack, for the
+	#players of the two sides.
+	#
+	#It starts on a field battle (skirmish or battlefield), on a siege or
+	#assault, and on the defence of one of your own villages, and it stops
+	#when the fight does - whichever ends it. Minecraft's own music is held
+	#back for as long as it plays and resumes on its normal schedule
+	#afterwards; nothing else is silenced.
+	#
+	#Each player controls how loud it is, or turns it off entirely, with the
+	#"Battle Music" slider in Options -> Music & Sound Options. That is the
+	#setting a player who dislikes it should use - this key removes the
+	#feature for EVERYONE on the server, which is a different decision.
+	#
+	#Chat says so the first moment it plays, every time, and names where the
+	#slider is: music a player did not ask for and cannot find the switch for
+	#is worse than no music. Default: true
+	#
+	battleMusic = true
+	#How close to the fight you must be to hear the battle track, in blocks.
+	#0 = anywhere in the world.
+	#
+	#Default 200, the same distance the battle boss bar uses, so the music
+	#arrives with the bar and means the same thing: this fight is yours and
+	#you are in it. Being in one of the two factions is NOT enough on its own
+	#- a large faction can be at war somewhere at almost any hour, and music
+	#that starts while you are mining a thousand blocks away is telling you
+	#about a battle you cannot reach and will not affect.
+	#
+	#Set to 0 to go back to the music following your WAR rather than your
+	#position: every member of both sides hears every battle, wherever he is.
+	#
+	#Only ever narrows the audience. Nobody outside the two factions hears it
+	#at any range, however close they stand.
+	#
+	#NOTE this default changed in 1.0.7.93TC-111 (it was 0). Forge never
+	#rewrites a key a file already has, so a world created under TC-110 keeps
+	#0 and will not pick this up - set it by hand, or see /vrconfig reset
+	#military.toml confirm. Default: 200
+	#
+	#Range: 0 ~ 4000
+	battleMusicRange = 200
+	#Standing inside a village plays a VILLAGE track, in place of Minecraft's
+	#soundtrack.
+	#
+	#Any village you are not at WAR with - your own, an ally's, a neutral's -
+	#and for an unaligned player that means every village in the world, since
+	#he is at war with nobody. A village whose faction you are fighting gives
+	#you silence instead; if anything is actually happening there you get the
+	#battle track, which always wins over this one.
+	#
+	#"Inside" means within villageMusicRadius of a village CENTRE - see
+	#below. Land a player has simply drawn a claim around is not a village
+	#and plays nothing.
+	#
+	#Each player controls how loud it is, or turns it off entirely, with the
+	#"Village Music" slider in Options -> Music & Sound Options, separately
+	#from the battle track. That is the setting a player who dislikes it
+	#should use - this key removes it for EVERYONE on the server.
+	#
+	#Chat mentions it ONCE per session, not every time: walking in and out of
+	#villages is most of what a player does, and a line every time would be
+	#the most irritating thing this mod did. Default: true
+	#
+	villageMusic = true
+	#How far from a village centre still counts as being IN that village, in
+	#blocks, for the village track.
+	#
+	#Default 120, which is not a taste: it is exactly how far a village's own
+	#works reach (CityPlanGenerator.MAX_CITY_RADIUS) - the outermost roads,
+	#bridges and building plots a village will ever lay.
+	#
+	#Deliberately NOT the claim. A village claim is only 3 chunks, about 48
+	#blocks from the centre, so using it cut the music off less than halfway
+	#out of the town while the player was still walking between its houses.
+	#The claim is a much smaller authority than it looks; the same mismatch
+	#once left the village periphery unprotected from griefing.
+	#
+	#Lower it if you want the music to be the square rather than the town.
+	#Default: 120
+	#
+	#Range: 16 ~ 1000
+	villageMusicRadius = 120
+	#How close an ANGRY GARRISON has to be for the battle track to play, in
+	#blocks. 0 disables this case entirely.
+	#
+	#Hit a village's recruits and they fight back, whether or not there is a
+	#war on - an unaligned player has no faction to be at war with, so none
+	#of the fights this mod records is ever "his". Without this the man who
+	#just picked a fight with a whole village heard the peaceful village
+	#theme all the way through it, which is the single most obviously wrong
+	#thing the music could do.
+	#
+	#So a player the garrison is retaliating against (see
+	#combat.retaliationDurationTicks) hears the battle track for as long as
+	#any of those soldiers is within this distance of him. Outrun them and it
+	#stops - it follows the soldiers actually after you, not the grudge,
+	#which is why this is a small number and not battleMusicRange.
+	#
+	#Default 48, about the distance a village's soldiers will chase and shoot
+	#from. Raise it if you want the chase to keep its music for longer.
+	#
+	#Range: 0 ~ 512
+	retaliationMusicRadius = 48
+
+#Battle tanks: Laendli armoured vehicles crewed by a village.
+[tanks]
+	#Villages build and crew armoured vehicles once they have researched
+	#Battle Tanks. Needs Laendli Transportation; without it the technology is
+	#hidden and none of this applies. Default: true
+	#
+	enabled = true
+	#How many tanks ONE village may keep. They are an abstract count in the
+	#village rather than parked entities - Laendli has no storage structure
+	#for a vehicle, and a parked entity would have to be kept loaded, which is
+	#exactly what the offline village model refuses to do. Default: 2
+	#
+	#Range: 0 ~ 16
+	maxPerVillage = 2
+	#Iron ingots one tank costs to build. Default: 48
+	#Range: 0 ~ 1024
+	costIron = 48
+	#Gold ingots one tank costs to build. Default: 16
+	#Range: 0 ~ 1024
+	costGold = 16
+	#How many tanks one side may commit to a single FIELD BATTLE.
+	#Kept low deliberately: a tank is meant to be the thing that decides a
+	#fight, not the thing that replaces the men in it. Default: 1
+	#
+	#Range: 0 ~ 6
+	perBattle = 6
+	#Most tanks one side may bring to a SKIRMISH, as opposed to a pitched
+	#battlefield.
+	#
+	#A skirmish is a raid on a garrison near its own village whose whole
+	#effect is casualties - it is not the set-piece a battlefield is, and an
+	#armoured column turning up to one is out of proportion to what is being
+	#decided. The battlefield keeps the larger allowance because that is the
+	#fight the walls and the guns are for. Default: 2
+	#
+	#Range: 0 ~ 6
+	perSkirmish = 2
+	#A tank that has fired its last shell drives home instead of staying in
+	#the fight.
+	#
+	#An empty tank is not a weakened tank - it is a crewed vehicle with
+	#nothing to shoot. Its rounds were withdrawn from a REAL crate when it
+	#deployed, so leaving it parked in a battle keeps the factory's magazine
+	#spent on something that can no longer fight. Withdrawing credits the
+	#shed, and the shed is what the next deployment draws from: the armour
+	#comes back instead of being abandoned.
+	#
+	#One vehicle at a time, not the whole column - the tanks that still have
+	#ammunition keep fighting.
+	#
+	#Does nothing when requireMagazine is off: with the rounds minted rather
+	#than withdrawn the slots are refilled every pass, so "empty" is a state
+	#that never lasts a tick. Default: true
+	#
+	withdrawWhenOutOfAmmo = true
+	#How many tanks one side may commit to a single SIEGE.
+	#
+	#Higher than a field battle because a siege is the bigger commitment of
+	#the two - the walls are what an armoured vehicle is actually for, and a
+	#skirmish in the open is not worth emptying the shed over. Default: 2
+	#
+	#Range: 0 ~ 8
+	perSiege = 2
+	#How far BEHIND the battlefield a tank arrives, in blocks, measured from
+	#the site along the line back to its own village.
+	#
+	#It used to arrive AT the site - which is no-man's-land, 40 blocks
+	#(battleDeployDistance) in FRONT of its own infantry and right on top of
+	#the enemy's. A crewmember materialising there is in melee before it has
+	#finished mounting, so the tank was routinely left standing empty with its
+	#driver dead or knocked out of the seat beside it.
+	#
+	#Keep this ABOVE battleDeployDistance or the tank spawns among the enemy
+	#line rather than behind its own. Default: 56
+	#
+	#Range: 0.0 ~ 256.0
+	deployDistance = 56.0
+	#A village tank never runs out of fuel, water or ammunition.
+	#
+	#A player's tank runs dry because a player can refuel it. A village's tank
+	#has nobody to do that, so "out of fuel" is not a state it recovers from -
+	#it is a vehicle immobilised for the rest of the battle and then
+	#despawned. The decision worth charging for is whether to BUILD one, which
+	#the iron and gold already charge for.
+	#
+	#With this on, the vehicle's slots and burn timers are kept topped up AND
+	#the Slowness it applies to itself when the boiler is empty is refused
+	#outright. That last part also costs the vehicle's OTHER use of Slowness
+	#(it slows itself grinding against stone) - accepted deliberately, because
+	#a rule written in terms of another mod's effect amplitudes is a rule that
+	#breaks silently the next time that mod is updated.
+	#
+	#Only tanks this addon deployed are affected; a player's own Laendli
+	#vehicle keeps every fuel rule the mod gives it. Default: true
+	#
+	freeFuel = true
+	#A tank ignores explosion damage.
+	#
+	#Its own shell cannot be recognised as its own: the blast is raised by a
+	#generated procedure that takes no entity, so the damage arrives with no
+	#attacker on it at all, and a tank was destroying itself with its only
+	#weapon. Armour-vs-blast is the only rule that can actually be
+	#implemented.
+	#
+	#This covers BOTH halves of that shell: the real explosion, and the
+	#hand-rolled splash it applies afterwards as plain GENERIC damage with no
+	#attacker - which is neither tagged an explosion nor attributable, and so
+	#was invisible to every earlier rule. Anything with nobody behind it is
+	#ignored, since a source with no attacker cannot be judged friend or foe
+	#by anything downstream. Falls still hurt (see fallDamageReduction) and
+	#the void and /kill still work.
+	#
+	#Tank against tank still works - a DIRECT hit is attributed to the
+	#shooter and passes straight through this. Default: true
+	#
+	blastProof = true
+	#A tank holds fire when one of its own is within this many blocks of the
+	#target (or of itself).
+	#
+	#The shell's blast carries no attacker, so nothing downstream can spare a
+	#friendly caught in it - the only place the question is answerable is
+	#before the trigger is pulled. Seen in testing: one shell killed seven of
+	#the tank's own crossbowmen and an officer. The shell's own damage radius
+	#is 7.5, hence 8. 0 disables the check and restores blind firing.
+	#Default: 8.0
+	#
+	#Range: 0.0 ~ 32.0
+	blastSafeRadius = 8.0
+	#How much fall damage a tank ignores, as a fraction. 0.9 = it takes a
+	#tenth of what it otherwise would.
+	#
+	#A reduction and not immunity on purpose: driving one off a cliff should
+	#still cost something, it just should not destroy an armoured vehicle that
+	#a village spent iron and gold on. Default: 0.9
+	#
+	#Range: 0.0 ~ 1.0
+	fallDamageReduction = 0.9
+	#A tank steers around obstacles instead of driving into them.
+	#
+	#Without this it heads straight at whatever it is aiming for and stops
+	#dead against the first wall, tree or hillside in the way. With it on, the
+	#route is a real path computed by the vehicle's own navigation, and the
+	#tank is steered from node to node - the navigation cannot drive it
+	#itself, because the vehicle only reads its rider's input.
+	#
+	#If no path exists at all (across a ravine, say) it falls back to heading
+	#straight for the objective, which is what it always did. Default: true
+	#
+	pathfind = true
+	#The crewmember cannot be hurt while it is sitting in its tank.
+	#
+	#A crew that dies in its seat makes the vehicle pointless: the tank
+	#survives, the driver does not, and an intact machine standing still is
+	#worse than losing it outright because it also looks like a bug. The
+	#crewmember is spawned with the vehicle, destroyed with it, carries
+	#nothing and cannot be recovered - being armour crew is its whole
+	#existence. Outside the tank it is an ordinary recruit again.
+	#
+	#The void and /kill still work, so an operator is never left unable to
+	#remove one. Default: true
+	#
+	crewProtected = true
+	#A tank only shoots at what it can actually see.
+	#
+	#Its gun fires along the hull's facing, so a target picked purely by
+	#distance means shelling the hillside between them - the round detonates
+	#on the slope and the tank keeps reloading at it. With this on it picks
+	#the nearest VISIBLE enemy instead, and while it has no shot it keeps
+	#ADVANCING rather than holding its firing distance, so it crests the rise
+	#and engages from there. Default: true
+	#
+	requireLineOfSight = true
+	#How far a tank looks for something to shoot at, in blocks.
+	#
+	#A tank gun outranges every infantry weapon in the game, and at 40 it was
+	#engaging from inside musket range - which is the one place armour has no
+	#advantage. Standing off and shelling is what the vehicle is for.
+	#
+	#NOTE: the line-of-sight test is this addon's own raycast precisely so this
+	#can exceed 128. Vanilla's hasLineOfSight refuses beyond 128 blocks
+	#whatever it is asked, so a range set past that with the vanilla test would
+	#find targets and never be allowed to fire at one.
+	#
+	#WARNING: raising this default does NOT reach a config file that already
+	#exists - Forge never rewrites a key it can already read. An established
+	#world keeps whatever is written in military.toml; edit it there, or use
+	#/vrconfig reset military confirm. Default: 120
+	#
+	#Range: 8.0 ~ 256.0
+	engageRange = 120.0
+	#How long a tank may shell ONE target without killing it before it drives
+	#closer, in ticks.
+	#
+	#A tank gun fires along the hull and the shell drops, so at long range the
+	#round can land short, on a lip of terrain, or splash where the target no
+	#longer is - and none of that reads as failure to the code: the target is
+	#visible, the gun is loaded, the shot goes off. The vehicle would happily
+	#reload at the same enemy for ever. Advancing a few blocks is how a gunner
+	#walks fire onto a target, and it is self-limiting: it eventually gets
+	#close enough to connect, and the moment the target dies the clock resets
+	#for the next one.
+	#
+	#0 disables it - the tank then holds its firing band indefinitely.
+	#Default: 400 (20 s)
+	#
+	#Range: 0 ~ 24000
+	stalledEngagementTicks = 400
+	#Shortest distance a stalled tank drives closer, in blocks. Default: 5
+	#Range: 1.0 ~ 64.0
+	stalledAdvanceMinBlocks = 5.0
+	#Longest distance a stalled tank drives closer, in blocks. Rolled fresh
+	#each time so armour creeps in rather than stepping the same measured
+	#distance over and over. Clamped to at least the minimum. Default: 10
+	#
+	#Range: 1.0 ~ 64.0
+	stalledAdvanceMaxBlocks = 10.0
+	#Ticks between shots. A tank gun is not a rifle - the delay is most of
+	#what keeps one from simply erasing a garrison. Default: 60 (3 s)
+	#
+	#Range: 5 ~ 1200
+	fireCooldownTicks = 60
+	#A musket ball cannot hurt a tank.
+	#
+	#Armour plate is the entire point of the vehicle, and a village that can
+	#field one has out-teched a line of musketeers by a whole era. Blocked at
+	#the damage event, so it covers every musket-mod weapon rather than a list
+	#of items. Cannon, explosives, other tanks and anything that is not a
+	#musket still damage it normally. Default: true
+	#
+	musketProof = true
+	#A tank shell never destroys a container or a village centre marker.
+	#
+	#The shell leaves a crater like any explosive, and that is fine for
+	#terrain. It is not fine for a chest - the village's stores or yours, and
+	#neither is replaceable out of a hole - and it is much worse for the
+	#recruit_block, which IS the village centre: the same block the demolition
+	#system breaks first when wiping a village out. One lucky round could end
+	#a settlement for good.
+	#
+	#The protected sets are shared, not written twice: village markers come
+	#from the list the road layer already refuses to pave over, and storage is
+	#the same container test the rest of the storage system uses (so modded
+	#chests are covered without naming any).
+	#
+	#NOTE: the shell is raised with no source entity, so there is nothing on
+	#it to identify a tank by. This therefore applies to any explosion that
+	#nobody can be blamed for. In practice that is narrow - vanilla names the
+	#responsible entity for TNT, creepers, fireballs, end crystals and withers,
+	#so ordinary creeper and TNT griefing is untouched.
+	#
+	#Only the BLOCKS are spared; anything standing in the blast still takes it
+	#in full. Default: true
+	#
+	shellSparesBlocks = true
+	#Let a village tank break blocks by driving into them.
+	#
+	#The vehicle's own tick destroys the cell in front of the hull every tick
+	#and drops it as items, so a tank crossing a village tunnels through walls,
+	#fences, houses and chests on its way to the fight - and an offline village
+	#never repairs any of it. That is fine for a vehicle a player is steering
+	#and choosing a route for; it is not fine for one the AI sends across its
+	#own settlement.
+	#
+	#OFF by default, so a village tank drives around obstacles (see
+	#pathfindObstacles) instead of through them. A player's own Laendli tank is
+	#never affected either way - only vehicles this addon is driving.
+	#
+	#Turn it on to restore the vehicle mod's own behaviour. Default: false
+	#
+	ramDestroysBlocks = false
+	#A village tank cannot kill its OWN side by driving over them.
+	#
+	#A tank crossing its own village square, or pushing through the line it is
+	#fighting alongside, killed the soldiers it was sent to help - and from
+	#outside that is indistinguishable from the vehicle being broken, because
+	#nothing announces it and the victims simply die.
+	#
+	#The vehicle hurts what it drives into with a damage source that carries
+	#NO attacker, so the culprit cannot be read off the damage and is
+	#identified by position instead, from the same notes the block-ram guard
+	#keeps. Scoped to unattributable damage, a victim that is not an enemy of
+	#that tank, and only vehicles this addon is driving - a player's own
+	#Laendli tank is untouched, and an enemy is still run over. Default: true
+	#
+	spareFriendlyRam = true
+	#How high a step a village tank can drive up, in blocks.
+	#
+	#At 2.0 it climbs a two-block wall or ledge - which most terrain is full
+	#of, and a tank that stopped at every one of them never reached the fight.
+	#Laendli's own constructor sets 1.1, so this is a deliberate raise.
+	#
+	#⚠️ This is the ONLY way a tank gets up anything, because jumping is
+	#refused (canJump below). That is the point: a step is bounded and
+	#predictable, whereas a jump carries momentum and gets a vehicle onto
+	#things nobody intended. Whatever you set here is genuinely the limit.
+	#
+	#WalkNodeEvaluator reads the mob's own step height when it decides whether
+	#a node is reachable, so this also tells the route planner what the
+	#vehicle can cross - without which a tank would repeatedly drive at a wall
+	#it had been told it could climb.
+	#
+	#Re-asserted every pass, because it is a plain field on the entity and the
+	#constructor's value comes back on every tank loaded from a save.
+	#Default: 2.0
+	#
+	#Range: 0.5 ~ 4.0
+	stepHeight = 2.0
+	#Let a village tank JUMP. A tracked vehicle has no legs, and with this
+	#off the ONLY way it gets up anything is stepHeight - which is then
+	#genuinely the limit, instead of a floor a jump can add to.
+	#
+	#This is the setting that actually stops a tank climbing. The step height
+	#never permitted two blocks; what did is that a tank is a PathfinderMob
+	#and vanilla jumps it - MoveControl calls jump() the instant the mob
+	#reports a horizontal collision, so a tank bumping a wall simply hopped
+	#over it. This addon overrides where the vehicle steers, not whether it is
+	#a mob, so that path ran untouched.
+	#
+	#true = the vehicle mod's behaviour, tanks climb by hopping.
+	#Default: false
+	#
+	canJump = false
+	#A tank goes after enemies it cannot currently SEE, pathfinding to them
+	#instead of standing still.
+	#
+	#Line of sight decides whether the gun may fire - it is re-checked before
+	#every round - and it used to decide something it had no business
+	#deciding: whether there was anyone to go and find. With nothing visible
+	#the tank had no target at all, drove to its objective, arrived, and then
+	#sat there while enemies stood a few blocks away behind a rise or a wall.
+	#That is the "tank stopped fighting" you see.
+	#
+	#A HIGHLIGHTED (glowing) enemy is pursued first among the unseen. Glowing
+	#is this mod pointing everyone at somebody - a routed survivor, the last
+	#defender of a besieged village - and those are exactly the ones nobody
+	#can find, which is what the glow is for. The tank should be helping look,
+	#not the one unit ignoring the signal.
+	#
+	#An enemy it CAN see always wins over one it cannot, whatever is glowing:
+	#shooting something now beats driving off after something else.
+	#Default: true
+	#
+	pursueUnseen = true
+	#NO-BUILD ZONE, in blocks, around a tank factory.
+	#Measured outward from the factory's own footprint, so this is clear
+	#ground either side of the building and not a total radius.
+	#Reported symptom it exists for: other buildings put up INSIDE the
+	#factory. The city plan's spacing could not prevent that, because it
+	#protects PLOTS and a factory is not always one - a sky village registers
+	#its centre piece as a factory directly, and /vrtanks can place one - so a
+	#plan drawn afterwards saw empty ground there. This is asked of the
+	#factory's SITE record instead, which every factory has however it was
+	#made, and it reads nothing from the world so it holds for an OFFLINE
+	#village too.
+	#0 = off (buildings may again be laid over a factory).
+	#Range: 0 ~ 64
+	factoryKeepOut = 6
+	#REPAIR EXISTING SAVES: a village whose city plan says it built a tank
+	#factory, on a plot where there is nothing standing, puts that plot back in
+	#the build queue.
+	#
+	#Why a save can be in that state at all: the physical builder marks a plot
+	#BUILT when the job is dispatched, not when the building is finished, on the
+	#grounds that the job is saved to disk. That holds only while the job
+	#survives - a builder that died and was never re-bought, or an abandoned
+	#site, leaves the plot marked built over empty ground, and the build queue
+	#skips every plot already marked built. So the village never tries again.
+	#
+	#For a house that is one missing house. For the factory it is the whole
+	#tank subsystem: with factoryRequired the village can then never build a
+	#tank or a shell, its crew is never hired, the order board never appears,
+	#and nothing says why - every record insists the building is there.
+	#
+	#It will NOT touch: a plot with a registered production site on it (that
+	#building was finished at least once, so an empty one was destroyed, which
+	#is a different event); a plot whose village has a build job running right
+	#now; a plot holding water, which the builder marks built on purpose so the
+	#queue can move past ground it can never build on; a plot in an unloaded
+	#chunk; or the same plot twice in one server session.
+	#Default: true
+	#
+	factoryHealMissing = true
+	#How long a works plot must be CONTINUOUSLY empty before factoryHealMissing
+	#treats it as an abandoned job and puts it back in the queue.
+	#
+	#This exists because the heal above duplicated buildings. A plot is marked
+	#BUILT at dispatch, and the building then takes minutes to appear - it has
+	#to be paid for in materials first, and the builder lays it block by block.
+	#For that whole window the plot looks exactly like an abandoned job: marked
+	#built, nothing standing yet. The heal reset one, the queue handed it out a
+	#second time, the second dispatch re-derived its anchor a few blocks off its
+	#street, and the village built the same works TWICE, side by side.
+	#
+	#Seen in a log as two opposite verdicts on one anchor about two minutes
+	#apart: "claims a tank factory ... that was never built (0 blocks)" and then
+	#"has a works standing ... (39 blocks)".
+	#
+	#The plot must now be seen empty on separate passes spanning this long, and
+	#ANY sign of life - blocks appearing, a job taking the plot, a site being
+	#registered - clears the timer. Raising it makes the heal safer and slower;
+	#lowering it risks the duplicate coming back. 0 disables the wait, which is
+	#the old behaviour and is not recommended.
+	#Default: 6000 (five minutes)
+	#
+	#Range: 0 ~ 432000
+	factoryHealGraceTicks = 6000
+	#A village needs a TANK FACTORY to build tanks and to make shells for
+	#them. Researching Battle Tanks earns the right to build the factory; the
+	#factory is what actually produces.
+	#
+	#Without it, armour was something a village conjured out of its stockpile
+	#anywhere, with nothing to show for it in the world - and the ammunition
+	#was free on top. With it, a faction's armour has a PLACE: a building that
+	#can be seen, walked into, besieged and burnt.
+	#
+	#⚠️ On an existing world this STOPS villages that were already building
+	#tanks until each has a factory. Set false to keep the old behaviour,
+	#where any village with the research builds tanks anywhere.
+	#Default: true
+	#
+	factoryRequired = true
+	#Iron ingots one batch of tank shells costs. Default: 6
+	#Range: 0 ~ 512
+	ammoIronPerBatch = 6
+	#Gunpowder one batch of tank shells costs.
+	#
+	#⚠️ Gunpowder is NOT something a village worker produces - no miner digs
+	#it and no forge smelts it - so in practice this is what a faction BUYS
+	#from a merchant or is given. That is deliberate: it makes ammunition a
+	#supply line rather than a by-product of mining, and it is the one thing
+	#that can leave a well-armoured faction unable to shoot. Set it to 0 to
+	#make shells purely a metal cost. Default: 2
+	#
+	#Range: 0 ~ 512
+	ammoPowderPerBatch = 2
+	#How many shells one batch yields. Default: 8
+	#Range: 1 ~ 512
+	ammoPerBatch = 8
+	#A hard ceiling on how many shells a faction may hold. 0 (the default)
+	#means THE CRATES DECIDE.
+	#
+	#A number here was the wrong kind of limit: the factory's storage is a
+	#room full of chests and barrels that a player can see, count and extend,
+	#and a config value silently overruled it - build twenty more barrels and
+	#production still stopped at the same figure, for a reason nothing in the
+	#world could show you. With 0 the limit is the shelf itself, measured
+	#live, so adding a barrel raises it the moment the block is placed and
+	#filling one lowers it again.
+	#
+	#Set a number only if you want a ceiling BELOW what the building can
+	#hold - as a balance lever, not as the storage rule.
+	#Default: 0 (the crates)
+	#
+	#Range: 0 ~ 100000
+	ammoCap = 0
+	#Shells taken from the stockpile to fill one tank when it deploys or is
+	#topped up in the field.
+	#
+	#The vehicle's slots are filled from this rather than out of nothing: a
+	#tank's gun used to be the only weapon in the mod that cost nothing to
+	#use, which put it outside the economy the rest of the game is about.
+	#With an empty stockpile the tank still deploys - it simply cannot fire,
+	#which is a state a village answers by producing more. Default: 16
+	#
+	#Range: 1 ~ 512
+	ammoPerLoad = 16
+	#How long a tank takes to ASSEMBLE once its materials are paid for.
+	#24000 ticks is one Minecraft day. 0 finishes it instantly, as before.
+	#
+	#A tank appearing the moment the metal was affordable made the factory a
+	#vending machine: the building did nothing the stockpile check had not
+	#already done. With a build time it is a place where something is under
+	#way - you can walk in and see how far along it is, and losing the crew
+	#mid-assembly costs you the wait and not just the rate.
+	#
+	#Scaled by the crew's EFFICIENCY: a fully manned line assembles in this
+	#time, an unsupervised one takes four times as long. Counted on the DAY
+	#clock, so sleeping through a night advances it - the same clock
+	#seniority uses, and for the same reason.
+	#Default: 12000 (half a Minecraft day at full strength)
+	#
+	#Range: 0 ~ 2000000000
+	assemblyTicks = 12000
+	#The Machinist Foreman ORDERS the materials his factory has run out of,
+	#and the village merchant pays for them out of its emeralds.
+	#
+	#The factory can already buy gunpowder straight from the treasury when it
+	#is short, which works and is invisible: money vanishes, powder appears,
+	#and nobody can see it happening or stop it. An order goes through the
+	#MERCHANT instead - the faction's actual purse, with the leader's own
+	#emerald floor in front of it - so the buying is something you can watch,
+	#budget for and switch off.
+	#
+	#The goods arrive in the factory's CHESTS, where its materials live and
+	#where you would have put them yourself. Only what a batch or a hull
+	#actually costs is ordered, and only for a material the factory is short
+	#of, so it cannot hoard.
+	#Default: true
+	#
+	foremanOrdersEnabled = true
+	#Two soldiers are posted at a tank factory's door.
+	#
+	#They are POSTED, not recruited: a guard is an existing soldier of the
+	#village given a name and a place to stand, so a village that guards its
+	#factory has two fewer men on patrol. That is the cost, and it is why the
+	#count is small. A guard is only renamed and moved - never given gear it
+	#did not have, never healed - so losing one costs nothing that was not
+	#already spent.
+	#Default: true
+	#
+	factoryGuardsEnabled = true
+	#How many soldiers stand at the door. Default: 2
+	#Range: 0 ~ 8
+	factoryGuardCount = 2
+	#Standing an outsider needs before he may walk into a factory and stock
+	#its chests.
+	#
+	#Members of the faction are always welcome - standing is how OUTSIDERS
+	#are measured, and refusing a citizen his own factory would be absurd.
+	#Default: 40
+	#
+	#Range: -1000 ~ 1000
+	factoryEntryMinRep = 40
+	#BELOW this standing the guards do not turn you away - they shoot, with
+	#no warning and no time to leave. AT this value you are still an
+	#ordinary trespasser: told to go, and given factoryTrespassGraceTicks.
+	#
+	#A faction that has decided you are an enemy does not politely bar the
+	#door of the building where it makes its armour. From this value up to
+	#factoryEntryMinRep you are simply turned away, which is the ordinary
+	#case for a stranger - including one who has never met this faction at
+	#all, since no record reads as 0.
+	#
+	#Standing at or below contracts.hostileBelow, and any faction you are at
+	#WAR with, skip the wait regardless of this setting: the village is
+	#already shooting at you in the street.
+	#Default: 0
+	#
+	#Range: -1000 ~ 1000
+	factoryHostileAtRep = 0
+	#Standing needed before the factory says what your materials are FOR.
+	#
+	#A supplier at the entry threshold is told what to bring and nothing
+	#else - which is how anybody buying material for a war effort is
+	#treated. Well above it, the faction stops pretending the crates are for
+	#fence posts.
+	#Default: 80
+	#
+	#Range: -1000 ~ 1000
+	factorySecretsMinRep = 80
+	#Below this standing a trespasser is not warned at all - the guards
+	#simply open fire. AT this value he is still told he is trespassing.
+	#
+	#A faction does not warn a man it has already condemned: being fired on
+	#without a word IS the message, and a chat line would only tell him to
+	#run before the guards reach him. Above it the warning is worth giving,
+	#because somebody at -5 may simply have wandered in.
+	#Default: -20 (warned down to -20, shot in silence below it)
+	#
+	#Range: -1000 ~ 1000
+	factorySilentBelowRep = -20
+	#A block that DECLARES where a factory guard stands. Put one on the floor
+	#inside a tank factory and a guard will hold that spot; put two and they
+	#take one each, in a stable order, so a builder decides the posts instead
+	#of the mod guessing at them.
+	#
+	#Without any, the posts are worked out from the building itself - the
+	#widest gap in the outer wall for the door, the middle of the chests and
+	#barrels for the stores - which is right often enough but cannot know
+	#about a mezzanine, a side door or where the sight lines actually are.
+	#
+	#Read from the WORLD, so one placed by hand works at once with no need to
+	#re-capture the structure, and from the structure's own NBT, so a captured
+	#or datapack factory carries its posts with it.
+	#
+	#Set to an empty string to turn markers off entirely.
+	#Default: minecraft:diamond_block
+	#
+	factoryGuardPostMarker = "minecraft:diamond_block"
+	#How long somebody who is not welcome may stand inside a factory after
+	#being told to leave, before the guards open fire.
+	#
+	#A warning that is never followed by anything is not a warning: a
+	#stranger told to get out could stand in the middle of the shop floor
+	#indefinitely and read the same line every ten seconds. This is the time
+	#he has to walk out.
+	#
+	#Opening one of the factory's chests or barrels skips the wait entirely -
+	#at that point he is not loitering, he is helping himself.
+	#
+	#Set to 0 to open fire the moment he is spotted; -1 to never escalate
+	#(the old behaviour: warnings for ever).
+	#Default: 300 ticks (15 seconds)
+	#
+	#Range: -1 ~ 24000
+	factoryTrespassGraceTicks = 300
+	#After the guards have opened fire on somebody, how long he is shot at on
+	#sight if he comes back into the SAME factory.
+	#
+	#Without this, stepping out of the door and back in hands him a fresh
+	#grace period every time - the clock resets faster than the guards can
+	#cross the floor, so the wait becomes a way to work through the crates
+	#indefinitely. With it, leaving and returning later gets the ordinary
+	#warning again, which is what makes the grace a warning rather than a
+	#permanent sentence.
+	#
+	#Set to 0 to always warn afresh on re-entry.
+	#Default: 600 ticks (30 seconds)
+	#
+	#Range: 0 ~ 24000
+	factoryTrespassReentryTicks = 600
+	#The factory crew walks out when somebody unwelcome is on the shop floor.
+	#
+	#They are unarmed couriers, the stranger is usually armed, and the guards
+	#are about to open fire in the room they work in. The village-wide worker
+	#evacuation does not cover this: it triggers on the VILLAGE being under
+	#attack, and one trespasser among the crates is not that.
+	#
+	#They WALK out, and walk back by themselves once he is gone. A teleport
+	#is used only if one is genuinely stuck - see factoryEvacStuckTicks.
+	#Default: true
+	#
+	factoryCrewFleeEnabled = true
+	#How long a fleeing crew member may make no headway before it is
+	#teleported the rest of the way out.
+	#
+	#"No headway" is measured in ground COVERED, not in time alone: a
+	#machinist picking its way around a tank hull is slow and is not stuck,
+	#while one wedged behind a crate covers nothing at all. The teleport only
+	#ever finishes the journey it was already making - it lands on the muster
+	#point the crew was walking to, never anywhere else.
+	#Default: 100 ticks (5 seconds)
+	#
+	#Range: 20 ~ 6000
+	factoryEvacStuckTicks = 100
+	#A member of ANOTHER faction who IGNORES the order to leave a tank
+	#factory is a matter between the two factions, not between him and a
+	#doorman: his faction is declared war on.
+	#
+	#He is warned first, exactly like any other outsider - only a faction
+	#already at war skips the wait. War for walking through a door before
+	#anybody has said a word would be a declaration nobody could avoid.
+	#
+	#Who is affected, in order: a member of the OWNING faction and a member
+	#of an ALLIED one walk in freely, whatever their standing - an ally is
+	#exempt by treaty and asking him for a reputation score would be asking
+	#the wrong question. Anyone from a faction that is merely NEUTRAL is
+	#treated as hostile and shot, and it is that case this option answers.
+	#A faction already AT WAR is shot anyway and nothing is declared, there
+	#being nothing left to declare.
+	#
+	#A player who belongs to NO faction is untouched by any of this and goes
+	#on being judged by his standing, which is the whole mercenary path.
+	#
+	#Turn this off to have neutral trespassers shot without the war.
+	#Default: true
+	#
+	factoryTrespassDeclaresWar = true
+	#Standing is kept with PLAYER factions too, not only with AI villages.
+	#
+	#It was AI-only because the standing system grew up around contracts,
+	#which only AI villages post - but the thing standing actually measures
+	#is "what has this person done to us", and that question does not stop
+	#meaning anything because the village has a human leader. Killing a
+	#player faction's soldiers now costs standing with it, and its factory
+	#door reads that standing exactly as an AI one does.
+	#
+	#⚠️ A player faction also has somebody who can FORGIVE: its leader may
+	#pardon a player with /vrcontracts pardon, which an AI village can never
+	#do. That is the compensation for being judged.
+	#Default: true
+	#
+	playerFactionReputation = true
+	#An outsider can OPEN the tank factory's chests and barrels - and the
+	#guards answer for it.
+	#
+	#The shells are real items in real containers precisely so that raiding a
+	#factory is something a player can do. Refusing the click made that a
+	#promise the mod did not keep: the crates could be seen and never
+	#touched, and the one crime the guards exist to punish could not be
+	#committed at all.
+	#
+	#A tank factory is not a safe. It is a building full of ammunition with
+	#two armed men in it, and what stops you emptying it is that they open
+	#fire immediately - no fifteen-second grace, since at that point you are
+	#not loitering, you are helping yourself - and that your faction has war
+	#declared on it.
+	#
+	#Set to false for a hard refusal instead.
+	#Default: true
+	#
+	factoryLootable = true
+	#Only the tank's own faction may open a village tank (and its crew).
+	#
+	#A deployed tank carries free fuel, free water and the shells the faction
+	#paid for, in slots any passer-by could reach: without this, the cheapest
+	#way to arm yourself was to walk up to somebody else's armour mid-battle
+	#and empty it - and the same click takes the driver's seat. Members of the
+	#owning faction still have full access, and an operator in CREATIVE is
+	#never blocked (in survival an op follows the same rule as everyone else,
+	#exactly as with village chests).
+	#Default: true
+	#
+	tankInventoryFactionOnly = true
+	#A tank factory employs FOUR machinists, and how many of the posts are
+	#filled decides how fast it works.
+	#
+	#One Machinist Foreman, answerable for the place - the tanks and the
+	#ammunition are made under his oversight - and three machinists who set
+	#the pace: a Senior Machinist worth half the output on his own, and two
+	#Machinists worth a quarter each. Fully staffed, 100%.
+	#
+	#Turn this off for the old behaviour: one machinist, and the factory
+	#always at full speed.
+	#Default: true
+	#
+	factoryCrewEnabled = true
+	#Goods taken from a tank factory come back if the thief is killed before
+	#he gets away with them.
+	#
+	#The factory is the one building in a village worth robbing - the shells
+	#it makes and the metal it makes them from - and it is guarded, so a
+	#thief is usually shot at. Until now killing him achieved nothing: his
+	#loot dropped on the floor of a village whose own people cannot pick it
+	#up, so the guards could punish the theft but never undo it.
+	#
+	#The recovered share is taken OFF HIS BODY, never created: refunding the
+	#factory while his drops still landed would print items, and a factory is
+	#a production building - the one place free material compounds. So what
+	#is left over really is still his. Default: true
+	#
+	factoryTheftRecovery = true
+	#Fraction recovered when the thief dies anywhere in the robbed faction's
+	#own territory - he got clear of the building but not off their land.
+	#The rest counts as scattered in the chase and stays with his body.
+	#Dying somewhere else recovers nothing, which is what makes running for
+	#it worth attempting. Default: 0.75
+	#
+	#Range: 0.0 ~ 1.0
+	factoryTheftRecoveryInVillage = 0.75
+	#Fraction recovered when the thief dies INSIDE the factory itself: he
+	#never got out with it, so it all goes back on the shelf. Default: 1.0
+	#
+	#Range: 0.0 ~ 1.0
+	factoryTheftRecoveryInside = 1.0
+	#Share of the factory's output the Senior Machinist is worth. Default: 0.5
+	#Range: 0.0 ~ 1.0
+	factorySeniorShare = 0.5
+	#How long a machinist must work in the factory before he counts as its
+	#SENIOR. 24000 ticks is one Minecraft day; the default is three.
+	#
+	#A veteran is earned, never hired. There is no senior post to fill: the
+	#longest-serving man past this mark is the one the factory counts on. So
+	#killing the crew does more than open vacancies - it destroys the
+	#experience in the building, and the replacements walk in as quarter-share
+	#machinists. The factory returns to 75% quickly and to 100% only after
+	#somebody has put the time in.
+	#
+	#It began at three days, which is long enough that a player watching a
+	#fresh factory sees 75% for an entire session and reasonably concludes the
+	#feature is broken, and long enough that one raid costs a quarter of the
+	#output for the rest of the evening. One day proved too short at the other
+	#end: a veteran that arrives within a single session is not experience, it
+	#is a delay. Two and a half days is a wait you have to live through and one
+	#you can still watch happen.
+	#Default: 60000 (TWO AND A HALF Minecraft days - about fifty real minutes)
+	#
+	#Range: 0 ~ 2000000000
+	factorySeniorServiceTicks = 60000
+	#Share each ordinary Machinist is worth. Default: 0.25
+	#Range: 0.0 ~ 1.0
+	factoryMachinistShare = 0.25
+	#How fast a factory runs with no FOREMAN on the books.
+	#
+	#Deliberately not zero. A factory whose crew has been killed producing
+	#nothing at all would mean one raid ends a faction's armour permanently,
+	#with no way back - and the village's own economy is what pays to hire
+	#replacements. It runs slowly and badly until somebody is hired, which is
+	#a setback rather than an ending. 0 to stop it dead instead.
+	#Default: 0.25
+	#
+	#Range: 0.0 ~ 1.0
+	factoryUnattendedEfficiency = 0.25
+	#How long a tank sent to a SIEGE waits when its village has gone to sleep
+	#before the deployment is called off.
+	#
+	#A siege is judged physically - attackers still standing on the claim -
+	#and a village nobody is near cannot be asked, so "asleep" is deliberately
+	#NOT read as "over". That is right and it needed a bound: a besieged
+	#village only ticks because the assault force-loads it, and when the siege
+	#resolves that hold lapses within a couple of minutes. Unless a player
+	#happens to be standing there the answer became "still fighting" for ever,
+	#the vehicle and its crew were never removed, and the village never got
+	#its tank back - so every AI-vs-AI siege that ended out of sight left an
+	#undriveable hulk in the world until the next world load.
+	#
+	#Nothing is lost by giving up: the tank is credited back to its shed the
+	#moment its chunk comes round again.
+	#
+	#0 = the old behaviour, wait for ever. Default: 2400 ticks (2 minutes)
+	#
+	#Range: 0 ~ 72000
+	siegeUnloadedGiveupTicks = 2400
+	#Count a faction's tanks in its military strength.
+	#
+	#Without this, tanks are invisible to every strategic decision in the
+	#mod: a village can build an armoured column and still read as exactly as
+	#strong as the day it had none. Its neighbours weigh it as easy prey, it
+	#weighs ITSELF as too weak to attack anyone, and the rebellion scorer sees
+	#a faction that cannot defend its own outposts - so the one thing it spent
+	#45,000 research points and its whole metal industry on appears in no
+	#number anybody consults.
+	#
+	#Counts tanks parked in a village's shed AND any currently out at a
+	#fight, since a vehicle leaves the shed the moment it rolls out and a
+	#faction should not read as weaker for the minutes it is using its
+	#armour. Default: true
+	#
+	threatAssessment = true
+	#What ONE tank is worth in military strength, on the same scale a soldier
+	#is measured with (assessment/CombatStrength).
+	#
+	#For reference on that scale: an unloaded or paper recruit is 1.0, an
+	#ordinary armoured soldier lands around 2-4, and a well-armoured one
+	#carrying a firearm around 5-7. So the default of 12 makes a tank worth
+	#roughly two to four good soldiers before the multiplier below - a
+	#significant asset, not one that makes a village unattackable.
+	#
+	#0 = tanks are not counted at all (the same as turning threatAssessment
+	#off, but leaves the rest of this section alone).
+	#
+	#Range: 0.0 ~ 500.0
+	tankStrength = 12.0
+	#How much MORE an enemy's tank is worth to a faction that has no way of
+	#shooting back at it.
+	#
+	#A tank is immune to arrows outright and to musket balls unless the
+	#shooter's faction has researched Armor Piercing, so the same vehicle is a
+	#serious problem to a faction of bowmen and an ordinary target to one
+	#fielding TACZ rifles. A faction counts as able to answer armour if it has
+	#Armor Piercing, or Warium/TACZ firearms (with their Recruits bridge
+	#installed - the guns do nothing in a recruit's hands without it), or
+	#tanks of its own.
+	#
+	#Applied only where an observer exists: the threat a faction feels from a
+	#hostile neighbour. It is symmetric by construction - everyone weighs
+	#everyone else's armour by what they can themselves do about it - so two
+	#equally-equipped factions still read each other identically.
+	#
+	#1.0 = no surcharge; armour is worth the same to everybody. Default: 2.0
+	#
+	#Range: 1.0 ~ 10.0
+	threatHelplessMultiplier = 2.0
+

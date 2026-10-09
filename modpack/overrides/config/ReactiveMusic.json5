@@ -1,0 +1,11 @@
+{
+  "soundsMuteMusicIgnoreDistance": [
+    "_music",
+    "dead_king.music",
+    "music.fire_boss",
+    "shrinemusic",
+    "jackpotmusic",
+    "music.battle",
+    "music.village"
+  ]
+}

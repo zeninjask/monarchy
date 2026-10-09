@@ -1,0 +1,23 @@
+# MDVLCraft: AntiXray (server side) hides ores and chests in the chunks the server sends until a player could see
+# them, so x-ray mods and x-ray resource packs show fake or no ores. Engine mode 3 (Paper's anti-xray patch).
+# Ores from mods: Iron's Spells' mithril ore is in #forge:ores; its arcane debris is listed by name.
+
+enabled = true
+
+[overworld]
+enabled = true
+engineMode = 3
+# The overworld here reaches y 320 (Tectonic's mountains); ores above 256 are hidden too.
+maxBlockHeight = 320
+updateRadius = 2
+lavaObscures = false
+hiddenBlocks = ["#forge:ores", "raw_copper_block", "raw_iron_block", "raw_gold_block", "irons_spellbooks:arcane_debris"]
+replacementBlocks = ["stone", "deepslate", "andesite", "calcite", "diorite", "dirt", "granite", "gravel", "sand", "tuff", "mossy_cobblestone", "obsidian", "clay", "infested_stone", "amethyst_block", "budding_amethyst", "chest"]
+
+[the_nether]
+enabled = true
+engineMode = 1
+maxBlockHeight = 128
+updateRadius = 2
+lavaObscures = true
+hiddenBlocks = ["ancient_debris", "nether_quartz_ore", "nether_gold_ore", "gold_block", "gilded_blackstone", "irons_spellbooks:arcane_debris"]

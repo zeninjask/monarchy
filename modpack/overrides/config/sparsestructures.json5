@@ -1,0 +1,60 @@
+// MDVLCraft structure spacing. A factor multiplies a structure set's spacing and separation (in chunks):
+// 1 = unchanged, 1.5 = about 44% as many, 2 = a quarter as many. Requires a restart, applies to new chunks.
+{
+  // Everything not listed below: uncommon but still met on a normal journey.
+  "spreadFactor": 1.5,
+
+  // Some mods share one salt across their structures, which stacks them on top of each other.
+  "idBasedSalt": true,
+
+  "customSpreadFactors": [
+    // Villages stay at their normal (fairly common) spacing.
+    { "structure": "minecraft:villages", "factor": 1 },
+
+    // Villager Recruits' sky villages (floating islands that build aircraft): never placed.
+    { "structure": "village_recruits:sky_villages", "factor": 0 },
+
+    // Already 50+ chunks apart, or needed for progression: unchanged, so they stay findable.
+    { "structure": "minecraft:woodland_mansions", "factor": 1 },
+    { "structure": "minecraft:ancient_cities", "factor": 1 },
+    { "structure": "minecraft:end_cities", "factor": 1 },
+    { "structure": "minecraft:nether_complexes", "factor": 1 },
+    { "structure": "betterfortresses:fortress", "factor": 1 },
+    { "structure": "betterstrongholds:stronghold", "factor": 1 },
+    { "structure": "betteroceanmonuments:ocean_monument", "factor": 1 },
+    { "structure": "cataclysm:acropolis", "factor": 1 },
+    { "structure": "cataclysm:ancient_factory", "factor": 1 },
+    { "structure": "cataclysm:burning_arena", "factor": 1 },
+    { "structure": "cataclysm:cursed_pyramid", "factor": 1 },
+    { "structure": "cataclysm:frosted_prison", "factor": 1 },
+    { "structure": "cataclysm:soul_black_smith", "factor": 1 },
+    { "structure": "cataclysm:sunken_city", "factor": 1 },
+    { "structure": "irons_spellbooks:catacombs", "factor": 1 },
+    { "structure": "irons_spellbooks:citadel", "factor": 1 },
+    { "structure": "irons_spellbooks:evoker_fort", "factor": 1 },
+    { "structure": "irons_spellbooks:ice_spider_den", "factor": 1 },
+    { "structure": "irons_spellbooks:impaled_icebreaker", "factor": 1 },
+    { "structure": "irons_spellbooks:pyromancer_tower", "factor": 1 },
+    { "structure": "cursedfate:gege_tree", "factor": 1 },
+
+    // Mid-sized, 40-60 chunks apart: a little rarer.
+    { "structure": "cataclysm:ruined_citadel", "factor": 1.25 },
+    { "structure": "irons_spellbooks:mountain_tower", "factor": 1.25 },
+    { "structure": "cursedfate:graveyard", "factor": 1.25 },
+    { "structure": "cursedfate:fingerbox", "factor": 1.25 },
+    { "structure": "cursedfate:cursed_mummys_temple", "factor": 1.25 },
+    { "structure": "betterdungeons:skeleton_dungeons", "factor": 1.25 },
+    { "structure": "betterdungeons:spider_dungeons", "factor": 1.25 },
+    { "structure": "betterdungeons:zombie_dungeons", "factor": 1.25 },
+    { "structure": "betterwitchhuts:witch_circle", "factor": 1.25 },
+    { "structure": "minecraft:pillager_outposts", "factor": 1.25 },
+
+    // Small and frequent, the main clutter: a quarter as many.
+    { "structure": "minecraft:ruined_portals", "factor": 2 },
+    { "structure": "minecraft:shipwrecks", "factor": 2 },
+    { "structure": "minecraft:ocean_ruins", "factor": 2 },
+    { "structure": "alekiships:unfinished_rowboat", "factor": 2 },
+    { "structure": "alekiships:unfinished_sloop", "factor": 2 },
+    { "structure": "irons_spellbooks:mangrove_hut", "factor": 2 }
+  ]
+}
