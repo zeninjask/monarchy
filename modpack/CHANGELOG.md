@@ -1,6 +1,19 @@
 # MDVLCraft changelog
 
-## Unreleased (Binder 0.7.3)
+## 1.9.12 (Binder 0.7.4)
+
+### Fixed
+
+- **Game would not start (crash report 9 Oct 19:50, T.O Magic 'n Extras: `NoClassDefFoundError:
+  DungeonEyeItem`).** T.O Magic 5.5.0 (and every newer T.O version) was built for an older
+  L_Ender's Cataclysm and Iron's Spells; Cataclysm 3.31 moved or reshaped 12 classes it uses and Iron's
+  3.16 moved 2. The pack now ships a T.O jar rewritten by `mdvlcraft-binder/tools/PatchTravelOptics.java`:
+  moved classes are renamed in place, and the two particle types whose constructors changed and two
+  removed Cataclysm config values go through the Binder (`compat.traveloptics.CataclysmCompat`). Every
+  reference T.O makes into Cataclysm, Iron's Spells, Alex's Caves, Citadel, Apothic Attributes and
+  Curios was checked to resolve.
+
+## 1.9.11 (Binder 0.7.3)
 
 Source changes only: the packs have not been built or tested in game. `python3 modpack/check_packs.py`
 checks both packs statically (required dependencies and versions per side, client/server version match).
