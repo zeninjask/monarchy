@@ -651,6 +651,21 @@
       "fileSize": 521709
     },
     {
+      "path": "mods/Medieval Origins Revival-6.6.0+1.20.1-forge.jar",
+      "hashes": {
+        "sha1": "06d131edae4edd2a4300c9f6f087a0aacdb60310",
+        "sha512": "460ff71fe6954e7cdd70d56abbbc799fc2fe226b8a16c3140fdc0e33d9aec37864d4639bc4efa9c267ad7262eb2ce9b09296aa5d8361fbe08c88d24557d59887"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/3FJ8AhW0/versions/aAQFR1qG/Medieval%20Origins%20Revival-6.6.0%2B1.20.1-forge.jar"
+      ],
+      "fileSize": 4101707
+    },
+    {
       "path": "mods/MouseTweaks-forge-mc1.20.1-2.25.1.jar",
       "hashes": {
         "sha1": "d751153e722a4e014691c83f39f5b07c6ec5333c",
@@ -1249,21 +1264,6 @@
         "https://cdn.modrinth.com/data/40FYwb4z/versions/mRry0DgY/caelus-forge-3.2.0%2B1.20.1.jar"
       ],
       "fileSize": 40125
-    },
-    {
-      "path": "mods/canary-mc1.20.1-0.3.3.jar",
-      "hashes": {
-        "sha1": "898abd9e337ef1c677ce93f5589497a09c7e9850",
-        "sha512": "38f0bec7967f9d354e46dacdbe7d284ef823270dc737a7388adde157c45a025e53d77e04a00a582900666b85402c461bee4b80345fc7f03edb5c2b96708442bd"
-      },
-      "env": {
-        "client": "required",
-        "server": "required"
-      },
-      "downloads": [
-        "https://cdn.modrinth.com/data/qa2H4BS9/versions/lauzXB0n/canary-mc1.20.1-0.3.3.jar"
-      ],
-      "fileSize": 594191
     },
     {
       "path": "mods/cataclysm_dimension-forge1.20.1-1.6.2.jar",
@@ -2194,21 +2194,6 @@
         "https://cdn.modrinth.com/data/4hwXMFif/versions/Zcz2vXIl/map_atlases-1.20-6.0.20.jar"
       ],
       "fileSize": 746226
-    },
-    {
-      "path": "mods/medievalorigins-forge-1.20.1-6.7.9.jar",
-      "hashes": {
-        "sha1": "0877ef5a84bcadd2145fc72aa485ddbec7e3be4e",
-        "sha512": "3b844b0555d7e4b409ac68078333c01b21ff49dfb567a15e2ca779e0516e17574c34020fd2106f1008d80ac0c55b447fbf8db280e1ee579a2a4498f2d1e5c19b"
-      },
-      "env": {
-        "client": "required",
-        "server": "required"
-      },
-      "downloads": [
-        "https://cdn.modrinth.com/data/3FJ8AhW0/versions/YYSLLY8i/medievalorigins-forge-1.20.1-6.7.9.jar"
-      ],
-      "fileSize": 3964226
     },
     {
       "path": "mods/memoryleakfix-forge-1.17+-1.1.5.jar",

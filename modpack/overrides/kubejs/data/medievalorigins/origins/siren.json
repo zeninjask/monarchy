@@ -6,13 +6,13 @@
     "medievalorigins:siren/holy_water",
     "medievalorigins:siren/out_of_your_depth",
     "medievalorigins:siren/water_vision",
-    "medievalorigins:siren/siren_ignore",
     "origins:aquatic",
     "origins:like_water",
     "medievalorigins:siren/seduce"
   ],
   "icon": {
-    "item": "medievalorigins:siren"
+    "item": "minecraft:ink_sac",
+    "tag": "{CustomModelData:366}"
   },
   "impact": 2,
   "order": 1,

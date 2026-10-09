@@ -4,12 +4,12 @@
     "type": "origins:conditioned_attribute",
     "modifiers": [
       {
-        "attribute": "additionalentityattributes:player.bonus_loot_count_rolls",
+        "attribute": "additionalentityattributes:bonus_loot_count_rolls",
         "operation": "addition",
         "value": 1.0
       },
       {
-        "attribute": "additionalentityattributes:player.bonus_rare_loot_rolls",
+        "attribute": "additionalentityattributes:bonus_rare_loot_rolls",
         "operation": "addition",
         "value": 1.0
       }
@@ -37,12 +37,12 @@
     "type": "origins:conditioned_attribute",
     "modifiers": [
       {
-        "attribute": "additionalentityattributes:player.bonus_loot_count_rolls",
+        "attribute": "additionalentityattributes:bonus_loot_count_rolls",
         "operation": "addition",
         "value": 1.0
       },
       {
-        "attribute": "additionalentityattributes:player.bonus_rare_loot_rolls",
+        "attribute": "additionalentityattributes:bonus_rare_loot_rolls",
         "operation": "addition",
         "value": 1.0
       }
@@ -159,7 +159,7 @@
         "value": 1.0
       },
       {
-        "attribute": "additionalentityattributes:player.dig_speed",
+        "attribute": "additionalentityattributes:generic.dig_speed",
         "operation": "addition",
         "value": 1.0
       }
@@ -407,10 +407,6 @@
       {
         "translate": "tooltip.medievalorigins.looting_bonus",
         "color": "yellow"
-      },
-      {
-        "text": "Increased Durability",
-        "color": "yellow"
       }
     ]
   },
@@ -441,10 +437,6 @@
       },
       {
         "text": "Iron+ Mining Level",
-        "color": "yellow"
-      },
-      {
-        "text": "Increased Durability",
         "color": "yellow"
       }
     ]

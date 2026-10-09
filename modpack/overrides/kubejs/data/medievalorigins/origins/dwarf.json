@@ -9,7 +9,8 @@
     "medievalorigins:dwarf/helmet_spawn"
   ],
   "icon": {
-    "item": "medievalorigins:dwarf"
+    "item": "minecraft:ink_sac",
+    "tag": "{CustomModelData:356}"
   },
   "impact": 2,
   "order": 1,

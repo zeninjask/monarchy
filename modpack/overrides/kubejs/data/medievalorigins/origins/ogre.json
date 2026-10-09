@@ -11,7 +11,8 @@
     "medievalorigins:ogre/bloodlust_camera"
   ],
   "icon": {
-    "item": "medievalorigins:ogre"
+    "item": "minecraft:ink_sac",
+    "tag": "{CustomModelData:355}"
   },
   "impact": 3,
   "order": 1,

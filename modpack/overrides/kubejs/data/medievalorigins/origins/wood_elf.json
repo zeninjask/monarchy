@@ -3,6 +3,7 @@
   "powers": [
     "medievalorigins:wood_elf/archer",
     "medievalorigins:wood_elf/empowered_shot",
+    "medievalorigins:wood_elf/empowered_shot_apotheosis",
     "medievalorigins:wood_elf/eagle_eyed",
     "medievalorigins:wood_elf/steward",
     "medievalorigins:wood_elf/graceful",
@@ -10,7 +11,8 @@
     "medievalorigins:wood_elf/spell_power"
   ],
   "icon": {
-    "item": "medievalorigins:wood_elf"
+    "item": "minecraft:ink_sac",
+    "tag": "{CustomModelData:354}"
   },
   "impact": 1,
   "order": 0,

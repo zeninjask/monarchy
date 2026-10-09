@@ -27,6 +27,8 @@ def origin(oid, remove=(), add=(), name=None, description=None, drop_upgrades=Fa
     assert not missing, (oid, missing)
     # drop powers from mods the pack does not have (each would log a warning)
     powers = [p for p in powers if p.split(':')[0] in ('origins', 'medievalorigins', 'origins-plus-plus', 'origins-classes', 'mdvlcraft')]
+    # and powers that only exist with other mods (e.g. Wood Elf's Zenith archery power)
+    powers = [p for p in powers if p.startswith('mdvlcraft:') or glob.glob(str(X / '*' / 'data' / p.split(':')[0] / 'powers' / (p.split(':')[1] + '.json')))]
     d['powers'] = powers + list(add)
     d['loading_priority'] = PRIORITY
     if name: d['name'] = name
