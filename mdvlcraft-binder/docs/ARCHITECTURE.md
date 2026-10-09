@@ -132,8 +132,10 @@ Across all 16 trees there are 6,263 nodes. Rewards: 6,066 `puffish_skills:attrib
 - Needs a registered Epic Fight skill whose category is learnable. Each one is added to `TREE_SKILLS`.
 - `EpicSkillGrants.sync` (end of tick, for dirty players): for every tree skill, learn it if granted and not
   learned (`SPAddLearnedSkill`). Forget it if learned and not granted: unequip it, remove it, send
-  `SPRemoveSkillAndLearn`. Every player always learns Roll, Step, Guard and Parrying; Dodge and Guard slots
-  are filled with Roll and Guard when empty.
+  `SPRemoveSkillAndLearn`. Every player always learns Nightfall's souls-like dodge and step (`efn:efn_dodge`,
+  `efn:efn_step`), Guard, Parrying and Absolute Deflection (`efn:efn_parry`); Dodge and Guard slots are filled
+  with the souls-like dodge and Guard when empty. Roll and Step (what everyone got before 0.7.3) are forgotten
+  unless a tree grants them, and a dodge slot holding one gets its souls-like counterpart.
 - So **tree skills can only be held through the tree**: a tree skill learned any other way is removed.
 
 ### 3.4 Tree UI tweaks (client mixins on Puffish)
@@ -142,7 +144,8 @@ Across all 16 trees there are 6,263 nodes. Rewards: 6,066 `puffish_skills:attrib
   on node icons by state (locked/available/affordable/excluded), title text colour. When a node is hovered it
   calls `SpellPreviews.hoverSkill(category, skillId)`, and holding the Ponder key for 12 ticks opens an Iron's
   spell preview. Which nodes have a preview is set in `assets/mdvlcraft/spell_previews.json`
-  (`"mdvlcraft:<tab>/<node>": {spell, level}`).
+  (`"mdvlcraft:<tab>/<node>": {spell, level}`). Hovered nodes show their point cost after the title
+  (redirect of `ClientSkillDefinitionConfig.title()` in `lambda$drawContentWithCategory$21`, Puffish 0.19.1).
 - `ConnectionBatchedRendererMixin`: bidirectional connections are drawn as quadratic Bézier curves with a
   deterministic bend (hash of the endpoints), 3 px stroke + 1 px fill, ~6 px segments.
 
@@ -156,8 +159,9 @@ Across all 16 trees there are 6,263 nodes. Rewards: 6,066 `puffish_skills:attrib
 |---|---|---|---|---|
 | `SpellAbility(AbstractSpell)` | any Iron's spell id | `spell.attemptInitiateCast(EMPTY, level, …, CastSource.SPELLBOOK, …)`. Cancels a different spell already casting | Iron's own | Iron's own |
 | `Technique` (enum) | `mdvlcraft:dismantle, cleave, malevolent_shrine, open_malevolent_shrine, boogie_woogie, block_clap, blitz, surprise_attack, follow_up_kick, phantom_movement` | runs **Cursed Fate**'s `AbilitysProcedure` with `AbilityNum1 = <Cursed Fate ability id>` | Binder mana, reduced by `technique_efficiency` | Binder's own, stored in player NBT |
-| `SlotSkillAbility` (enum) | `mdvlcraft:myriad_blades` (`sword_soaring:wan_jian_gui_zong`), `babylonian_armory` (`sword_soaring:babylon`), `celestial_array` (`sword_soaring:rain_sword`), `soul_hunt` (`efn:execution`) | equips the Epic Fight skill in its category's slot if needed, then `skill.executeOnServer` | flat mana | the Epic Fight skill's own |
+| `SlotSkillAbility` (enum) | `mdvlcraft:myriad_blades` (`sword_soaring:wan_jian_gui_zong`), `babylonian_armory` (`sword_soaring:babylon`), `celestial_array` (`sword_soaring:rain_sword`), `soul_hunt` (`efn:execution`), `gravity_stomp` (`efn:stomp`) | equips the Epic Fight skill in its category's slot if needed, then `skill.executeOnServer` | flat mana | the Epic Fight skill's own |
 | `StanceAbility.INSTANCE` | `mdvlcraft:stance` | `Stances.press` | 0 | none |
+| `DoppelgangerAbility.INSTANCE` | `mdvlcraft:doppelganger` | `Doppelgangers.press`: summon; again while looking at a creature, teleport behind it; sneak, dismiss | 1 mana per second while out | none |
 
 Technique table (`Technique` constructor: name, Cursed Fate ability id, mana, cooldown s, held, icon):
 
@@ -254,6 +258,9 @@ being the player. The weapon bonuses add together into one multiplier: `amount *
 - **Disabled namespaces**: `irons_spellbooks`, `cursedfate`. Their natural spawns are cancelled
   (`FinalizeSpawn`) and removed from biomes (`StripDisabledBiomeModifier`, REMOVE phase), their advancements
   lose `display` (hidden), and their **serverbound custom packets are dropped** (`NetworkHooksMixin`).
+- **No-spawn namespaces** (`isSpawnBlocked`): `cursedfate`, `wom`. Removed from biomes, and cancelled for
+  every spawn nobody asked for (natural, chunk generation, structure, spawner, patrol, event, reinforcement,
+  jockey). Summons, spawn eggs and commands still work.
 - **Forbidden items**: any `ISpellbook`, `IScroll`, `EldritchManuscript`, EF `SkillBookItem`, plus
   `irons_spellbooks:scroll_forge`, `inscription_table`, `cursedfate:cursed_shards`, `minecraft:elytra`.
   They are removed from recipes (`RecipeManagerMixin`, matched on the recipe JSON `result`), loot
@@ -309,6 +316,27 @@ being the player. The weapon bonuses add together into one multiplier: `amount *
 
 WoM and Village Recruits are compile-only dependencies (`libs/compat.txt`); their mixins are
 `@Pseudo` with `require = 0`, so the Binder still loads without them.
+
+## 7b. Gameplay changes (added in 0.7.3)
+
+| Class | What |
+|---|---|
+| `combat.InvertedSpear` + `combat.BinderEffects` | A melee hit with `cursedfate:inverted_spearof_heaven` removes every effect from the target in `LivingAttackEvent` (LOWEST; before armour and Resistance are applied), then gives it `mdvlcraft:sealed`, which denies every other effect (`MobEffectEvent.Applicable`). Each hit strips and seals again. Length: `combat.invertedSpearSealSeconds` (4). |
+| `combat.TechniqueScaling` | Damage of type `cursedfate:*` dealt by a player is multiplied by (player's attack damage + enchantment bonus) / `combat.techniqueReferenceDamage` (6 = iron sword), at least `combat.techniqueMinimumFactor` (0.5). |
+| `combat.KatanaWeapons` | What counts for `mdvlcraft:katana_damage`: Uchigatana and Tachi categories, any category whose name contains katana/tachi/yamato/murasama/..., items in `#mdvlcraft:katanas`, and items whose id contains one of those words. |
+| `compat.villagerecruits.RecruitBuffs` | Denies beneficial effects whose direct `addEffect` caller is in `com.talhanation.recruits` or `com.example.villagerecruits` (morale, elite, leader and travel buffs) on non-players; removes beneficial effects of an hour or more from recruits as they load. Potions, spells and beacons still work. Toggle: `villageRecruits.stripRecruitBuffs`. |
+| `content.MobGear` | Mobs in `#mdvlcraft:armed_mobs` (zombies, husks, zombie villagers, drowned, wither skeletons) may get a melee weapon from the `epicfight` and `magistuarmory` (Epic Knights) namespaces; mobs in `#mdvlcraft:armoured_mobs` (those plus skeletons and strays) may get vanilla or Epic Knights armour no better than iron in defence, toughness and knockback resistance. Armour above that is swapped out. Weapons are limited to iron-tier or weaker unless `mobGear.weaponsUpToIron = false`. Marked in `FinalizeSpawn`, equipped on `EntityJoinLevelEvent` (after vanilla's own equipment roll). |
+| `epicskill.EpicSkillGrants` | See 3.3: souls-like dodge/step replace Roll/Step; everyone learns Absolute Deflection. |
+| `mixin.efn.EFNParryingSkillMixin` | Absolute Deflection's parry window × (1 + `mdvlcraft:parry_window`), like `ParryingSkillMixin` does for Parrying, so the Water stance lengthens both. |
+| `mixin.epicfight.SkillBookScreenMixin` | No "You need to equip X first": `getPriorSkill()` reads as null in the skill book screen, the only place Epic Fight checks it. |
+| `doppelganger.*`, `client.doppelganger.*` | The Phantom's Doppelganger: an invulnerable, unsaved `PathfinderMob` with an Epic Fight `HumanoidMobPatch` (biped armature). It copies its owner's gear every tick, keeps to the owner's side, flanks the owner's Epic Fight target (or whatever the owner hit in the last 5 s), and plays every animation the owner starts (`ACTION_EVENT_SERVER` listener). Its damage source and attacks go through the owner's patch. `Doppelgangers` tracks one per player, charges 1 mana per second and dismisses it when mana runs out, on logout, dimension change or death. Rendered with the owner's skin and arm width from the tab list (`DoppelgangerRenderer`, `PDoppelgangerRenderer` with the Biped or Alex mesh). |
+
+Tree changes in 0.7.3 (data only): Ice Frost Step → level 5; Assassin Blood Step → level 5, Celestial Array node
+replaced by Spider Techniques, Shadow Step added; Phantom Babylonian Armory node replaced by All Eyes on You,
+Doppelganger added; Samurai + Parry Master; Knight + Gravity Stomp (wheel); Flame + Avatar of Might;
+Berzerker + Dread Full Buster (`wom:buster_parade`); Cursed + Wither Skull (level 3); the classes-tab Assassin,
+Phantom, Scout and Thief nodes also teach Precise Parry. The skill-tree edits were made with a one-off script;
+new nodes hang off an existing node next to a related skill, placed in the clearest spot nearby.
 
 ---
 

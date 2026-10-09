@@ -1,5 +1,56 @@
 # MDVLCraft changelog
 
+## Unreleased (Binder 0.7.3)
+
+Source changes only: the Binder jar and the packs have not been rebuilt or tested in game yet.
+
+### Combat
+
+- **Inverted Spear of Heaven** strips every effect, good or bad, from whatever it hits *before* the hit's
+  damage is worked out (so Resistance no longer softens that hit), then **Seals** the target for 4 s: no
+  effect can be applied to it. Every hit strips and re-seals.
+- **Cursed Fate techniques** (Blitz, Surprise Attack, Dismantle, Cleave, ...) scale with your melee damage:
+  ×1 with an iron sword (6 damage), more with stronger weapons, Strength and Sharpness, never below ×0.5.
+- **Samurai katana bonus** also counts Satsujin, Nightfall's Yamato and HF Murasama, the tachis and Cursed
+  Fate's katanas, plus anything tagged `#mdvlcraft:katanas`.
+- **Absolute Deflection** (Nightfall's parry) is now known by every class, and the Water stance lengthens
+  its parry window like it does for Parrying.
+- Everyone's Roll and Step are replaced by Nightfall's **souls-like dodge and step**. Whatever you had in the
+  dodge slot is swapped for its souls-like counterpart.
+- Epic Fight skills never require another skill first.
+- Skill tree tooltips show the **point cost** of each node.
+
+### Skill trees
+
+- Every rogue archetype (Assassin, Phantom, Scout, Thief) teaches **Precise Parry**.
+- Assassin: Celestial Array: Purge is gone (its node now teaches **Spider Techniques**); new **Shadow Step**
+  node; **Blood Step is level 5**.
+- Phantom: Babylonian Armory is gone (its node now teaches **All Eyes on You**); new **Doppelganger** ability
+  (below).
+- Samurai: new **Parry Master** node. Knight: new **Gravity Stomp** (ability wheel). Flame: new **Avatar of
+  Might**. Berzerker: new **Dread Full Buster**. Cursed: new **Wither Skull** (level 3). Ice: **Frost Step is
+  level 5**.
+- Points spent on the removed Celestial Array and Babylonian Armory nodes are refunded.
+
+### Doppelganger (Phantom)
+
+Cast it to summon a double of yourself (your skin, armour and weapons) that stays at your side, flanks your
+target and repeats your attacks with your damage. It costs 1 mana per second and fades when you run out.
+Cast again while looking at a creature to teleport behind it (like Yamato's Trick); sneak and cast to dismiss
+the double.
+
+### World
+
+- **Weapons of Miracles and Cursed Fate mobs no longer spawn on their own** (natural spawns, spawners,
+  structures, patrols). Summons, spawn eggs and commands still work.
+- **Hostile mobs are better equipped**: zombies, husks, drowned, zombie villagers and wither skeletons have a
+  40% chance of an Epic Fight or Epic Knights melee weapon (iron-tier or weaker); those and skeletons/strays
+  have a 40% chance of armour, including Epic Knights armour, never better than iron. Settings under
+  `[mobGear]` in `config/mdvlcraft-common.toml`.
+- **Villager Recruits soldiers no longer get free buffs** (morale Strength/Resistance, elite permanent
+  Strength/Fire Resistance, leader and travel auras). Potions and spells still work on them. Toggle:
+  `stripRecruitBuffs`.
+
 ## 1.9.10
 
 Build with `python3 modpack/build_mrpack.py 1.9.10` after `./gradlew build` in `mdvlcraft-binder/`.

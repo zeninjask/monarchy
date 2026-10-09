@@ -11,7 +11,7 @@ Spells and Cursed Fate content.
 
 | Path | What |
 |---|---|
-| `src/main/java` | decompiled from the 0.7.1 jar (Vineflower 1.11.1), remapped to official names, plus the 0.7.2 fixes |
+| `src/main/java` | decompiled from the 0.7.1 jar (Vineflower 1.11.1), remapped to official names, plus the 0.7.2 fixes and 0.7.3 changes |
 | `src/main/resources` | everything else from the jar: `mods.toml`, mixin config, assets, data, built-in resource packs |
 | `tools/fetch_mods.py` | downloads the pack's mods into `libs/` and works out which ones the Binder needs |
 | `tools/remap_srg.py` | renames SRG names in the source to Mojang's official names |
