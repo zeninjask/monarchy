@@ -30,6 +30,7 @@ PACK = Path(__file__).resolve().parent
 ROOT = PACK.parent
 CACHE = ROOT / "mdvlcraft-binder" / "libs" / "modpack"
 BINDER_LIBS = ROOT / "mdvlcraft-binder" / "build" / "libs"
+PERFORMANCE = False  # set by main() while checking the Client (Performance) pack
 PROVIDED = {"minecraft": "1.20.1", "forge": "47.4.10", "javafml": "47", "lowcodefml": "47"}
 
 
@@ -128,6 +129,9 @@ def load_index_jar(entry: dict, problems: list) -> bytes | None:
 def jars_for(side: str, problems: list) -> dict[str, bytes]:
     jars = {}
     index = json.loads((PACK / f"{side}.modrinth.index.json").read_text())
+    if side == "client" and PERFORMANCE:
+        remove = json.loads((PACK / "client-performance.json").read_text())["remove"]
+        index["files"] = [e for e in index["files"] if not e["path"].startswith(tuple(remove))]
     for entry in index["files"]:
         if not entry["path"].startswith("mods/") or entry.get("env", {}).get(side) == "unsupported":
             continue
@@ -192,10 +196,13 @@ def top_level_duplicates(side: str, jars: dict[str, bytes], problems: list):
 def main() -> None:
     problems: list[str] = []
     providers = {}
-    for side in ("client", "server"):
-        jars = jars_for(side, problems)
+    global PERFORMANCE
+    for side in ("client", "server", "client-performance"):
+        PERFORMANCE = side == "client-performance"
+        base = "client" if PERFORMANCE else side
+        jars = jars_for(base, problems)
         top_level_duplicates(side, jars, problems)
-        providers[side] = check_side(side, jars, problems)
+        providers[side] = check_side(base, jars, problems)
         print(f"{side}: {len(jars)} jars, {len(providers[side])} mod ids")
     for mod_id, (server_jar, server_version) in providers["server"].items():
         client = providers["client"].get(mod_id)

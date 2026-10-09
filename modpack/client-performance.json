@@ -1,0 +1,15 @@
+{
+  "description": "Client (Performance): the client pack without shaders, extra particle, weather, leaf, ambient-sound and dynamic-light effects or the heavier resource packs, with lighter default video settings. Every gameplay mod is the same, so it joins the same server.",
+  "remove": [
+    "mods/oculus-",
+    "mods/particlerain-",
+    "mods/fallingleaves-",
+    "mods/sodiumdynamiclights-",
+    "mods/AmbientSounds_",
+    "mods/aaa_particles_world-",
+    "resourcepacks/Better-Leaves-",
+    "resourcepacks/Fancy-Crops-",
+    "resourcepacks/Os-Colorful-Grasses-",
+    "shaderpacks/"
+  ]
+}

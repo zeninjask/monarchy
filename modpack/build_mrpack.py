@@ -6,11 +6,15 @@
   modpack/overrides/                   files both packs ship (config, kubejs, ...)
   modpack/client-overrides/            files only the client pack ships
   modpack/server-overrides/            files only the server pack ships
+  modpack/client-performance.json      the Client (Performance) pack: the client pack minus the index
+                                       entries listed under "remove" ...
+  modpack/client-performance-overrides/ ... plus these files, which replace the client pack's own copies
   modpack/mods/                        mod jars shipped inside both packs (not on Modrinth)
   the MDVLCraft Binder jar             mdvlcraft-binder/build/libs/mdvlcraft-<version>.jar
 
 Usage:
-  python3 modpack/build_mrpack.py 1.9.10          writes dist/MDVLCraft-1.9.10-client.mrpack
+  python3 modpack/build_mrpack.py 1.9.10          writes dist/MDVLCraft-1.9.10-client.mrpack,
+                                                  dist/MDVLCraft-1.9.10-client-performance.mrpack
                                                   and dist/MDVLCraft-1.9.10-server.mrpack
 """
 import json
@@ -40,25 +44,54 @@ def add(archive: zipfile.ZipFile, name: str, data: bytes) -> None:
     archive.writestr(info, data)
 
 
-def add_tree(archive: zipfile.ZipFile, source: Path, prefix: str, written: set) -> None:
+def add_tree(archive: zipfile.ZipFile, source: Path, prefix: str, written: set, replaced: set = frozenset()) -> None:
     for path in sorted(p for p in source.rglob("*") if p.is_file()):
         name = prefix + path.relative_to(source).as_posix()
+        if name in replaced:
+            continue
         if name in written:
             raise SystemExit(f"{name} is shipped twice")
         written.add(name)
         add(archive, name, path.read_bytes())
 
 
+def performance_index(index: dict) -> dict:
+    """The client index without the entries client-performance.json removes."""
+    remove = json.loads((PACK / "client-performance.json").read_text())["remove"]
+    used = {prefix: False for prefix in remove}
+    files = []
+    for entry in index["files"]:
+        hit = next((prefix for prefix in remove if entry["path"].startswith(prefix)), None)
+        if hit:
+            used[hit] = True
+        else:
+            files.append(entry)
+    unused = [prefix for prefix, hit in used.items() if not hit]
+    if unused:
+        raise SystemExit(f"client-performance.json removes {unused}, which the client pack does not have")
+    return dict(index, files=files)
+
+
 def build(side: str, version: str, binder: Path) -> Path:
-    index = json.loads((PACK / f"{side}.modrinth.index.json").read_text())
+    performance = side == "client-performance"
+    index = json.loads((PACK / f"{'client' if performance else side}.modrinth.index.json").read_text())
+    if performance:
+        index = performance_index(index)
+        index["name"] = index.get("name", "MDVLCraft") + " (Performance)"
     index["versionId"] = f"{version}-{side}"
     DIST.mkdir(exist_ok=True)
     target = DIST / f"MDVLCraft-{version}-{side}.mrpack"
     written = set()
+    replaced = set()
+    if performance:
+        own = PACK / "client-performance-overrides"
+        replaced = {"overrides/" + p.relative_to(own).as_posix() for p in own.rglob("*") if p.is_file()}
     with zipfile.ZipFile(target, "w") as archive:
         add(archive, "modrinth.index.json", (json.dumps(index, indent=2) + "\n").encode())
-        add_tree(archive, PACK / "overrides", "overrides/", written)
-        add_tree(archive, PACK / f"{side}-overrides", "overrides/", written)
+        add_tree(archive, PACK / "overrides", "overrides/", written, replaced)
+        add_tree(archive, PACK / "client-overrides" if performance else PACK / f"{side}-overrides", "overrides/", written, replaced)
+        if performance:
+            add_tree(archive, own, "overrides/", written)
         add_tree(archive, PACK / "mods", "overrides/mods/", written)
         add(archive, f"overrides/mods/{binder.name}", binder.read_bytes())
     return target
@@ -69,7 +102,7 @@ def main() -> None:
         raise SystemExit(__doc__)
     version = sys.argv[1]
     binder = binder_jar()
-    for side in ("client", "server"):
+    for side in ("client", "client-performance", "server"):
         target = build(side, version, binder)
         print(f"{target.relative_to(ROOT)}  ({target.stat().st_size // 1024} KiB, Binder {binder.name})")
 
