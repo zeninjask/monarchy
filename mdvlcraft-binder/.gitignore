@@ -7,3 +7,5 @@ libs/
 .idea/
 .vscode/
 bin/
+__pycache__/
+*.log
