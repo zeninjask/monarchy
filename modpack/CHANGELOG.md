@@ -2,7 +2,27 @@
 
 ## Unreleased (Binder 0.7.3)
 
-Source changes only: the Binder jar and the packs have not been rebuilt or tested in game yet.
+Source changes only: the packs have not been built or tested in game. `python3 modpack/check_packs.py`
+checks both packs statically (required dependencies and versions per side, client/server version match).
+
+### Fixed
+
+- **Crash rendering your own player (Antitheus; crash reports of 7 Oct 22:00, 22:31 and 9 Oct 16:10).**
+  Epic Fight Compat inverts the player's Root joint; a Root scaled to nothing cannot be inverted and Epic
+  Fight threw. The Binder now gives Epic Fight Compat "nothing to pose" instead (`ArmatureBinderMixin`).
+- **Singleplayer/LAN crash from Nightfall's fire wind and summoned swords (9 Oct 09:00).** Nightfall
+  expects Entity Culling 1.10's `Cullable`, which 1.11 moved. Entity Culling is pinned to 1.10.5 and the
+  Binder only lets Nightfall use Entity Culling when that class exists (`CullableUtilMixin`).
+- **Shooting Style did nothing on sneak + attack**: it captured its kick animations before they were
+  registered (nulls). Refilled when the skill is equipped. The same bug broke the charge/Judgement Cut
+  animations of Nightfall's Yamato, Ruins Greatsword and Meen Lance skills; fixed too.
+- The 8 Oct 08:21 loading crash (Backpacked without Framework) was a 1.9.4 profile; 1.9.10 ships Framework.
+
+### Changed
+
+- Mining Fatigue is disabled.
+- New players get a Book and Quill in their first-join kit.
+- Entity Culling 1.11.2 → 1.10.5 (client).
 
 ### Combat
 

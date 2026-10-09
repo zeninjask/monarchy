@@ -10,6 +10,12 @@ PlayerEvents.loggedIn(event => {
     player.give('map_atlases:atlas')
   }
 
+  // A Book and Quill for notes, once.
+  if (!data.getBoolean('mdvlcraft_starting_book')) {
+    data.putBoolean('mdvlcraft_starting_book', true)
+    player.give('minecraft:writable_book')
+  }
+
   // Villager Recruits hands out its manual on first login; take it away once that has happened.
   event.server.scheduleInTicks(20, () => {
     const inventory = player.inventory

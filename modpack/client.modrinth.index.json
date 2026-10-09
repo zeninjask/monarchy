@@ -1161,19 +1161,19 @@
       "fileSize": 1320675
     },
     {
-      "path": "mods/entityculling-forge-1.11.2-mc1.20.1.jar",
+      "path": "mods/entityculling-forge-1.10.5-mc1.20.1.jar",
       "hashes": {
-        "sha1": "856ef2e3c5bbde87fa5f06515c42fbca8af24a74",
-        "sha512": "4c5e6f02a426218ecaf1625d9bf5db1306858c810402ba9269271e0df064e8975c0fdfa3b09bf44152593d216c7f0c1b079cde40e05fa998e8cb5d0cf50ae66b"
+        "sha1": "b818f6d792b79f4ec116c89704e70292bd6f72b5",
+        "sha512": "00f4d6987a7902597e6e3f178f77308d795b2e1c46a2bfdad79f718e8a7417373971b83004cbbe491582d91d1658718187383a368a813af0266ba99804746814"
       },
       "env": {
         "client": "required",
         "server": "unsupported"
       },
       "downloads": [
-        "https://cdn.modrinth.com/data/NNAgCjsB/versions/HPDH6g5B/entityculling-forge-1.11.2-mc1.20.1.jar"
+        "https://cdn.modrinth.com/data/NNAgCjsB/versions/MloBcsQQ/entityculling-forge-1.10.5-mc1.20.1.jar"
       ],
-      "fileSize": 1515048
+      "fileSize": 1590221
     },
     {
       "path": "mods/epic-delight-1.0.0.jar",

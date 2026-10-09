@@ -31,7 +31,12 @@
     "wom.ReuseableEventsMixin",
     "villagerecruits.VillageAutoBuilderMixin",
     "villagerecruits.VillageBuilderManagerMixin",
-    "efn.EFNParryingSkillMixin"
+    "efn.EFNParryingSkillMixin",
+    "efn.CullableUtilMixin",
+    "efn.YamatoInnateMixin",
+    "efn.RuinsGreatSwordInnateMixin",
+    "efn.MeenLanceInnateMixin",
+    "wom.ShootingStyleSkillMixin"
   ],
   "client": [
     "cursedfate.CursedfateModKeyMappingsMixin",
@@ -46,7 +51,8 @@
     "epicfight.AnimationEventMixin",
     "efn.EFNKeyMappingsMixin",
     "puffish.ConnectionBatchedRendererMixin",
-    "epicfight.SkillBookScreenMixin"
+    "epicfight.SkillBookScreenMixin",
+    "efcompat.ArmatureBinderMixin"
   ],
   "injectors": {
     "defaultRequire": 1
