@@ -42,7 +42,7 @@ ao:true
 prioritizeChunkUpdates:0
 biomeBlendRadius:2
 renderClouds:"true"
-resourcePacks:[]
+resourcePacks:["vanilla","file/Ashen-16x-1.17.zip","mod_resources","file/Fancy-Crops-1.3.zip","file/Better-Leaves-9.6.zip","file/Os-Colorful-Grasses-Tall-26.3.zip","file/Low-On-Fire-26.3.zip","file/Enchant-Icons-1.3.zip"]
 incompatibleResourcePacks:[]
 lastServer:
 lang:en_us

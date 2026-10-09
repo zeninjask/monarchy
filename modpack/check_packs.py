@@ -2,7 +2,7 @@
 """Check the client and server packs without starting Minecraft.
 
 For each side it gathers the mods that side installs (the index entries not marked unsupported for
-it, modpack/mods/*.jar and the Binder jar), reads every mods.toml (jar-in-jar included) and reports:
+it, modpack/mods/*.jar, modpack/<side>-overrides/mods/*.jar and the Binder jar), reads every mods.toml (jar-in-jar included) and reports:
 
   - a mandatory dependency for that side that no mod provides, or provides at a version outside
     the required range (what Forge refuses to load with "Mod X requires Y");
@@ -134,8 +134,9 @@ def jars_for(side: str, problems: list) -> dict[str, bytes]:
         data = load_index_jar(entry, problems)
         if data is not None:
             jars[entry["path"].split("/", 1)[1]] = data
-    for jar in sorted((PACK / "mods").glob("*.jar")):
-        jars[jar.name] = jar.read_bytes()
+    for folder in (PACK / "mods", PACK / f"{side}-overrides" / "mods"):
+        for jar in sorted(folder.glob("*.jar")):
+            jars[jar.name] = jar.read_bytes()
     binder = sorted(j for j in BINDER_LIBS.glob("mdvlcraft-*.jar") if not j.name.endswith(("-sources.jar", "-slim.jar")))
     if binder:
         jars[binder[-1].name] = binder[-1].read_bytes()

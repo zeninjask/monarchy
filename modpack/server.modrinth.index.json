@@ -21,6 +21,36 @@
       "fileSize": 29553
     },
     {
+      "path": "mods/AnvilNeverTooExpensive-1.20.1-1.1.jar",
+      "hashes": {
+        "sha1": "099ac070195ec98a5bf2c7c5aef88f00a9fd2c12",
+        "sha512": "d706fa313fa77862ac3b45976168deea04412b3e475f4c981aedf44b3209d8bd4f41d94e1b60ff7972553dd66ade2faabd2a704244250b7987b2ef59c100b3ef"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/TEOa2X8B/versions/stzt1jos/AnvilNeverTooExpensive-1.20.1-1.1.jar"
+      ],
+      "fileSize": 7903
+    },
+    {
+      "path": "mods/ApothicAttributes-1.20.1-1.3.7.jar",
+      "hashes": {
+        "sha1": "1dc0744d17f0861fe6b067798d39abce9d8e0e86",
+        "sha512": "d0b7a9dac9e0d34cdec49afd9a3c9f5382dcfac69b18a7c7a600d4537cf2653368a00333389c8e7c9fdacf952e0e4f921464309e257a3dd992f1ba26f4ce6836"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/DGaH8Rh0/versions/fwL9CWGd/ApothicAttributes-1.20.1-1.3.7.jar"
+      ],
+      "fileSize": 227511
+    },
+    {
       "path": "mods/AttributeFix-Forge-1.20.1-21.0.5.jar",
       "hashes": {
         "sha1": "76d6b2d0f2a3c9842587ad20666ba419cd8c1efa",
@@ -49,6 +79,36 @@
         "https://cdn.modrinth.com/data/DpUl7Lav/versions/1mS4BsyN/BaldasProjectionSorcery-2.0.1.2.jar"
       ],
       "fileSize": 2731072
+    },
+    {
+      "path": "mods/BetterCompatibilityChecker-3.0.1-build.58+mc1.20.jar",
+      "hashes": {
+        "sha1": "5c63ec18176fdf072c3b8d0fb7e8445ed73b9b86",
+        "sha512": "4b7e47858fdc91540dcde025bf9d771a45fb9071d2a5c9d40becf045532ea19d6a517b2d8008b2d00dc4d6705a929e56ab1116cb314abb1d3b4d46710af08f3b"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/KJhXPbHQ/versions/auZ4x8at/BetterCompatibilityChecker-3.0.1-build.58%2Bmc1.20.jar"
+      ],
+      "fileSize": 21072
+    },
+    {
+      "path": "mods/BetterThanMending-1.7.2.jar",
+      "hashes": {
+        "sha1": "d54e7e41e992ccc8038a9ecc8dd6ee666f659f8e",
+        "sha512": "56b0e6e516a379f2ececaea88e1a7987e461f9e0a871cdedcf2ef95728cfe462b189b01614c3d7bf4d68102df04613a3c4f2a8735d9ff742164bad43b3fcc336"
+      },
+      "env": {
+        "client": "unsupported",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/Lvv4SHrK/versions/AevspkdP/BetterThanMending-1.7.2.jar"
+      ],
+      "fileSize": 5102
     },
     {
       "path": "mods/Bookshelf-Forge-1.20.1-20.2.15.jar",
@@ -411,6 +471,21 @@
       "fileSize": 102164
     },
     {
+      "path": "mods/Placebo-1.20.1-8.6.3.jar",
+      "hashes": {
+        "sha1": "e85f53de2e582a79ce25ff1df1e7b5b5fc08440f",
+        "sha512": "c23990465e26336f476c3b05a897bcf0c8660ae7338756b325f6bf81d0dee34b609474c62293f394acac818637ab03f92c776d104c8b8e86f3786395f5c4d623"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/tCkE8p2N/versions/6SkuAGoz/Placebo-1.20.1-8.6.3.jar"
+      ],
+      "fileSize": 282474
+    },
+    {
       "path": "mods/Platform-forge-1.20.1-1.3.4.jar",
       "hashes": {
         "sha1": "066cc06802107183d6a1028a5e358a2bfd505402",
@@ -424,6 +499,21 @@
         "https://cdn.modrinth.com/data/i6fiqm5y/versions/aWxR0Ksa/Platform-forge-1.20.1-1.3.4.jar"
       ],
       "fileSize": 512461
+    },
+    {
+      "path": "mods/PlayerRevive_FORGE_v2.0.31_mc1.20.1.jar",
+      "hashes": {
+        "sha1": "84c039f20b8f048c835c429c2c4a9fd82a5e65f6",
+        "sha512": "26ec9d4f4ff24a3e708f5485e40149214df76734af90848429bc7cedf397230a8e7b8b11aa21f11e50ea2987c862f09186ecd1b55b7ded31c5c99d661ede686a"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/ABIMzABM/versions/fUdn8MeF/PlayerRevive_FORGE_v2.0.31_mc1.20.1.jar"
+      ],
+      "fileSize": 5298162
     },
     {
       "path": "mods/PuzzlesLib-v8.1.33-1.20.1-Forge.jar",
@@ -891,6 +981,21 @@
       "fileSize": 152827
     },
     {
+      "path": "mods/chunkactivitytracker-forge-1.0.1-1.20.1.jar",
+      "hashes": {
+        "sha1": "d4c739c5125ece93b82ad27a8e0fd74f670cc7b3",
+        "sha512": "89cfd210a4f9314ffae236b2c2382a3018a01d148e25412d2859e8f6ec3041dc844754ba18893c955e23fba7e3e366a28c2515797319c61b243027aa3233e10e"
+      },
+      "env": {
+        "client": "unsupported",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/BNuR43mM/versions/61oMCzZv/chunkactivitytracker-forge-1.0.1-1.20.1.jar"
+      ],
+      "fileSize": 386531
+    },
+    {
       "path": "mods/citadel-2.6.3-1.20.1.jar",
       "hashes": {
         "sha1": "fb0b1fa96ce28e4be77b38ad95d83c3da7ec8316",
@@ -996,6 +1101,21 @@
       "fileSize": 287404
     },
     {
+      "path": "mods/does_it_tick-forge-1.1.4-1.20.1.jar",
+      "hashes": {
+        "sha1": "3149313d2d5d101ac70be5ddc7ddb2afcf54c3c0",
+        "sha512": "4f6fe92ef0ecff696d1f60c74f52c275913dc809f34c95e895d74c3984545f0569fd1d31e0c98d73c1936e3745edb6fadb8fc2c6a41709258ca634eb88e1f89b"
+      },
+      "env": {
+        "client": "unsupported",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/vmg6jaPW/versions/rijaJD4F/does_it_tick-forge-1.1.4-1.20.1.jar"
+      ],
+      "fileSize": 277151
+    },
+    {
       "path": "mods/domesticationinnovation-1.7.1-1.20.1.jar",
       "hashes": {
         "sha1": "8feae4ba8a3ffb117fa7b3b4291a520e2497fa1e",
@@ -1009,6 +1129,21 @@
         "https://cdn.modrinth.com/data/h5JyLdjM/versions/SGxCLghg/domesticationinnovation-1.7.1-1.20.1.jar"
       ],
       "fileSize": 853614
+    },
+    {
+      "path": "mods/dummmmmmy-1.20-2.0.12-forge.jar",
+      "hashes": {
+        "sha1": "3b6da54436955ea2ca6e8891ef69d0f6621ab878",
+        "sha512": "3ad3237a847cdbfc93df1eb0eaa75552e9a1aca871e04106948317ee930b04e6e1d84fb776f3d21bd17ceb5bf033833562bf7294c7579a4e6f5abbf86f1aa32f"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/Adega8YN/versions/c1HMqDvI/dummmmmmy-1.20-2.0.12-forge.jar"
+      ],
+      "fileSize": 839685
     },
     {
       "path": "mods/efcompat-1.4.0.jar",
@@ -1279,6 +1414,21 @@
         "https://cdn.modrinth.com/data/RYtXKJPr/versions/q9kZE5Xo/gravestone-forge-1.20.1-1.0.35.jar"
       ],
       "fileSize": 317181
+    },
+    {
+      "path": "mods/gravestonecurioscompat-1.18.x-1.20.x-Forge-2.1.0.jar",
+      "hashes": {
+        "sha1": "69f37bf7791b0609d35792b011eae6a07efad6bc",
+        "sha512": "57e8c818dd587b5a7d1c7d72d271647a7506746abc3e1a6bcc66182848170c6319cf11e5bacfa4eb2532c0981bb40d841d68d78a97c572734c75513c3c782b0e"
+      },
+      "env": {
+        "client": "unsupported",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/NaiL8bPN/versions/fzueSdVq/gravestonecurioscompat-1.18.x-1.20.x-Forge-2.1.0.jar"
+      ],
+      "fileSize": 9506
     },
     {
       "path": "mods/horseman-1.20.1-1.3.17-forge.jar",
@@ -1564,6 +1714,21 @@
         "https://cdn.modrinth.com/data/4hwXMFif/versions/Zcz2vXIl/map_atlases-1.20-6.0.20.jar"
       ],
       "fileSize": 746226
+    },
+    {
+      "path": "mods/memoryleakfix-forge-1.17+-1.1.5.jar",
+      "hashes": {
+        "sha1": "9f60142dd94631800386a16a4ad70ad9e84cd78a",
+        "sha512": "f4d7b0eb70a605ffb81bebd24fd125d8c0bc7917c3e00f27bee64988836323de5a3d205e89a4a5f8ae75741ca874f62996e7c8e5ed489dc3c1824337e93d263f"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/NRjRiSSD/versions/3w0IxNtk/memoryleakfix-forge-1.17%2B-1.1.5.jar"
+      ],
+      "fileSize": 227925
     },
     {
       "path": "mods/mimic-1.0.7.jar",
@@ -1926,6 +2091,21 @@
       "fileSize": 121055
     },
     {
+      "path": "mods/stormiespiders-forge-1.20.1-3.3.1.jar",
+      "hashes": {
+        "sha1": "b0228d0226c924f93d27e129943b00e6ce8f259d",
+        "sha512": "e66948253daf9b5fb7a2121397a95e2c5fef9866fbfc516fb0081300e9debb9db7d5a383104eeeaa7acb265d890665e885ba27ece85bfe6fbbaf5cb65871fbe4"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/3dsI6Hle/versions/ByWkmSbT/stormiespiders-forge-1.20.1-3.3.1.jar"
+      ],
+      "fileSize": 2258744
+    },
+    {
       "path": "mods/structure_layout_optimizer-forge-1.0.11.jar",
       "hashes": {
         "sha1": "c2f2d42c987a611c6a14769ec02099e3439dc0f3",
@@ -1986,19 +2166,19 @@
       "fileSize": 17017922
     },
     {
-      "path": "mods/tectonic-3.0.17-forge-1.20.1.jar",
+      "path": "mods/toofast-1.20-0.4.3.5.jar",
       "hashes": {
-        "sha1": "07bfe13bc1bd75a6277f3d62bf92a549b33067a9",
-        "sha512": "96840393db8e50645d80ee1a04fdecf11b8e9ce5aa807fc1be626429d874fd5b7cb57a6ed8d7d7e2448a3e3f43ef3826f33abeafd430c6d852cb1b1af6c793b2"
+        "sha1": "a6163b39827b483fb2976c916d99fce6cbf247a9",
+        "sha512": "722b6788724c813978d468100f85532ea5a9f07830d4a0475aa6050434bef5da3e51ccd235ed7158b6797d938ab10b9b3f79422e72517c2e20761dd923c5d602"
       },
       "env": {
-        "client": "required",
+        "client": "unsupported",
         "server": "required"
       },
       "downloads": [
-        "https://cdn.modrinth.com/data/lWDHr9jE/versions/KLmvRxwh/tectonic-3.0.17-forge-1.20.1.jar"
+        "https://cdn.modrinth.com/data/w6JSkKSH/versions/2pix3xrW/toofast-1.20-0.4.3.5.jar"
       ],
-      "fileSize": 322575
+      "fileSize": 3875
     },
     {
       "path": "mods/transmog-forge-1.3.0+1.20.jar",
@@ -2016,19 +2196,19 @@
       "fileSize": 104088
     },
     {
-      "path": "mods/tudigong-forge1.20.1-1.4.1.jar",
+      "path": "mods/txnilib-forge-1.0.24-1.20.1.jar",
       "hashes": {
-        "sha1": "512543f38591a600b21c09357eecc927ac47f9b1",
-        "sha512": "7762353ca9d42be2dcad333e4b94f06c08352f9afaf3ada79af9296a223cd0b4991cafd5aef3091d902f34a55ddc1f10ae79997efc30b53b03ccdc30c4d3ad4b"
+        "sha1": "a1e16b7d61f0f16a162d429ee1eab9b4e3eeb9ef",
+        "sha512": "06881ae202d9903909c34a1742f38308f7a04e4ed9c5eb3bd09441920d2666c6f4ee54b38ed3688b612ade5a06d2a35b45fad8a232c4e8f7f6bf527f082f6bc9"
       },
       "env": {
-        "client": "required",
+        "client": "unsupported",
         "server": "required"
       },
       "downloads": [
-        "https://edge.forgecdn.net/files/8525/246/tudigong-forge1.20.1-1.4.1.jar"
+        "https://cdn.modrinth.com/data/vBbPDuOs/versions/kQ8qnDHA/txnilib-forge-1.0.24-1.20.1.jar"
       ],
-      "fileSize": 282993
+      "fileSize": 3743339
     },
     {
       "path": "mods/village_recruits-1.0.7.93TC-205.jar",

@@ -5,6 +5,49 @@
 Source changes only: the packs have not been built or tested in game. `python3 modpack/check_packs.py`
 checks both packs statically (required dependencies and versions per side, client/server version match).
 
+### Mods added
+
+Both packs: Apothic Attributes (AttributesLib) 1.3.7 + Placebo 8.6.3, Memory Leak Fix 1.1.5,
+MmmMmmMmmMmm (target dummy) 2.0.12, Better Compatibility Checker 3.0.1 (set to "MDVLCraft 1.9.11" in
+`config/bcc-common.toml`), PlayerRevive 2.0.31, Anvil Never Too Expensive 1.1, Stormie's Spiders 3.3.1.
+
+Client only: Chat Animation [Smooth Chat] 1.3.4, Sounds 2.2.1 (+ YACL 3.6.6, MRU 1.0.4), Fastload
+Reforged 3.4.0, World Play Time 1.2.3, Scribble 1.5.1, Smooth Gui 2.0.7, Neko's Enchanted Books 2.0.3,
+Shut Up GL Error 2.0.0 (+ JamLib 1.3.6), RenderScale 1.0, Forgematica 0.1.13 (+ MaFgLib 0.1.14).
+
+Server only: Better Than Mending 1.7.2, Too Fast 0.4.3.5, Does It Tick? 1.1.4 (+ TxniLib 1.0.24, Chunk
+Activity Tracker 1.0.1), Gravestone x Curios API Compat 2.1.0, Loot Integrations 4.7 and Yung Structures
+Addon for Loot Integrations 1.6 (CurseForge only, shipped in `server-overrides/mods`, like the YUNG
+structure mods they extend).
+
+Already in the pack: TerraBlender, Sound Physics Remastered, Clumps, Backpacked + Framework.
+Not added: Backpacked: Wet Backpacks has no 1.20.1 version (1.21.1 and newer only).
+
+### Mods removed
+
+- **Tu Di Gong** (and its config). Existing Tu Di temples lose their Tu Di blocks.
+- **Tectonic** (and its config). Terrain in existing worlds will not line up where new chunks meet old ones.
+
+### Resource packs and shaders
+
+- Default resource packs, bottom to top: Minecraft, **Ashen 16x**, mod resources (Ares HUD and other
+  mods), **Fancy Crops**, **Better Leaves**, **Os' Colorful Grasses (Tall)**, **Low On Fire**,
+  **Enchant Icons** (`options.txt`). All are pack format 15 (1.20.1).
+- Shaders installed: **MakeUp - Ultra Fast** (on by default), **Photon** and **Complementary Reimagined**
+  (pick in Video Settings > Shader Packs).
+
+### Compatibility check
+
+`check_packs.py`: every required dependency resolves at a valid version on both sides, no duplicate mod
+ids, client and server ship the same versions, and no mod in either pack declares an incompatibility with
+another. Things to watch in game (not tested):
+- Memory Leak Fix overlaps with AllTheLeaks, which the pack already has.
+- Apothic Attributes changes how some attributes and damage are calculated; check its config if armour or
+  crits feel different.
+- Stormie's Spiders reworks spiders; Epic Fight draws spiders with its own model in battle, so its look may
+  not show there.
+- RenderScale and shaders together can look blurry or misaligned; turn one off if so.
+
 ### Fixed
 
 - **Crash rendering your own player (Antitheus; crash reports of 7 Oct 22:00, 22:31 and 9 Oct 16:10).**
