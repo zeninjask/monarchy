@@ -1,0 +1,20 @@
+{
+  "powers": [
+    "origins:carnivore",
+    "origins:aqua_affinity",
+    "origins:like_water",
+    "origins:fragile",
+    "origins:no_shield",
+    "origins-plus-plus:land-shark/gill_lungs",
+    "origins-plus-plus:land-shark/greedy",
+    "origins-plus-plus:land-shark/hungry",
+    "origins-plus-plus:land-shark/lunge",
+    "origins-plus-plus:land-shark/razor_teeth",
+    "origins-plus-plus:land-shark/speedy"
+  ],
+  "icon": "minecraft:prismarine_shard",
+  "impact": 2,
+  "loading_priority": 100,
+  "name": "Sharkfolk",
+  "description": "A ferocious predator at home in both water and land."
+}

@@ -1,0 +1,29 @@
+{
+  "replace": true,
+  "order": 0,
+  "enabled": true,
+  "origins": [
+    "origins:human",
+    "origins:feline",
+    "origins:merling",
+    "medievalorigins:arachnae",
+    "medievalorigins:dwarf",
+    "medievalorigins:wood_elf",
+    "medievalorigins:goblin",
+    "medievalorigins:siren",
+    "medievalorigins:ogre",
+    "origins-plus-plus:land_shark",
+    "origins-plus-plus:kirin",
+    "origins-plus-plus:raptus",
+    "origins-plus-plus:rat",
+    "origins-plus-plus:shadow",
+    "origins-plus-plus:sporeling"
+  ],
+  "allow_random": true,
+  "exclude_random": [
+    "origins:human"
+  ],
+  "allow_random_unchoosable": false,
+  "hidden": false,
+  "loading_priority": 100
+}

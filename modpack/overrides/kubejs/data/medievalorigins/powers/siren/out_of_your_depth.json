@@ -1,0 +1,32 @@
+{
+  "type": "origins:modify_healing",
+  "condition": {
+    "type": "origins:or",
+    "conditions": [
+      {
+        "type": "origins:submerged_in",
+        "fluid": "water"
+      },
+      {
+        "type": "origins:in_block_anywhere",
+        "comparison": ">=",
+        "compare_to": 1,
+        "block_condition": {
+          "type": "origins:fluid",
+          "fluid_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:water"
+          }
+        }
+      }
+    ],
+    "inverted": true
+  },
+  "name": "Out of Your Depth",
+  "description": "While on land, Sirens heal and regenerate at half the usual rate.",
+  "modifier": {
+    "operation": "multiply_base_multiplicative",
+    "value": -0.5
+  },
+  "loading_priority": 100
+}

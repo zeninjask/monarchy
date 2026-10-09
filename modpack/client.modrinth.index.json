@@ -6,6 +6,21 @@
   "summary": "Epic Fight combat, class and archetype skill trees, Iron's Spells and Cursed Fate abilities, L_Ender's Cataclysm, Villager Recruits and ships.",
   "files": [
     {
+      "path": "mods/AltOriginGui-forge-1.20.1-1.1.2.jar",
+      "hashes": {
+        "sha1": "08b2ef846873db5ea75205190f49f60183cdad60",
+        "sha512": "83bbbd838fb8f09552012f80a71bac2d67bb644cdfd5546d8c1bb21a1342876ef1cd9e9114c42d19d005cc355969d11a0846728d8729823d043792998d8a3ff6"
+      },
+      "env": {
+        "client": "required",
+        "server": "unsupported"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/ldWHqZwQ/versions/465dmrwW/AltOriginGui-forge-1.20.1-1.1.2.jar"
+      ],
+      "fileSize": 204097
+    },
+    {
       "path": "mods/AmbientSounds_FORGE_v6.3.9_mc1.20.1.jar",
       "hashes": {
         "sha1": "28441539a998b5e0822176d8db7b8594042bacbf",
@@ -666,6 +681,21 @@
       "fileSize": 271630
     },
     {
+      "path": "mods/Pehkui-3.8.2+1.20.1-forge.jar",
+      "hashes": {
+        "sha1": "4bc816efdd8e5e2a97423313674401351710e403",
+        "sha512": "e4660f0b5af6bfe2902ab39a6fbfa911856e0567bffc47842b482731da373afa4424b9e7cf47c61a0c2107445520475053709a6671d9eb4b7f4b55597729af3f"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/t5W7Jfwy/versions/SQpqSgAE/Pehkui-3.8.2%2B1.20.1-forge.jar"
+      ],
+      "fileSize": 671605
+    },
+    {
       "path": "mods/PickUpNotifier-v8.0.0-1.20.1-Forge.jar",
       "hashes": {
         "sha1": "378cc9730d1f11cd4c50add96263baccacdb4942",
@@ -936,6 +966,36 @@
       "fileSize": 20945819
     },
     {
+      "path": "mods/XaerosWorldMap_1.38.8_Forge_1.20.jar",
+      "hashes": {
+        "sha1": "a7e0a8a5fc1e31bfff5fb733c51b361ffb1fb5da",
+        "sha512": "4393652b0930ebe9cf8154acafbaebd38d049d6961574326ff949ba1dc8d7a4d9e5ae4e8998c73229f4ee9b8361f4e042e85c736c62591a7daa7f1d1c9d4555c"
+      },
+      "env": {
+        "client": "required",
+        "server": "unsupported"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/NcUtCpym/versions/3t3qLyne/XaerosWorldMap_1.38.8_Forge_1.20.jar"
+      ],
+      "fileSize": 928120
+    },
+    {
+      "path": "mods/Xaeros_Minimap_FP24.2.0_Forge_1.20.jar",
+      "hashes": {
+        "sha1": "f1ff67cf781da9769a1e0260f8925e6889b751b7",
+        "sha512": "a95a1c7575568cad6381d58bfc1bec01fde31dfd50d2112c02520d07b0c98526e1e58f7dc53b5a6cd9eb023bf6a275453196e45aae5fe35fca1d4b9d7fe2a0dc"
+      },
+      "env": {
+        "client": "required",
+        "server": "unsupported"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/JkSi2Fzx/versions/kN9k0jQJ/Xaeros_Minimap_FP24.2.0_Forge_1.20.jar"
+      ],
+      "fileSize": 1470125
+    },
+    {
       "path": "mods/YouDied-1.20-3.0.0.17-forge.jar",
       "hashes": {
         "sha1": "db538ff9015c58d481d7d9fe1bef60f6e0c59697",
@@ -1071,6 +1131,21 @@
       "fileSize": 580602
     },
     {
+      "path": "mods/archivist-forge-1.20.1-1.1.12.jar",
+      "hashes": {
+        "sha1": "c7daa6fbc11c340c27be7e3c4b10116e52481edb",
+        "sha512": "a4c234319eeaf93326b19455106738c9ed3cff0e21271cc6e93d12d52cc37b651d14a2ef36fe90222f0acffd89d4ccbc75b78688d8d21fe52ba345753cdf0c7b"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/svTEwQMq/versions/jZr8aTOF/archivist-forge-1.20.1-1.1.12.jar"
+      ],
+      "fileSize": 67563
+    },
+    {
       "path": "mods/ares_hud-2.0.5-forge-1.20.1.jar",
       "hashes": {
         "sha1": "bdf381f191b3b7ed6c6e409880402aec11c893ec",
@@ -1129,6 +1204,21 @@
         "https://edge.forgecdn.net/files/8628/830/bountiful_npc-forge-1.20.1-1.0.6.jar"
       ],
       "fileSize": 153983
+    },
+    {
+      "path": "mods/caelus-forge-3.2.0+1.20.1.jar",
+      "hashes": {
+        "sha1": "d14e8ee892d4d8764f523ad0e89bdcfc061fb007",
+        "sha512": "906baad404c33288d8daf8937bc6a85d3bcc03db67a4a68395b8f01eea57f773420ff97919aadb08a7618b62b0c6c3db72270f9c3af836b822385464f509cf78"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/40FYwb4z/versions/mRry0DgY/caelus-forge-3.2.0%2B1.20.1.jar"
+      ],
+      "fileSize": 40125
     },
     {
       "path": "mods/cataclysm_dimension-forge1.20.1-1.6.2.jar",
@@ -1384,6 +1474,21 @@
         "https://edge.forgecdn.net/files/7644/948/efs_iss-1.0.3.jar"
       ],
       "fileSize": 299741
+    },
+    {
+      "path": "mods/elixirum-forge-1.20.1-0.12.1.jar",
+      "hashes": {
+        "sha1": "e643958be4cef04ae9eab2c4e445839e2ebf14b3",
+        "sha512": "49ec6b9d5a6980060fb9d1551c9c2095d7edf228e3ff6f0b52a321692e31b9913cf3052a99cf700ffddd1f4dcae8e071a74b2178cacaf470683d0876ee0d5c36"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/oYe4cXFm/versions/Pa200rTy/elixirum-forge-1.20.1-0.12.1.jar"
+      ],
+      "fileSize": 14224189
     },
     {
       "path": "mods/embeddium-0.3.31+mc1.20.1.jar",
@@ -1669,6 +1774,21 @@
         "https://cdn.modrinth.com/data/KSyWOxT5/versions/tgbHZ6aV/flickerfix-1.20.1-4.0.1.jar"
       ],
       "fileSize": 5630
+    },
+    {
+      "path": "mods/fragmentum-5.2.0+1.20.1-forge.jar",
+      "hashes": {
+        "sha1": "08be4784663401c81c342fbaf55d2ff686dd78a7",
+        "sha512": "6ff2d828152ce9dc98a0b911e87a008ea91e84247fa718c84d8b76a788629e2ae6699a85495279a49a255cfa187ffaf1e4b4237ee17ccb5da05f7de19b84b5d4"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/49C5QgTK/versions/bThKchPM/fragmentum-5.2.0%2B1.20.1-forge.jar"
+      ],
+      "fileSize": 8580894
     },
     {
       "path": "mods/geckolib-forge-1.20.1-4.8.4.jar",
@@ -2016,6 +2136,21 @@
       "fileSize": 746226
     },
     {
+      "path": "mods/medievalorigins-forge-1.20.1-6.7.9.jar",
+      "hashes": {
+        "sha1": "0877ef5a84bcadd2145fc72aa485ddbec7e3be4e",
+        "sha512": "3b844b0555d7e4b409ac68078333c01b21ff49dfb567a15e2ca779e0516e17574c34020fd2106f1008d80ac0c55b447fbf8db280e1ee579a2a4498f2d1e5c19b"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/3FJ8AhW0/versions/YYSLLY8i/medievalorigins-forge-1.20.1-6.7.9.jar"
+      ],
+      "fileSize": 3964226
+    },
+    {
       "path": "mods/memoryleakfix-forge-1.17+-1.1.5.jar",
       "hashes": {
         "sha1": "9f60142dd94631800386a16a4ad70ad9e84cd78a",
@@ -2149,6 +2284,51 @@
         "https://cdn.modrinth.com/data/GchcoXML/versions/iQ1SwGc3/oculus-mc1.20.1-1.8.0.jar"
       ],
       "fileSize": 2851119
+    },
+    {
+      "path": "mods/origins-classes-forge-1.2.1.jar",
+      "hashes": {
+        "sha1": "63e099d2faf0785e667b17b1d9db7a4648805ed3",
+        "sha512": "1588f53b340560445428599d230999b9e2bf39fa3f3dba97cfd586cb0ed933f488cb6a19a0da9ce4aa92c4e6fc42786f51c44048cc27e4855ead00a685bee031"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/HTjxjxqK/versions/To1odLIP/origins-classes-forge-1.2.1.jar"
+      ],
+      "fileSize": 190573
+    },
+    {
+      "path": "mods/origins-forge-1.20.1-1.10.0.9-all.jar",
+      "hashes": {
+        "sha1": "71af2b5fa4d2905ab71ca7c488a508dba277f109",
+        "sha512": "b103ac2ac509e98eaceedf04891bbe302e82f8b4a7fc3790b3d63bd912306bb09f9925489473211627a7a87d2049672a3e66c5cf6f5b1e34e62049f3a43d0e5d"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/jl3m2lR9/versions/vynFXywM/origins-forge-1.20.1-1.10.0.9-all.jar"
+      ],
+      "fileSize": 2307868
+    },
+    {
+      "path": "mods/origins-plus-plus-2.4-forge.jar",
+      "hashes": {
+        "sha1": "76f3f2f9a39016a607c80d91e33db882028b3310",
+        "sha512": "b8c7b3701ccb38eda9a65a6fbc6d95bb7fc59539709b053e575a2fedeae2b913f0de600addaa960680ff017c1425c6946f572b211d65136faf263de70b771eb9"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/npBe7UbS/versions/IqOJJUcH/origins-plus-plus-2.4-forge.jar"
+      ],
+      "fileSize": 1804472
     },
     {
       "path": "mods/p1nero_bow-forge1.20.1-20.14.1.6.jar",

@@ -1,0 +1,7 @@
+{
+  "type": "origins:exhaust",
+  "interval": 200,
+  "exhaustion": 1.0,
+  "description": "You get hungry a little faster.",
+  "loading_priority": 100
+}

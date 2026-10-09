@@ -1,0 +1,22 @@
+{
+  "type": "origins:action_over_time",
+  "name": "Gills",
+  "interval": 10,
+  "description": "You can breathe underwater, and on land just like anyone else.",
+  "condition": {
+    "type": "origins:submerged_in",
+    "fluid": "minecraft:water"
+  },
+  "entity_action": {
+    "type": "origins:apply_effect",
+    "effect": {
+      "effect": "minecraft:water_breathing",
+      "duration": 30,
+      "amplifier": 0,
+      "is_ambient": true,
+      "show_particles": false,
+      "show_icon": false
+    }
+  },
+  "loading_priority": 100
+}

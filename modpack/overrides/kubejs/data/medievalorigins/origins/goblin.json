@@ -1,0 +1,17 @@
+{
+  "loading_priority": 100,
+  "powers": [
+    "medievalorigins:goblin/greedy",
+    "medievalorigins:goblin/green",
+    "medievalorigins:goblin/durability",
+    "medievalorigins:goblin/cunning",
+    "medievalorigins:goblin/frail"
+  ],
+  "icon": {
+    "item": "medievalorigins:goblin"
+  },
+  "impact": 1,
+  "order": 10,
+  "name": "Hobgoblin",
+  "description": "-§l Overview§r: \n§o§2+ Gold Gear Bonuses§r\n§o§2+ Luck§r \n§o§c- Health, Defense§r\n§lHobgoblins§r are obsessed with gold and treasure and tend to find a little more loot wherever they look, but they are frail in combat."
+}

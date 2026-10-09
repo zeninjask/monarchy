@@ -1,0 +1,14 @@
+{
+  "type": "origins:modify_damage_taken",
+  "name": "Soft Landing",
+  "description": "You always land on your feet: fall damage is reduced by 25%.",
+  "damage_condition": {
+    "type": "origins:in_tag",
+    "tag": "minecraft:is_fall"
+  },
+  "modifier": {
+    "operation": "multiply_base_multiplicative",
+    "value": -0.25
+  },
+  "loading_priority": 100
+}

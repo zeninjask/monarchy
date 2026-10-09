@@ -1,0 +1,9 @@
+{
+  "powers": [
+    "origins-classes:trade_availability"
+  ],
+  "icon": "minecraft:emerald",
+  "order": 8,
+  "impact": 0,
+  "loading_priority": 100
+}

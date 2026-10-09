@@ -155,7 +155,9 @@ def check_side(side: str, jars: dict[str, bytes], problems: list) -> dict[str, t
             problems.append(f"[{side}] {name} is not a valid jar")
             continue
         for mod_id, version in provided.items():
-            providers.setdefault(mod_id, (name, version))
+            # several jars can bundle the same library; Forge loads the highest version
+            if mod_id not in providers or version_key(version) > version_key(providers[mod_id][1]):
+                providers[mod_id] = (name, version)
         all_deps += [(name, *dep) for dep in deps]
     skip_side = "SERVER" if side == "client" else "CLIENT"
     for jar, owner, mod_id, spec, dep_side in all_deps:

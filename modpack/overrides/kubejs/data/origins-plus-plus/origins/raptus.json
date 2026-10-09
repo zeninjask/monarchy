@@ -1,0 +1,16 @@
+{
+  "powers": [
+    "origins:tailwind",
+    "origins:fall_immunity",
+    "origins:carnivore",
+    "origins-plus-plus:raptus/bite",
+    "origins-plus-plus:raptus/higher_jump",
+    "origins-plus-plus:raptus/pounce",
+    "origins-plus-plus:raptus/smaller_body"
+  ],
+  "icon": "minecraft:lime_dye",
+  "impact": 2,
+  "loading_priority": 100,
+  "name": "Saurusfolk",
+  "description": "Descendants of the great raptors, these creatures can be found hunting in packs or resting."
+}

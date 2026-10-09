@@ -1,0 +1,20 @@
+{
+  "loading_priority": 100,
+  "powers": [
+    "medievalorigins:ogre/bloodlust",
+    "medievalorigins:ogre/ravager",
+    "medievalorigins:ogre/lead_belly",
+    "medievalorigins:ogre/stocky",
+    "medievalorigins:ogre/ravenous",
+    "medievalorigins:ogre/unwieldy",
+    "medievalorigins:ogre/ogre_properties",
+    "medievalorigins:ogre/bloodlust_camera"
+  ],
+  "icon": {
+    "item": "medievalorigins:ogre"
+  },
+  "impact": 3,
+  "order": 1,
+  "name": "Half-Ogre",
+  "description": "-§l Overview§r: \n§o§2+ Axe Bonuses, Health §r\n§o§c- Hunger §r\n§lHalf-Ogres§r carry the blood of the large, short-tempered and brutish Ogres. They are human-sized, but keep much of their raw strength and toughness."
+}

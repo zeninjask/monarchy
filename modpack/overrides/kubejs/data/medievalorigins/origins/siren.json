@@ -1,0 +1,20 @@
+{
+  "loading_priority": 100,
+  "powers": [
+    "medievalorigins:siren/amphibious",
+    "medievalorigins:siren/siren_song",
+    "medievalorigins:siren/holy_water",
+    "medievalorigins:siren/out_of_your_depth",
+    "medievalorigins:siren/water_vision",
+    "medievalorigins:siren/siren_ignore",
+    "origins:aquatic",
+    "origins:like_water",
+    "medievalorigins:siren/seduce"
+  ],
+  "icon": {
+    "item": "medievalorigins:siren"
+  },
+  "impact": 2,
+  "order": 1,
+  "description": "-§l Overview§r: \n§o§2+ Water-Based, Utility §r\n§o§6• Weaker on Land§r\n§lSirens§r are said to be a type of Merfolk. They have an ensnaring aura and their irresistible beauty is said to be the downfall of many a foolish sailor."
+}

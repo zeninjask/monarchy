@@ -1,0 +1,17 @@
+{
+  "loading_priority": 100,
+  "powers": [
+    "medievalorigins:dwarf/dwarven_tech",
+    "medievalorigins:dwarf/nocturnal_eyes",
+    "medievalorigins:dwarf/dense",
+    "medievalorigins:dwarf/mythril_resonance",
+    "medievalorigins:dwarf/pickaxeless_stone",
+    "medievalorigins:dwarf/helmet_spawn"
+  ],
+  "icon": {
+    "item": "medievalorigins:dwarf"
+  },
+  "impact": 2,
+  "order": 1,
+  "description": "-§l Overview§r: \n§o§2+ Mining, Caving§r\n§o§c- Can't swim§r\n§lDwarves§r are practical, stocky, and prideful. They excel at mining and living underground. Rock and stone, brother."
+}
