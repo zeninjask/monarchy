@@ -12249,5 +12249,36 @@
     },
     "size": 0.75,
     "extra_description": "Twig bonus (every archetype has a few of these)."
+  },
+  "aerial_collapse": {
+    "title": "Aerial Collapse",
+    "description": "Unlocks Aerial Collapse (Level 2) (96 mana, 75 s cooldown) on the ability wheel. Hold the Ponder key (W) here to preview it",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "traveloptics:textures/gui/spell_icons/aerial_collapse.png"
+      }
+    },
+    "rewards": [
+      {
+        "type": "mdvlcraft:ability",
+        "data": {
+          "ability": "traveloptics:aerial_collapse",
+          "level": 2
+        }
+      }
+    ],
+    "cost": 3,
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_excluded.png"
+      }
+    },
+    "size": 2.0
   }
 }

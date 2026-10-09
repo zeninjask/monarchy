@@ -2164,5 +2164,10 @@
     "x": -1134,
     "y": 160,
     "definition": "gravity_stomp"
+  },
+  "lingering_strain": {
+    "x": -120,
+    "y": -1182,
+    "definition": "lingering_strain"
   }
 }

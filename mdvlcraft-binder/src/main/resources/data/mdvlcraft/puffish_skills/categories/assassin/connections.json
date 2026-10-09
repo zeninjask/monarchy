@@ -1640,6 +1640,10 @@
       [
         "endurance_8",
         "shadow_step"
+      ],
+      [
+        "blood_step",
+        "spectral_blink"
       ]
     ]
   }

@@ -486,5 +486,28 @@
     },
     "size": 1.5,
     "cost": 1
+  },
+  "water": {
+    "title": "Water",
+    "description": "Tides, torrents and the crushing deep. Key: Tsunami, Vortex Of The Deep, Coral Barrage.",
+    "extra_description": "Opens the Ice tab. You can pick 2 archetypes in total.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/icons/archetype/water.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_mage_goal_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_mage_goal_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_mage_goal_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_mage_goal_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_mage_goal_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 1
   }
 }

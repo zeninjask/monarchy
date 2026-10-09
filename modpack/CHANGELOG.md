@@ -5,6 +5,34 @@
 Source changes only: the packs have not been built or tested in game. `python3 modpack/check_packs.py`
 checks both packs statically (required dependencies and versions per side, client/server version match).
 
+### T.O Magic 'n Extras spells
+
+- **T.O Magic 'n Extras 5.5.0** (Iron's Spells addon, CurseForge, shipped in `modpack/mods`) is installed only
+  for its spells. 5.5.0 rather than the newest 6.3.0 because 6.x removed Cursed Blast. It requires
+  **Alex's Caves 2.0.2**, which is installed for the same reason. For both mods everything else is off:
+  - no structures (their structure sets are emptied in `kubejs/data`) and no Alex's Caves cave biomes
+    (`config/alexscaves_biome_generation/*.json`, `disabled_completely`);
+  - their mobs never spawn on their own (natural, spawners, structures, patrols, ...); creatures summoned
+    by the spells below still appear;
+  - their items are removed from recipes, loot, drops, trades and creative tabs, all of their recipes
+    are removed, and their advancements are hidden.
+- Spells, on the ability wheel through the skill trees like Iron's spells (mana ×0.6, cooldown ×1.5, as
+  for Iron's own spells):
+  - Berzerker: Blood Howl III. Assassin: Spectral Blink II. Samurai: Blink II. Phantom: Blackout I.
+  - Wanderer: Ashen Breath V. Knight: Lingering Strain II. Druid: Aerial Collapse II.
+  - Flame: Annihilation I, Meteor Storm III, Lava Bomb II. Ice: Cursed Blast I, Halberd Horizon III.
+  - Necromancy: Cursed Revenants III, Axe Of The Doomed I.
+- **New Water archetype** (Mage): Ice's tree with Aqua spell power and resistance in place of Ice's, and
+  the Aqua spells that do not summon creatures: Hydroshot (III, and VI further in), Bubble Spray,
+  Tidal Grasp, Flood Slash, Tsunami, Aqua Missiles, Coral Barrage, The Howling Tempest, Jet Steam,
+  Serpentide, Rainfall, Floodgate, Vortex Of The Deep and Skypiercer. Echo of the Abyss (summons) is
+  left out. The six Mage archetypes are spread evenly in the classes tab.
+- Some T.O spells cost a lot of mana at this scaling (Annihilation 240, Vortex Of The Deep 120).
+
+### Trades
+
+- Wandering traders and villagers no longer sell Iron's Hither Thither Wand (it still exists otherwise).
+
 ### Mods added
 
 Both packs: Apothic Attributes (AttributesLib) 1.3.7 + Placebo 8.6.3, Memory Leak Fix 1.1.5,

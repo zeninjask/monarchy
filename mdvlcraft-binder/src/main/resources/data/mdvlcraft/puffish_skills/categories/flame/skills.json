@@ -2179,5 +2179,20 @@
     "x": 221,
     "y": -235,
     "definition": "avatar_of_might"
+  },
+  "annihilation": {
+    "x": -533,
+    "y": -291,
+    "definition": "annihilation"
+  },
+  "meteor_storm": {
+    "x": -535,
+    "y": 2071,
+    "definition": "meteor_storm"
+  },
+  "lava_bomb": {
+    "x": 485,
+    "y": 212,
+    "definition": "lava_bomb"
   }
 }

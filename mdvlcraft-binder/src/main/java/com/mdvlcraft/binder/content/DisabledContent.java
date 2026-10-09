@@ -15,13 +15,24 @@ import yesman.epicfight.world.item.SkillBookItem;
 
 public final class DisabledContent {
     public static final Set<String> NAMESPACES = Set.of("irons_spellbooks", "cursedfate");
+    /**
+     * Mods installed only for their code: T.O Magic 'n Extras (whose spells the trees grant) and Alex's
+     * Caves (which T.O Magic requires). Their items, recipes and advancements are removed, their mobs do
+     * not spawn on their own, and their structures and cave biomes are turned off by data and config.
+     */
+    public static final Set<String> CONTENT_NAMESPACES = Set.of("traveloptics", "alexscaves");
     /** Mods whose mobs never spawn on their own (natural, chunk generation, spawners, structures, ...). */
-    private static final Set<String> NO_SPAWN_NAMESPACES = Set.of("cursedfate", "wom");
+    private static final Set<String> NO_SPAWN_NAMESPACES = Set.of("cursedfate", "wom", "traveloptics", "alexscaves");
     private static final Set<ResourceLocation> FORBIDDEN_ITEMS = Set.of(
         ResourceLocation.fromNamespaceAndPath("irons_spellbooks", "scroll_forge"),
         ResourceLocation.fromNamespaceAndPath("irons_spellbooks", "inscription_table"),
         ResourceLocation.fromNamespaceAndPath("cursedfate", "cursed_shards"),
         ResourceLocation.fromNamespaceAndPath("minecraft", "elytra")
+    );
+
+    /** Kept in the game but never sold by villagers or wandering traders. */
+    private static final Set<ResourceLocation> UNTRADEABLE_ITEMS = Set.of(
+        ResourceLocation.fromNamespaceAndPath("irons_spellbooks", "hither_thither_wand")
     );
 
     private DisabledContent() {
@@ -41,12 +52,21 @@ public final class DisabledContent {
         return id != null && NO_SPAWN_NAMESPACES.contains(id.getNamespace());
     }
 
+    public static boolean isContentDisabled(ResourceLocation id) {
+        return id != null && CONTENT_NAMESPACES.contains(id.getNamespace());
+    }
+
     public static boolean isForbidden(Item item) {
-        return item instanceof ISpellbook
+        return isContentDisabled(ForgeRegistries.ITEMS.getKey(item))
+            || item instanceof ISpellbook
             || item instanceof IScroll
             || item instanceof EldritchManuscript
             || item instanceof SkillBookItem
             || FORBIDDEN_ITEMS.contains(ForgeRegistries.ITEMS.getKey(item));
+    }
+
+    public static boolean isUntradeable(ItemStack stack) {
+        return isForbidden(stack) || !stack.isEmpty() && UNTRADEABLE_ITEMS.contains(ForgeRegistries.ITEMS.getKey(stack.getItem()));
     }
 
     public static boolean isForbidden(ItemStack stack) {

@@ -1909,5 +1909,10 @@
     "x": 74,
     "y": 355,
     "definition": "buster_parade"
+  },
+  "blood_howl": {
+    "x": 176,
+    "y": -300,
+    "definition": "blood_howl"
   }
 }

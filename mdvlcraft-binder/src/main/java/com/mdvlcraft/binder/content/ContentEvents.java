@@ -54,9 +54,9 @@ public final class ContentEvents {
         if (!event.getLevel().isClientSide() && event.getTarget() instanceof Merchant merchant) {
             merchant.getOffers()
                 .removeIf(
-                    offer -> DisabledContent.isForbidden(offer.getResult())
-                        || DisabledContent.isForbidden(offer.getBaseCostA())
-                        || DisabledContent.isForbidden(offer.getCostB())
+                    offer -> DisabledContent.isUntradeable(offer.getResult())
+                        || DisabledContent.isUntradeable(offer.getBaseCostA())
+                        || DisabledContent.isUntradeable(offer.getCostB())
                 );
         }
     }

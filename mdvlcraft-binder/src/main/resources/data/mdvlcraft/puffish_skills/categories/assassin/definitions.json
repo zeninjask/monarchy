@@ -11837,5 +11837,36 @@
       }
     },
     "size": 2.0
+  },
+  "spectral_blink": {
+    "title": "Spectral Blink",
+    "description": "Unlocks Spectral Blink (Level 2) (18 mana, 37.5 s cooldown) on the ability wheel. Hold the Ponder key (W) here to preview it",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "traveloptics:textures/gui/spell_icons/spectral_blink.png"
+      }
+    },
+    "rewards": [
+      {
+        "type": "mdvlcraft:ability",
+        "data": {
+          "ability": "traveloptics:spectral_blink",
+          "level": 2
+        }
+      }
+    ],
+    "cost": 2,
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_excluded.png"
+      }
+    },
+    "size": 2.0
   }
 }

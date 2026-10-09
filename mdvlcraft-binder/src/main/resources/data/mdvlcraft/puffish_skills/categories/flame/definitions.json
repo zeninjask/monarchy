@@ -14315,5 +14315,98 @@
       }
     },
     "size": 2.0
+  },
+  "annihilation": {
+    "title": "Annihilation",
+    "description": "Unlocks Annihilation (Level 1) (240 mana, 135 s cooldown) on the ability wheel. Hold the Ponder key (W) here to preview it",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "traveloptics:textures/gui/spell_icons/annihilation.png"
+      }
+    },
+    "rewards": [
+      {
+        "type": "mdvlcraft:ability",
+        "data": {
+          "ability": "traveloptics:annihilation",
+          "level": 1
+        }
+      }
+    ],
+    "cost": 5,
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_mage_challenge_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_mage_challenge_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_mage_challenge_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_mage_challenge_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_mage_challenge_excluded.png"
+      }
+    },
+    "size": 2.0
+  },
+  "meteor_storm": {
+    "title": "Meteor Storm",
+    "description": "Unlocks Meteor Storm (Level 3) (66 mana, 135 s cooldown) on the ability wheel. Hold the Ponder key (W) here to preview it",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "traveloptics:textures/gui/spell_icons/meteor_storm.png"
+      }
+    },
+    "rewards": [
+      {
+        "type": "mdvlcraft:ability",
+        "data": {
+          "ability": "traveloptics:meteor_storm",
+          "level": 3
+        }
+      }
+    ],
+    "cost": 3,
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_mage_challenge_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_mage_challenge_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_mage_challenge_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_mage_challenge_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_mage_challenge_excluded.png"
+      }
+    },
+    "size": 2.0
+  },
+  "lava_bomb": {
+    "title": "Lava Bomb",
+    "description": "Unlocks Lava Bomb (Level 2) (36 mana, 27 s cooldown) on the ability wheel. Hold the Ponder key (W) here to preview it",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "traveloptics:textures/gui/spell_icons/lava_bomb.png"
+      }
+    },
+    "rewards": [
+      {
+        "type": "mdvlcraft:ability",
+        "data": {
+          "ability": "traveloptics:lava_bomb",
+          "level": 2
+        }
+      }
+    ],
+    "cost": 2,
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_mage_challenge_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_mage_challenge_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_mage_challenge_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_mage_challenge_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_mage_challenge_excluded.png"
+      }
+    },
+    "size": 2.0
   }
 }

@@ -1011,6 +1011,21 @@
       "fileSize": 22335232
     },
     {
+      "path": "mods/alexscaves-2.0.2.jar",
+      "hashes": {
+        "sha1": "a1e5c7b7c7eadda4c8e954acbcbaf75a7b500d53",
+        "sha512": "d23092cf507f4cf66ead45d7b393393ea83a9002056962ee6c341e91323ae39e10f2aefbbbc9f5e54409eb3ee522ad0c2dd5661077b09f1e37d034cfdd4333a0"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/U6GY0xp0/versions/lC8HHXOF/alexscaves-2.0.2.jar"
+      ],
+      "fileSize": 74871657
+    },
+    {
       "path": "mods/alltheleaks-1.1.3+1.20.1-forge.jar",
       "hashes": {
         "sha1": "428d98891486f7a9e4864f7fe4fafa8223ad23d1",

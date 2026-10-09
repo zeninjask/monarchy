@@ -14032,5 +14032,36 @@
     },
     "size": 2.0,
     "extra_description": "Summons a double of yourself that fights beside you and copies your attacks. Cast again while looking at an enemy to teleport behind it; sneak and cast to dismiss the double."
+  },
+  "blackout": {
+    "title": "Blackout",
+    "description": "Unlocks Blackout (Level 1) (60 mana, 180 s cooldown) on the ability wheel. Hold the Ponder key (W) here to preview it",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "traveloptics:textures/gui/spell_icons/blackout.png"
+      }
+    },
+    "rewards": [
+      {
+        "type": "mdvlcraft:ability",
+        "data": {
+          "ability": "traveloptics:blackout",
+          "level": 1
+        }
+      }
+    ],
+    "cost": 4,
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_rogue_challenge_excluded.png"
+      }
+    },
+    "size": 2.0
   }
 }

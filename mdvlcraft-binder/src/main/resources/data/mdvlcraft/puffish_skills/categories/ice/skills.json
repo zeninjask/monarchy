@@ -2039,5 +2039,15 @@
     "x": -420,
     "y": 332,
     "definition": "swiftness_14"
+  },
+  "cursed_blast": {
+    "x": -1019,
+    "y": -830,
+    "definition": "cursed_blast"
+  },
+  "halberd_horizon": {
+    "x": -753,
+    "y": -615,
+    "definition": "halberd_horizon"
   }
 }

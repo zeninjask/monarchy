@@ -2139,5 +2139,10 @@
     "x": 139,
     "y": 551,
     "definition": "doppelganger"
+  },
+  "blackout": {
+    "x": 329,
+    "y": -716,
+    "definition": "blackout"
   }
 }

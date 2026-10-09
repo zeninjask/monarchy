@@ -258,7 +258,14 @@ being the player. The weapon bonuses add together into one multiplier: `amount *
 - **Disabled namespaces**: `irons_spellbooks`, `cursedfate`. Their natural spawns are cancelled
   (`FinalizeSpawn`) and removed from biomes (`StripDisabledBiomeModifier`, REMOVE phase), their advancements
   lose `display` (hidden), and their **serverbound custom packets are dropped** (`NetworkHooksMixin`).
-- **No-spawn namespaces** (`isSpawnBlocked`): `cursedfate`, `wom`. Removed from biomes, and cancelled for
+- **Content namespaces** (`CONTENT_NAMESPACES`, `isContentDisabled`): `traveloptics` (T.O Magic 'n Extras,
+  installed for its spells) and `alexscaves` (its dependency). All their items count as forbidden (below),
+  all their recipes are dropped by id, and their advancements are hidden. Their structure sets are emptied
+  and Alex's Caves biomes switched off in the pack's `kubejs/data` and `config/alexscaves_biome_generation`.
+  T.O spell mana/cooldown overrides live in `data/traveloptics/irons_spellbooks_spell_config`.
+- **Untradeable items** (`isUntradeable`): forbidden items plus `irons_spellbooks:hither_thither_wand`,
+  removed from merchant offers only.
+- **No-spawn namespaces** (`isSpawnBlocked`): `cursedfate`, `wom`, `traveloptics`, `alexscaves`. Removed from biomes, and cancelled for
   every spawn nobody asked for (natural, chunk generation, structure, spawner, patrol, event, reinforcement,
   jockey). Summons, spawn eggs and commands still work.
 - **Forbidden items**: any `ISpellbook`, `IScroll`, `EldritchManuscript`, EF `SkillBookItem`, plus

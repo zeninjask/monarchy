@@ -22,7 +22,7 @@ public abstract class ServerAdvancementManagerMixin {
         Map<ResourceLocation, JsonElement> advancements, ResourceManager resourceManager, ProfilerFiller profiler, CallbackInfo ci
     ) {
         advancements.forEach((id, json) -> {
-            if (DisabledContent.isDisabled(id) && json.isJsonObject()) {
+            if ((DisabledContent.isDisabled(id) || DisabledContent.isContentDisabled(id)) && json.isJsonObject()) {
                 json.getAsJsonObject().remove("display");
             }
         });

@@ -1884,5 +1884,15 @@
     "x": -1523,
     "y": -1105,
     "definition": "hardened_16"
+  },
+  "cursed_revenants": {
+    "x": -1271,
+    "y": -70,
+    "definition": "cursed_revenants"
+  },
+  "axe_of_the_doomed": {
+    "x": -1133,
+    "y": 268,
+    "definition": "axe_of_the_doomed"
   }
 }

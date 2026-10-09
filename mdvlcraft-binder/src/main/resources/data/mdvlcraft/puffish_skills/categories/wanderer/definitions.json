@@ -12866,5 +12866,36 @@
     },
     "size": 0.75,
     "extra_description": "Twig bonus (every archetype has a few of these)."
+  },
+  "ashen_breath": {
+    "title": "Ashen Breath",
+    "description": "Unlocks Ashen Breath (Level 5) (8 mana, 22.5 s cooldown) on the ability wheel. Hold the Ponder key (W) here to preview it",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "traveloptics:textures/gui/spell_icons/ashen_breath.png"
+      }
+    },
+    "rewards": [
+      {
+        "type": "mdvlcraft:ability",
+        "data": {
+          "ability": "traveloptics:ashen_breath",
+          "level": 5
+        }
+      }
+    ],
+    "cost": 2,
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_ranger_challenge_excluded.png"
+      }
+    },
+    "size": 2.0
   }
 }

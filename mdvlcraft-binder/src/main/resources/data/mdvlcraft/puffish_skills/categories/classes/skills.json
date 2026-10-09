@@ -32,23 +32,23 @@
     "definition": "holy"
   },
   "flame": {
-    "x": 85,
-    "y": -167,
+    "x": 74,
+    "y": -172,
     "definition": "flame"
   },
   "lightning": {
-    "x": 133,
-    "y": -133,
+    "x": 115,
+    "y": -148,
     "definition": "lightning"
   },
   "necromancy": {
-    "x": 167,
-    "y": -85,
+    "x": 148,
+    "y": -115,
     "definition": "necromancy"
   },
   "ice": {
-    "x": 185,
-    "y": -29,
+    "x": 172,
+    "y": -74,
     "definition": "ice"
   },
   "rogue": {
@@ -102,5 +102,10 @@
     "x": -185,
     "y": 29,
     "definition": "cursed"
+  },
+  "water": {
+    "x": 185,
+    "y": -29,
+    "definition": "water"
   }
 }

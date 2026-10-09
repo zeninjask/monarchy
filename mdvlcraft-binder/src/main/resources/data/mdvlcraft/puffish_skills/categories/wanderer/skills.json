@@ -1959,5 +1959,10 @@
     "x": 650,
     "y": 924,
     "definition": "attunement_19"
+  },
+  "ashen_breath": {
+    "x": -362,
+    "y": 243,
+    "definition": "ashen_breath"
   }
 }

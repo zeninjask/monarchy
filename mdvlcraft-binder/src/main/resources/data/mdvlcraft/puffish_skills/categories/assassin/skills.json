@@ -1804,5 +1804,10 @@
     "x": -156,
     "y": 570,
     "definition": "shadow_step"
+  },
+  "spectral_blink": {
+    "x": -138,
+    "y": 495,
+    "definition": "spectral_blink"
   }
 }

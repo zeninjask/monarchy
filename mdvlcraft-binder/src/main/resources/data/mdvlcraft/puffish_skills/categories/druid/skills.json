@@ -1864,5 +1864,10 @@
     "x": -574,
     "y": 145,
     "definition": "attunement_14"
+  },
+  "aerial_collapse": {
+    "x": -253,
+    "y": 533,
+    "definition": "aerial_collapse"
   }
 }

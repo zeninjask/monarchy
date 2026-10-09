@@ -21,6 +21,6 @@ public abstract class RecipeManagerMixin {
     private void mdvlcraft$dropForbiddenRecipes(
         Map<ResourceLocation, JsonElement> recipes, ResourceManager resourceManager, ProfilerFiller profiler, CallbackInfo ci
     ) {
-        recipes.entrySet().removeIf(entry -> DisabledContent.producesForbiddenItem(entry.getValue()));
+        recipes.entrySet().removeIf(entry -> DisabledContent.isContentDisabled(entry.getKey()) || DisabledContent.producesForbiddenItem(entry.getValue()));
     }
 }

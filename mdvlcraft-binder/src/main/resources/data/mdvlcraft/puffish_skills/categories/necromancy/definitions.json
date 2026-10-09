@@ -12373,5 +12373,67 @@
     },
     "size": 0.75,
     "extra_description": "Twig bonus (every archetype has a few of these)."
+  },
+  "cursed_revenants": {
+    "title": "Cursed Revenants",
+    "description": "Unlocks Cursed Revenants (Level 3) (60 mana, 225 s cooldown) on the ability wheel. Hold the Ponder key (W) here to preview it",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "traveloptics:textures/gui/spell_icons/cursed_revenants.png"
+      }
+    },
+    "rewards": [
+      {
+        "type": "mdvlcraft:ability",
+        "data": {
+          "ability": "traveloptics:cursed_revenants",
+          "level": 3
+        }
+      }
+    ],
+    "cost": 3,
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_mage_challenge_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_mage_challenge_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_mage_challenge_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_mage_challenge_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_mage_challenge_excluded.png"
+      }
+    },
+    "size": 2.0
+  },
+  "axe_of_the_doomed": {
+    "title": "Axe Of The Doomed",
+    "description": "Unlocks Axe Of The Doomed (Level 1) (72 mana, 540 s cooldown) on the ability wheel. Hold the Ponder key (W) here to preview it",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "traveloptics:textures/gui/spell_icons/axe_of_the_doomed.png"
+      }
+    },
+    "rewards": [
+      {
+        "type": "mdvlcraft:ability",
+        "data": {
+          "ability": "traveloptics:axe_of_the_doomed",
+          "level": 1
+        }
+      }
+    ],
+    "cost": 4,
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_mage_challenge_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_mage_challenge_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_mage_challenge_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_mage_challenge_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_mage_challenge_excluded.png"
+      }
+    },
+    "size": 2.0
   }
 }
