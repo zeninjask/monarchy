@@ -396,6 +396,21 @@
       "fileSize": 103728
     },
     {
+      "path": "mods/InventoryProfilesNext-forge-1.20-1.10.20.jar",
+      "hashes": {
+        "sha1": "979e74fa10b24a7d7c4d9aeb5824b80f4f9235cf",
+        "sha512": "8d2ecb06d6cebe56b1e55c1cf535bd4aefd8c1bd7642741435ea0c07a1073e275c40c6b2bfd9c3f2d8fd73b711422e4e2b5e39f84ae756028517715633ed5658"
+      },
+      "env": {
+        "client": "required",
+        "server": "unsupported"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/O7RBXm3n/versions/CrtAI3P9/InventoryProfilesNext-forge-1.20-1.10.20.jar"
+      ],
+      "fileSize": 1457354
+    },
+    {
       "path": "mods/ItemBorders-1.20.1-forge-1.2.2.jar",
       "hashes": {
         "sha1": "cf42466689489348e1e3a5df00d2ce6c65dd978a",
@@ -814,6 +829,21 @@
         "https://edge.forgecdn.net/files/8779/54/alltheleaks-1.1.3%2B1.20.1-forge.jar"
       ],
       "fileSize": 1274165
+    },
+    {
+      "path": "mods/appleskin-forge-mc1.20.1-2.5.1.jar",
+      "hashes": {
+        "sha1": "81919356f84eab14258db98924b66c3c38e372b1",
+        "sha512": "3176f928fb6c60d27f5edb610ca4ab0236175404eebf32797a1ec6cdd794bb294a260231579578536d03571377e43c6181adc75d8dd2c0733f17fce4f7e636b9"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/EsAfCjCV/versions/XdXDExVF/appleskin-forge-mc1.20.1-2.5.1.jar"
+      ],
+      "fileSize": 47428
     },
     {
       "path": "mods/architectury-9.2.14-forge.jar",
@@ -1609,6 +1639,21 @@
         "https://cdn.modrinth.com/data/a48R8AGk/versions/A3ZdFfKb/lendersdelight-1.20.1-1.0.10b.jar"
       ],
       "fileSize": 194178
+    },
+    {
+      "path": "mods/libIPN-forge-1.20-4.0.2.jar",
+      "hashes": {
+        "sha1": "3e7c7fcdc037a6ae3d9146e718d87fc83f88f6d5",
+        "sha512": "be677ed6dd4aa60a67ec1b83c89db8ed7460c34f54e5783df94245b9e0a5af9d3e12ebb322cb04210dfaa6527ad1e555a998931adfd69c5a4c57ac0e4dc15819"
+      },
+      "env": {
+        "client": "required",
+        "server": "unsupported"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/onSQdWhM/versions/pdAXmKcS/libIPN-forge-1.20-4.0.2.jar"
+      ],
+      "fileSize": 693301
     },
     {
       "path": "mods/limitedchunks-1.20.1-4.1.jar",
