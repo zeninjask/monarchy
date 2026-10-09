@@ -117,5 +117,13 @@
   "attribute.mdvlcraft.affliction_immunity": "Poison and Hunger Immunity",
   "ability.mdvlcraft.arcane_sustenance": "Arcane Sustenance",
   "ability.mdvlcraft.arcane_sustenance.desc": "Turn mana into food: restores %s hunger shank and %s saturation.",
-  "ability.mdvlcraft.arcane_sustenance.full": "You are already full"
+  "ability.mdvlcraft.arcane_sustenance.full": "You are already full",
+  "ability.mdvlcraft.silent_appraisal": "Silent Appraisal",
+  "ability.mdvlcraft.silent_appraisal.desc": "Send out a crow that circles above you. While it lives, creatures around you glow.",
+  "ability.mdvlcraft.blind_investment": "Blind Investment",
+  "ability.mdvlcraft.blind_investment.desc": "Send a crow that blinds whatever it hits.",
+  "ability.mdvlcraft.bird_strike": "Bird Strike",
+  "ability.mdvlcraft.bird_strike.desc": "A crow overflowing with energy dives into your target.",
+  "ability.mdvlcraft.controlled_collapse": "Controlled Collapse",
+  "ability.mdvlcraft.controlled_collapse.desc": "Summon a flock of crows that circles for a few seconds, then dives in a barrage of bird strikes."
 }

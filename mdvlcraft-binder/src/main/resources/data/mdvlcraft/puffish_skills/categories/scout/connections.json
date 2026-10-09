@@ -1548,6 +1548,22 @@
       [
         "haste",
         "arcane_sustenance"
+      ],
+      [
+        "mending_3",
+        "silent_appraisal"
+      ],
+      [
+        "silent_appraisal",
+        "blind_investment"
+      ],
+      [
+        "blind_investment",
+        "bird_strike"
+      ],
+      [
+        "bird_strike",
+        "controlled_collapse"
       ]
     ]
   }

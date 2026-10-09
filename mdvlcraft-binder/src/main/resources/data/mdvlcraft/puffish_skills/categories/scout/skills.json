@@ -1744,5 +1744,25 @@
     "x": 463,
     "y": -220,
     "definition": "arcane_sustenance"
+  },
+  "silent_appraisal": {
+    "x": 149,
+    "y": -777,
+    "definition": "silent_appraisal"
+  },
+  "blind_investment": {
+    "x": 57,
+    "y": -802,
+    "definition": "blind_investment"
+  },
+  "bird_strike": {
+    "x": -35,
+    "y": -777,
+    "definition": "bird_strike"
+  },
+  "controlled_collapse": {
+    "x": -10,
+    "y": -869,
+    "definition": "controlled_collapse"
   }
 }

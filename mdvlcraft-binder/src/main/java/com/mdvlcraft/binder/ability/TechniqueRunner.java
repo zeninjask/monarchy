@@ -44,6 +44,7 @@ final class TechniqueRunner {
 
     static void release(ServerPlayer player) {
         HELD.remove(player.getUUID());
+        BlackBirdManipulation.deactivate(player);
         PlayerVariables variables = variables(player);
         if (variables.holdability1) {
             variables.holdability1 = false;
@@ -115,12 +116,21 @@ final class TechniqueRunner {
                 variables.CursedEnegry = Math.max(variables.CursedEnegry, variables.CursedEnegryMax);
                 variables.InnateMastery = 0.0;
                 variables.InnateMasteryXp = 0.0;
+                if (technique.blackBird()) {
+                    // only the regular versions: never chanted, Flow or Maximum
+                    variables.Chant = false;
+                    variables.Flow = false;
+                    variables.MaximumOutput = false;
+                }
                 variables.AbilityNum1 = technique.abilityId;
                 variables.holdability1 = true;
                 variables.holdability = true;
                 variables.syncPlayerVariables(player);
                 if (technique.projection()) {
+                    BlackBirdManipulation.deactivate(player);
                     ProjectionSorcery.prepare(player);
+                } else if (technique.blackBird()) {
+                    BlackBirdManipulation.activate(player);
                 }
 
                 Runnable execute = () -> AbilitysProcedure.execute(player.level(), player.getX(), player.getY(), player.getZ(), player);

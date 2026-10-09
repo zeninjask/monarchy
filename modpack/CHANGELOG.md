@@ -23,6 +23,16 @@ Source changes only: the packs have not been built or tested in game yet.
   the pack does not have; the spell only borrows that mod's sounds and particle, so the patched T.O jar
   registers it anyway and uses the Warden's sonic charge, sonic boom and particle instead.
 - **Thief** gets **Astral Sense** (T.O, level 1, 60 mana, 180 s cooldown).
+- **Scout gets four crow techniques** from **Cursed Fate: Black Bird Manipulation 1.1.2** (new, CurseForge,
+  MIT; shipped in `modpack/mods`): **Silent Appraisal** (20 mana, 15 s), **Blind Investment** (15 mana,
+  15 s), **Bird Strike** (20 mana, 15 s) and **Controlled Collapse** (40 mana, 40 s). Like the other
+  Cursed Fate techniques they cost mana instead of cursed energy and are cast from the ability wheel,
+  always as the regular version (never chanted, Flow or Maximum). The rest of the addon is off: its
+  technique is never given to players, Liquidation Cycle and the Black Market Sky domain are not granted,
+  its crows never spawn on their own, its blocks/items are removed from recipes, loot and creative tabs.
+  The addon casts Cursed Fate abilities 113-118, the same numbers as Projection Sorcery (Follow Up Kick,
+  Phantom Movement); the Binder only switches it on while one of its techniques is held, so a cast never
+  fires both addons.
 
 ### Fixed
 

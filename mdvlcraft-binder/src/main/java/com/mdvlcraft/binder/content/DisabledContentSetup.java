@@ -1,6 +1,8 @@
 package com.mdvlcraft.binder.content;
 
 import com.mojang.serialization.Codec;
+import com.cursedfate_roslon_meimei.procedures.OnPlayerJoinProcedure;
+import com.cursedfate_roslon_meimei.procedures.TechniqueNameProcedure;
 import cursedfate.procedures.OnEntityDeathMProcedure;
 import cursedfate.procedures.OnEntityDeathProcedure;
 import cursedfate.procedures.OpenChestProcedure;
@@ -29,7 +31,10 @@ public final class DisabledContentSetup {
         QuestEntityKilledProcedure.class,
         QuestRightClickedProcedure.class,
         PlayerTakesDamageProcedure.class,
-        ReturnAttackProcedure.class
+        ReturnAttackProcedure.class,
+        // Black Bird Manipulation: would make it every new player's technique; the Binder switches it on per cast
+        OnPlayerJoinProcedure.class,
+        TechniqueNameProcedure.class
     );
 
     private DisabledContentSetup() {

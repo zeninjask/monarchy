@@ -101,6 +101,13 @@ description='''Glue mod for the MDVLCraft modpack: class and archetype skill tre
     side="BOTH"
 
 [[dependencies.mdvlcraft]]
+    modId="cursedfate_roslon_meimei"
+    mandatory=true
+    versionRange="[1.1.2,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.mdvlcraft]]
     modId="efn"
     mandatory=true
     versionRange="[3.4.2,)"

@@ -15,7 +15,12 @@ public enum Technique implements Ability {
     BLITZ("blitz", 60, 15, 8, false, "cursedfate:textures/mob_effect/blitz_effect.png"),
     SURPRISE_ATTACK("surprise_attack", 66, 15, 15, false, "mdvlcraft:textures/gui/icons/tab/assassin.png"),
     FOLLOW_UP_KICK("follow_up_kick", 114, 15, 6, false, "naoyaaddon:textures/screens/naoyaicon.png"),
-    PHANTOM_MOVEMENT("phantom_movement", 118, 20, 0, false, "mdvlcraft:textures/gui/icons/ability/phantom_movement.png");
+    PHANTOM_MOVEMENT("phantom_movement", 118, 20, 0, false, "mdvlcraft:textures/gui/icons/ability/phantom_movement.png"),
+    // Black Bird Manipulation (Cursed Fate addon); its abilities share ids 113-118 with Projection Sorcery
+    SILENT_APPRAISAL("silent_appraisal", 113, 20, 15, false, "mdvlcraft:textures/gui/icons/ability/silent_appraisal.png"),
+    BLIND_INVESTMENT("blind_investment", 115, 15, 15, false, "mdvlcraft:textures/gui/icons/ability/blind_investment.png"),
+    BIRD_STRIKE("bird_strike", 116, 20, 15, false, "mdvlcraft:textures/gui/icons/ability/bird_strike.png"),
+    CONTROLLED_COLLAPSE("controlled_collapse", 117, 40, 40, false, "mdvlcraft:textures/gui/icons/ability/controlled_collapse.png");
 
     private final ResourceLocation id;
     final int abilityId;
@@ -55,6 +60,10 @@ public enum Technique implements Ability {
 
     boolean projection() {
         return this == FOLLOW_UP_KICK || this == PHANTOM_MOVEMENT;
+    }
+
+    boolean blackBird() {
+        return this == SILENT_APPRAISAL || this == BLIND_INVESTMENT || this == BIRD_STRIKE || this == CONTROLLED_COLLAPSE;
     }
 
     boolean isSlash() {

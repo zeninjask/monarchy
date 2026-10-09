@@ -313,7 +313,7 @@
   },
   "scout": {
     "title": "Scout",
-    "description": "Mobility, ender magic and far sight. Key: Cleanse, Haste, Planar Sight.",
+    "description": "Mobility, ender magic, far sight and crows. Key: Cleanse, Haste, Planar Sight.",
     "extra_description": "Opens the Scout tab. You can pick 2 archetypes in total. Also teaches Precise Parry (Epic Fight passive): parrying at the perfect moment grants strong buffs and empowers your next attack.",
     "icon": {
       "type": "texture",

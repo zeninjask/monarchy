@@ -17,12 +17,12 @@ public final class DisabledContent {
     public static final Set<String> NAMESPACES = Set.of("irons_spellbooks", "cursedfate");
     /**
      * Mods installed only for their code: T.O Magic 'n Extras (whose spells the trees grant) and Alex's
-     * Caves (which T.O Magic requires). Their items, recipes and advancements are removed, their mobs do
+     * Caves (which T.O Magic requires), and Black Bird Manipulation (whose techniques Scout gets). Their items, recipes and advancements are removed, their mobs do
      * not spawn on their own, and their structures and cave biomes are turned off by data and config.
      */
-    public static final Set<String> CONTENT_NAMESPACES = Set.of("traveloptics", "alexscaves");
+    public static final Set<String> CONTENT_NAMESPACES = Set.of("traveloptics", "alexscaves", "cursedfate_roslon_meimei");
     /** Mods whose mobs never spawn on their own (natural, chunk generation, spawners, structures, ...). */
-    private static final Set<String> NO_SPAWN_NAMESPACES = Set.of("cursedfate", "wom", "traveloptics", "alexscaves");
+    private static final Set<String> NO_SPAWN_NAMESPACES = Set.of("cursedfate", "wom", "traveloptics", "alexscaves", "cursedfate_roslon_meimei");
     private static final Set<ResourceLocation> FORBIDDEN_ITEMS = Set.of(
         ResourceLocation.fromNamespaceAndPath("irons_spellbooks", "scroll_forge"),
         ResourceLocation.fromNamespaceAndPath("irons_spellbooks", "inscription_table"),

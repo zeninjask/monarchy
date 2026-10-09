@@ -17,6 +17,7 @@ public final class AbilityEvents {
     @SubscribeEvent
     public static void onLogin(PlayerLoggedInEvent event) {
         AbilityGrants.markDirty((ServerPlayer)event.getEntity());
+        BlackBirdManipulation.deactivate((ServerPlayer)event.getEntity());
     }
 
     @SubscribeEvent
