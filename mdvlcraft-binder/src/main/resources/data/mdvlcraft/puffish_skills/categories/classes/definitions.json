@@ -5,7 +5,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/icons/class/warrior.png"
+        "texture": "mdvlcraft:textures/gui/astro/archetype/warrior.png"
       }
     },
     "frame": {
@@ -28,7 +28,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/icons/archetype/knight.png"
+        "texture": "mdvlcraft:textures/gui/astro/archetype/knight.png"
       }
     },
     "frame": {
@@ -51,7 +51,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/icons/archetype/samurai.png"
+        "texture": "mdvlcraft:textures/gui/astro/archetype/samurai.png"
       }
     },
     "frame": {
@@ -74,7 +74,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/icons/archetype/berzerker.png"
+        "texture": "mdvlcraft:textures/gui/astro/archetype/berzerker.png"
       }
     },
     "frame": {
@@ -96,7 +96,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/icons/class/mage.png"
+        "texture": "mdvlcraft:textures/gui/astro/archetype/mage.png"
       }
     },
     "frame": {
@@ -119,7 +119,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/icons/archetype/holy.png"
+        "texture": "mdvlcraft:textures/gui/astro/archetype/holy.png"
       }
     },
     "frame": {
@@ -142,7 +142,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/icons/archetype/flame.png"
+        "texture": "mdvlcraft:textures/gui/astro/archetype/flame.png"
       }
     },
     "frame": {
@@ -165,7 +165,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/icons/archetype/lightning.png"
+        "texture": "mdvlcraft:textures/gui/astro/archetype/lightning.png"
       }
     },
     "frame": {
@@ -188,7 +188,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/icons/archetype/necromancy.png"
+        "texture": "mdvlcraft:textures/gui/astro/archetype/necromancy.png"
       }
     },
     "frame": {
@@ -211,7 +211,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/icons/archetype/ice.png"
+        "texture": "mdvlcraft:textures/gui/astro/archetype/ice.png"
       }
     },
     "frame": {
@@ -233,7 +233,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/icons/class/rogue.png"
+        "texture": "mdvlcraft:textures/gui/astro/archetype/rogue.png"
       }
     },
     "frame": {
@@ -256,7 +256,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/icons/archetype/assassin.png"
+        "texture": "mdvlcraft:textures/gui/astro/archetype/assassin.png"
       }
     },
     "frame": {
@@ -287,7 +287,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/icons/archetype/phantom.png"
+        "texture": "mdvlcraft:textures/gui/astro/archetype/phantom.png"
       }
     },
     "frame": {
@@ -318,7 +318,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/icons/archetype/scout.png"
+        "texture": "mdvlcraft:textures/gui/astro/archetype/scout.png"
       }
     },
     "frame": {
@@ -349,7 +349,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/icons/archetype/thief.png"
+        "texture": "mdvlcraft:textures/gui/astro/archetype/thief.png"
       }
     },
     "frame": {
@@ -379,7 +379,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/icons/class/ranger.png"
+        "texture": "mdvlcraft:textures/gui/astro/archetype/ranger.png"
       }
     },
     "frame": {
@@ -402,7 +402,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/icons/archetype/wanderer.png"
+        "texture": "mdvlcraft:textures/gui/astro/archetype/wanderer.png"
       }
     },
     "frame": {
@@ -435,7 +435,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/icons/archetype/stalker.png"
+        "texture": "mdvlcraft:textures/gui/astro/archetype/stalker.png"
       }
     },
     "frame": {
@@ -458,7 +458,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/icons/archetype/druid.png"
+        "texture": "mdvlcraft:textures/gui/astro/archetype/druid.png"
       }
     },
     "frame": {
@@ -491,7 +491,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/icons/archetype/cursed.png"
+        "texture": "mdvlcraft:textures/gui/astro/archetype/cursed.png"
       }
     },
     "frame": {
@@ -514,7 +514,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/icons/archetype/water.png"
+        "texture": "mdvlcraft:textures/gui/astro/archetype/water.png"
       }
     },
     "frame": {

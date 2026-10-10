@@ -37,13 +37,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 )
 public abstract class SkillsScreenMixin {
     @Unique
-    private static final Vector4fc mdvlcraft$LOCKED = new Vector4f(0.4F, 0.42F, 0.46F, 1.0F);
+    private static final Vector4fc mdvlcraft$LOCKED = new Vector4f(0.36F, 0.42F, 0.62F, 1.0F);
     @Unique
-    private static final Vector4fc mdvlcraft$AVAILABLE = new Vector4f(0.7F, 0.72F, 0.76F, 1.0F);
+    private static final Vector4fc mdvlcraft$AVAILABLE = new Vector4f(0.66F, 0.72F, 0.88F, 1.0F);
     @Unique
-    private static final Vector4fc mdvlcraft$AFFORDABLE = new Vector4f(0.92F, 0.93F, 0.95F, 1.0F);
+    private static final Vector4fc mdvlcraft$AFFORDABLE = new Vector4f(0.94F, 0.95F, 1.0F, 1.0F);
     @Unique
-    private static final Vector4fc mdvlcraft$EXCLUDED = new Vector4f(0.26F, 0.28F, 0.32F, 1.0F);
+    private static final Vector4fc mdvlcraft$EXCLUDED = new Vector4f(0.24F, 0.26F, 0.4F, 1.0F);
     @Unique
     private static final int mdvlcraft$TITLE_TEXT = -1512206;
     @Shadow

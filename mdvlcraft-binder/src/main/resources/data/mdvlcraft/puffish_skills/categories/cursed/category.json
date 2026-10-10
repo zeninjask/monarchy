@@ -4,41 +4,41 @@
   "icon": {
     "type": "texture",
     "data": {
-      "texture": "mdvlcraft:textures/gui/icons/tab/cursed.png"
+      "texture": "mdvlcraft:textures/gui/astro/tab/cursed.png"
     }
   },
   "background": {
-    "texture": "mdvlcraft:textures/gui/skills/canvas.png",
-    "width": 12,
-    "height": 12,
+    "texture": "mdvlcraft:textures/gui/skills/astro_sky.png",
+    "width": 128,
+    "height": 128,
     "position": "tile"
   },
   "colors": {
     "connections": {
       "locked": {
-        "fill": "#343a44",
-        "stroke": "#0e1014"
+        "fill": "#26305a",
+        "stroke": "#05070f"
       },
       "available": {
-        "fill": "#5a626e",
-        "stroke": "#0e1014"
+        "fill": "#4c5c96",
+        "stroke": "#05070f"
       },
       "affordable": {
-        "fill": "#548f6a",
-        "stroke": "#0e1014"
+        "fill": "#e0c27a",
+        "stroke": "#05070f"
       },
       "unlocked": {
-        "fill": "#4ec47a",
-        "stroke": "#0e1014"
+        "fill": "#d6e4ff",
+        "stroke": "#05070f"
       },
       "excluded": {
-        "fill": "#282c34",
-        "stroke": "#0e1014"
+        "fill": "#1a1e36",
+        "stroke": "#05070f"
       }
     },
     "points": {
-      "fill": "#4ec47a",
-      "stroke": "#1c2027"
+      "fill": "#d6e4ff",
+      "stroke": "#05070f"
     }
   },
   "unlocked_by_default": false,

@@ -1,0 +1,293 @@
+kind,subject,icon,nodes,tabs,node titles
+archetype,assassin,mdvlcraft:textures/gui/astro/archetype/assassin.png,1,classes,Assassin
+archetype,berzerker,mdvlcraft:textures/gui/astro/archetype/berzerker.png,1,classes,Berzerker
+archetype,cursed,mdvlcraft:textures/gui/astro/archetype/cursed.png,1,classes,Cursed
+archetype,druid,mdvlcraft:textures/gui/astro/archetype/druid.png,1,classes,Druid
+archetype,flame,mdvlcraft:textures/gui/astro/archetype/flame.png,1,classes,Flame
+archetype,holy,mdvlcraft:textures/gui/astro/archetype/holy.png,1,classes,Holy
+archetype,ice,mdvlcraft:textures/gui/astro/archetype/ice.png,1,classes,Ice
+archetype,knight,mdvlcraft:textures/gui/astro/archetype/knight.png,1,classes,Knight
+archetype,lightning,mdvlcraft:textures/gui/astro/archetype/lightning.png,1,classes,Lightning
+archetype,mage,mdvlcraft:textures/gui/astro/archetype/mage.png,1,classes,Mage
+archetype,necromancy,mdvlcraft:textures/gui/astro/archetype/necromancy.png,1,classes,Necromancy
+archetype,phantom,mdvlcraft:textures/gui/astro/archetype/phantom.png,1,classes,Phantom
+archetype,ranger,mdvlcraft:textures/gui/astro/archetype/ranger.png,1,classes,Ranger
+archetype,rogue,mdvlcraft:textures/gui/astro/archetype/rogue.png,1,classes,Rogue
+archetype,samurai,mdvlcraft:textures/gui/astro/archetype/samurai.png,1,classes,Samurai
+archetype,scout,mdvlcraft:textures/gui/astro/archetype/scout.png,1,classes,Scout
+archetype,stalker,mdvlcraft:textures/gui/astro/archetype/stalker.png,1,classes,Stalker
+archetype,thief,mdvlcraft:textures/gui/astro/archetype/thief.png,1,classes,Thief
+archetype,wanderer,mdvlcraft:textures/gui/astro/archetype/wanderer.png,1,classes,Wanderer
+archetype,warrior,mdvlcraft:textures/gui/astro/archetype/warrior.png,1,classes,Warrior
+archetype,water,mdvlcraft:textures/gui/astro/archetype/water.png,1,classes,Water
+bonus,epicfight_armor_negation,mdvlcraft:textures/gui/astro/bonus/epicfight_armor_negation.png,12,assassin,Pierce 1 | Pierce 2 | Pierce 3 | Pierce 4 | Pierce 5 | Pierce 6 | Pierce 7 | Pierce 8 | Pierce 9 | Pierce Mastery I | Pierce Mastery II | Pierce Mastery III
+bonus,epicfight_impact,mdvlcraft:textures/gui/astro/bonus/epicfight_impact.png,12,samurai,Impact 1 | Impact 2 | Impact 3 | Impact 4 | Impact 5 | Impact 6 | Impact 7 | Impact 8 | Impact 9 | Impact Mastery I | Impact Mastery II | Impact Mastery III
+bonus,epicfight_max_strikes,mdvlcraft:textures/gui/astro/bonus/epicfight_max_strikes.png,3,berzerker,Rampage Mastery I | Rampage Mastery II | Rampage Mastery III
+bonus,epicfight_stamina_regen,mdvlcraft:textures/gui/astro/bonus/epicfight_stamina_regen.png,314,assassin berzerker cursed druid flame holy ice knight lightning necromancy phantom samurai scout stalker thief wanderer water,Recovery 1 | Recovery 2 | Recovery 3 | Recovery 4 | Recovery 5 | Recovery 6 | Recovery 7 | Recovery 8 | Recovery 9 | Recovery Mastery I | Recovery Mastery II | Recovery Mastery III | Second Breath 1 | Second Breath 10 | Second Breath 11 | Second Breath 12 | Second Breath 13 | Second Breath 14 | Seco
+bonus,epicfight_staminar,mdvlcraft:textures/gui/astro/bonus/epicfight_staminar.png,342,assassin berzerker cursed druid flame holy ice knight lightning necromancy phantom samurai scout stalker thief wanderer water,Endurance 1 | Endurance 10 | Endurance 11 | Endurance 12 | Endurance 13 | Endurance 14 | Endurance 15 | Endurance 16 | Endurance 17 | Endurance 18 | Endurance 19 | Endurance 2 | Endurance 20 | Endurance 21 | Endurance 22 | Endurance 23 | Endurance 24 | Endurance 3 | Endurance 4 | Endurance 5 | Endur
+bonus,epicfight_stun_armor,mdvlcraft:textures/gui/astro/bonus/epicfight_stun_armor.png,9,knight,Unshakable 1 | Unshakable 2 | Unshakable 3 | Unshakable 4 | Unshakable 5 | Unshakable 6 | Unshakable Mastery I | Unshakable Mastery II | Unshakable Mastery III
+bonus,forge_entity_reach,mdvlcraft:textures/gui/astro/bonus/forge_entity_reach.png,9,thief,Long Arms 1 | Long Arms 2 | Long Arms 3 | Long Arms 4 | Long Arms 5 | Long Arms 6 | Long Arms Mastery I | Long Arms Mastery II | Long Arms Mastery III
+bonus,forge_step_height_addition,mdvlcraft:textures/gui/astro/bonus/forge_step_height_addition.png,3,wanderer,Sure-footed Mastery I | Sure-footed Mastery II | Sure-footed Mastery III
+bonus,forge_swim_speed,mdvlcraft:textures/gui/astro/bonus/forge_swim_speed.png,10,scout,Current 1 | Current 2 | Current 3 | Current 4 | Current 5 | Current 6 | Current Mastery I | Current Mastery II | Current Mastery III | Pathfinder
+bonus,irons_spellbooks_blood_magic_resist,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_blood_magic_resist.png,9,necromancy,Hemomancy 1 | Hemomancy 2 | Hemomancy 3 | Hemomancy 4 | Hemomancy 5 | Hemomancy 6 | Hemomancy Mastery I | Hemomancy Mastery II | Hemomancy Mastery III
+bonus,irons_spellbooks_blood_spell_power,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_blood_spell_power.png,15,necromancy,Blood 1 | Blood 10 | Blood 11 | Blood 12 | Blood 2 | Blood 3 | Blood 4 | Blood 5 | Blood 6 | Blood 7 | Blood 8 | Blood 9 | Blood Mastery I | Blood Mastery II | Blood Mastery III
+bonus,irons_spellbooks_cast_time_reduction,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_cast_time_reduction.png,90,flame holy ice lightning necromancy water,Quick Casting 1 | Quick Casting 10 | Quick Casting 11 | Quick Casting 12 | Quick Casting 2 | Quick Casting 3 | Quick Casting 4 | Quick Casting 5 | Quick Casting 6 | Quick Casting 7 | Quick Casting 8 | Quick Casting 9 | Quick Casting Mastery I | Quick Casting Mastery II | Quick Casting Mastery III
+bonus,irons_spellbooks_casting_movespeed,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_casting_movespeed.png,12,lightning,Swift Current 1 | Swift Current 2 | Swift Current 3 | Swift Current 4 | Swift Current 5 | Swift Current 6 | Swift Current 7 | Swift Current 8 | Swift Current 9 | Swift Current Mastery I | Swift Current Mastery II | Swift Current Mastery III
+bonus,irons_spellbooks_cooldown_reduction,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_cooldown_reduction.png,272,assassin berzerker cursed druid flame holy ice knight lightning necromancy phantom samurai scout stalker thief wanderer water,Focus 1 | Focus 10 | Focus 11 | Focus 12 | Focus 13 | Focus 14 | Focus 15 | Focus 16 | Focus 17 | Focus 18 | Focus 19 | Focus 2 | Focus 20 | Focus 21 | Focus 22 | Focus 24 | Focus 3 | Focus 4 | Focus 5 | Focus 6 | Focus 7 | Focus 8 | Focus 9 | Wildfire 1 | Wildfire 2 | Wildfire 3 | Wildfire 4 | Wild
+bonus,irons_spellbooks_ender_magic_resist,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_magic_resist.png,9,scout,Void Ward 1 | Void Ward 2 | Void Ward 3 | Void Ward 4 | Void Ward 5 | Void Ward 6 | Void Ward Mastery I | Void Ward Mastery II | Void Ward Mastery III
+bonus,irons_spellbooks_ender_spell_power,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_spell_power.png,12,scout,Rift 1 | Rift 2 | Rift 3 | Rift 4 | Rift 5 | Rift 6 | Rift 7 | Rift 8 | Rift 9 | Rift Mastery I | Rift Mastery II | Rift Mastery III
+bonus,irons_spellbooks_evocation_spell_power,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_evocation_spell_power.png,12,stalker,Fletcher's Art 1 | Fletcher's Art 2 | Fletcher's Art 3 | Fletcher's Art 4 | Fletcher's Art 5 | Fletcher's Art 6 | Fletcher's Art 7 | Fletcher's Art 8 | Fletcher's Art 9 | Fletcher's Art Mastery I | Fletcher's Art Mastery II | Fletcher's Art Mastery III
+bonus,irons_spellbooks_fire_magic_resist,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_fire_magic_resist.png,9,flame,Ember Skin 1 | Ember Skin 2 | Ember Skin 3 | Ember Skin 4 | Ember Skin 5 | Ember Skin 6 | Ember Skin Mastery I | Ember Skin Mastery II | Ember Skin Mastery III
+bonus,irons_spellbooks_fire_spell_power,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_fire_spell_power.png,15,flame,Inferno 1 | Inferno 10 | Inferno 11 | Inferno 12 | Inferno 2 | Inferno 3 | Inferno 4 | Inferno 5 | Inferno 6 | Inferno 7 | Inferno 8 | Inferno 9 | Inferno Mastery I | Inferno Mastery II | Inferno Mastery III
+bonus,irons_spellbooks_holy_magic_resist,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_holy_magic_resist.png,9,holy,Sanctity 1 | Sanctity 2 | Sanctity 3 | Sanctity 4 | Sanctity 5 | Sanctity 6 | Sanctity Mastery I | Sanctity Mastery II | Sanctity Mastery III
+bonus,irons_spellbooks_holy_spell_power,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_holy_spell_power.png,15,holy,Faith 1 | Faith 10 | Faith 11 | Faith 12 | Faith 2 | Faith 3 | Faith 4 | Faith 5 | Faith 6 | Faith 7 | Faith 8 | Faith 9 | Faith Mastery I | Faith Mastery II | Faith Mastery III
+bonus,irons_spellbooks_ice_magic_resist,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ice_magic_resist.png,9,ice,Cold Blood 1 | Cold Blood 2 | Cold Blood 3 | Cold Blood 4 | Cold Blood 5 | Cold Blood 6 | Cold Blood Mastery I | Cold Blood Mastery II | Cold Blood Mastery III
+bonus,irons_spellbooks_ice_spell_power,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ice_spell_power.png,15,ice,Winter 1 | Winter 10 | Winter 11 | Winter 12 | Winter 2 | Winter 3 | Winter 4 | Winter 5 | Winter 6 | Winter 7 | Winter 8 | Winter 9 | Winter Mastery I | Winter Mastery II | Winter Mastery III
+bonus,irons_spellbooks_lightning_magic_resist,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_lightning_magic_resist.png,9,lightning,Grounded 1 | Grounded 2 | Grounded 3 | Grounded 4 | Grounded 5 | Grounded 6 | Grounded Mastery I | Grounded Mastery II | Grounded Mastery III
+bonus,irons_spellbooks_lightning_spell_power,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_lightning_spell_power.png,15,lightning,Storm 1 | Storm 10 | Storm 11 | Storm 12 | Storm 2 | Storm 3 | Storm 4 | Storm 5 | Storm 6 | Storm 7 | Storm 8 | Storm 9 | Storm Mastery I | Storm Mastery II | Storm Mastery III
+bonus,irons_spellbooks_mana_regen,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_mana_regen.png,508,assassin berzerker cursed druid flame holy ice knight lightning necromancy phantom samurai scout stalker thief wanderer water,Flow 1 | Flow 10 | Flow 11 | Flow 12 | Flow 2 | Flow 3 | Flow 4 | Flow 5 | Flow 6 | Flow 7 | Flow 8 | Flow 9 | Flow Mastery I | Flow Mastery II | Flow Mastery III | Meditation 1 | Meditation 10 | Meditation 11 | Meditation 12 | Meditation 13 | Meditation 14 | Meditation 15 | Meditation 16 | Meditati
+bonus,irons_spellbooks_max_mana,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png,513,assassin berzerker cursed druid flame holy ice knight lightning necromancy phantom samurai scout stalker thief wanderer water,Attunement 1 | Attunement 10 | Attunement 11 | Attunement 12 | Attunement 13 | Attunement 14 | Attunement 15 | Attunement 16 | Attunement 17 | Attunement 18 | Attunement 19 | Attunement 2 | Attunement 20 | Attunement 21 | Attunement 22 | Attunement 23 | Attunement 24 | Attunement 3 | Attunement 4 | 
+bonus,irons_spellbooks_nature_magic_resist,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_nature_magic_resist.png,9,druid,Barkhide 1 | Barkhide 2 | Barkhide 3 | Barkhide 4 | Barkhide 5 | Barkhide 6 | Barkhide Mastery I | Barkhide Mastery II | Barkhide Mastery III
+bonus,irons_spellbooks_nature_spell_power,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_nature_spell_power.png,15,druid,Verdance 1 | Verdance 10 | Verdance 11 | Verdance 12 | Verdance 2 | Verdance 3 | Verdance 4 | Verdance 5 | Verdance 6 | Verdance 7 | Verdance 8 | Verdance 9 | Verdance Mastery I | Verdance Mastery II | Verdance Mastery III
+bonus,irons_spellbooks_spell_resist,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_spell_resist.png,331,assassin berzerker cursed druid flame holy ice knight lightning necromancy phantom samurai scout stalker thief wanderer water,Warding 1 | Warding 2 | Warding 3 | Warding 4 | Warding 5 | Warding 6 | Warding 7 | Warding 8 | Warding 9 | Warding Mastery I | Warding Mastery II | Warding Mastery III | Willpower 1 | Willpower 10 | Willpower 11 | Willpower 12 | Willpower 13 | Willpower 14 | Willpower 15 | Willpower 16 | Willpower 
+bonus,irons_spellbooks_summon_damage,mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_summon_damage.png,12,necromancy,Legion 1 | Legion 2 | Legion 3 | Legion 4 | Legion 5 | Legion 6 | Legion 7 | Legion 8 | Legion 9 | Legion Mastery I | Legion Mastery II | Legion Mastery III
+bonus,mdvlcraft_arrow_penetration,mdvlcraft:textures/gui/astro/bonus/mdvlcraft_arrow_penetration.png,2,stalker,Bodkin Points I | Bodkin Points II
+bonus,mdvlcraft_backstab_damage,mdvlcraft:textures/gui/astro/bonus/mdvlcraft_backstab_damage.png,12,assassin,Backstab 1 | Backstab 2 | Backstab 3 | Backstab 4 | Backstab 5 | Backstab 6 | Backstab 7 | Backstab 8 | Backstab 9 | Backstab Mastery I | Backstab Mastery II | Backstab Mastery III
+bonus,mdvlcraft_dagger_damage,mdvlcraft:textures/gui/astro/bonus/mdvlcraft_dagger_damage.png,16,assassin,Dagger 1 | Dagger 10 | Dagger 11 | Dagger 12 | Dagger 2 | Dagger 3 | Dagger 4 | Dagger 5 | Dagger 6 | Dagger 7 | Dagger 8 | Dagger 9 | Dagger Mastery I | Dagger Mastery II | Dagger Mastery III | Silent Blade
+bonus,mdvlcraft_dodge_efficiency,mdvlcraft:textures/gui/astro/bonus/mdvlcraft_dodge_efficiency.png,12,phantom,Phase Step 1 | Phase Step 2 | Phase Step 3 | Phase Step 4 | Phase Step 5 | Phase Step 6 | Phase Step 7 | Phase Step 8 | Phase Step 9 | Phase Step Mastery I | Phase Step Mastery II | Phase Step Mastery III
+bonus,mdvlcraft_greatsword_damage,mdvlcraft:textures/gui/astro/bonus/mdvlcraft_greatsword_damage.png,15,knight,Greatsword 1 | Greatsword 10 | Greatsword 11 | Greatsword 12 | Greatsword 2 | Greatsword 3 | Greatsword 4 | Greatsword 5 | Greatsword 6 | Greatsword 7 | Greatsword 8 | Greatsword 9 | Greatsword Mastery I | Greatsword Mastery II | Greatsword Mastery III
+bonus,mdvlcraft_katana_damage,mdvlcraft:textures/gui/astro/bonus/mdvlcraft_katana_damage.png,16,samurai,Edge 1 | Edge 10 | Edge 11 | Edge 12 | Edge 2 | Edge 3 | Edge 4 | Edge 5 | Edge 6 | Edge 7 | Edge 8 | Edge 9 | Iaijutsu I | Iaijutsu II | Iaijutsu III | Way of the Blade
+bonus,mdvlcraft_nature_regen,mdvlcraft:textures/gui/astro/bonus/mdvlcraft_nature_regen.png,9,druid,Grove 1 | Grove 2 | Grove 3 | Grove 4 | Grove 5 | Grove 6 | Grove Mastery I | Grove Mastery II | Grove Mastery III
+bonus,mdvlcraft_parry_stamina,mdvlcraft:textures/gui/astro/bonus/mdvlcraft_parry_stamina.png,12,samurai,Deflection 1 | Deflection 2 | Deflection 3 | Deflection 4 | Deflection 5 | Deflection 6 | Deflection 7 | Deflection 8 | Deflection 9 | Perfect Parry I | Perfect Parry II | Perfect Parry III
+bonus,mdvlcraft_plunder,mdvlcraft:textures/gui/astro/bonus/mdvlcraft_plunder.png,12,thief,Plunder 1 | Plunder 2 | Plunder 3 | Plunder 4 | Plunder 5 | Plunder 6 | Plunder 7 | Plunder 8 | Plunder 9 | Plunder Mastery I | Plunder Mastery II | Plunder Mastery III
+bonus,mdvlcraft_rapier_damage,mdvlcraft:textures/gui/astro/bonus/mdvlcraft_rapier_damage.png,16,phantom,Duelist | Rapier 1 | Rapier 10 | Rapier 11 | Rapier 12 | Rapier 2 | Rapier 3 | Rapier 4 | Rapier 5 | Rapier 6 | Rapier 7 | Rapier 8 | Rapier 9 | Rapier Mastery I | Rapier Mastery II | Rapier Mastery III
+bonus,mdvlcraft_riposte_damage,mdvlcraft:textures/gui/astro/bonus/mdvlcraft_riposte_damage.png,12,phantom,Riposte 1 | Riposte 2 | Riposte 3 | Riposte 4 | Riposte 5 | Riposte 6 | Riposte 7 | Riposte 8 | Riposte 9 | Riposte Mastery I | Riposte Mastery II | Riposte Mastery III
+bonus,mdvlcraft_saturation_bonus,mdvlcraft:textures/gui/astro/bonus/mdvlcraft_saturation_bonus.png,284,assassin berzerker cursed druid flame holy ice knight lightning necromancy phantom samurai scout stalker thief wanderer water,Hearty 1 | Hearty 10 | Hearty 11 | Hearty 12 | Hearty 13 | Hearty 14 | Hearty 15 | Hearty 16 | Hearty 17 | Hearty 18 | Hearty 19 | Hearty 2 | Hearty 20 | Hearty 21 | Hearty 22 | Hearty 23 | Hearty 3 | Hearty 4 | Hearty 5 | Hearty 6 | Hearty 7 | Hearty 8 | Hearty 9 | Long Road | Provisions 1 | Provis
+bonus,mdvlcraft_technique_efficiency,mdvlcraft:textures/gui/astro/bonus/mdvlcraft_technique_efficiency.png,15,cursed,Cursed Control 1 | Cursed Control 10 | Cursed Control 11 | Cursed Control 12 | Cursed Control 2 | Cursed Control 3 | Cursed Control 4 | Cursed Control 5 | Cursed Control 6 | Cursed Control 7 | Cursed Control 8 | Cursed Control 9 | Cursed Control Mastery I | Cursed Control Mastery II | Cursed Control
+bonus,minecraft_generic_armor,mdvlcraft:textures/gui/astro/bonus/minecraft_generic_armor.png,335,assassin berzerker cursed druid flame holy ice knight lightning necromancy phantom samurai scout stalker thief wanderer water,Bulk 1 | Bulk 2 | Bulk 3 | Bulk 4 | Bulk 5 | Bulk 6 | Bulk 7 | Bulk 8 | Bulk 9 | Bulk Mastery I | Bulk Mastery II | Bulk Mastery III | Hardened 1 | Hardened 10 | Hardened 11 | Hardened 12 | Hardened 13 | Hardened 14 | Hardened 15 | Hardened 16 | Hardened 17 | Hardened 18 | Hardened 19 | Hardened 2 |
+bonus,minecraft_generic_armor_toughness,mdvlcraft:textures/gui/astro/bonus/minecraft_generic_armor_toughness.png,12,knight,Plate Mastery 1 | Plate Mastery 2 | Plate Mastery 3 | Plate Mastery 4 | Plate Mastery 5 | Plate Mastery 6 | Plate Mastery 7 | Plate Mastery 8 | Plate Mastery 9 | Plate Mastery Mastery I | Plate Mastery Mastery II | Plate Mastery Mastery III
+bonus,minecraft_generic_attack_damage,mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_damage.png,269,assassin berzerker cursed druid flame holy ice knight lightning necromancy phantom samurai scout stalker thief wanderer water,Bloodrage | Fury 1 | Fury 10 | Fury 11 | Fury 12 | Fury 2 | Fury 3 | Fury 4 | Fury 5 | Fury 6 | Fury 7 | Fury 8 | Fury 9 | Fury Mastery I | Fury Mastery II | Fury Mastery III | Might 1 | Might 10 | Might 11 | Might 12 | Might 13 | Might 14 | Might 15 | Might 16 | Might 17 | Might 18 | Might 2 | Migh
+bonus,minecraft_generic_attack_knockback,mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_knockback.png,9,berzerker,Brutal 1 | Brutal 2 | Brutal 3 | Brutal 4 | Brutal 5 | Brutal 6 | Brutal Mastery I | Brutal Mastery II | Brutal Mastery III
+bonus,minecraft_generic_attack_speed,mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png,332,assassin berzerker cursed druid flame holy ice knight lightning necromancy phantom samurai scout stalker thief wanderer water,Quick Hands 1 | Quick Hands 2 | Quick Hands 3 | Quick Hands 4 | Quick Hands 5 | Quick Hands 6 | Quick Hands 7 | Quick Hands 8 | Quick Hands 9 | Quick Hands Mastery I | Quick Hands Mastery II | Quick Hands Mastery III | Readiness 1 | Readiness 10 | Readiness 11 | Readiness 12 | Readiness 13 | Readine
+bonus,minecraft_generic_knockback_resistance,mdvlcraft:textures/gui/astro/bonus/minecraft_generic_knockback_resistance.png,289,assassin berzerker cursed druid flame holy ice knight lightning necromancy phantom samurai scout stalker thief wanderer water,Footing 1 | Footing 10 | Footing 11 | Footing 12 | Footing 13 | Footing 14 | Footing 15 | Footing 16 | Footing 17 | Footing 18 | Footing 2 | Footing 3 | Footing 4 | Footing 5 | Footing 6 | Footing 7 | Footing 8 | Footing 9 | Stand Firm 1 | Stand Firm 2 | Stand Firm 3 | Stand Firm 4 | Stand Firm 5 | 
+bonus,minecraft_generic_luck,mdvlcraft:textures/gui/astro/bonus/minecraft_generic_luck.png,10,thief,Fortune's Favour 1 | Fortune's Favour 2 | Fortune's Favour 3 | Fortune's Favour 4 | Fortune's Favour 5 | Fortune's Favour 6 | Fortune's Favour Mastery I | Fortune's Favour Mastery II | Fortune's Favour Mastery III | Light Fingers
+bonus,minecraft_generic_max_health,mdvlcraft:textures/gui/astro/bonus/minecraft_generic_max_health.png,456,assassin berzerker cursed druid flame holy ice knight lightning necromancy phantom samurai scout stalker thief wanderer water,Constitution 1 | Constitution 2 | Constitution 3 | Constitution 4 | Constitution 5 | Constitution 6 | Constitution Mastery I | Constitution Mastery II | Constitution Mastery III | Toughness 1 | Toughness 10 | Toughness 11 | Toughness 12 | Toughness 2 | Toughness 3 | Toughness 4 | Toughness 5 | Tough
+bonus,minecraft_generic_movement_speed,mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png,293,assassin berzerker cursed druid flame holy ice knight lightning necromancy phantom samurai scout stalker thief wanderer water,Fleet 1 | Fleet 2 | Fleet 3 | Fleet 4 | Fleet 5 | Fleet 6 | Fleet 7 | Fleet 8 | Fleet 9 | Fleet Mastery I | Fleet Mastery II | Fleet Mastery III | Swiftness 1 | Swiftness 10 | Swiftness 11 | Swiftness 12 | Swiftness 13 | Swiftness 14 | Swiftness 15 | Swiftness 16 | Swiftness 17 | Swiftness 18 | Swif
+bonus,puffish_attributes_armor_shred,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_armor_shred.png,12,samurai,Cutting Edge 1 | Cutting Edge 2 | Cutting Edge 3 | Cutting Edge 4 | Cutting Edge 5 | Cutting Edge 6 | Cutting Edge 7 | Cutting Edge 8 | Cutting Edge 9 | Cutting Edge Mastery I | Cutting Edge Mastery II | Cutting Edge Mastery III
+bonus,puffish_attributes_axe_damage,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_axe_damage.png,15,berzerker,Axe 1 | Axe 10 | Axe 11 | Axe 12 | Axe 2 | Axe 3 | Axe 4 | Axe 5 | Axe 6 | Axe 7 | Axe 8 | Axe 9 | Axe Mastery I | Axe Mastery II | Axe Mastery III
+bonus,puffish_attributes_bow_projectile_speed,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_bow_projectile_speed.png,9,stalker,Longbow 1 | Longbow 2 | Longbow 3 | Longbow 4 | Longbow 5 | Longbow 6 | Longbow Mastery I | Longbow Mastery II | Longbow Mastery III
+bonus,puffish_attributes_breaking_speed,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_breaking_speed.png,12,scout,Trailblazer 1 | Trailblazer 2 | Trailblazer 3 | Trailblazer 4 | Trailblazer 5 | Trailblazer 6 | Trailblazer 7 | Trailblazer 8 | Trailblazer 9 | Trailblazer Mastery I | Trailblazer Mastery II | Trailblazer Mastery III
+bonus,puffish_attributes_consuming_speed,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_consuming_speed.png,48,assassin phantom scout thief,Quick Draught 1 | Quick Draught 2 | Quick Draught 3 | Quick Draught 4 | Quick Draught 5 | Quick Draught 6 | Quick Draught 7 | Quick Draught 8 | Quick Draught 9 | Quick Draught Mastery I | Quick Draught Mastery II | Quick Draught Mastery III
+bonus,puffish_attributes_crossbow_projectile_speed,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_crossbow_projectile_speed.png,9,stalker,Arbalest 1 | Arbalest 2 | Arbalest 3 | Arbalest 4 | Arbalest 5 | Arbalest 6 | Arbalest Mastery I | Arbalest Mastery II | Arbalest Mastery III
+bonus,puffish_attributes_damage_reflection,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_damage_reflection.png,12,samurai,Retribution 1 | Retribution 2 | Retribution 3 | Retribution 4 | Retribution 5 | Retribution 6 | Retribution 7 | Retribution 8 | Retribution 9 | Retribution Mastery I | Retribution Mastery II | Retribution Mastery III
+bonus,puffish_attributes_experience,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_experience.png,72,flame holy ice lightning necromancy water,Scholar 1 | Scholar 2 | Scholar 3 | Scholar 4 | Scholar 5 | Scholar 6 | Scholar 7 | Scholar 8 | Scholar 9 | Scholar Mastery I | Scholar Mastery II | Scholar Mastery III
+bonus,puffish_attributes_fall_reduction,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_fall_reduction.png,48,cursed druid stalker wanderer,Light Foot 1 | Light Foot 2 | Light Foot 3 | Light Foot 4 | Light Foot 5 | Light Foot 6 | Light Foot 7 | Light Foot 8 | Light Foot 9 | Light Foot Mastery I | Light Foot Mastery II | Light Foot Mastery III
+bonus,puffish_attributes_fortune,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_fortune.png,3,thief,Prospector Mastery I | Prospector Mastery II | Prospector Mastery III
+bonus,puffish_attributes_healing,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_healing.png,12,holy,Mercy 1 | Mercy 2 | Mercy 3 | Mercy 4 | Mercy 5 | Mercy 6 | Mercy 7 | Mercy 8 | Mercy 9 | Mercy Mastery I | Mercy Mastery II | Mercy Mastery III
+bonus,puffish_attributes_jump,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_jump.png,307,assassin berzerker cursed druid flame holy ice knight lightning necromancy phantom samurai scout stalker thief wanderer water,Bounce 1 | Bounce 10 | Bounce 11 | Bounce 12 | Bounce 13 | Bounce 14 | Bounce 15 | Bounce 16 | Bounce 17 | Bounce 18 | Bounce 2 | Bounce 3 | Bounce 4 | Bounce 5 | Bounce 6 | Bounce 7 | Bounce 8 | Bounce 9 | Spring 1 | Spring 2 | Spring 3 | Spring 4 | Spring 5 | Spring 6 | Spring 7 | Spring 8 | Sprin
+bonus,puffish_attributes_life_steal,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_life_steal.png,12,berzerker,Bloodlust 1 | Bloodlust 2 | Bloodlust 3 | Bloodlust 4 | Bloodlust 5 | Bloodlust 6 | Bloodlust 7 | Bloodlust 8 | Bloodlust 9 | Bloodlust Mastery I | Bloodlust Mastery II | Bloodlust Mastery III
+bonus,puffish_attributes_magic_resistance,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_magic_resistance.png,24,ice water,Glacial Ward 1 | Glacial Ward 2 | Glacial Ward 3 | Glacial Ward 4 | Glacial Ward 5 | Glacial Ward 6 | Glacial Ward 7 | Glacial Ward 8 | Glacial Ward 9 | Glacial Ward Mastery I | Glacial Ward Mastery II | Glacial Ward Mastery III | Tidal Ward 1 | Tidal Ward 2 | Tidal Ward 3 | Tidal Ward 4 | Tidal War
+bonus,puffish_attributes_melee_damage,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_melee_damage.png,48,cursed druid stalker wanderer,Predator 1 | Predator 2 | Predator 3 | Predator 4 | Predator 5 | Predator 6 | Predator 7 | Predator 8 | Predator 9 | Predator Mastery I | Predator Mastery II | Predator Mastery III
+bonus,puffish_attributes_melee_resistance,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_melee_resistance.png,13,cursed,Cursed Body | Vessel 1 | Vessel 2 | Vessel 3 | Vessel 4 | Vessel 5 | Vessel 6 | Vessel 7 | Vessel 8 | Vessel 9 | Vessel Mastery I | Vessel Mastery II | Vessel Mastery III
+bonus,puffish_attributes_melee_resistance_shred,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_melee_resistance_shred.png,9,phantom,Feint 1 | Feint 2 | Feint 3 | Feint 4 | Feint 5 | Feint 6 | Feint Mastery I | Feint Mastery II | Feint Mastery III
+bonus,puffish_attributes_mount_speed,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_mount_speed.png,12,wanderer,Rider 1 | Rider 2 | Rider 3 | Rider 4 | Rider 5 | Rider 6 | Rider 7 | Rider 8 | Rider 9 | Rider Mastery I | Rider Mastery II | Rider Mastery III
+bonus,puffish_attributes_natural_regeneration,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png,441,assassin berzerker cursed druid flame holy ice knight lightning necromancy phantom samurai scout stalker thief wanderer water,Mending 1 | Mending 10 | Mending 11 | Mending 12 | Mending 13 | Mending 14 | Mending 15 | Mending 16 | Mending 17 | Mending 18 | Mending 19 | Mending 2 | Mending 20 | Mending 21 | Mending 22 | Mending 3 | Mending 4 | Mending 5 | Mending 6 | Mending 7 | Mending 8 | Mending 9 | Renewal 1 | Renewal 2 |
+bonus,puffish_attributes_protection_shred,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_protection_shred.png,9,assassin,Rend 1 | Rend 2 | Rend 3 | Rend 4 | Rend 5 | Rend 6 | Rend Mastery I | Rend Mastery II | Rend Mastery III
+bonus,puffish_attributes_ranged_damage,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_ranged_damage.png,16,stalker,Aim 1 | Aim 10 | Aim 11 | Aim 12 | Aim 2 | Aim 3 | Aim 4 | Aim 5 | Aim 6 | Aim 7 | Aim 8 | Aim 9 | Aim Mastery I | Aim Mastery II | Aim Mastery III | Hunter's Eye
+bonus,puffish_attributes_ranged_resistance,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_ranged_resistance.png,9,knight,Arrow Guard 1 | Arrow Guard 2 | Arrow Guard 3 | Arrow Guard 4 | Arrow Guard 5 | Arrow Guard 6 | Arrow Guard Mastery I | Arrow Guard Mastery II | Arrow Guard Mastery III
+bonus,puffish_attributes_repair_cost,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_repair_cost.png,9,thief,Haggler 1 | Haggler 2 | Haggler 3 | Haggler 4 | Haggler 5 | Haggler 6 | Haggler Mastery I | Haggler Mastery II | Haggler Mastery III
+bonus,puffish_attributes_resistance,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_resistance.png,16,knight,Fortress 1 | Fortress 10 | Fortress 11 | Fortress 12 | Fortress 2 | Fortress 3 | Fortress 4 | Fortress 5 | Fortress 6 | Fortress 7 | Fortress 8 | Fortress 9 | Fortress Mastery I | Fortress Mastery II | Fortress Mastery III | Knight's Oath
+bonus,puffish_attributes_sprinting_speed,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_sprinting_speed.png,48,cursed druid stalker wanderer,Sprinter 1 | Sprinter 2 | Sprinter 3 | Sprinter 4 | Sprinter 5 | Sprinter 6 | Sprinter 7 | Sprinter 8 | Sprinter 9 | Sprinter Mastery I | Sprinter Mastery II | Sprinter Mastery III
+bonus,puffish_attributes_stamina,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_stamina.png,48,cursed druid stalker wanderer,Forager 1 | Forager 2 | Forager 3 | Forager 4 | Forager 5 | Forager 6 | Forager 7 | Forager 8 | Forager 9 | Forager Mastery I | Forager Mastery II | Forager Mastery III
+bonus,puffish_attributes_stealth,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_stealth.png,48,assassin phantom scout thief,Shadow 1 | Shadow 2 | Shadow 3 | Shadow 4 | Shadow 5 | Shadow 6 | Shadow 7 | Shadow 8 | Shadow 9 | Shadow Mastery I | Shadow Mastery II | Shadow Mastery III
+bonus,puffish_attributes_sword_damage,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_sword_damage.png,12,thief,Cutthroat 1 | Cutthroat 2 | Cutthroat 3 | Cutthroat 4 | Cutthroat 5 | Cutthroat 6 | Cutthroat 7 | Cutthroat 8 | Cutthroat 9 | Cutthroat Mastery I | Cutthroat Mastery II | Cutthroat Mastery III
+bonus,puffish_attributes_tamed_damage,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_tamed_damage.png,9,wanderer,Pack Leader 1 | Pack Leader 2 | Pack Leader 3 | Pack Leader 4 | Pack Leader 5 | Pack Leader 6 | Pack Leader Mastery I | Pack Leader Mastery II | Pack Leader Mastery III
+bonus,puffish_attributes_tamed_resistance,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_tamed_resistance.png,9,wanderer,Companion 1 | Companion 2 | Companion 3 | Companion 4 | Companion 5 | Companion 6 | Companion Mastery I | Companion Mastery II | Companion Mastery III
+bonus,puffish_attributes_toughness_shred,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_toughness_shred.png,9,cursed,Severing 1 | Severing 2 | Severing 3 | Severing 4 | Severing 5 | Severing 6 | Severing Mastery I | Severing Mastery II | Severing Mastery III
+bonus,puffish_attributes_trident_damage,mdvlcraft:textures/gui/astro/bonus/puffish_attributes_trident_damage.png,12,scout,Harpooner 1 | Harpooner 2 | Harpooner 3 | Harpooner 4 | Harpooner 5 | Harpooner 6 | Harpooner 7 | Harpooner 8 | Harpooner 9 | Harpooner Mastery I | Harpooner Mastery II | Harpooner Mastery III
+bonus,traveloptics_aqua_magic_resist,mdvlcraft:textures/gui/astro/bonus/traveloptics_aqua_magic_resist.png,9,water,Deep Blood 1 | Deep Blood 2 | Deep Blood 3 | Deep Blood 4 | Deep Blood 5 | Deep Blood 6 | Deep Blood Mastery I | Deep Blood Mastery II | Deep Blood Mastery III
+bonus,traveloptics_aqua_spell_power,mdvlcraft:textures/gui/astro/bonus/traveloptics_aqua_spell_power.png,15,water,Tide 1 | Tide 10 | Tide 11 | Tide 12 | Tide 2 | Tide 3 | Tide 4 | Tide 5 | Tide 6 | Tide 7 | Tide 8 | Tide 9 | Tide Mastery I | Tide Mastery II | Tide Mastery III
+skill,combat_evolution_shield_counter,mdvlcraft:textures/gui/astro/skill/combat_evolution_shield_counter.png,1,knight,Shield Counter
+skill,dodge_parry_reward_damage_boost1,mdvlcraft:textures/gui/astro/skill/dodge_parry_reward_damage_boost1.png,1,samurai,Strength I
+skill,efn_parry_master,mdvlcraft:textures/gui/astro/skill/efn_parry_master.png,1,samurai,Parry Master
+skill,efs_iss_against_magic,mdvlcraft:textures/gui/astro/skill/efs_iss_against_magic.png,1,knight,Magic Immunity
+skill,efs_iss_auto_heal,mdvlcraft:textures/gui/astro/skill/efs_iss_auto_heal.png,1,knight,Auto Heal
+skill,efs_iss_blood_into_mana,mdvlcraft:textures/gui/astro/skill/efs_iss_blood_into_mana.png,1,necromancy,Blood into Mana
+skill,efs_iss_breathe_again,mdvlcraft:textures/gui/astro/skill/efs_iss_breathe_again.png,1,holy,Second Wind
+skill,efs_iss_hasty_casting,mdvlcraft:textures/gui/astro/skill/efs_iss_hasty_casting.png,1,samurai,Hasty Casting
+skill,efs_iss_mana_shield,mdvlcraft:textures/gui/astro/skill/efs_iss_mana_shield.png,6,flame holy ice lightning necromancy water,Mana Shield
+skill,efs_iss_rapid_chant,mdvlcraft:textures/gui/astro/skill/efs_iss_rapid_chant.png,1,lightning,Rapid Chant
+skill,efs_iss_reserve_mana,mdvlcraft:textures/gui/astro/skill/efs_iss_reserve_mana.png,2,flame lightning,Reserve Mana
+skill,epicfight_adaptive_skin,mdvlcraft:textures/gui/astro/skill/epicfight_adaptive_skin.png,3,druid holy wanderer,Adaptive Skin
+skill,epicfight_adrenaline_fiend,mdvlcraft:textures/gui/astro/skill/epicfight_adrenaline_fiend.png,2,berzerker wanderer,Adrenaline Fiend
+skill,epicfight_berserker,mdvlcraft:textures/gui/astro/skill/epicfight_berserker.png,1,berzerker,Berserker
+skill,epicfight_bonebreaker,mdvlcraft:textures/gui/astro/skill/epicfight_bonebreaker.png,1,assassin,Bonebreaker
+skill,epicfight_catharsis,mdvlcraft:textures/gui/astro/skill/epicfight_catharsis.png,1,phantom,Catharsis
+skill,epicfight_death_harvest,mdvlcraft:textures/gui/astro/skill/epicfight_death_harvest.png,1,cursed,Death Harvest
+skill,epicfight_demolition_leap,mdvlcraft:textures/gui/astro/skill/epicfight_demolition_leap.png,2,berzerker lightning,Demolition Leap
+skill,epicfight_emergency_escape,mdvlcraft:textures/gui/astro/skill/epicfight_emergency_escape.png,1,thief,Emergency Escape
+skill,epicfight_endurance,mdvlcraft:textures/gui/astro/skill/epicfight_endurance.png,1,knight,Endurance
+skill,epicfight_forbidden_strength,mdvlcraft:textures/gui/astro/skill/epicfight_forbidden_strength.png,1,berzerker,Forbidden Strength
+skill,epicfight_hypervitality,mdvlcraft:textures/gui/astro/skill/epicfight_hypervitality.png,3,berzerker ice water,Hyper Vitality
+skill,epicfight_impact_guard,mdvlcraft:textures/gui/astro/skill/epicfight_impact_guard.png,1,knight,Impact Guard
+skill,epicfight_meteor_slam,mdvlcraft:textures/gui/astro/skill/epicfight_meteor_slam.png,1,druid,Meteor Slam
+skill,epicfight_phantom_ascent,mdvlcraft:textures/gui/astro/skill/epicfight_phantom_ascent.png,2,phantom scout,Phantom Ascent
+skill,epicfight_revelation,mdvlcraft:textures/gui/astro/skill/epicfight_revelation.png,2,samurai stalker,Revelation
+skill,epicfight_stamina_pillager,mdvlcraft:textures/gui/astro/skill/epicfight_stamina_pillager.png,5,assassin berzerker necromancy phantom scout,Stamina Pillager
+skill,epicfight_swordmaster,mdvlcraft:textures/gui/astro/skill/epicfight_swordmaster.png,4,cursed phantom samurai wanderer,Swordmaster
+skill,epicfight_technician,mdvlcraft:textures/gui/astro/skill/epicfight_technician.png,2,phantom samurai,Technician
+skill,epicfight_vengeance,mdvlcraft:textures/gui/astro/skill/epicfight_vengeance.png,2,cursed flame,Vengeance
+skill,epicfightx_combat_mastery_i,mdvlcraft:textures/gui/astro/skill/epicfightx_combat_mastery_i.png,3,berzerker knight samurai,Combat Mastery I
+skill,epicfightx_combat_mastery_ii,mdvlcraft:textures/gui/astro/skill/epicfightx_combat_mastery_ii.png,3,berzerker knight samurai,Combat Mastery II
+skill,wom_adrenaline,mdvlcraft:textures/gui/astro/skill/wom_adrenaline.png,2,berzerker flame,Adrenaline
+skill,wom_all_eyes_on_you,mdvlcraft:textures/gui/astro/skill/wom_all_eyes_on_you.png,1,phantom,All Eyes on You
+skill,wom_aqua_maneuvre,mdvlcraft:textures/gui/astro/skill/wom_aqua_maneuvre.png,2,ice water,Aqua Maneuver
+skill,wom_avatar_of_might,mdvlcraft:textures/gui/astro/skill/wom_avatar_of_might.png,1,flame,Avatar of Might
+skill,wom_buster_parade,mdvlcraft:textures/gui/astro/skill/wom_buster_parade.png,1,berzerker,Dread Full Buster
+skill,wom_critical_knowledge,mdvlcraft:textures/gui/astro/skill/wom_critical_knowledge.png,1,stalker,Critical Knowledge
+skill,wom_dancing_blade,mdvlcraft:textures/gui/astro/skill/wom_dancing_blade.png,1,samurai,Dancing Blade
+skill,wom_dodge_master,mdvlcraft:textures/gui/astro/skill/wom_dodge_master.png,1,phantom,Dodge Master
+skill,wom_dopamine,mdvlcraft:textures/gui/astro/skill/wom_dopamine.png,2,samurai scout,Dopamine
+skill,wom_ender_obscuris,mdvlcraft:textures/gui/astro/skill/wom_ender_obscuris.png,2,assassin phantom,Ender Obscuris
+skill,wom_ender_step,mdvlcraft:textures/gui/astro/skill/wom_ender_step.png,1,phantom,Ender Step
+skill,wom_lethal_focus,mdvlcraft:textures/gui/astro/skill/wom_lethal_focus.png,1,berzerker,Lethal Focus
+skill,wom_manipulator,mdvlcraft:textures/gui/astro/skill/wom_manipulator.png,1,samurai,Manipulator
+skill,wom_natural_sprinter,mdvlcraft:textures/gui/astro/skill/wom_natural_sprinter.png,4,phantom scout thief wanderer,Natural Sprinter
+skill,wom_pain_anticipation,mdvlcraft:textures/gui/astro/skill/wom_pain_anticipation.png,1,knight,Pain Anticipation
+skill,wom_punishment_kick,mdvlcraft:textures/gui/astro/skill/wom_punishment_kick.png,1,berzerker,Punishment Kick
+skill,wom_shadow_step,mdvlcraft:textures/gui/astro/skill/wom_shadow_step.png,2,assassin stalker,Shadow Step
+skill,wom_soul_protection,mdvlcraft:textures/gui/astro/skill/wom_soul_protection.png,1,necromancy,Soul Protection
+skill,wom_spider_techniques,mdvlcraft:textures/gui/astro/skill/wom_spider_techniques.png,2,assassin samurai,Spider Techniques
+skill,wom_vampirize,mdvlcraft:textures/gui/astro/skill/wom_vampirize.png,1,berzerker,Essence Extortion
+skill,wom_voodoo_magic,mdvlcraft:textures/gui/astro/skill/wom_voodoo_magic.png,1,wanderer,Voodoo Magic
+spell,irons_spellbooks_acid_orb,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_acid_orb.png,2,druid,Corrosion (Acid Orb V) | Wild Growth
+spell,irons_spellbooks_acupuncture,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_acupuncture.png,1,assassin,Acupuncture
+spell,irons_spellbooks_arrow_volley,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_arrow_volley.png,2,stalker,Arrow Volley | Rain of Arrows (Arrow Volley V)
+spell,irons_spellbooks_ball_lightning,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_ball_lightning.png,1,lightning,Ball Lightning
+spell,irons_spellbooks_blaze_storm,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_blaze_storm.png,1,flame,Blaze Storm
+spell,irons_spellbooks_blessing_of_life,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_blessing_of_life.png,1,holy,Blessing Of Life
+spell,irons_spellbooks_blight,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_blight.png,1,druid,Blight
+spell,irons_spellbooks_blizzard,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_blizzard.png,1,ice,Blizzard
+spell,irons_spellbooks_blood_needles,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_blood_needles.png,1,necromancy,Blood Needles
+spell,irons_spellbooks_blood_slash,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_blood_slash.png,1,necromancy,Blood Slash
+spell,irons_spellbooks_blood_step,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_blood_step.png,1,assassin,Blood Step
+spell,irons_spellbooks_burning_dash,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_burning_dash.png,1,berzerker,Burning Dash
+spell,irons_spellbooks_chain_creeper,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_chain_creeper.png,1,thief,Chain Creeper
+spell,irons_spellbooks_chain_lightning,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_chain_lightning.png,1,lightning,Chain Lightning
+spell,irons_spellbooks_charge,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_charge.png,1,lightning,Charge
+spell,irons_spellbooks_cleanse,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_cleanse.png,2,holy scout,Cleanse
+spell,irons_spellbooks_cloud_of_regeneration,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_cloud_of_regeneration.png,1,holy,Cloud Of Regeneration
+spell,irons_spellbooks_cone_of_cold,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_cone_of_cold.png,1,ice,Cone Of Cold
+spell,irons_spellbooks_counterspell,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_counterspell.png,1,wanderer,Counterspell
+spell,irons_spellbooks_devour,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_devour.png,2,cursed necromancy,Devour
+spell,irons_spellbooks_divine_smite,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_divine_smite.png,1,holy,Divine Smite
+spell,irons_spellbooks_earthquake,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_earthquake.png,1,druid,Earthquake
+spell,irons_spellbooks_echoing_strikes,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_echoing_strikes.png,1,assassin,Echoing Strikes
+spell,irons_spellbooks_electrocute,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_electrocute.png,2,lightning,Overcharge (Electrocute V) | Static
+spell,irons_spellbooks_evasion,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_evasion.png,2,phantom,Evasion | Phantasm (Evasion II)
+spell,irons_spellbooks_fang_strike,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_fang_strike.png,2,berzerker,Fang Strike | Fang Strike V
+spell,irons_spellbooks_fire_arrow,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_fire_arrow.png,1,stalker,Fire Arrow
+spell,irons_spellbooks_fire_breath,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_fire_breath.png,1,flame,Fire Breath
+spell,irons_spellbooks_fireball,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_fireball.png,1,flame,Fireball
+spell,irons_spellbooks_firebolt,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_firebolt.png,2,flame,Blaze (Firebolt V) | Kindling
+spell,irons_spellbooks_firecracker,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_firecracker.png,1,thief,Firecracker
+spell,irons_spellbooks_firefly_swarm,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_firefly_swarm.png,1,druid,Firefly Swarm
+spell,irons_spellbooks_fortify,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_fortify.png,2,knight,Bulwark (Fortify III) | Fortify
+spell,irons_spellbooks_frost_step,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_frost_step.png,1,ice,Frost Step
+spell,irons_spellbooks_frostbite,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_frostbite.png,1,ice,Frostbite
+spell,irons_spellbooks_frostwave,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_frostwave.png,1,ice,Frostwave
+spell,irons_spellbooks_gluttony,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_gluttony.png,1,wanderer,Gluttony
+spell,irons_spellbooks_greater_heal,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_greater_heal.png,1,holy,Greater Heal
+spell,irons_spellbooks_guiding_bolt,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_guiding_bolt.png,2,holy,Devotion | Radiance (Guiding Bolt V)
+spell,irons_spellbooks_gust,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_gust.png,1,scout,Gust
+spell,irons_spellbooks_haste,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_haste.png,1,scout,Haste
+spell,irons_spellbooks_heal,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_heal.png,1,holy,Heal
+spell,irons_spellbooks_healing_circle,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_healing_circle.png,1,holy,Healing Circle
+spell,irons_spellbooks_heartstop,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_heartstop.png,1,berzerker,Heartstop
+spell,irons_spellbooks_heat_surge,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_heat_surge.png,1,flame,Heat Surge
+spell,irons_spellbooks_ice_block,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_ice_block.png,1,ice,Ice Block
+spell,irons_spellbooks_ice_spikes,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_ice_spikes.png,1,ice,Ice Spikes
+spell,irons_spellbooks_icicle,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_icicle.png,2,ice,Frostbitten | Shatter (Icicle V)
+spell,irons_spellbooks_invisibility,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_invisibility.png,3,assassin phantom stalker,Invisibility
+spell,irons_spellbooks_lightning_bolt,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_lightning_bolt.png,1,lightning,Lightning Bolt
+spell,irons_spellbooks_lightning_lance,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_lightning_lance.png,1,lightning,Lightning Lance
+spell,irons_spellbooks_lob_creeper,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_lob_creeper.png,1,thief,Lob Creeper
+spell,irons_spellbooks_magma_bomb,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_magma_bomb.png,1,flame,Magma Bomb
+spell,irons_spellbooks_oakskin,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_oakskin.png,2,druid,Barkskin (Oakskin IV) | Oakskin
+spell,irons_spellbooks_planar_sight,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_planar_sight.png,1,scout,Planar Sight
+spell,irons_spellbooks_poison_arrow,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_poison_arrow.png,2,stalker,Poison Arrow | Thornshot (Poison Arrow V)
+spell,irons_spellbooks_poison_splash,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_poison_splash.png,1,druid,Poison Splash
+spell,irons_spellbooks_raise_dead,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_raise_dead.png,1,necromancy,Raise Dead
+spell,irons_spellbooks_raise_hell,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_raise_hell.png,1,flame,Raise Hell
+spell,irons_spellbooks_ray_of_frost,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_ray_of_frost.png,1,ice,Ray Of Frost
+spell,irons_spellbooks_ray_of_siphoning,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_ray_of_siphoning.png,1,necromancy,Ray Of Siphoning
+spell,irons_spellbooks_root,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_root.png,2,druid,Entangle (Root V) | Root
+spell,irons_spellbooks_sacrifice,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_sacrifice.png,1,necromancy,Sacrifice
+spell,irons_spellbooks_scapegoat,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_scapegoat.png,1,thief,Scapegoat
+spell,irons_spellbooks_scorch,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_scorch.png,1,flame,Scorch
+spell,irons_spellbooks_shield,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_shield.png,2,knight,Aegis (Shield IV) | Shield
+spell,irons_spellbooks_shockwave,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_shockwave.png,1,lightning,Shockwave
+spell,irons_spellbooks_slow,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_slow.png,1,phantom,Slow
+spell,irons_spellbooks_spider_aspect,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_spider_aspect.png,1,druid,Spider Aspect
+spell,irons_spellbooks_stomp,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_stomp.png,1,berzerker,Stomp
+spell,irons_spellbooks_summon_horse,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_summon_horse.png,2,wanderer,Summon Horse | Trusted Steed (Summon Horse V)
+spell,irons_spellbooks_summon_polar_bear,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_summon_polar_bear.png,1,wanderer,Summon Polar Bear
+spell,irons_spellbooks_summon_vex,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_summon_vex.png,1,necromancy,Summon Vex
+spell,irons_spellbooks_sunbeam,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_sunbeam.png,1,holy,Sunbeam
+spell,irons_spellbooks_teleport,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_teleport.png,2,thief,Blink (Teleport IV) | Teleport
+spell,irons_spellbooks_throw,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_throw.png,1,assassin,Throw
+spell,irons_spellbooks_thunderstorm,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_thunderstorm.png,1,lightning,Thunderstorm
+spell,irons_spellbooks_touch_dig,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_touch_dig.png,1,scout,Touch Dig
+spell,irons_spellbooks_volt_strike,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_volt_strike.png,1,lightning,Volt Strike
+spell,irons_spellbooks_wall_of_fire,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_wall_of_fire.png,1,flame,Wall Of Fire
+spell,irons_spellbooks_wisp,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_wisp.png,1,holy,Wisp
+spell,irons_spellbooks_wither_skull,mdvlcraft:textures/gui/astro/spell/irons_spellbooks_wither_skull.png,3,cursed necromancy,Grave Touch | Wither Skull | Withering (Wither Skull V)
+spell,traveloptics_aerial_collapse,mdvlcraft:textures/gui/astro/spell/traveloptics_aerial_collapse.png,1,druid,Aerial Collapse
+spell,traveloptics_annihilation,mdvlcraft:textures/gui/astro/spell/traveloptics_annihilation.png,1,flame,Annihilation
+spell,traveloptics_aqua_missiles,mdvlcraft:textures/gui/astro/spell/traveloptics_aqua_missiles.png,1,water,Aqua Missiles
+spell,traveloptics_ashen_breath,mdvlcraft:textures/gui/astro/spell/traveloptics_ashen_breath.png,1,wanderer,Ashen Breath
+spell,traveloptics_astral_sense,mdvlcraft:textures/gui/astro/spell/traveloptics_astral_sense.png,1,thief,Astral Sense
+spell,traveloptics_axe_of_the_doomed,mdvlcraft:textures/gui/astro/spell/traveloptics_axe_of_the_doomed.png,1,necromancy,Axe Of The Doomed
+spell,traveloptics_blackout,mdvlcraft:textures/gui/astro/spell/traveloptics_blackout.png,1,phantom,Blackout
+spell,traveloptics_blood_howl,mdvlcraft:textures/gui/astro/spell/traveloptics_blood_howl.png,1,berzerker,Blood Howl
+spell,traveloptics_bubble_spray,mdvlcraft:textures/gui/astro/spell/traveloptics_bubble_spray.png,1,water,Bubble Spray
+spell,traveloptics_coral_barrage,mdvlcraft:textures/gui/astro/spell/traveloptics_coral_barrage.png,1,water,Coral Barrage
+spell,traveloptics_cursed_blast,mdvlcraft:textures/gui/astro/spell/traveloptics_cursed_blast.png,2,ice water,Cursed Blast
+spell,traveloptics_cursed_revenants,mdvlcraft:textures/gui/astro/spell/traveloptics_cursed_revenants.png,1,necromancy,Cursed Revenants
+spell,traveloptics_flood_slash,mdvlcraft:textures/gui/astro/spell/traveloptics_flood_slash.png,1,water,Flood Slash
+spell,traveloptics_floodgate,mdvlcraft:textures/gui/astro/spell/traveloptics_floodgate.png,1,water,Floodgate
+spell,traveloptics_halberd_horizon,mdvlcraft:textures/gui/astro/spell/traveloptics_halberd_horizon.png,2,ice water,Halberd Horizon
+spell,traveloptics_hydroshot,mdvlcraft:textures/gui/astro/spell/traveloptics_hydroshot.png,2,water,Torrent (Hydroshot VI) | Undertow
+spell,traveloptics_jet_steam,mdvlcraft:textures/gui/astro/spell/traveloptics_jet_steam.png,1,water,Jet Steam
+spell,traveloptics_lava_bomb,mdvlcraft:textures/gui/astro/spell/traveloptics_lava_bomb.png,1,flame,Lava Bomb
+spell,traveloptics_lingering_strain,mdvlcraft:textures/gui/astro/spell/traveloptics_lingering_strain.png,1,knight,Lingering Strain
+spell,traveloptics_meteor_storm,mdvlcraft:textures/gui/astro/spell/traveloptics_meteor_storm.png,1,flame,Meteor Storm
+spell,traveloptics_rainfall,mdvlcraft:textures/gui/astro/spell/traveloptics_rainfall.png,1,water,Rainfall
+spell,traveloptics_serpentide,mdvlcraft:textures/gui/astro/spell/traveloptics_serpentide.png,1,water,Serpentide
+spell,traveloptics_skypiercer,mdvlcraft:textures/gui/astro/spell/traveloptics_skypiercer.png,1,water,Skypiercer
+spell,traveloptics_spectral_blink,mdvlcraft:textures/gui/astro/spell/traveloptics_spectral_blink.png,1,assassin,Spectral Blink
+spell,traveloptics_the_howling_tempest,mdvlcraft:textures/gui/astro/spell/traveloptics_the_howling_tempest.png,1,water,The Howling Tempest
+spell,traveloptics_tidal_grasp,mdvlcraft:textures/gui/astro/spell/traveloptics_tidal_grasp.png,1,water,Tidal Grasp
+spell,traveloptics_tsunami,mdvlcraft:textures/gui/astro/spell/traveloptics_tsunami.png,1,water,Tsunami
+spell,traveloptics_violent_skreech,mdvlcraft:textures/gui/astro/spell/traveloptics_violent_skreech.png,1,cursed,Paralyzing Skreech
+spell,traveloptics_vortex_of_the_deep,mdvlcraft:textures/gui/astro/spell/traveloptics_vortex_of_the_deep.png,1,water,Vortex Of The Deep
+technique,mdvlcraft_arcane_sustenance,mdvlcraft:textures/gui/astro/technique/mdvlcraft_arcane_sustenance.png,2,scout wanderer,Arcane Sustenance
+technique,mdvlcraft_bird_strike,mdvlcraft:textures/gui/astro/technique/mdvlcraft_bird_strike.png,1,scout,Bird Strike
+technique,mdvlcraft_blind_investment,mdvlcraft:textures/gui/astro/technique/mdvlcraft_blind_investment.png,1,scout,Blind Investment
+technique,mdvlcraft_blitz,mdvlcraft:textures/gui/astro/technique/mdvlcraft_blitz.png,1,samurai,Blitz
+technique,mdvlcraft_block_clap,mdvlcraft:textures/gui/astro/technique/mdvlcraft_block_clap.png,1,thief,Block Clap
+technique,mdvlcraft_boogie_woogie,mdvlcraft:textures/gui/astro/technique/mdvlcraft_boogie_woogie.png,1,thief,Boogie Woogie
+technique,mdvlcraft_cleave,mdvlcraft:textures/gui/astro/technique/mdvlcraft_cleave.png,1,cursed,Cleave
+technique,mdvlcraft_controlled_collapse,mdvlcraft:textures/gui/astro/technique/mdvlcraft_controlled_collapse.png,1,scout,Controlled Collapse
+technique,mdvlcraft_dismantle,mdvlcraft:textures/gui/astro/technique/mdvlcraft_dismantle.png,1,cursed,Dismantle
+technique,mdvlcraft_doppelganger,mdvlcraft:textures/gui/astro/technique/mdvlcraft_doppelganger.png,1,phantom,Doppelganger
+technique,mdvlcraft_follow_up_kick,mdvlcraft:textures/gui/astro/technique/mdvlcraft_follow_up_kick.png,1,phantom,Follow Up Kick
+technique,mdvlcraft_gravity_stomp,mdvlcraft:textures/gui/astro/technique/mdvlcraft_gravity_stomp.png,1,knight,Gravity Stomp
+technique,mdvlcraft_malevolent_shrine,mdvlcraft:textures/gui/astro/technique/mdvlcraft_malevolent_shrine.png,1,cursed,Malevolent Shrine
+technique,mdvlcraft_myriad_blades,mdvlcraft:textures/gui/astro/technique/mdvlcraft_myriad_blades.png,1,samurai,Myriad Blades Convergence
+technique,mdvlcraft_open_malevolent_shrine,mdvlcraft:textures/gui/astro/technique/mdvlcraft_open_malevolent_shrine.png,1,cursed,Malevolent Shrine: Open
+technique,mdvlcraft_phantom_movement,mdvlcraft:textures/gui/astro/technique/mdvlcraft_phantom_movement.png,1,phantom,Phantom Movement
+technique,mdvlcraft_silent_appraisal,mdvlcraft:textures/gui/astro/technique/mdvlcraft_silent_appraisal.png,1,scout,Silent Appraisal
+technique,mdvlcraft_soul_hunt,mdvlcraft:textures/gui/astro/technique/mdvlcraft_soul_hunt.png,1,cursed,Soul Hunt
+technique,mdvlcraft_stance,mdvlcraft:textures/gui/astro/technique/mdvlcraft_stance.png,1,samurai,Stance
+technique,mdvlcraft_surprise_attack,mdvlcraft:textures/gui/astro/technique/mdvlcraft_surprise_attack.png,1,samurai,Surprise Attack
