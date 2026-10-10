@@ -18,6 +18,12 @@
   and kept Level 16. Changing Knight (Level 16) to Ice gave Ice at Level 12 with 13 points; Knight's tab was gone;
   the Classes tab still had 2 of 2 points spent; the Status page showed Holy + Ice as *Crystal Priest*.
 
+### Recipes
+
+- **Uchigatana** (Epic Fight) can now be crafted: an Iron Tachi in the bottom-left slot, an Iron Ingot in the
+  middle and an Iron Ingot in the top-right (`kubejs/data/mdvlcraft/recipes/uchigatana.json`). Before, it had no
+  recipe. Tested: the recipe loads on the test server.
+
 ## 1.9.17 (Binder 0.7.8)
 
 Packs built (`python3 modpack/build_mrpack.py 1.9.17`).

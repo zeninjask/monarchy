@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  I",
+    " I ",
+    "T  "
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "T": { "item": "epicfight:iron_tachi" }
+  },
+  "result": { "item": "epicfight:uchigatana", "count": 1 }
+}
