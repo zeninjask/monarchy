@@ -189,7 +189,7 @@ public final class AbilityScreen extends Screen {
     }
 
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        if (AbilityKeys.OPEN_ABILITIES.matches(keyCode, scanCode)) {
+        if (AbilityKeys.MENU.matches(keyCode, scanCode)) {
             this.onClose();
             return true;
         } else {

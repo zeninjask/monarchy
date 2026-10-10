@@ -2,9 +2,28 @@
 
 ## Unreleased (Binder 0.7.6)
 
-### Character screen (not yet tested in game)
+### MDVLCraft menu
 
-- New **Character Status** screen (key Z, rebindable), laid out like Elden Ring's Status page in the skill trees'
+- New **menu key** (M, rebindable; "Open Menu" under *MDVLCraft* in Controls) opens the MDVLCraft menu, in the
+  Astrologer look: **Status**, **Abilities**, **Skills** (Pufferfish skill trees), **Advancements**, **Origin**,
+  **Brewing** (Ars Elixirum collection), **Recruits ›** (a page with **Claim Map** and **Faction**), **Voice Chat**
+  and **Map ›** (a page with **World Map Settings** and **Minimap Settings**). Claim Map works in the Overworld only,
+  as before. A button greys out when its mod is missing.
+- Every page has a **Back** button, and so does every screen opened from the menu (bottom left; the Xaero settings
+  screens' own Done also returns to the menu). Esc still closes everything; pressing the menu key again closes it.
+- The keys these screens used to have are **removed from the game**, not just unbound: they are gone from the
+  Controls list and from the key lookup, so the menu is the only way in. Removed: Advancements, Pufferfish
+  *Open Skills*, Origins *View Origin*, Ars Elixirum *Collection*, Recruits *Faction screen* and *Map screen*,
+  Voice Chat *Voice Chat*, Xaero *World Map settings* and *Minimap settings*, and the Binder's own *Open
+  Abilities* and *Character Status* keys. Binder `client/RemovedKeys.java` (with `OptionsAccessor` and
+  `KeyMappingAccessor`).
+- Default keybinds (`options.txt` in both client packs): `M` opens the menu; the removed keys' lines are gone.
+- Made by `client/MenuScreen.java`, `client/MenuNav.java` (opening other mods' screens and adding the Back button)
+  and `client/AstroGui.java` (the shared Astrologer panel and button).
+
+### Character screen
+
+- New **Character Status** screen (from the menu's Status button), laid out like Elden Ring's Status page in the skill trees'
   Astrologer look (night sky, gold frame, a faint astrolabe):
   - **Level / Archetype / Experience / Next Level In**: the highest-level picked archetype (by level, then
     experience); "n/a" until an archetype is picked.

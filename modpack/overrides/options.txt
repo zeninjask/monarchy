@@ -108,7 +108,6 @@ key_key.spectatorOutlines:key.keyboard.unknown
 key_key.swapOffhand:key.keyboard.unknown
 key_key.saveToolbarActivator:key.keyboard.unknown
 key_key.loadToolbarActivator:key.keyboard.unknown
-key_key.advancements:key.keyboard.l
 key_key.hotbar.1:key.keyboard.1
 key_key.hotbar.2:key.keyboard.2
 key_key.hotbar.3:key.keyboard.3
@@ -118,7 +117,6 @@ key_key.hotbar.6:key.keyboard.6
 key_key.hotbar.7:key.keyboard.7
 key_key.hotbar.8:key.keyboard.8
 key_key.hotbar.9:key.keyboard.9
-key_key.puffish_skills.open:key.keyboard.k
 key_key.entityculling.toggle:key.keyboard.unknown
 key_key.invincible.key1:key.mouse.left
 key_key.invincible.key2:key.mouse.right
@@ -126,7 +124,6 @@ key_key.invincible.key3:key.keyboard.unknown
 key_key.invincible.key4:key.keyboard.unknown
 key_key.combat_evolution.execution:key.mouse.right
 key_gui.xaero_open_map:key.keyboard.f
-key_gui.xaero_open_settings:key.keyboard.unknown
 key_gui.xaero_world_map_server_settings:key.keyboard.unknown
 key_gui.xaero_map_zoom_in:key.keyboard.unknown
 key_gui.xaero_map_zoom_out:key.keyboard.unknown
@@ -143,8 +140,6 @@ key_iris.keybind.reload:key.keyboard.backslash
 key_iris.keybind.toggleShaders:key.keyboard.unknown
 key_iris.keybind.shaderPackSelection:key.keyboard.unknown
 key_key.recruits.command_screen_key:key.keyboard.i
-key_key.recruits.team_screen_key:key.keyboard.o
-key_key.recruits.map_screen_key:key.keyboard.u
 key_key.village_recruits.wiki:key.keyboard.p
 key_key.toggleVisualItemContents:key.keyboard.unknown
 key_key.toggleSelectedItemTooltips:key.keyboard.unknown
@@ -170,7 +165,6 @@ key_key.whisper:key.keyboard.unknown
 key_key.mute_microphone:key.keyboard.unknown
 key_key.disable_voice_chat:key.keyboard.unknown
 key_key.hide_icons:key.keyboard.period
-key_key.voice_chat:key.keyboard.v
 key_key.voice_chat_settings:key.keyboard.unknown
 key_key.voice_chat_group:key.keyboard.unknown
 key_key.voice_chat_toggle_recording:key.keyboard.unknown
@@ -182,7 +176,6 @@ key_key.jade.narrate:key.keyboard.unknown
 key_key.jade.show_details:key.keyboard.unknown
 key_fdlib.key.end_cutscene:key.keyboard.unknown
 key_key.ponder.ponder:key.keyboard.w
-key_gui.xaero_minimap_settings:key.keyboard.unknown
 key_gui.xaero_minimap_server_profiles:key.keyboard.unknown
 key_gui.xaero_zoom_in:key.keyboard.unknown
 key_gui.xaero_zoom_out:key.keyboard.unknown
@@ -215,10 +208,9 @@ key_key.efn.demon:key.keyboard.unknown
 key_key.p1nero_ec.skill_1:key.keyboard.unknown
 key_key.p1nero_ec.skill_2:key.keyboard.unknown
 key_key.p1nero_ec.skill_3:key.keyboard.unknown
-key_key.mdvlcraft.open_abilities:key.keyboard.world.2
+key_key.mdvlcraft.menu:key.keyboard.m
 key_key.mdvlcraft.ability_wheel:key.keyboard.tab
 key_key.mdvlcraft.cast_ability:key.keyboard.r
-key_key.mdvlcraft.character:key.keyboard.z
 soundCategory_master:0.5
 soundCategory_music:1.0
 soundCategory_record:1.0
@@ -239,8 +231,6 @@ modelPart_hat:true
 key_key.special_ability:key.keyboard.unknown
 key_key.origins.primary_active:key.keyboard.g
 key_key.origins.secondary_active:key.keyboard.h
-key_key.origins.view_origin:key.keyboard.apostrophe
-key_key.elixirum.collection:key.keyboard.n
 key_key.traveloptics.ability1:key.keyboard.unknown
 key_key.traveloptics.ability2:key.keyboard.unknown
 key_key.traveloptics.ability3:key.keyboard.unknown

@@ -54,6 +54,8 @@
     "efn.EFNKeyMappingsMixin",
     "puffish.ConnectionBatchedRendererMixin",
     "puffish.SkillsClientModAccessor",
+    "OptionsAccessor",
+    "KeyMappingAccessor",
     "epicfight.SkillBookScreenMixin",
     "efcompat.ArmatureBinderMixin"
   ],

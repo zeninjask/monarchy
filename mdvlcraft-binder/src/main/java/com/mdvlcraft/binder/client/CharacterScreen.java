@@ -57,8 +57,24 @@ public class CharacterScreen extends Screen {
     private static final int MUTED = 0xFF8C9AC4;
     private static final float REFERENCE_HIT = 10.0F;  // defence is shown as the share of a 10-damage hit it stops
 
-    public CharacterScreen() {
+    private final Screen parent;
+
+    public CharacterScreen(Screen parent) {
         super(Component.translatable("screen.mdvlcraft.character"));
+        this.parent = parent;
+    }
+
+    @Override
+    protected void init() {
+        float scale = this.scale();
+        int right = Math.round((this.width + W * scale) / 2.0F);
+        int bottom = Math.round((this.height + H * scale) / 2.0F);
+        this.addRenderableWidget(new AstroGui.Button(right - 66, bottom - 18, 56, 14, Component.translatable("screen.mdvlcraft.menu.back"),
+            () -> Minecraft.getInstance().setScreen(this.parent)));
+    }
+
+    private float scale() {
+        return Math.min(1.0F, Math.min((this.width - 16) / (float) W, (this.height - 16) / (float) H));
     }
 
     @Override
@@ -68,7 +84,7 @@ public class CharacterScreen extends Screen {
 
     @Override
     public boolean keyPressed(int key, int scan, int modifiers) {
-        if (AbilityKeys.CHARACTER.matches(key, scan)) {
+        if (AbilityKeys.MENU.matches(key, scan)) {
             this.onClose();
             return true;
         }
@@ -82,7 +98,7 @@ public class CharacterScreen extends Screen {
         if (player == null) {
             return;
         }
-        float scale = Math.min(1.0F, Math.min((this.width - 16) / (float) W, (this.height - 16) / (float) H));
+        float scale = this.scale();
         g.pose().pushPose();
         g.pose().translate((this.width - W * scale) / 2.0F, (this.height - H * scale) / 2.0F, 0.0F);
         g.pose().scale(scale, scale, 1.0F);
@@ -174,7 +190,7 @@ public class CharacterScreen extends Screen {
         attr(g, player, right, colW, y, "attributeslib:dodge_chance", CharacterScreen::percent);
 
         g.fill(10, H - 22, W - 10, H - 21, GOLD_FAINT);
-        g.drawString(font, Component.translatable("screen.mdvlcraft.character.footer", AbilityKeys.CHARACTER.getTranslatedKeyMessage()),
+        g.drawString(font, Component.translatable("screen.mdvlcraft.character.footer", AbilityKeys.MENU.getTranslatedKeyMessage()),
             14, H - 15, MUTED, false);
         g.pose().popPose();
         super.render(g, mouseX, mouseY, partialTick);
