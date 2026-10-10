@@ -1,5 +1,13 @@
 # MDVLCraft changelog
 
+## Unreleased (Binder 0.7.8)
+
+### Docs
+
+- `docs/Archetype-Ideas.md`: what the installed mods offer that no tree uses yet (72 spells, about 25 Epic Fight
+  skills, 11 Cursed Fate techniques), with 8 proposed new archetypes, smaller alternatives, and additions for the
+  existing trees. Nothing is added to the game yet.
+
 ## 1.9.18 (Binder 0.7.8)
 
 Packs built (`python3 modpack/build_mrpack.py 1.9.18`).
