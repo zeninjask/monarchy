@@ -1,0 +1,13 @@
+{
+  "powers": [
+    "origins-classes:twin_breeding",
+    "origins-classes:more_animal_loot"
+  ],
+  "icon": {
+    "item": "mdvlcraft:origin_icon",
+    "tag": "{CustomModelData:21}"
+  },
+  "order": 2,
+  "impact": 0,
+  "loading_priority": 100
+}

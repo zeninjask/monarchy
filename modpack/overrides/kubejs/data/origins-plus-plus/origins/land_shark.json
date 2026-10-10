@@ -12,7 +12,10 @@
     "origins-plus-plus:land-shark/razor_teeth",
     "origins-plus-plus:land-shark/speedy"
   ],
-  "icon": "minecraft:prismarine_shard",
+  "icon": {
+    "item": "mdvlcraft:origin_icon",
+    "tag": "{CustomModelData:10}"
+  },
   "impact": 2,
   "loading_priority": 100,
   "name": "Sharkfolk",

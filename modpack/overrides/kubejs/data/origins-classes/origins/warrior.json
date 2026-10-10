@@ -1,0 +1,13 @@
+{
+  "powers": [
+    "origins-classes:more_attack_damage",
+    "origins-classes:less_shield_slowdown"
+  ],
+  "icon": {
+    "item": "mdvlcraft:origin_icon",
+    "tag": "{CustomModelData:24}"
+  },
+  "order": 10,
+  "impact": 0,
+  "loading_priority": 100
+}

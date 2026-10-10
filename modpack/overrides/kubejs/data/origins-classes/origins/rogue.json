@@ -1,0 +1,14 @@
+{
+  "powers": [
+    "origins-classes:sneaky",
+    "origins-classes:stealth",
+    "origins-classes:stealth_core"
+  ],
+  "icon": {
+    "item": "mdvlcraft:origin_icon",
+    "tag": "{CustomModelData:23}"
+  },
+  "order": 12,
+  "impact": 0,
+  "loading_priority": 100
+}

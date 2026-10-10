@@ -8,7 +8,8 @@
     "mdvlcraft:feline/soft_landing"
   ],
   "icon": {
-    "item": "minecraft:orange_wool"
+    "item": "mdvlcraft:origin_icon",
+    "tag": "{CustomModelData:2}"
   },
   "order": 0,
   "impact": 2,

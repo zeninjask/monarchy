@@ -8,8 +8,8 @@
     "medievalorigins:goblin/frail"
   ],
   "icon": {
-    "item": "minecraft:ink_sac",
-    "tag": "{CustomModelData:362}"
+    "item": "mdvlcraft:origin_icon",
+    "tag": "{CustomModelData:7}"
   },
   "impact": 1,
   "order": 10,

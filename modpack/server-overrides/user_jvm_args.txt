@@ -22,3 +22,5 @@
 -XX:MaxTenuringThreshold=1
 -Dusing.aikars.flags=https://mcflags.emc.gs
 -Daikars.new.flags=true
+# give joining players 3 minutes (not 30 s) to exchange the mods' data, so big modpack logins do not time out
+-Dforge.readTimeout=180

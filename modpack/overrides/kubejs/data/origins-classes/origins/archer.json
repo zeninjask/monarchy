@@ -1,0 +1,13 @@
+{
+  "powers": [
+    "origins-classes:no_projectile_divergence",
+    "origins-classes:less_bow_slowdown"
+  ],
+  "icon": {
+    "item": "mdvlcraft:origin_icon",
+    "tag": "{CustomModelData:25}"
+  },
+  "order": 11,
+  "impact": 0,
+  "loading_priority": 100
+}

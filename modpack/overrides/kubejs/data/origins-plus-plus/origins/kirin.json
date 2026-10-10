@@ -11,7 +11,10 @@
     "origins-plus-plus:kirin/modify_player_speed",
     "origins-plus-plus:kirin/unrivaled_speed"
   ],
-  "icon": "minecraft:cod",
+  "icon": {
+    "item": "mdvlcraft:origin_icon",
+    "tag": "{CustomModelData:11}"
+  },
   "impact": 3,
   "loading_priority": 100
 }

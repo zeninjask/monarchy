@@ -134,3 +134,17 @@ description='''Glue mod for the MDVLCraft modpack: class and archetype skill tre
     versionRange="[1.1,)"
     ordering="AFTER"
     side="CLIENT"
+
+[[dependencies.mdvlcraft]]
+    modId="origins"
+    mandatory=false
+    versionRange="[1.10,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.mdvlcraft]]
+    modId="altorigingui"
+    mandatory=false
+    versionRange="[1.1,)"
+    ordering="AFTER"
+    side="CLIENT"

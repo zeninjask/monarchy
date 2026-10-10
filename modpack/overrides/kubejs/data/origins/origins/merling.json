@@ -9,7 +9,8 @@
     "mdvlcraft:merling/gills"
   ],
   "icon": {
-    "item": "minecraft:cod"
+    "item": "mdvlcraft:origin_icon",
+    "tag": "{CustomModelData:3}"
   },
   "order": 0,
   "impact": 3,

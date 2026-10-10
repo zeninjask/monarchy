@@ -2,7 +2,8 @@
 
 ## 1.9.14 (Binder 0.7.6)
 
-Source changes only: the packs have not been built yet.
+Packs built (`python3 modpack/build_mrpack.py 1.9.14`). A fresh install of the server pack boots, pre-generates chunks
+and reloads cleanly; the client was tested on the test server (race picker, icons, alphabetical order).
 
 ### Requested changes
 
@@ -26,6 +27,26 @@ Source changes only: the packs have not been built yet.
   Astrologer icon like every other spell.
 - **Skill tree document**: a new Origins part lists every race and class in the game, alphabetically, with
   each one's powers.
+
+### Race and class pickers: the Astrologer's look
+
+- Every race gets a simple star-chart silhouette drawn in the same style (Human, Feline, Merling, Arachnae,
+  Dwarf, Wood Elf, Hobgoblin, Siren, Half-Ogre, Sharkfolk, Kirin, Saurusfolk, Ratfolk, Shadow, Sporeling), so
+  the three race mods no longer look different; every class gets a gold star icon drawn from its own item. Only
+  races and classes that are in the game have icons. Made by `mdvlcraft-binder/tools/astro_origins.py` and
+  shown through a hidden Binder item (`mdvlcraft:origin_icon`) that `origins_overrides.py` points each race and
+  class at (`modpack/origin_icons.json`).
+- The picker panel, the origin list and the power badges are redrawn in the night-sky palette (navy and gold
+  frames, a starry background, astrolabe badges), in the resource pack `MDVLCraft-Astrologer-UI.zip` that both
+  client packs ship and enable at the top of the resource pack list. Existing installs keep their own resource
+  pack list: enable it under Options > Resource Packs.
+- Checked in game: the picker shows the new frames, background and icons, in alphabetical order.
+
+### Java arguments
+
+- Client (`MDVLCraft-Java-Arguments.txt`) and server (`user_jvm_args.txt`): `-Dforge.readTimeout=180`, so a player
+  joining with the pack's ~200 mods has 3 minutes instead of 30 seconds to finish the login handshake. Memory and
+  garbage-collector flags are unchanged (the client log showed no memory or lag trouble).
 
 ### Fixed (from the client log of 10 October)
 

@@ -1,0 +1,13 @@
+{
+  "powers": [
+    "origins-classes:tamed_animal_boost",
+    "origins-classes:tamed_potion_diffusal"
+  ],
+  "icon": {
+    "item": "mdvlcraft:origin_icon",
+    "tag": "{CustomModelData:26}"
+  },
+  "order": 13,
+  "impact": 0,
+  "loading_priority": 100
+}

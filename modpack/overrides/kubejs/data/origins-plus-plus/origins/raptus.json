@@ -8,7 +8,10 @@
     "origins-plus-plus:raptus/pounce",
     "origins-plus-plus:raptus/smaller_body"
   ],
-  "icon": "minecraft:lime_dye",
+  "icon": {
+    "item": "mdvlcraft:origin_icon",
+    "tag": "{CustomModelData:12}"
+  },
   "impact": 2,
   "loading_priority": 100,
   "name": "Saurusfolk",

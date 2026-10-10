@@ -10,7 +10,10 @@
     "origins-plus-plus:sporeling/speed",
     "origins-plus-plus:sporeling/updraft"
   ],
-  "icon": "minecraft:brown_mushroom",
+  "icon": {
+    "item": "mdvlcraft:origin_icon",
+    "tag": "{CustomModelData:15}"
+  },
   "impact": 3,
   "loading_priority": 100,
   "description": "A floaty mushroom-person that came out of the ground and started doing stuff."

@@ -11,8 +11,8 @@
     "medievalorigins:siren/seduce"
   ],
   "icon": {
-    "item": "minecraft:ink_sac",
-    "tag": "{CustomModelData:366}"
+    "item": "mdvlcraft:origin_icon",
+    "tag": "{CustomModelData:8}"
   },
   "impact": 2,
   "order": 1,

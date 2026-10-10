@@ -7,6 +7,9 @@ X = Path(__import__('sys').argv[1])  # folder holding the unzipped origin mod ja
 OUT = Path(__file__).resolve().parent / 'overrides/kubejs/data'
 PRIORITY = 100  # above every mod's loading_priority, so these files win
 written = []
+done = set()
+ICONS_FILE = Path(__file__).resolve().parent / 'origin_icons.json'
+ICONS = json.loads(ICONS_FILE.read_text()) if ICONS_FILE.exists() else {}
 
 def src(ns, kind, path):
     hits = glob.glob(str(X / '*' / 'data' / ns / kind / f'{path}.json'))
@@ -63,7 +66,10 @@ def origin(oid, remove=(), add=(), name=None, description=None, drop_upgrades=Fa
     if name: d['name'] = name
     if description: d['description'] = description
     if drop_upgrades: d.pop('upgrades', None)
+    if oid in ICONS:  # the Astrologer star icon (mdvlcraft-binder/tools/astro_origins.py)
+        d['icon'] = {'item': 'mdvlcraft:origin_icon', 'tag': '{CustomModelData:%d}' % ICONS[oid]}
     write(ns, 'origins', path, d)
+    done.add(oid)
 
 REACH = 'reach-entity-attributes:reach'  # not in this pack; Forge's own block reach does the same job
 
@@ -172,6 +178,11 @@ stealth = src('origins-classes', 'powers', 'stealth_core')
 del stealth['damage_boost']
 stealth['description'] = 'While in stealth, you make less sound. You exit Stealth when you stop sneaking.'
 power('origins-classes:stealth_core', stealth)
+
+# every race and class on offer gets its star icon, also the ones not otherwise changed
+for oid in ALLOWED + src('origins-classes', 'origin_layers', 'class')['origins']:
+    if oid not in done:
+        origin(oid)
 
 print(len(written), 'files')
 for p in written: print(' ', p.relative_to(OUT))

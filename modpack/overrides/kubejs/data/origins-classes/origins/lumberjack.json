@@ -1,0 +1,13 @@
+{
+  "powers": [
+    "origins-classes:tree_felling",
+    "origins-classes:more_planks_from_logs"
+  ],
+  "icon": {
+    "item": "mdvlcraft:origin_icon",
+    "tag": "{CustomModelData:27}"
+  },
+  "order": 4,
+  "impact": 0,
+  "loading_priority": 100
+}

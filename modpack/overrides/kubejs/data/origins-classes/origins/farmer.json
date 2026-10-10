@@ -1,0 +1,13 @@
+{
+  "powers": [
+    "origins-classes:more_crop_drops",
+    "origins-classes:better_bone_meal"
+  ],
+  "icon": {
+    "item": "mdvlcraft:origin_icon",
+    "tag": "{CustomModelData:19}"
+  },
+  "order": 1,
+  "impact": 0,
+  "loading_priority": 100
+}

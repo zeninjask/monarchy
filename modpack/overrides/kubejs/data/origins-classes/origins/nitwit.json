@@ -1,0 +1,10 @@
+{
+  "powers": [],
+  "icon": {
+    "item": "mdvlcraft:origin_icon",
+    "tag": "{CustomModelData:29}"
+  },
+  "order": 0,
+  "impact": 0,
+  "loading_priority": 100
+}

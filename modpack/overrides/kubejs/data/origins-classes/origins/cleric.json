@@ -1,0 +1,13 @@
+{
+  "powers": [
+    "origins-classes:potion_bonus",
+    "origins-classes:better_enchanting"
+  ],
+  "icon": {
+    "item": "mdvlcraft:origin_icon",
+    "tag": "{CustomModelData:17}"
+  },
+  "order": 7,
+  "impact": 0,
+  "loading_priority": 100
+}

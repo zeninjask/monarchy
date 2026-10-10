@@ -9,6 +9,7 @@ import com.mdvlcraft.binder.combat.BinderEffects;
 import com.mdvlcraft.binder.compat.issponder.PreviewCasts;
 import com.mdvlcraft.binder.config.BinderConfig;
 import com.mdvlcraft.binder.content.DisabledContentSetup;
+import com.mdvlcraft.binder.content.OriginIcon;
 import com.mdvlcraft.binder.doppelganger.DoppelgangerSetup;
 import com.mdvlcraft.binder.epicskill.EpicSkillReward;
 import com.mdvlcraft.binder.integration.CataclysmIntegration;
@@ -36,6 +37,7 @@ public final class MDVLBinder {
         IEventBus forgeBus = MinecraftForge.EVENT_BUS;
         context.registerConfig(Type.COMMON, BinderConfig.SPEC);
         DisabledContentSetup.register(modBus);
+        OriginIcon.register(modBus);
         BinderAttributes.register(modBus);
         BinderEffects.register(modBus);
         DoppelgangerSetup.register(modBus);

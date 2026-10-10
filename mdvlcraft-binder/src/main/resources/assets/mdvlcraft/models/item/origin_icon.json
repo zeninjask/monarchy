@@ -1,0 +1,182 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mdvlcraft:item/origin/origins_human"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 1
+      },
+      "model": "mdvlcraft:item/origin/origins_human"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 2
+      },
+      "model": "mdvlcraft:item/origin/origins_feline"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 3
+      },
+      "model": "mdvlcraft:item/origin/origins_merling"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4
+      },
+      "model": "mdvlcraft:item/origin/medievalorigins_arachnae"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 5
+      },
+      "model": "mdvlcraft:item/origin/medievalorigins_dwarf"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 6
+      },
+      "model": "mdvlcraft:item/origin/medievalorigins_wood_elf"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 7
+      },
+      "model": "mdvlcraft:item/origin/medievalorigins_goblin"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 8
+      },
+      "model": "mdvlcraft:item/origin/medievalorigins_siren"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 9
+      },
+      "model": "mdvlcraft:item/origin/medievalorigins_ogre"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 10
+      },
+      "model": "mdvlcraft:item/origin/origins_plus_plus_land_shark"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 11
+      },
+      "model": "mdvlcraft:item/origin/origins_plus_plus_kirin"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 12
+      },
+      "model": "mdvlcraft:item/origin/origins_plus_plus_raptus"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 13
+      },
+      "model": "mdvlcraft:item/origin/origins_plus_plus_rat"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 14
+      },
+      "model": "mdvlcraft:item/origin/origins_plus_plus_shadow"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 15
+      },
+      "model": "mdvlcraft:item/origin/origins_plus_plus_sporeling"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 16
+      },
+      "model": "mdvlcraft:item/origin/origins_classes_blacksmith"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 17
+      },
+      "model": "mdvlcraft:item/origin/origins_classes_cleric"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 18
+      },
+      "model": "mdvlcraft:item/origin/origins_classes_cook"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 19
+      },
+      "model": "mdvlcraft:item/origin/origins_classes_farmer"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20
+      },
+      "model": "mdvlcraft:item/origin/origins_classes_merchant"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 21
+      },
+      "model": "mdvlcraft:item/origin/origins_classes_rancher"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 22
+      },
+      "model": "mdvlcraft:item/origin/origins_classes_miner"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 23
+      },
+      "model": "mdvlcraft:item/origin/origins_classes_rogue"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 24
+      },
+      "model": "mdvlcraft:item/origin/origins_classes_warrior"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 25
+      },
+      "model": "mdvlcraft:item/origin/origins_classes_archer"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 26
+      },
+      "model": "mdvlcraft:item/origin/origins_classes_beastmaster"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 27
+      },
+      "model": "mdvlcraft:item/origin/origins_classes_lumberjack"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 28
+      },
+      "model": "mdvlcraft:item/origin/origins_classes_explorer"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 29
+      },
+      "model": "mdvlcraft:item/origin/origins_classes_nitwit"
+    }
+  ]
+}

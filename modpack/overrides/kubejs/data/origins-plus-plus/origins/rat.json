@@ -9,7 +9,10 @@
     "origins-plus-plus:rat/toxicity_evolved",
     "origins-plus-plus:rat/vicious_bite"
   ],
-  "icon": "minecraft:rotten_flesh",
+  "icon": {
+    "item": "mdvlcraft:origin_icon",
+    "tag": "{CustomModelData:13}"
+  },
   "impact": 2,
   "loading_priority": 100,
   "name": "Ratfolk",

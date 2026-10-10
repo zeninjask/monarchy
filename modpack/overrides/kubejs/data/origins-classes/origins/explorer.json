@@ -1,0 +1,13 @@
+{
+  "powers": [
+    "origins-classes:explorer_kit",
+    "origins-classes:no_sprint_exhaustion"
+  ],
+  "icon": {
+    "item": "mdvlcraft:origin_icon",
+    "tag": "{CustomModelData:28}"
+  },
+  "order": 9,
+  "impact": 0,
+  "loading_priority": 100
+}

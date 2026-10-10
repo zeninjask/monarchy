@@ -125,5 +125,6 @@
   "ability.mdvlcraft.bird_strike": "Bird Strike",
   "ability.mdvlcraft.bird_strike.desc": "A crow overflowing with energy dives into your target.",
   "ability.mdvlcraft.controlled_collapse": "Controlled Collapse",
-  "ability.mdvlcraft.controlled_collapse.desc": "Summon a flock of crows that circles for a few seconds, then dives in a barrage of bird strikes."
+  "ability.mdvlcraft.controlled_collapse.desc": "Summon a flock of crows that circles for a few seconds, then dives in a barrage of bird strikes.",
+  "item.mdvlcraft.origin_icon": "Origin Icon"
 }
