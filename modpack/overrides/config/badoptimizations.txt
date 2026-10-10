@@ -3,7 +3,7 @@
 # *All* of these require restarts.
 
 # Whether we should cancel updating the lightmap if not needed.
-enable_lightmap_caching: true
+enable_lightmap_caching: false
 # How much the in-game time must change in ticks (default tick rate = 1/20th of a second)
 # for the lightmap to update.
 # Higher values will result in less frequent updates

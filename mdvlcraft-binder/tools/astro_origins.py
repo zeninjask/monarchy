@@ -373,7 +373,7 @@ def icons():
         else:  # classes: drawn from the class's own item
             src = original_icon(data(ns, 'origins', path, jar_only=True)['icon'])
         kind = 'archetype' if oid in races else 'skill'  # races in starlight blue, classes in gold
-        astro.star_icon(src, kind, f'origin/{name}').save(ICON_TEX / f'{name}.png')
+        astro.pixel_icon(src, kind, f'origin/{name}', 16).save(ICON_TEX / f'{name}.png')  # item size, one pixel per GUI pixel
         (MODELS / f'origin/{name}.json').parent.mkdir(parents=True, exist_ok=True)
         (MODELS / f'origin/{name}.json').write_text(json.dumps(
             {'parent': 'minecraft:item/generated', 'textures': {'layer0': f'mdvlcraft:item/origin/{name}'}}, indent=2) + '\n')

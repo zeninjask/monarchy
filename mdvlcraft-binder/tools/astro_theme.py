@@ -2,7 +2,10 @@
 """The Astrologer's look for the MDVLCraft skill trees.
 
 Gives every subject in the trees (each spell, Binder ability or technique, Epic Fight skill, bonus
-attribute and Classes-tab archetype) its own star-chart icon drawn from that subject's original art,
+attribute and Classes-tab archetype) its own star-chart icon drawn from that subject's original art as
+Minecraft-style pixel art: one texture pixel per GUI pixel at the size the node draws it (12, 24 or 32 pixels;
+tab icons 16), solid pixels only. Every icon is redrawn from tools/astro_sources.json (the original art of each
+subject) on every run, so the result does not depend on earlier runs. It also
 redraws every node frame as an astrolabe ring, swaps the background for a night sky, recolours the
 connections as constellation lines and restyles the window and tabs. Tree layouts are not touched.
 
@@ -10,7 +13,7 @@ Usage (from mdvlcraft-binder/):
   python3 tools/astro_theme.py <vanilla 1.20.1 client jar>
 
 Mod textures are read from libs/modpack (tools/fetch_mods.py) and ../modpack/mods. Writes:
-  src/main/resources/assets/mdvlcraft/textures/gui/astro/<kind>/<name>.png   one icon per subject
+  src/main/resources/assets/mdvlcraft/textures/gui/astro/<kind>/<px>/<name>.png   one icon per subject and size
   src/main/resources/assets/mdvlcraft/textures/gui/skills/*                   frames, sky, window, tabs
   the icon of every node in data/mdvlcraft/puffish_skills/categories/*/definitions.json
   build/astro/icons.csv and build/astro/sheet.png                               what went where
@@ -35,6 +38,7 @@ CATS = RES / 'data/mdvlcraft/puffish_skills/categories'
 GUI = RES / 'assets/mdvlcraft/textures/gui'
 OUT_ICONS = GUI / 'astro'
 REPORT = BINDER / 'build/astro'
+SOURCES = Path(__file__).with_name('astro_sources.json')  # each subject's original art (kind/name -> icon)
 JARS = sorted(glob.glob(str(BINDER / 'libs/modpack/*.jar'))) + sorted(glob.glob(str(BINDER.parent / 'modpack/mods/*.jar'))) + sys.argv[1:2]
 SIZE = 32
 
@@ -115,138 +119,122 @@ def lum(px):
     return (0.3 * r + 0.59 * g + 0.11 * b) / 255
 
 
-def drop_specks(shape, smallest):
-    """Remove bits of a binary shape smaller than `smallest` pixels."""
-    px = shape.load()
-    seen = set()
-    for y in range(SIZE):
-        for x in range(SIZE):
-            if px[x, y] and (x, y) not in seen:
-                group, stack = [], [(x, y)]
-                seen.add((x, y))
-                while stack:
-                    cx, cy = stack.pop()
-                    group.append((cx, cy))
-                    for nx, ny in ((cx + 1, cy), (cx - 1, cy), (cx, cy + 1), (cx, cy - 1)):
-                        if 0 <= nx < SIZE and 0 <= ny < SIZE and px[nx, ny] and (nx, ny) not in seen:
-                            seen.add((nx, ny))
-                            stack.append((nx, ny))
-                if len(group) < smallest:
-                    for c in group:
-                        px[c] = 0
-    return shape
+# ------------------------------------------------------------------------------- pixel-art icons
+def _ramp(kind, steps):
+    """Night sky to the kind's starlight colour to its white-hot core, in `steps` solid colours."""
+    core, glow = KIND_TINT[kind]
+    base = tuple(int(SKY[i] + (glow[i] - SKY[i]) * 0.28) for i in range(3))
+    out = []
+    for i in range(steps):
+        t = i / (steps - 1)
+        if t < 0.6:
+            u = t / 0.6
+            out.append(tuple(int(base[i2] + (glow[i2] - base[i2]) * u) for i2 in range(3)))
+        else:
+            u = (t - 0.6) / 0.4
+            out.append(tuple(int(glow[i2] + (core[i2] - glow[i2]) * u) for i2 in range(3)))
+    return out
 
 
-def glyph_mask(src):
-    """The shape worth keeping from an icon, as (intensity 0-255, binary shape, colour source).
-    Cut-out art keeps its own silhouette; art painted on a full square keeps its brightest part."""
-    im = src.resize((SIZE, SIZE), Image.NEAREST if src.width <= SIZE else Image.LANCZOS)
-    px = im.load()
-    cells = [(x, y) for y in range(SIZE) for x in range(SIZE)]
-    opaque = sum(px[c][3] > 200 for c in cells) / len(cells)
-    mask = Image.new('L', (SIZE, SIZE))
-    mp = mask.load()
-    if opaque > 0.85:
-        lums = sorted(lum(px[c]) for c in cells)
-        cut = lums[int(len(lums) * 0.60)]
-        top = max(lums[-1], cut + 0.05)
-        for x, y in cells:
-            mp[x, y] = int(255 * max(0.0, min(1.0, (lum(px[x, y]) - cut) / (top - cut))))
-        shape = mask.point(lambda a: 255 if a > 0 else 0)
-        shape = shape.filter(ImageFilter.MaxFilter(3)).filter(ImageFilter.MinFilter(3)).filter(ImageFilter.MedianFilter(3))
-        shape = drop_specks(shape, 12)
+def _fit(src, n, fill):
+    """The source's content on an n x n canvas, one source pixel per canvas pixel when it already fits well
+    (pixel art stays exact), otherwise resampled once to fill `fill` pixels."""
+    src = src.convert('RGBA')
+    box = src.split()[3].point(lambda a: 255 if a > 24 else 0).getbbox() or (0, 0, src.width, src.height)
+    art = src.crop(box)
+    w, h = art.size
+    if max(w, h) <= n and max(w, h) >= 0.6 * n:
+        scaled = art
     else:
-        lums = [lum(px[c]) for c in cells if px[c][3] > 0] or [1.0]
-        lo, hi = min(lums), max(max(lums), min(lums) + 0.05)
-        for x, y in cells:
-            a = px[x, y][3] / 255
-            mp[x, y] = int(255 * a * (0.55 + 0.45 * (lum(px[x, y]) - lo) / (hi - lo))) if a > 0.15 else 0
-        shape = mask.point(lambda a: 255 if a > 0 else 0)
-    return mask, shape, im
+        f = fill / max(w, h)
+        size = (max(1, round(w * f)), max(1, round(h * f)))
+        scaled = art.resize(size, Image.BOX if f < 1 else Image.BICUBIC)
+    canvas = Image.new('RGBA', (n, n))
+    canvas.alpha_composite(scaled, ((n - scaled.width) // 2, (n - scaled.height) // 2))
+    return canvas
 
 
-def plate_icon(src, kind, key):
-    """For art painted on a full square: the whole picture as a round starlight plate (night blue to
-    the kind's starlight colour by brightness), so the subject stays recognisable."""
-    core, glow = KIND_TINT[kind]
-    im = src.resize((SIZE, SIZE), Image.NEAREST if src.width <= SIZE else Image.LANCZOS)
+def _stars(im, kind, key, count):
+    core = KIND_TINT[kind][0]
+    n = im.width
     px = im.load()
-    lums = sorted(lum(px[x, y]) for y in range(SIZE) for x in range(SIZE))
-    lo, hi = lums[int(len(lums) * 0.03)], max(lums[int(len(lums) * 0.98)], lums[0] + 0.1)
     rnd = random.Random(hashlib.md5(key.encode()).hexdigest())
-    out = Image.new('RGBA', (SIZE, SIZE))
-    op = out.load()
-    c = (SIZE - 1) / 2
-    radius = SIZE / 2 - 1.5
-    for y in range(SIZE):
-        for x in range(SIZE):
-            d = math.hypot(x - c, y - c)
-            if d > radius:
-                continue
-            t = max(0.0, min(1.0, (lum(px[x, y]) - lo) / (hi - lo))) ** 1.15
-            if t < 0.5:  # night blue to starlight colour
-                u = t / 0.5
-                col = [SKY[i] + (glow[i] - SKY[i]) * u for i in range(3)]
-            else:  # starlight colour to white-hot core
-                u = (t - 0.5) / 0.5
-                col = [glow[i] + (core[i] - glow[i]) * u for i in range(3)]
-            if t < 0.12 and rnd.random() < 0.035:  # faint stars in the dark
-                col = [200, 210, 240]
-            op[x, y] = (*[int(v) for v in col], 255)
-    # brass-free starlight rim
-    d = ImageDraw.Draw(out)
-    d.ellipse((c - radius, c - radius, c + radius, c + radius), outline=(*glow, 255), width=1)
-    halo = Image.new('RGBA', (SIZE, SIZE), (*glow, 0))
-    halo.putalpha(out.split()[3].filter(ImageFilter.GaussianBlur(1.2)).point(lambda a: int(a * 0.5)))
-    halo.alpha_composite(out)
-    return halo
-
-
-def star_icon(src, kind, key):
-    """Engraved starlight: the subject's outline and main inner edges glow, the inside is a faint wash,
-    with a soft halo and a tiny constellation of its own. Painted squares become plates instead."""
-    core, glow = KIND_TINT[kind]
-    probe = src.convert('RGBA').resize((SIZE, SIZE), Image.NEAREST)
-    if sum(1 for a in probe.split()[3].getdata() if a > 200) > 0.85 * SIZE * SIZE:
-        return plate_icon(src, kind, key)
-    mask, shape, colour_src = glyph_mask(src)
-    outline = ImageChops.subtract(shape, shape.filter(ImageFilter.MinFilter(3)))
-    # inner edges: where brightness changes sharply inside the shape
-    luma = colour_src.convert('L')
-    edges = luma.filter(ImageFilter.FIND_EDGES).point(lambda v: 255 if v > 90 else 0)
-    edges = ImageChops.multiply(edges, shape.filter(ImageFilter.MinFilter(3)))
-    lines = ImageChops.lighter(outline, edges)
-    out = Image.new('RGBA', (SIZE, SIZE))
-    op = out.load()
-    lp, sp, mp = lines.load(), shape.load(), mask.load()
-    for y in range(SIZE):
-        for x in range(SIZE):
-            if lp[x, y]:
-                t = 0.55 + 0.45 * (mp[x, y] / 255)
-                op[x, y] = (*[int(core[i] * t + glow[i] * (1 - t)) for i in range(3)], 255)
-            elif sp[x, y]:
-                t = mp[x, y] / 255
-                op[x, y] = (*glow, int(40 + 70 * t))
-    solid = out.split()[3].point(lambda a: 255 if a > 30 else 0)
-    ring = ImageChops.subtract(solid.filter(ImageFilter.MaxFilter(3)), solid)
-    halo = Image.new('RGBA', (SIZE, SIZE), (*glow, 0))
-    halo.putalpha(lines.filter(ImageFilter.GaussianBlur(1.4)).point(lambda a: int(a * 0.7)))
-    final = Image.new('RGBA', (SIZE, SIZE))
-    final.paste(Image.new('RGBA', (SIZE, SIZE), (*INK, 170)), (0, 0), ring)
-    final.alpha_composite(halo)
-    final.alpha_composite(out)
-    rnd = random.Random(hashlib.md5(key.encode()).hexdigest())
-    fp = final.load()
+    corners = [(1, 1), (n - 2, 1), (1, n - 2), (n - 2, n - 2)]
+    rnd.shuffle(corners)
     placed = 0
-    for _ in range(60):
-        x, y = rnd.choice([(rnd.randrange(1, 7), rnd.randrange(1, 7)), (rnd.randrange(25, 31), rnd.randrange(1, 7)),
-                           (rnd.randrange(1, 7), rnd.randrange(25, 31)), (rnd.randrange(25, 31), rnd.randrange(25, 31))])
-        if all(fp[x + dx, y + dy][3] == 0 for dx in (-1, 0, 1) for dy in (-1, 0, 1)):
-            fp[x, y] = (*core, 230)
+    for cx, cy in corners:
+        if placed == count:
+            break
+        if all(px[x, y][3] == 0 for x in range(max(0, cx - 1), min(n, cx + 2)) for y in range(max(0, cy - 1), min(n, cy + 2))):
+            px[cx, cy] = (*core, 255)
             placed += 1
-            if placed == 3:
-                break
-    return final
+
+
+def pixel_plate(src, kind, key, n):
+    """Art painted on a full square: a round starlit disc of the picture, solid pixels only."""
+    ramp = _ramp(kind, 6)
+    glow = KIND_TINT[kind][1]
+    im = src.convert('RGBA').resize((n, n), Image.BOX if src.width > n else Image.BICUBIC)
+    px = im.load()
+    c = (n - 1) / 2
+    radius = n / 2 - 0.5
+    inside = [(x, y) for y in range(n) for x in range(n) if math.hypot(x - c, y - c) <= radius]
+    lums = sorted(lum(px[p]) for p in inside)
+    lo = lums[int(len(lums) * 0.04)]
+    hi = max(lums[int(len(lums) * 0.97)], lo + 0.1)
+    out = Image.new('RGBA', (n, n))
+    op = out.load()
+    cells = set(inside)
+    for x, y in inside:
+        rim = any((x + dx, y + dy) not in cells for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)))
+        if rim:
+            op[x, y] = (*glow, 255)
+        else:
+            t = max(0.0, min(1.0, (lum(px[x, y]) - lo) / (hi - lo)))
+            op[x, y] = (*ramp[min(5, int(t * 5.999))], 255)
+    return out
+
+
+def pixel_icon(src, kind, key, n):
+    """The Astrologer's icon as Minecraft-style pixel art: one texture pixel per GUI pixel at the size it is
+    drawn (n x n), solid pixels only. The subject's silhouette glows along its edge, the inside keeps the art's
+    shading in starlight tones, a dark one-pixel outline sets it off the night sky, and a star or two sits in
+    the corners. Pictures painted on a full square become a starlit disc instead."""
+    probe = src.convert('RGBA')
+    if sum(1 for a in probe.split()[3].getdata() if a > 200) > 0.85 * probe.width * probe.height:
+        out = pixel_plate(src, kind, key, n)
+        if n >= 24:
+            _stars(out, kind, key, 2)
+        return out
+    ramp = _ramp(kind, 5)
+    art = _fit(src, n, n - 2)
+    ap = art.load()
+    shape = {(x, y) for y in range(n) for x in range(n) if ap[x, y][3] >= 128}
+    if not shape:
+        raise SystemExit(f'{key}: nothing left of the art at {n}px')
+    lums = sorted(lum(ap[p]) for p in shape)
+    lo = lums[int(len(lums) * 0.05)]
+    hi = max(lums[int(len(lums) * 0.95)], lo + 0.08)  # flat art still gets a range
+    level = {p: max(0.0, min(1.0, (lum(ap[p]) - lo) / (hi - lo))) for p in shape}
+    out = Image.new('RGBA', (n, n))
+    op = out.load()
+    for (x, y) in shape:
+        nbrs = [(x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)]
+        if any(q not in shape for q in nbrs):  # the silhouette's edge: starlight
+            op[x, y] = (*ramp[4 if level[(x, y)] > 0.35 else 3], 255)
+        else:
+            idx = min(3, int(level[(x, y)] * 3.999))
+            # inner edges (a sharp change in the art's shading) catch the light one step brighter
+            if any(q in shape and level[(x, y)] - level[q] > 0.45 for q in nbrs):
+                idx = min(4, idx + 1)
+            op[x, y] = (*ramp[idx], 255)
+    for y in range(n):  # the dark outline around it
+        for x in range(n):
+            if (x, y) not in shape and any((x + dx, y + dy) in shape for dx in (-1, 0, 1) for dy in (-1, 0, 1)):
+                op[x, y] = (*INK, 255)
+    if n >= 24:
+        _stars(out, kind, key, 2)
+    return out
 
 
 # ------------------------------------------------------------------------------------------ frames
@@ -350,9 +338,15 @@ def subject(cat, node, defn):
     raise SystemExit(f'{cat}/{node} grants nothing the theme knows how to draw: {rewards}')
 
 
+def icon_px(defn):
+    """The size puffish_skills draws a node's texture icon at (16 GUI pixels x the node size, rounded as it does)."""
+    return round(8 * defn.get('size', 1.0)) * 2
+
+
 def main():
     config = json.loads((CATS.parent / 'config.json').read_text())
-    subjects = {}  # (kind, name) -> source icon, preferring the larger "attribute" art for bonuses
+    sources = json.loads(SOURCES.read_text())
+    needed = {}  # (kind, name, px) -> original art
     plan = []
     for cat in config['categories']:
         defs = json.loads((CATS / cat / 'definitions.json').read_text())
@@ -360,36 +354,37 @@ def main():
         for node, placed in skills.items():
             defn = defs[placed['definition']]
             kind, name = subject(cat, node, defn)
-            icon = defn['icon']
-            if kind == 'spell' and not (OUT_ICONS / kind / f'{name}.png').exists():  # draw new spells from the spell's own icon
+            icon = sources.get(f'{kind}/{name}')
+            if icon is None and kind == 'spell':  # spells added later are drawn from the spell's own icon
                 ns, spell = name.split('_', 1) if name.startswith('traveloptics_') else ('irons_spellbooks', name[len('irons_spellbooks_'):])
                 icon = {'type': 'texture', 'data': {'texture': f'{ns}:textures/gui/spell_icons/{spell}.png'}}
-            prev = subjects.get((kind, name))
-            if prev is None or ('/twig/' in json.dumps(prev) and '/twig/' not in json.dumps(icon)):  # prefer full-size art
-                subjects[(kind, name)] = icon
-            plan.append((cat, node, placed['definition'], kind, name))
-    # icons
+            if icon is None:
+                raise SystemExit(f'{cat}/{node}: no original art for {kind}/{name}; add it to {SOURCES.name}')
+            px = icon_px(defn)
+            needed[(kind, name, px)] = icon
+            plan.append((cat, node, placed['definition'], kind, name, px))
+    # icons: one per subject and size, drawn fresh from the original art every run
     REPORT.mkdir(parents=True, exist_ok=True)
+    for old in OUT_ICONS.glob('*/*.png'):
+        if old.parent.name != 'tab':
+            old.unlink()
     made = {}
-    for (kind, name), icon in sorted(subjects.items()):
-        out = OUT_ICONS / kind / f'{name}.png'
+    for (kind, name, px), icon in sorted(needed.items()):
+        out = OUT_ICONS / kind / str(px) / f'{name}.png'
         out.parent.mkdir(parents=True, exist_ok=True)
-        # already drawn on an earlier run: redrawing an astro icon from itself would change it, so keep it
-        if not (out.exists() and 'mdvlcraft:textures/gui/astro/' in json.dumps(icon)):
-            star_icon(source_image(icon), kind, f'{kind}/{name}').save(out)
-        made[(kind, name)] = f'mdvlcraft:textures/gui/astro/{kind}/{name}.png'
+        pixel_icon(source_image(icon), kind, f'{kind}/{name}', px).save(out)
+        made[(kind, name, px)] = f'mdvlcraft:textures/gui/astro/{kind}/{px}/{name}.png'
     # point every node at its icon
     rows = []
     for cat in config['categories']:
         path = CATS / cat / 'definitions.json'
         raw = path.read_text()
         defs = json.loads(raw)
-        for c, node, definition, kind, name in plan:
+        for c, node, definition, kind, name, px in plan:
             if c != cat:
                 continue
-            old = json.dumps(defs[definition]['icon'])
-            defs[definition]['icon'] = {'type': 'texture', 'data': {'texture': made[(kind, name)]}}
-            rows.append((cat, node, defs[definition]['title'], kind, name, made[(kind, name)], old))
+            defs[definition]['icon'] = {'type': 'texture', 'data': {'texture': made[(kind, name, px)]}}
+            rows.append((cat, node, defs[definition]['title'], kind, name, px, made[(kind, name, px)]))
         path.write_text(json.dumps(defs, indent=2, ensure_ascii='\\u' in raw) + ('\n' if raw.endswith('\n') else ''))
         # sky and constellation lines
         cpath = CATS / cat / 'category.json'
@@ -410,7 +405,7 @@ def main():
     # tab icons
     (OUT_ICONS / 'tab').mkdir(parents=True, exist_ok=True)
     for tab in sorted((GUI / 'icons/tab').glob('*.png')):
-        star_icon(Image.open(tab).convert('RGBA'), 'tab', f'tab/{tab.stem}').save(OUT_ICONS / 'tab' / f'{tab.stem}.png')
+        pixel_icon(Image.open(tab).convert('RGBA'), 'tab', f'tab/{tab.stem}', 16).save(OUT_ICONS / 'tab' / f'{tab.stem}.png')
     for cat in config['categories']:
         cpath = CATS / cat / 'category.json'
         craw = cpath.read_text()
@@ -435,17 +430,17 @@ def main():
     # report
     with open(REPORT / 'icons.csv', 'w', newline='') as fh:
         w = csv.writer(fh)
-        w.writerow(['tab', 'node', 'title', 'kind', 'subject', 'icon', 'old icon'])
+        w.writerow(['tab', 'node', 'title', 'kind', 'subject', 'px', 'icon'])
         w.writerows(rows)
     kinds = {}
-    for (kind, name) in made:
+    for (kind, name, px) in made:
         kinds.setdefault(kind, []).append(name)
     cell = 40
     cols = 24
     total = len(made)
     sheet = Image.new('RGBA', (cols * cell, ((total + cols - 1) // cols) * cell), (*SKY, 255))
-    for i, ((kind, name), _) in enumerate(sorted(made.items())):
-        ic = Image.open(OUT_ICONS / kind / f'{name}.png')
+    for i, ((kind, name, px), _) in enumerate(sorted(made.items())):
+        ic = Image.open(OUT_ICONS / kind / str(px) / f'{name}.png')
         sheet.alpha_composite(ic, ((i % cols) * cell + 4, (i // cols) * cell + 4))
     sheet.save(REPORT / 'sheet.png')
     print(f'{len(rows)} nodes in {len(config["categories"])} tabs -> {total} icons:',

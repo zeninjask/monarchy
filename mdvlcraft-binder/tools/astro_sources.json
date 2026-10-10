@@ -1,0 +1,1748 @@
+{
+ "archetype/assassin": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/assassin.png"
+  }
+ },
+ "archetype/berzerker": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/berzerker.png"
+  }
+ },
+ "archetype/cursed": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/cursed.png"
+  }
+ },
+ "archetype/druid": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/druid.png"
+  }
+ },
+ "archetype/flame": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/flame.png"
+  }
+ },
+ "archetype/holy": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/holy.png"
+  }
+ },
+ "archetype/ice": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/ice.png"
+  }
+ },
+ "archetype/knight": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/knight.png"
+  }
+ },
+ "archetype/lightning": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/lightning.png"
+  }
+ },
+ "archetype/mage": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/class/mage.png"
+  }
+ },
+ "archetype/necromancy": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/necromancy.png"
+  }
+ },
+ "archetype/phantom": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/phantom.png"
+  }
+ },
+ "archetype/ranger": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/class/ranger.png"
+  }
+ },
+ "archetype/rogue": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/class/rogue.png"
+  }
+ },
+ "archetype/samurai": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/samurai.png"
+  }
+ },
+ "archetype/scout": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/scout.png"
+  }
+ },
+ "archetype/stalker": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/stalker.png"
+  }
+ },
+ "archetype/thief": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/thief.png"
+  }
+ },
+ "archetype/wanderer": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/wanderer.png"
+  }
+ },
+ "archetype/warrior": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/class/warrior.png"
+  }
+ },
+ "archetype/water": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/water.png"
+  }
+ },
+ "bonus/epicfight_armor_negation": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/epicfight_armor_negation.png"
+  }
+ },
+ "bonus/epicfight_impact": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/epicfight_impact.png"
+  }
+ },
+ "bonus/epicfight_max_strikes": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/epicfight_max_strikes.png"
+  }
+ },
+ "bonus/epicfight_stamina_regen": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/epicfight_stamina_regen.png"
+  }
+ },
+ "bonus/epicfight_staminar": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/epicfight_staminar.png"
+  }
+ },
+ "bonus/epicfight_stun_armor": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/epicfight_stun_armor.png"
+  }
+ },
+ "bonus/forge_entity_reach": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/forge_entity_reach.png"
+  }
+ },
+ "bonus/forge_step_height_addition": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/forge_step_height_addition.png"
+  }
+ },
+ "bonus/forge_swim_speed": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/scout.png"
+  }
+ },
+ "bonus/irons_spellbooks_blood_magic_resist": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_blood_magic_resist.png"
+  }
+ },
+ "bonus/irons_spellbooks_blood_spell_power": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_blood_spell_power.png"
+  }
+ },
+ "bonus/irons_spellbooks_cast_time_reduction": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_cast_time_reduction.png"
+  }
+ },
+ "bonus/irons_spellbooks_casting_movespeed": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_casting_movespeed.png"
+  }
+ },
+ "bonus/irons_spellbooks_cooldown_reduction": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_cooldown_reduction.png"
+  }
+ },
+ "bonus/irons_spellbooks_ender_magic_resist": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_ender_magic_resist.png"
+  }
+ },
+ "bonus/irons_spellbooks_ender_spell_power": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_ender_spell_power.png"
+  }
+ },
+ "bonus/irons_spellbooks_evocation_spell_power": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_evocation_spell_power.png"
+  }
+ },
+ "bonus/irons_spellbooks_fire_magic_resist": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_fire_magic_resist.png"
+  }
+ },
+ "bonus/irons_spellbooks_fire_spell_power": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_fire_spell_power.png"
+  }
+ },
+ "bonus/irons_spellbooks_holy_magic_resist": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_holy_magic_resist.png"
+  }
+ },
+ "bonus/irons_spellbooks_holy_spell_power": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_holy_spell_power.png"
+  }
+ },
+ "bonus/irons_spellbooks_ice_magic_resist": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_ice_magic_resist.png"
+  }
+ },
+ "bonus/irons_spellbooks_ice_spell_power": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_ice_spell_power.png"
+  }
+ },
+ "bonus/irons_spellbooks_lightning_magic_resist": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_lightning_magic_resist.png"
+  }
+ },
+ "bonus/irons_spellbooks_lightning_spell_power": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_lightning_spell_power.png"
+  }
+ },
+ "bonus/irons_spellbooks_mana_regen": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_mana_regen.png"
+  }
+ },
+ "bonus/irons_spellbooks_max_mana": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_max_mana.png"
+  }
+ },
+ "bonus/irons_spellbooks_nature_magic_resist": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_nature_magic_resist.png"
+  }
+ },
+ "bonus/irons_spellbooks_nature_spell_power": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_nature_spell_power.png"
+  }
+ },
+ "bonus/irons_spellbooks_spell_resist": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_spell_resist.png"
+  }
+ },
+ "bonus/irons_spellbooks_summon_damage": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_summon_damage.png"
+  }
+ },
+ "bonus/mdvlcraft_arrow_penetration": {
+  "type": "texture",
+  "data": {
+   "texture": "minecraft:textures/item/spectral_arrow.png"
+  }
+ },
+ "bonus/mdvlcraft_backstab_damage": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/mdvlcraft_backstab_damage.png"
+  }
+ },
+ "bonus/mdvlcraft_dagger_damage": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/assassin.png"
+  }
+ },
+ "bonus/mdvlcraft_dodge_efficiency": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/mdvlcraft_dodge_efficiency.png"
+  }
+ },
+ "bonus/mdvlcraft_greatsword_damage": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/mdvlcraft_greatsword_damage.png"
+  }
+ },
+ "bonus/mdvlcraft_katana_damage": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/samurai.png"
+  }
+ },
+ "bonus/mdvlcraft_nature_regen": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/mdvlcraft_nature_regen.png"
+  }
+ },
+ "bonus/mdvlcraft_parry_stamina": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/mdvlcraft_parry_stamina.png"
+  }
+ },
+ "bonus/mdvlcraft_plunder": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/mdvlcraft_plunder.png"
+  }
+ },
+ "bonus/mdvlcraft_rapier_damage": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/phantom.png"
+  }
+ },
+ "bonus/mdvlcraft_riposte_damage": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/mdvlcraft_riposte_damage.png"
+  }
+ },
+ "bonus/mdvlcraft_saturation_bonus": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/wanderer.png"
+  }
+ },
+ "bonus/mdvlcraft_technique_efficiency": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/mdvlcraft_technique_efficiency.png"
+  }
+ },
+ "bonus/minecraft_generic_armor": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/minecraft_generic_armor.png"
+  }
+ },
+ "bonus/minecraft_generic_armor_toughness": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/minecraft_generic_armor_toughness.png"
+  }
+ },
+ "bonus/minecraft_generic_attack_damage": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/berzerker.png"
+  }
+ },
+ "bonus/minecraft_generic_attack_knockback": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/minecraft_generic_attack_knockback.png"
+  }
+ },
+ "bonus/minecraft_generic_attack_speed": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/minecraft_generic_attack_speed.png"
+  }
+ },
+ "bonus/minecraft_generic_knockback_resistance": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/minecraft_generic_knockback_resistance.png"
+  }
+ },
+ "bonus/minecraft_generic_luck": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/thief.png"
+  }
+ },
+ "bonus/minecraft_generic_max_health": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/minecraft_generic_max_health.png"
+  }
+ },
+ "bonus/minecraft_generic_movement_speed": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/minecraft_generic_movement_speed.png"
+  }
+ },
+ "bonus/puffish_attributes_armor_shred": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_armor_shred.png"
+  }
+ },
+ "bonus/puffish_attributes_axe_damage": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_axe_damage.png"
+  }
+ },
+ "bonus/puffish_attributes_bow_projectile_speed": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_bow_projectile_speed.png"
+  }
+ },
+ "bonus/puffish_attributes_breaking_speed": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_breaking_speed.png"
+  }
+ },
+ "bonus/puffish_attributes_consuming_speed": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_consuming_speed.png"
+  }
+ },
+ "bonus/puffish_attributes_crossbow_projectile_speed": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_crossbow_projectile_speed.png"
+  }
+ },
+ "bonus/puffish_attributes_damage_reflection": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_damage_reflection.png"
+  }
+ },
+ "bonus/puffish_attributes_experience": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_experience.png"
+  }
+ },
+ "bonus/puffish_attributes_fall_reduction": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_fall_reduction.png"
+  }
+ },
+ "bonus/puffish_attributes_fortune": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_fortune.png"
+  }
+ },
+ "bonus/puffish_attributes_healing": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_healing.png"
+  }
+ },
+ "bonus/puffish_attributes_jump": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_jump.png"
+  }
+ },
+ "bonus/puffish_attributes_life_steal": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_life_steal.png"
+  }
+ },
+ "bonus/puffish_attributes_magic_resistance": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_magic_resistance.png"
+  }
+ },
+ "bonus/puffish_attributes_melee_damage": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_melee_damage.png"
+  }
+ },
+ "bonus/puffish_attributes_melee_resistance": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/cursed.png"
+  }
+ },
+ "bonus/puffish_attributes_melee_resistance_shred": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_melee_resistance_shred.png"
+  }
+ },
+ "bonus/puffish_attributes_mount_speed": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_mount_speed.png"
+  }
+ },
+ "bonus/puffish_attributes_natural_regeneration": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_natural_regeneration.png"
+  }
+ },
+ "bonus/puffish_attributes_protection_shred": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_protection_shred.png"
+  }
+ },
+ "bonus/puffish_attributes_ranged_damage": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/stalker.png"
+  }
+ },
+ "bonus/puffish_attributes_ranged_resistance": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_ranged_resistance.png"
+  }
+ },
+ "bonus/puffish_attributes_repair_cost": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_repair_cost.png"
+  }
+ },
+ "bonus/puffish_attributes_resistance": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/knight.png"
+  }
+ },
+ "bonus/puffish_attributes_sprinting_speed": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_sprinting_speed.png"
+  }
+ },
+ "bonus/puffish_attributes_stamina": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_stamina.png"
+  }
+ },
+ "bonus/puffish_attributes_stealth": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_stealth.png"
+  }
+ },
+ "bonus/puffish_attributes_sword_damage": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_sword_damage.png"
+  }
+ },
+ "bonus/puffish_attributes_tamed_damage": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_tamed_damage.png"
+  }
+ },
+ "bonus/puffish_attributes_tamed_resistance": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_tamed_resistance.png"
+  }
+ },
+ "bonus/puffish_attributes_toughness_shred": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_toughness_shred.png"
+  }
+ },
+ "bonus/puffish_attributes_trident_damage": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/puffish_attributes_trident_damage.png"
+  }
+ },
+ "bonus/traveloptics_aqua_magic_resist": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_ice_magic_resist.png"
+  }
+ },
+ "bonus/traveloptics_aqua_spell_power": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/irons_spellbooks_ice_spell_power.png"
+  }
+ },
+ "skill/combat_evolution_shield_counter": {
+  "type": "texture",
+  "data": {
+   "texture": "combat_evolution:textures/gui/skills/identity/shield_counter.png"
+  }
+ },
+ "skill/dodge_parry_reward_damage_boost1": {
+  "type": "texture",
+  "data": {
+   "texture": "minecraft:textures/mob_effect/strength.png"
+  }
+ },
+ "skill/efn_parry_master": {
+  "type": "texture",
+  "data": {
+   "texture": "efn:textures/gui/skills/passive/parry_master.png"
+  }
+ },
+ "skill/efs_iss_against_magic": {
+  "type": "texture",
+  "data": {
+   "texture": "efs_iss:textures/gui/skills/passive/against_magic.png"
+  }
+ },
+ "skill/efs_iss_auto_heal": {
+  "type": "texture",
+  "data": {
+   "texture": "efs_iss:textures/gui/skills/passive/auto_heal.png"
+  }
+ },
+ "skill/efs_iss_blood_into_mana": {
+  "type": "texture",
+  "data": {
+   "texture": "efs_iss:textures/gui/skills/passive/blood_into_mana.png"
+  }
+ },
+ "skill/efs_iss_breathe_again": {
+  "type": "texture",
+  "data": {
+   "texture": "efs_iss:textures/gui/skills/passive/breathe_again.png"
+  }
+ },
+ "skill/efs_iss_hasty_casting": {
+  "type": "texture",
+  "data": {
+   "texture": "efs_iss:textures/gui/skills/mover/hasty_casting.png"
+  }
+ },
+ "skill/efs_iss_mana_shield": {
+  "type": "texture",
+  "data": {
+   "texture": "efs_iss:textures/gui/skills/guard/mana_shield.png"
+  }
+ },
+ "skill/efs_iss_rapid_chant": {
+  "type": "texture",
+  "data": {
+   "texture": "efs_iss:textures/gui/skills/passive/rapid_chant.png"
+  }
+ },
+ "skill/efs_iss_reserve_mana": {
+  "type": "texture",
+  "data": {
+   "texture": "efs_iss:textures/gui/skills/passive/reserve_mana.png"
+  }
+ },
+ "skill/epicfight_adaptive_skin": {
+  "type": "texture",
+  "data": {
+   "texture": "epicfight:textures/gui/skills/passive/adaptive_skin.png"
+  }
+ },
+ "skill/epicfight_adrenaline_fiend": {
+  "type": "texture",
+  "data": {
+   "texture": "epicfight:textures/gui/skills/passive/adrenaline_fiend.png"
+  }
+ },
+ "skill/epicfight_berserker": {
+  "type": "texture",
+  "data": {
+   "texture": "epicfight:textures/gui/skills/passive/berserker.png"
+  }
+ },
+ "skill/epicfight_bonebreaker": {
+  "type": "texture",
+  "data": {
+   "texture": "epicfight:textures/gui/skills/passive/bonebreaker.png"
+  }
+ },
+ "skill/epicfight_catharsis": {
+  "type": "texture",
+  "data": {
+   "texture": "epicfight:textures/gui/skills/passive/catharsis.png"
+  }
+ },
+ "skill/epicfight_death_harvest": {
+  "type": "texture",
+  "data": {
+   "texture": "epicfight:textures/gui/skills/passive/death_harvest.png"
+  }
+ },
+ "skill/epicfight_demolition_leap": {
+  "type": "texture",
+  "data": {
+   "texture": "epicfight:textures/gui/skills/mover/demolition_leap.png"
+  }
+ },
+ "skill/epicfight_emergency_escape": {
+  "type": "texture",
+  "data": {
+   "texture": "epicfight:textures/gui/skills/passive/emergency_escape.png"
+  }
+ },
+ "skill/epicfight_endurance": {
+  "type": "texture",
+  "data": {
+   "texture": "epicfight:textures/gui/skills/passive/endurance.png"
+  }
+ },
+ "skill/epicfight_forbidden_strength": {
+  "type": "texture",
+  "data": {
+   "texture": "epicfight:textures/gui/skills/passive/forbidden_strength.png"
+  }
+ },
+ "skill/epicfight_hypervitality": {
+  "type": "texture",
+  "data": {
+   "texture": "epicfight:textures/gui/skills/passive/hypervitality.png"
+  }
+ },
+ "skill/epicfight_impact_guard": {
+  "type": "texture",
+  "data": {
+   "texture": "epicfight:textures/gui/skills/guard/impact_guard.png"
+  }
+ },
+ "skill/epicfight_meteor_slam": {
+  "type": "texture",
+  "data": {
+   "texture": "epicfight:textures/gui/skills/identity/meteor_slam.png"
+  }
+ },
+ "skill/epicfight_phantom_ascent": {
+  "type": "texture",
+  "data": {
+   "texture": "epicfight:textures/gui/skills/mover/phantom_ascent.png"
+  }
+ },
+ "skill/epicfight_revelation": {
+  "type": "texture",
+  "data": {
+   "texture": "epicfight:textures/gui/skills/identity/revelation.png"
+  }
+ },
+ "skill/epicfight_stamina_pillager": {
+  "type": "texture",
+  "data": {
+   "texture": "epicfight:textures/gui/skills/passive/stamina_pillager.png"
+  }
+ },
+ "skill/epicfight_swordmaster": {
+  "type": "texture",
+  "data": {
+   "texture": "epicfight:textures/gui/skills/passive/swordmaster.png"
+  }
+ },
+ "skill/epicfight_technician": {
+  "type": "texture",
+  "data": {
+   "texture": "epicfight:textures/gui/skills/passive/technician.png"
+  }
+ },
+ "skill/epicfight_vengeance": {
+  "type": "texture",
+  "data": {
+   "texture": "epicfight:textures/gui/skills/passive/vengeance.png"
+  }
+ },
+ "skill/epicfightx_combat_mastery_i": {
+  "type": "texture",
+  "data": {
+   "texture": "epicfightx:textures/gui/skills/passive/combat_mastery_i.png"
+  }
+ },
+ "skill/epicfightx_combat_mastery_ii": {
+  "type": "texture",
+  "data": {
+   "texture": "epicfightx:textures/gui/skills/passive/combat_mastery_ii.png"
+  }
+ },
+ "skill/wom_adrenaline": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/passive/adrenaline.png"
+  }
+ },
+ "skill/wom_all_eyes_on_you": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/identity/all_eyes_on_you.png"
+  }
+ },
+ "skill/wom_aqua_maneuvre": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/mover/aqua_maneuvre.png"
+  }
+ },
+ "skill/wom_avatar_of_might": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/identity/avatar_of_might.png"
+  }
+ },
+ "skill/wom_buster_parade": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/guard/buster_parade.png"
+  }
+ },
+ "skill/wom_critical_knowledge": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/passive/critical_knowledge.png"
+  }
+ },
+ "skill/wom_dancing_blade": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/passive/dancing_blade.png"
+  }
+ },
+ "skill/wom_dodge_master": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/dodge/dodge_master.png"
+  }
+ },
+ "skill/wom_dopamine": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/passive/dopamine.png"
+  }
+ },
+ "skill/wom_ender_obscuris": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/dodge/ender_obscuris.png"
+  }
+ },
+ "skill/wom_ender_step": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/dodge/ender_step.png"
+  }
+ },
+ "skill/wom_lethal_focus": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/passive/lethal_focus.png"
+  }
+ },
+ "skill/wom_manipulator": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/passive/manipulator.png"
+  }
+ },
+ "skill/wom_natural_sprinter": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/mover/natural_sprinter.png"
+  }
+ },
+ "skill/wom_pain_anticipation": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/passive/pain_anticipation.png"
+  }
+ },
+ "skill/wom_punishment_kick": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/dodge/punishment_kick.png"
+  }
+ },
+ "skill/wom_shadow_step": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/dodge/shadow_step.png"
+  }
+ },
+ "skill/wom_soul_protection": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/guard/soul_protection.png"
+  }
+ },
+ "skill/wom_spider_techniques": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/mover/spider_techniques.png"
+  }
+ },
+ "skill/wom_vampirize": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/passive/vampirize.png"
+  }
+ },
+ "skill/wom_voodoo_magic": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/identity/voodoo_magic.png"
+  }
+ },
+ "spell/irons_spellbooks_acid_orb": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/druid.png"
+  }
+ },
+ "spell/irons_spellbooks_acupuncture": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:tripwire_hook"
+  }
+ },
+ "spell/irons_spellbooks_arrow_volley": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:arrow"
+  }
+ },
+ "spell/irons_spellbooks_ball_lightning": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:ender_eye"
+  }
+ },
+ "spell/irons_spellbooks_blaze_storm": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:blaze_rod"
+  }
+ },
+ "spell/irons_spellbooks_blessing_of_life": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:totem_of_undying"
+  }
+ },
+ "spell/irons_spellbooks_blight": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:poisonous_potato"
+  }
+ },
+ "spell/irons_spellbooks_blizzard": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:snow_block"
+  }
+ },
+ "spell/irons_spellbooks_blood_needles": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:pointed_dripstone"
+  }
+ },
+ "spell/irons_spellbooks_blood_slash": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:iron_sword"
+  }
+ },
+ "spell/irons_spellbooks_blood_step": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:redstone"
+  }
+ },
+ "spell/irons_spellbooks_burning_dash": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:fire_charge"
+  }
+ },
+ "spell/irons_spellbooks_chain_creeper": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:creeper_head"
+  }
+ },
+ "spell/irons_spellbooks_chain_lightning": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:chain"
+  }
+ },
+ "spell/irons_spellbooks_charge": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:redstone_block"
+  }
+ },
+ "spell/irons_spellbooks_cleanse": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:milk_bucket"
+  }
+ },
+ "spell/irons_spellbooks_cloud_of_regeneration": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:ghast_tear"
+  }
+ },
+ "spell/irons_spellbooks_cone_of_cold": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:powder_snow_bucket"
+  }
+ },
+ "spell/irons_spellbooks_counterspell": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:barrier"
+  }
+ },
+ "spell/irons_spellbooks_devour": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:rotten_flesh"
+  }
+ },
+ "spell/irons_spellbooks_divine_smite": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:golden_sword"
+  }
+ },
+ "spell/irons_spellbooks_earthquake": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:cobblestone"
+  }
+ },
+ "spell/irons_spellbooks_echoing_strikes": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:echo_shard"
+  }
+ },
+ "spell/irons_spellbooks_electrocute": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/lightning.png"
+  }
+ },
+ "spell/irons_spellbooks_evasion": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:ender_pearl"
+  }
+ },
+ "spell/irons_spellbooks_fang_strike": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:bone"
+  }
+ },
+ "spell/irons_spellbooks_fire_arrow": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:blaze_powder"
+  }
+ },
+ "spell/irons_spellbooks_fire_breath": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:fire_charge"
+  }
+ },
+ "spell/irons_spellbooks_fireball": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:fire_charge"
+  }
+ },
+ "spell/irons_spellbooks_firebolt": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/flame.png"
+  }
+ },
+ "spell/irons_spellbooks_firecracker": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:firework_rocket"
+  }
+ },
+ "spell/irons_spellbooks_firefly_swarm": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:glow_berries"
+  }
+ },
+ "spell/irons_spellbooks_fortify": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:golden_apple"
+  }
+ },
+ "spell/irons_spellbooks_frost_step": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:leather_boots"
+  }
+ },
+ "spell/irons_spellbooks_frostbite": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:blue_ice"
+  }
+ },
+ "spell/irons_spellbooks_frostwave": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:snowball"
+  }
+ },
+ "spell/irons_spellbooks_gluttony": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:cooked_porkchop"
+  }
+ },
+ "spell/irons_spellbooks_greater_heal": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:enchanted_golden_apple"
+  }
+ },
+ "spell/irons_spellbooks_guiding_bolt": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/holy.png"
+  }
+ },
+ "spell/irons_spellbooks_gust": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:feather"
+  }
+ },
+ "spell/irons_spellbooks_haste": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:sugar"
+  }
+ },
+ "spell/irons_spellbooks_heal": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:golden_carrot"
+  }
+ },
+ "spell/irons_spellbooks_healing_circle": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:beacon"
+  }
+ },
+ "spell/irons_spellbooks_heartstop": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:fermented_spider_eye"
+  }
+ },
+ "spell/irons_spellbooks_heat_surge": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:campfire"
+  }
+ },
+ "spell/irons_spellbooks_ice_block": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:packed_ice"
+  }
+ },
+ "spell/irons_spellbooks_ice_spikes": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:pointed_dripstone"
+  }
+ },
+ "spell/irons_spellbooks_icicle": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/ice.png"
+  }
+ },
+ "spell/irons_spellbooks_invisibility": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:glass"
+  }
+ },
+ "spell/irons_spellbooks_lightning_bolt": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:lightning_rod"
+  }
+ },
+ "spell/irons_spellbooks_lightning_lance": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:trident"
+  }
+ },
+ "spell/irons_spellbooks_lob_creeper": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:tnt"
+  }
+ },
+ "spell/irons_spellbooks_magma_bomb": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:magma_cream"
+  }
+ },
+ "spell/irons_spellbooks_oakskin": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:oak_log"
+  }
+ },
+ "spell/irons_spellbooks_planar_sight": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:spyglass"
+  }
+ },
+ "spell/irons_spellbooks_poison_arrow": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:tipped_arrow"
+  }
+ },
+ "spell/irons_spellbooks_poison_splash": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:spider_eye"
+  }
+ },
+ "spell/irons_spellbooks_raise_dead": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:zombie_head"
+  }
+ },
+ "spell/irons_spellbooks_raise_hell": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:netherrack"
+  }
+ },
+ "spell/irons_spellbooks_ray_of_frost": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:prismarine_shard"
+  }
+ },
+ "spell/irons_spellbooks_ray_of_siphoning": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:ghast_tear"
+  }
+ },
+ "spell/irons_spellbooks_root": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:mangrove_roots"
+  }
+ },
+ "spell/irons_spellbooks_sacrifice": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:skeleton_skull"
+  }
+ },
+ "spell/irons_spellbooks_scapegoat": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:lead"
+  }
+ },
+ "spell/irons_spellbooks_scorch": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:flint_and_steel"
+  }
+ },
+ "spell/irons_spellbooks_shield": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:shield"
+  }
+ },
+ "spell/irons_spellbooks_shockwave": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:tnt"
+  }
+ },
+ "spell/irons_spellbooks_slow": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:cobweb"
+  }
+ },
+ "spell/irons_spellbooks_spider_aspect": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:cobweb"
+  }
+ },
+ "spell/irons_spellbooks_stomp": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:anvil"
+  }
+ },
+ "spell/irons_spellbooks_summon_horse": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:saddle"
+  }
+ },
+ "spell/irons_spellbooks_summon_polar_bear": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:snow_block"
+  }
+ },
+ "spell/irons_spellbooks_summon_vex": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:iron_sword"
+  }
+ },
+ "spell/irons_spellbooks_sunbeam": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:sunflower"
+  }
+ },
+ "spell/irons_spellbooks_teleport": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:ender_pearl"
+  }
+ },
+ "spell/irons_spellbooks_throw": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:iron_sword"
+  }
+ },
+ "spell/irons_spellbooks_thunderstorm": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:trident"
+  }
+ },
+ "spell/irons_spellbooks_touch_dig": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:iron_pickaxe"
+  }
+ },
+ "spell/irons_spellbooks_volt_strike": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:feather"
+  }
+ },
+ "spell/irons_spellbooks_wall_of_fire": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:soul_campfire"
+  }
+ },
+ "spell/irons_spellbooks_wisp": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:glow_ink_sac"
+  }
+ },
+ "spell/irons_spellbooks_wither_skull": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/necromancy.png"
+  }
+ },
+ "spell/traveloptics_aerial_collapse": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/aerial_collapse.png"
+  }
+ },
+ "spell/traveloptics_annihilation": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/annihilation.png"
+  }
+ },
+ "spell/traveloptics_aqua_missiles": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/aqua_missiles.png"
+  }
+ },
+ "spell/traveloptics_ashen_breath": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/ashen_breath.png"
+  }
+ },
+ "spell/traveloptics_astral_sense": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/astral_sense.png"
+  }
+ },
+ "spell/traveloptics_axe_of_the_doomed": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/axe_of_the_doomed.png"
+  }
+ },
+ "spell/traveloptics_blackout": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/blackout.png"
+  }
+ },
+ "spell/traveloptics_blood_howl": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/blood_howl.png"
+  }
+ },
+ "spell/traveloptics_bubble_spray": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/bubble_spray.png"
+  }
+ },
+ "spell/traveloptics_coral_barrage": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/coral_barrage.png"
+  }
+ },
+ "spell/traveloptics_cursed_revenants": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/cursed_revenants.png"
+  }
+ },
+ "spell/traveloptics_flood_slash": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/flood_slash.png"
+  }
+ },
+ "spell/traveloptics_floodgate": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/floodgate.png"
+  }
+ },
+ "spell/traveloptics_halberd_horizon": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/halberd_horizon.png"
+  }
+ },
+ "spell/traveloptics_hydroshot": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/hydroshot.png"
+  }
+ },
+ "spell/traveloptics_jet_steam": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/jet_steam.png"
+  }
+ },
+ "spell/traveloptics_lava_bomb": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/lava_bomb.png"
+  }
+ },
+ "spell/traveloptics_lingering_strain": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/lingering_strain.png"
+  }
+ },
+ "spell/traveloptics_meteor_storm": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/meteor_storm.png"
+  }
+ },
+ "spell/traveloptics_rainfall": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/rainfall.png"
+  }
+ },
+ "spell/traveloptics_serpentide": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/serpentide.png"
+  }
+ },
+ "spell/traveloptics_skypiercer": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/skypiercer.png"
+  }
+ },
+ "spell/traveloptics_spectral_blink": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/spectral_blink.png"
+  }
+ },
+ "spell/traveloptics_the_howling_tempest": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/the_howling_tempest.png"
+  }
+ },
+ "spell/traveloptics_tidal_grasp": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/tidal_grasp.png"
+  }
+ },
+ "spell/traveloptics_tsunami": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/tsunami.png"
+  }
+ },
+ "spell/traveloptics_violent_skreech": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/violent_skreech.png"
+  }
+ },
+ "spell/traveloptics_vortex_of_the_deep": {
+  "type": "texture",
+  "data": {
+   "texture": "traveloptics:textures/gui/spell_icons/vortex_of_the_deep.png"
+  }
+ },
+ "technique/mdvlcraft_arcane_sustenance": {
+  "type": "texture",
+  "data": {
+   "texture": "minecraft:textures/mob_effect/saturation.png"
+  }
+ },
+ "technique/mdvlcraft_bird_strike": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/ability/bird_strike.png"
+  }
+ },
+ "technique/mdvlcraft_blind_investment": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/ability/blind_investment.png"
+  }
+ },
+ "technique/mdvlcraft_blitz": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:feather"
+  }
+ },
+ "technique/mdvlcraft_block_clap": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:chorus_fruit"
+  }
+ },
+ "technique/mdvlcraft_boogie_woogie": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:ender_pearl"
+  }
+ },
+ "technique/mdvlcraft_cleave": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:iron_axe"
+  }
+ },
+ "technique/mdvlcraft_controlled_collapse": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/ability/controlled_collapse.png"
+  }
+ },
+ "technique/mdvlcraft_dismantle": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:shears"
+  }
+ },
+ "technique/mdvlcraft_doppelganger": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/ability/doppelganger.png"
+  }
+ },
+ "technique/mdvlcraft_follow_up_kick": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:leather_boots"
+  }
+ },
+ "technique/mdvlcraft_gravity_stomp": {
+  "type": "texture",
+  "data": {
+   "texture": "efn:textures/gui/skills/efn_arts/stomp.png"
+  }
+ },
+ "technique/mdvlcraft_malevolent_shrine": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:crying_obsidian"
+  }
+ },
+ "technique/mdvlcraft_myriad_blades": {
+  "type": "texture",
+  "data": {
+   "texture": "sword_soaring:textures/gui/skills/sword_controller/wan_jian_gui_zong.png"
+  }
+ },
+ "technique/mdvlcraft_open_malevolent_shrine": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:obsidian"
+  }
+ },
+ "technique/mdvlcraft_phantom_movement": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/ability/phantom_movement.png"
+  }
+ },
+ "technique/mdvlcraft_silent_appraisal": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/ability/silent_appraisal.png"
+  }
+ },
+ "technique/mdvlcraft_soul_hunt": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:soul_lantern"
+  }
+ },
+ "technique/mdvlcraft_stance": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/stance.png"
+  }
+ },
+ "technique/mdvlcraft_surprise_attack": {
+  "type": "item",
+  "data": {
+   "item": "minecraft:ender_eye"
+  }
+ }
+}

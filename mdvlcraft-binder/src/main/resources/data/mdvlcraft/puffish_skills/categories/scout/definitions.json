@@ -5,7 +5,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/forge_swim_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/forge_swim_speed.png"
       }
     },
     "frame": {
@@ -37,7 +37,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_consuming_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_consuming_speed.png"
       }
     },
     "rewards": [
@@ -70,7 +70,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_spell_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_spell_resist.png"
       }
     },
     "rewards": [
@@ -103,7 +103,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_consuming_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_consuming_speed.png"
       }
     },
     "rewards": [
@@ -136,7 +136,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/mdvlcraft_saturation_bonus.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/mdvlcraft_saturation_bonus.png"
       }
     },
     "rewards": [
@@ -169,7 +169,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_consuming_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_consuming_speed.png"
       }
     },
     "rewards": [
@@ -202,7 +202,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/mdvlcraft_saturation_bonus.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/mdvlcraft_saturation_bonus.png"
       }
     },
     "rewards": [
@@ -235,7 +235,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_consuming_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_consuming_speed.png"
       }
     },
     "rewards": [
@@ -268,7 +268,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_knockback_resistance.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_knockback_resistance.png"
       }
     },
     "rewards": [
@@ -301,7 +301,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_consuming_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_consuming_speed.png"
       }
     },
     "rewards": [
@@ -334,7 +334,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_cooldown_reduction.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_cooldown_reduction.png"
       }
     },
     "rewards": [
@@ -367,7 +367,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_consuming_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_consuming_speed.png"
       }
     },
     "rewards": [
@@ -400,7 +400,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_knockback_resistance.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_knockback_resistance.png"
       }
     },
     "rewards": [
@@ -433,7 +433,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_consuming_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_consuming_speed.png"
       }
     },
     "rewards": [
@@ -466,7 +466,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/skill/epicfight_stamina_pillager.png"
+        "texture": "mdvlcraft:textures/gui/astro/skill/32/epicfight_stamina_pillager.png"
       }
     },
     "rewards": [
@@ -496,7 +496,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_natural_regeneration.png"
       }
     },
     "rewards": [
@@ -529,7 +529,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_consuming_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_consuming_speed.png"
       }
     },
     "rewards": [
@@ -562,7 +562,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_knockback_resistance.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_knockback_resistance.png"
       }
     },
     "rewards": [
@@ -595,7 +595,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_consuming_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_consuming_speed.png"
       }
     },
     "rewards": [
@@ -628,7 +628,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_max_health.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_max_health.png"
       }
     },
     "rewards": [
@@ -661,7 +661,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_consuming_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_consuming_speed.png"
       }
     },
     "rewards": [
@@ -694,7 +694,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_damage.png"
       }
     },
     "rewards": [
@@ -727,7 +727,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_consuming_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_consuming_speed.png"
       }
     },
     "rewards": [
@@ -760,7 +760,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -793,7 +793,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_consuming_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_consuming_speed.png"
       }
     },
     "rewards": [
@@ -826,7 +826,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_spell_power.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_ender_spell_power.png"
       }
     },
     "rewards": [
@@ -858,7 +858,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_magic_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_ender_magic_resist.png"
       }
     },
     "rewards": [
@@ -890,7 +890,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_jump.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_jump.png"
       }
     },
     "rewards": [
@@ -923,7 +923,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_magic_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_ender_magic_resist.png"
       }
     },
     "rewards": [
@@ -955,7 +955,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_spell_power.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_ender_spell_power.png"
       }
     },
     "rewards": [
@@ -987,7 +987,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_spell_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_spell_resist.png"
       }
     },
     "rewards": [
@@ -1020,7 +1020,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_spell_power.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_ender_spell_power.png"
       }
     },
     "rewards": [
@@ -1052,7 +1052,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_magic_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_ender_magic_resist.png"
       }
     },
     "rewards": [
@@ -1084,7 +1084,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_spell_power.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_ender_spell_power.png"
       }
     },
     "rewards": [
@@ -1116,7 +1116,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_magic_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_ender_magic_resist.png"
       }
     },
     "rewards": [
@@ -1148,7 +1148,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -1181,7 +1181,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_magic_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_ender_magic_resist.png"
       }
     },
     "rewards": [
@@ -1213,7 +1213,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_spell_power.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_ender_spell_power.png"
       }
     },
     "rewards": [
@@ -1245,7 +1245,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_spell_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_spell_resist.png"
       }
     },
     "rewards": [
@@ -1278,7 +1278,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_spell_power.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_ender_spell_power.png"
       }
     },
     "rewards": [
@@ -1310,7 +1310,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_magic_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_ender_magic_resist.png"
       }
     },
     "rewards": [
@@ -1342,7 +1342,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/spell/irons_spellbooks_gust.png"
+        "texture": "mdvlcraft:textures/gui/astro/spell/32/irons_spellbooks_gust.png"
       }
     },
     "rewards": [
@@ -1373,7 +1373,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -1406,7 +1406,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_magic_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_ender_magic_resist.png"
       }
     },
     "rewards": [
@@ -1438,7 +1438,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_spell_power.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_ender_spell_power.png"
       }
     },
     "rewards": [
@@ -1470,7 +1470,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_staminar.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_staminar.png"
       }
     },
     "rewards": [
@@ -1503,7 +1503,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_spell_power.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_ender_spell_power.png"
       }
     },
     "rewards": [
@@ -1535,7 +1535,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_magic_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_ender_magic_resist.png"
       }
     },
     "rewards": [
@@ -1567,7 +1567,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_damage.png"
       }
     },
     "rewards": [
@@ -1600,7 +1600,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_magic_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_ender_magic_resist.png"
       }
     },
     "rewards": [
@@ -1632,7 +1632,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_spell_power.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_ender_spell_power.png"
       }
     },
     "rewards": [
@@ -1664,7 +1664,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_natural_regeneration.png"
       }
     },
     "rewards": [
@@ -1697,7 +1697,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_spell_power.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_ender_spell_power.png"
       }
     },
     "rewards": [
@@ -1729,7 +1729,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -1762,7 +1762,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_spell_power.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_ender_spell_power.png"
       }
     },
     "rewards": [
@@ -1794,7 +1794,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_staminar.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_staminar.png"
       }
     },
     "rewards": [
@@ -1827,7 +1827,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_ender_spell_power.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_ender_spell_power.png"
       }
     },
     "rewards": [
@@ -1859,7 +1859,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_breaking_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_breaking_speed.png"
       }
     },
     "rewards": [
@@ -1891,7 +1891,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -1924,7 +1924,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_breaking_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_breaking_speed.png"
       }
     },
     "rewards": [
@@ -1956,7 +1956,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_jump.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_jump.png"
       }
     },
     "rewards": [
@@ -1989,7 +1989,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_breaking_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_breaking_speed.png"
       }
     },
     "rewards": [
@@ -2021,7 +2021,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_jump.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_jump.png"
       }
     },
     "rewards": [
@@ -2054,7 +2054,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_breaking_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_breaking_speed.png"
       }
     },
     "rewards": [
@@ -2086,7 +2086,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_natural_regeneration.png"
       }
     },
     "rewards": [
@@ -2119,7 +2119,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_breaking_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_breaking_speed.png"
       }
     },
     "rewards": [
@@ -2151,7 +2151,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -2184,7 +2184,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_breaking_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_breaking_speed.png"
       }
     },
     "rewards": [
@@ -2216,7 +2216,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -2249,7 +2249,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_breaking_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_breaking_speed.png"
       }
     },
     "rewards": [
@@ -2281,7 +2281,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_staminar.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_staminar.png"
       }
     },
     "rewards": [
@@ -2314,7 +2314,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_breaking_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_breaking_speed.png"
       }
     },
     "rewards": [
@@ -2346,7 +2346,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_knockback_resistance.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_knockback_resistance.png"
       }
     },
     "rewards": [
@@ -2379,7 +2379,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_breaking_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_breaking_speed.png"
       }
     },
     "rewards": [
@@ -2411,7 +2411,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_jump.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_jump.png"
       }
     },
     "rewards": [
@@ -2444,7 +2444,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_breaking_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_breaking_speed.png"
       }
     },
     "rewards": [
@@ -2476,7 +2476,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_jump.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_jump.png"
       }
     },
     "rewards": [
@@ -2509,7 +2509,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_breaking_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_breaking_speed.png"
       }
     },
     "rewards": [
@@ -2541,7 +2541,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_mana_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_mana_regen.png"
       }
     },
     "rewards": [
@@ -2574,7 +2574,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_breaking_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_breaking_speed.png"
       }
     },
     "rewards": [
@@ -2606,7 +2606,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_mana_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_mana_regen.png"
       }
     },
     "rewards": [
@@ -2639,7 +2639,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -2672,7 +2672,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_mana_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_mana_regen.png"
       }
     },
     "rewards": [
@@ -2705,7 +2705,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -2738,7 +2738,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_mana_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_mana_regen.png"
       }
     },
     "rewards": [
@@ -2771,7 +2771,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -2804,7 +2804,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_jump.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_jump.png"
       }
     },
     "rewards": [
@@ -2837,7 +2837,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -2870,7 +2870,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_mana_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_mana_regen.png"
       }
     },
     "rewards": [
@@ -2903,7 +2903,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_armor.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_armor.png"
       }
     },
     "rewards": [
@@ -2936,7 +2936,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_mana_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_mana_regen.png"
       }
     },
     "rewards": [
@@ -2969,7 +2969,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -3002,7 +3002,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -3035,7 +3035,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -3068,7 +3068,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/spell/irons_spellbooks_cleanse.png"
+        "texture": "mdvlcraft:textures/gui/astro/spell/32/irons_spellbooks_cleanse.png"
       }
     },
     "rewards": [
@@ -3099,7 +3099,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_mana_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_mana_regen.png"
       }
     },
     "rewards": [
@@ -3132,7 +3132,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -3165,7 +3165,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_mana_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_mana_regen.png"
       }
     },
     "rewards": [
@@ -3198,7 +3198,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_cooldown_reduction.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_cooldown_reduction.png"
       }
     },
     "rewards": [
@@ -3231,7 +3231,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_mana_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_mana_regen.png"
       }
     },
     "rewards": [
@@ -3264,7 +3264,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -3297,7 +3297,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_mana_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_mana_regen.png"
       }
     },
     "rewards": [
@@ -3330,7 +3330,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -3363,7 +3363,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_cooldown_reduction.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_cooldown_reduction.png"
       }
     },
     "rewards": [
@@ -3396,7 +3396,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -3429,7 +3429,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_staminar.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_staminar.png"
       }
     },
     "rewards": [
@@ -3462,7 +3462,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -3495,7 +3495,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_mana_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_mana_regen.png"
       }
     },
     "rewards": [
@@ -3528,7 +3528,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -3561,7 +3561,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -3594,7 +3594,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -3627,7 +3627,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -3660,7 +3660,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -3693,7 +3693,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_armor.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_armor.png"
       }
     },
     "rewards": [
@@ -3726,7 +3726,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -3759,7 +3759,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -3792,7 +3792,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -3825,7 +3825,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -3858,7 +3858,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_spell_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_spell_resist.png"
       }
     },
     "rewards": [
@@ -3891,7 +3891,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -3924,7 +3924,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -3957,7 +3957,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_spell_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_spell_resist.png"
       }
     },
     "rewards": [
@@ -3990,7 +3990,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -4023,7 +4023,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/spell/irons_spellbooks_touch_dig.png"
+        "texture": "mdvlcraft:textures/gui/astro/spell/32/irons_spellbooks_touch_dig.png"
       }
     },
     "rewards": [
@@ -4054,7 +4054,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -4087,7 +4087,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -4120,7 +4120,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -4153,7 +4153,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -4186,7 +4186,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -4219,7 +4219,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -4252,7 +4252,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -4285,7 +4285,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -4318,7 +4318,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -4351,7 +4351,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/mdvlcraft_saturation_bonus.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/mdvlcraft_saturation_bonus.png"
       }
     },
     "rewards": [
@@ -4384,7 +4384,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -4417,7 +4417,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_spell_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_spell_resist.png"
       }
     },
     "rewards": [
@@ -4450,7 +4450,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -4483,7 +4483,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_max_health.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_max_health.png"
       }
     },
     "rewards": [
@@ -4516,7 +4516,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_damage.png"
       }
     },
     "rewards": [
@@ -4549,7 +4549,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_max_health.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_max_health.png"
       }
     },
     "rewards": [
@@ -4582,7 +4582,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -4615,7 +4615,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_max_health.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_max_health.png"
       }
     },
     "rewards": [
@@ -4648,7 +4648,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_knockback_resistance.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_knockback_resistance.png"
       }
     },
     "rewards": [
@@ -4681,7 +4681,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_max_health.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_max_health.png"
       }
     },
     "rewards": [
@@ -4714,7 +4714,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -4747,7 +4747,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/spell/irons_spellbooks_haste.png"
+        "texture": "mdvlcraft:textures/gui/astro/spell/32/irons_spellbooks_haste.png"
       }
     },
     "rewards": [
@@ -4778,7 +4778,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_max_health.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_max_health.png"
       }
     },
     "rewards": [
@@ -4811,7 +4811,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_damage.png"
       }
     },
     "rewards": [
@@ -4844,7 +4844,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_max_health.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_max_health.png"
       }
     },
     "rewards": [
@@ -4877,7 +4877,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_armor.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_armor.png"
       }
     },
     "rewards": [
@@ -4910,7 +4910,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/spell/irons_spellbooks_planar_sight.png"
+        "texture": "mdvlcraft:textures/gui/astro/spell/32/irons_spellbooks_planar_sight.png"
       }
     },
     "rewards": [
@@ -4941,7 +4941,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_max_health.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_max_health.png"
       }
     },
     "rewards": [
@@ -4974,7 +4974,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_cooldown_reduction.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_cooldown_reduction.png"
       }
     },
     "rewards": [
@@ -5007,7 +5007,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_max_health.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_max_health.png"
       }
     },
     "rewards": [
@@ -5040,7 +5040,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -5073,7 +5073,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_max_health.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/minecraft_generic_max_health.png"
       }
     },
     "rewards": [
@@ -5106,7 +5106,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_natural_regeneration.png"
       }
     },
     "rewards": [
@@ -5139,7 +5139,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_jump.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_jump.png"
       }
     },
     "rewards": [
@@ -5172,7 +5172,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_natural_regeneration.png"
       }
     },
     "rewards": [
@@ -5205,7 +5205,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_knockback_resistance.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_knockback_resistance.png"
       }
     },
     "rewards": [
@@ -5238,7 +5238,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_natural_regeneration.png"
       }
     },
     "rewards": [
@@ -5271,7 +5271,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_mana_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_mana_regen.png"
       }
     },
     "rewards": [
@@ -5304,7 +5304,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_natural_regeneration.png"
       }
     },
     "rewards": [
@@ -5337,7 +5337,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -5370,7 +5370,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_natural_regeneration.png"
       }
     },
     "rewards": [
@@ -5403,7 +5403,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_stamina_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_stamina_regen.png"
       }
     },
     "rewards": [
@@ -5436,7 +5436,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/skill/epicfight_phantom_ascent.png"
+        "texture": "mdvlcraft:textures/gui/astro/skill/32/epicfight_phantom_ascent.png"
       }
     },
     "rewards": [
@@ -5466,7 +5466,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_natural_regeneration.png"
       }
     },
     "rewards": [
@@ -5499,7 +5499,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -5532,7 +5532,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_natural_regeneration.png"
       }
     },
     "rewards": [
@@ -5565,7 +5565,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_knockback_resistance.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_knockback_resistance.png"
       }
     },
     "rewards": [
@@ -5598,7 +5598,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_natural_regeneration.png"
       }
     },
     "rewards": [
@@ -5631,7 +5631,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_staminar.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_staminar.png"
       }
     },
     "rewards": [
@@ -5664,7 +5664,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_natural_regeneration.png"
       }
     },
     "rewards": [
@@ -5697,7 +5697,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_stealth.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_stealth.png"
       }
     },
     "rewards": [
@@ -5730,7 +5730,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_cooldown_reduction.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_cooldown_reduction.png"
       }
     },
     "rewards": [
@@ -5763,7 +5763,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_stealth.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_stealth.png"
       }
     },
     "rewards": [
@@ -5796,7 +5796,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_jump.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_jump.png"
       }
     },
     "rewards": [
@@ -5829,7 +5829,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_stealth.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_stealth.png"
       }
     },
     "rewards": [
@@ -5862,7 +5862,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_spell_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_spell_resist.png"
       }
     },
     "rewards": [
@@ -5895,7 +5895,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_stealth.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_stealth.png"
       }
     },
     "rewards": [
@@ -5928,7 +5928,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_staminar.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_staminar.png"
       }
     },
     "rewards": [
@@ -5961,7 +5961,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_stealth.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_stealth.png"
       }
     },
     "rewards": [
@@ -5994,7 +5994,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -6027,7 +6027,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_stealth.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_stealth.png"
       }
     },
     "rewards": [
@@ -6060,7 +6060,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_knockback_resistance.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_knockback_resistance.png"
       }
     },
     "rewards": [
@@ -6093,7 +6093,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_stealth.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_stealth.png"
       }
     },
     "rewards": [
@@ -6126,7 +6126,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_cooldown_reduction.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_cooldown_reduction.png"
       }
     },
     "rewards": [
@@ -6159,7 +6159,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_stealth.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_stealth.png"
       }
     },
     "rewards": [
@@ -6192,7 +6192,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_mana_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_mana_regen.png"
       }
     },
     "rewards": [
@@ -6225,7 +6225,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_stealth.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_stealth.png"
       }
     },
     "rewards": [
@@ -6258,7 +6258,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -6291,7 +6291,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_stealth.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_stealth.png"
       }
     },
     "rewards": [
@@ -6324,7 +6324,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_stamina_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_stamina_regen.png"
       }
     },
     "rewards": [
@@ -6357,7 +6357,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_stealth.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_stealth.png"
       }
     },
     "rewards": [
@@ -6390,7 +6390,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_damage.png"
       }
     },
     "rewards": [
@@ -6423,7 +6423,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_stealth.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_stealth.png"
       }
     },
     "rewards": [
@@ -6456,7 +6456,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_trident_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_trident_damage.png"
       }
     },
     "rewards": [
@@ -6488,7 +6488,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_cooldown_reduction.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_cooldown_reduction.png"
       }
     },
     "rewards": [
@@ -6521,7 +6521,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_trident_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_trident_damage.png"
       }
     },
     "rewards": [
@@ -6553,7 +6553,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/mdvlcraft_saturation_bonus.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/mdvlcraft_saturation_bonus.png"
       }
     },
     "rewards": [
@@ -6586,7 +6586,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_trident_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_trident_damage.png"
       }
     },
     "rewards": [
@@ -6618,7 +6618,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_mana_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_mana_regen.png"
       }
     },
     "rewards": [
@@ -6651,7 +6651,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_trident_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_trident_damage.png"
       }
     },
     "rewards": [
@@ -6683,7 +6683,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -6716,7 +6716,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_trident_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_trident_damage.png"
       }
     },
     "rewards": [
@@ -6748,7 +6748,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_max_health.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_max_health.png"
       }
     },
     "rewards": [
@@ -6781,7 +6781,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_trident_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_trident_damage.png"
       }
     },
     "rewards": [
@@ -6813,7 +6813,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/mdvlcraft_saturation_bonus.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/mdvlcraft_saturation_bonus.png"
       }
     },
     "rewards": [
@@ -6846,7 +6846,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_trident_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_trident_damage.png"
       }
     },
     "rewards": [
@@ -6878,7 +6878,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_spell_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_spell_resist.png"
       }
     },
     "rewards": [
@@ -6911,7 +6911,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_trident_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_trident_damage.png"
       }
     },
     "rewards": [
@@ -6943,7 +6943,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_jump.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_jump.png"
       }
     },
     "rewards": [
@@ -6976,7 +6976,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_trident_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_trident_damage.png"
       }
     },
     "rewards": [
@@ -7008,7 +7008,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -7041,7 +7041,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_trident_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_trident_damage.png"
       }
     },
     "rewards": [
@@ -7073,7 +7073,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -7106,7 +7106,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_trident_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_trident_damage.png"
       }
     },
     "rewards": [
@@ -7138,7 +7138,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_armor.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_armor.png"
       }
     },
     "rewards": [
@@ -7171,7 +7171,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_trident_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/puffish_attributes_trident_damage.png"
       }
     },
     "rewards": [
@@ -7203,7 +7203,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_stamina_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/epicfight_stamina_regen.png"
       }
     },
     "rewards": [
@@ -7236,7 +7236,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/forge_swim_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/forge_swim_speed.png"
       }
     },
     "rewards": [
@@ -7268,7 +7268,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -7301,7 +7301,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/forge_swim_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/forge_swim_speed.png"
       }
     },
     "rewards": [
@@ -7333,7 +7333,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_stamina_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/epicfight_stamina_regen.png"
       }
     },
     "rewards": [
@@ -7366,7 +7366,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/mdvlcraft_saturation_bonus.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/mdvlcraft_saturation_bonus.png"
       }
     },
     "rewards": [
@@ -7399,7 +7399,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_stamina_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/epicfight_stamina_regen.png"
       }
     },
     "rewards": [
@@ -7432,7 +7432,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/forge_swim_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/forge_swim_speed.png"
       }
     },
     "rewards": [
@@ -7464,7 +7464,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_stamina_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/epicfight_stamina_regen.png"
       }
     },
     "rewards": [
@@ -7497,7 +7497,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/forge_swim_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/forge_swim_speed.png"
       }
     },
     "rewards": [
@@ -7529,7 +7529,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/mdvlcraft_saturation_bonus.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/mdvlcraft_saturation_bonus.png"
       }
     },
     "rewards": [
@@ -7562,7 +7562,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/forge_swim_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/forge_swim_speed.png"
       }
     },
     "rewards": [
@@ -7594,7 +7594,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_stamina_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/epicfight_stamina_regen.png"
       }
     },
     "rewards": [
@@ -7627,7 +7627,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/forge_swim_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/forge_swim_speed.png"
       }
     },
     "rewards": [
@@ -7659,7 +7659,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/skill/wom_natural_sprinter.png"
+        "texture": "mdvlcraft:textures/gui/astro/skill/32/wom_natural_sprinter.png"
       }
     },
     "rewards": [
@@ -7689,7 +7689,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_stamina_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/epicfight_stamina_regen.png"
       }
     },
     "rewards": [
@@ -7722,7 +7722,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_natural_regeneration.png"
       }
     },
     "rewards": [
@@ -7755,7 +7755,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_stamina_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/epicfight_stamina_regen.png"
       }
     },
     "rewards": [
@@ -7788,7 +7788,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/forge_swim_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/forge_swim_speed.png"
       }
     },
     "rewards": [
@@ -7820,7 +7820,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_jump.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_jump.png"
       }
     },
     "rewards": [
@@ -7853,7 +7853,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/forge_swim_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/forge_swim_speed.png"
       }
     },
     "rewards": [
@@ -7885,7 +7885,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_stamina_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/epicfight_stamina_regen.png"
       }
     },
     "rewards": [
@@ -7918,7 +7918,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/skill/wom_dopamine.png"
+        "texture": "mdvlcraft:textures/gui/astro/skill/32/wom_dopamine.png"
       }
     },
     "rewards": [
@@ -7948,7 +7948,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/forge_swim_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/forge_swim_speed.png"
       }
     },
     "rewards": [
@@ -7980,7 +7980,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_stamina_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/epicfight_stamina_regen.png"
       }
     },
     "rewards": [
@@ -8013,7 +8013,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -8046,7 +8046,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_stamina_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/epicfight_stamina_regen.png"
       }
     },
     "rewards": [
@@ -8079,7 +8079,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_armor.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_armor.png"
       }
     },
     "rewards": [
@@ -8112,7 +8112,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_stamina_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/epicfight_stamina_regen.png"
       }
     },
     "rewards": [
@@ -8145,7 +8145,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -8178,7 +8178,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_stamina_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/24/epicfight_stamina_regen.png"
       }
     },
     "rewards": [
@@ -8211,7 +8211,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_armor.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_armor.png"
       }
     },
     "rewards": [
@@ -8244,7 +8244,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_stamina_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_stamina_regen.png"
       }
     },
     "rewards": [
@@ -8277,7 +8277,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_damage.png"
       }
     },
     "rewards": [
@@ -8310,7 +8310,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -8343,7 +8343,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_knockback_resistance.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_knockback_resistance.png"
       }
     },
     "rewards": [
@@ -8376,7 +8376,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_mana_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_mana_regen.png"
       }
     },
     "rewards": [
@@ -8409,7 +8409,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_cooldown_reduction.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_cooldown_reduction.png"
       }
     },
     "rewards": [
@@ -8442,7 +8442,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_spell_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_spell_resist.png"
       }
     },
     "rewards": [
@@ -8475,7 +8475,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_mana_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_mana_regen.png"
       }
     },
     "rewards": [
@@ -8508,7 +8508,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_armor.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_armor.png"
       }
     },
     "rewards": [
@@ -8541,7 +8541,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_armor.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_armor.png"
       }
     },
     "rewards": [
@@ -8574,7 +8574,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_jump.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_jump.png"
       }
     },
     "rewards": [
@@ -8607,7 +8607,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_damage.png"
       }
     },
     "rewards": [
@@ -8640,7 +8640,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_mana_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_mana_regen.png"
       }
     },
     "rewards": [
@@ -8673,7 +8673,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_staminar.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_staminar.png"
       }
     },
     "rewards": [
@@ -8706,7 +8706,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_natural_regeneration.png"
       }
     },
     "rewards": [
@@ -8739,7 +8739,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -8772,7 +8772,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_damage.png"
       }
     },
     "rewards": [
@@ -8805,7 +8805,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_cooldown_reduction.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_cooldown_reduction.png"
       }
     },
     "rewards": [
@@ -8838,7 +8838,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_damage.png"
       }
     },
     "rewards": [
@@ -8871,7 +8871,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_natural_regeneration.png"
       }
     },
     "rewards": [
@@ -8904,7 +8904,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_spell_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_spell_resist.png"
       }
     },
     "rewards": [
@@ -8937,7 +8937,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -8970,7 +8970,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_jump.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_jump.png"
       }
     },
     "rewards": [
@@ -9003,7 +9003,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/mdvlcraft_saturation_bonus.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/mdvlcraft_saturation_bonus.png"
       }
     },
     "rewards": [
@@ -9036,7 +9036,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -9069,7 +9069,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_staminar.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_staminar.png"
       }
     },
     "rewards": [
@@ -9102,7 +9102,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -9135,7 +9135,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/mdvlcraft_saturation_bonus.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/mdvlcraft_saturation_bonus.png"
       }
     },
     "rewards": [
@@ -9168,7 +9168,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_armor.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_armor.png"
       }
     },
     "rewards": [
@@ -9201,7 +9201,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_damage.png"
       }
     },
     "rewards": [
@@ -9234,7 +9234,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_jump.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_jump.png"
       }
     },
     "rewards": [
@@ -9267,7 +9267,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_natural_regeneration.png"
       }
     },
     "rewards": [
@@ -9300,7 +9300,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_stamina_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_stamina_regen.png"
       }
     },
     "rewards": [
@@ -9333,7 +9333,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_staminar.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_staminar.png"
       }
     },
     "rewards": [
@@ -9366,7 +9366,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_armor.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_armor.png"
       }
     },
     "rewards": [
@@ -9399,7 +9399,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -9432,7 +9432,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_cooldown_reduction.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_cooldown_reduction.png"
       }
     },
     "rewards": [
@@ -9465,7 +9465,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_natural_regeneration.png"
       }
     },
     "rewards": [
@@ -9498,7 +9498,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_max_health.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_max_health.png"
       }
     },
     "rewards": [
@@ -9531,7 +9531,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -9564,7 +9564,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_spell_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_spell_resist.png"
       }
     },
     "rewards": [
@@ -9597,7 +9597,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_jump.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_jump.png"
       }
     },
     "rewards": [
@@ -9630,7 +9630,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_armor.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_armor.png"
       }
     },
     "rewards": [
@@ -9663,7 +9663,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_max_health.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_max_health.png"
       }
     },
     "rewards": [
@@ -9696,7 +9696,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -9729,7 +9729,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -9762,7 +9762,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_max_health.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_max_health.png"
       }
     },
     "rewards": [
@@ -9795,7 +9795,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_staminar.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_staminar.png"
       }
     },
     "rewards": [
@@ -9828,7 +9828,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -9861,7 +9861,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_armor.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_armor.png"
       }
     },
     "rewards": [
@@ -9894,7 +9894,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/mdvlcraft_saturation_bonus.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/mdvlcraft_saturation_bonus.png"
       }
     },
     "rewards": [
@@ -9927,7 +9927,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_jump.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_jump.png"
       }
     },
     "rewards": [
@@ -9960,7 +9960,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_knockback_resistance.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_knockback_resistance.png"
       }
     },
     "rewards": [
@@ -9993,7 +9993,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_staminar.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_staminar.png"
       }
     },
     "rewards": [
@@ -10026,7 +10026,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_max_health.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_max_health.png"
       }
     },
     "rewards": [
@@ -10059,7 +10059,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_staminar.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_staminar.png"
       }
     },
     "rewards": [
@@ -10092,7 +10092,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_armor.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_armor.png"
       }
     },
     "rewards": [
@@ -10125,7 +10125,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_knockback_resistance.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_knockback_resistance.png"
       }
     },
     "rewards": [
@@ -10158,7 +10158,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -10191,7 +10191,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_jump.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_jump.png"
       }
     },
     "rewards": [
@@ -10224,7 +10224,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -10257,7 +10257,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_spell_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_spell_resist.png"
       }
     },
     "rewards": [
@@ -10290,7 +10290,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_armor.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_armor.png"
       }
     },
     "rewards": [
@@ -10323,7 +10323,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_cooldown_reduction.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_cooldown_reduction.png"
       }
     },
     "rewards": [
@@ -10356,7 +10356,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -10389,7 +10389,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_staminar.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_staminar.png"
       }
     },
     "rewards": [
@@ -10422,7 +10422,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_max_health.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_max_health.png"
       }
     },
     "rewards": [
@@ -10455,7 +10455,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_natural_regeneration.png"
       }
     },
     "rewards": [
@@ -10488,7 +10488,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_spell_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_spell_resist.png"
       }
     },
     "rewards": [
@@ -10521,7 +10521,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -10554,7 +10554,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_mana_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_mana_regen.png"
       }
     },
     "rewards": [
@@ -10587,7 +10587,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_speed.png"
       }
     },
     "rewards": [
@@ -10620,7 +10620,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_spell_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_spell_resist.png"
       }
     },
     "rewards": [
@@ -10653,7 +10653,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_staminar.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_staminar.png"
       }
     },
     "rewards": [
@@ -10686,7 +10686,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_max_mana.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_max_mana.png"
       }
     },
     "rewards": [
@@ -10719,7 +10719,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_damage.png"
       }
     },
     "rewards": [
@@ -10752,7 +10752,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_armor.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_armor.png"
       }
     },
     "rewards": [
@@ -10785,7 +10785,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_movement_speed.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_movement_speed.png"
       }
     },
     "rewards": [
@@ -10818,7 +10818,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_natural_regeneration.png"
       }
     },
     "rewards": [
@@ -10851,7 +10851,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_armor.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_armor.png"
       }
     },
     "rewards": [
@@ -10884,7 +10884,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_staminar.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_staminar.png"
       }
     },
     "rewards": [
@@ -10917,7 +10917,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_attack_damage.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_attack_damage.png"
       }
     },
     "rewards": [
@@ -10950,7 +10950,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_spell_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_spell_resist.png"
       }
     },
     "rewards": [
@@ -10983,7 +10983,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/minecraft_generic_armor.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/minecraft_generic_armor.png"
       }
     },
     "rewards": [
@@ -11016,7 +11016,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_spell_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_spell_resist.png"
       }
     },
     "rewards": [
@@ -11049,7 +11049,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_jump.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_jump.png"
       }
     },
     "rewards": [
@@ -11082,7 +11082,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_stamina_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_stamina_regen.png"
       }
     },
     "rewards": [
@@ -11115,7 +11115,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_natural_regeneration.png"
       }
     },
     "rewards": [
@@ -11148,7 +11148,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_stamina_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_stamina_regen.png"
       }
     },
     "rewards": [
@@ -11181,7 +11181,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_staminar.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_staminar.png"
       }
     },
     "rewards": [
@@ -11214,7 +11214,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_stamina_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_stamina_regen.png"
       }
     },
     "rewards": [
@@ -11247,7 +11247,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_jump.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_jump.png"
       }
     },
     "rewards": [
@@ -11280,7 +11280,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_spell_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_spell_resist.png"
       }
     },
     "rewards": [
@@ -11313,7 +11313,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/irons_spellbooks_spell_resist.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/irons_spellbooks_spell_resist.png"
       }
     },
     "rewards": [
@@ -11346,7 +11346,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/puffish_attributes_natural_regeneration.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/puffish_attributes_natural_regeneration.png"
       }
     },
     "rewards": [
@@ -11379,7 +11379,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/bonus/epicfight_stamina_regen.png"
+        "texture": "mdvlcraft:textures/gui/astro/bonus/12/epicfight_stamina_regen.png"
       }
     },
     "rewards": [
@@ -11412,7 +11412,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/technique/mdvlcraft_arcane_sustenance.png"
+        "texture": "mdvlcraft:textures/gui/astro/technique/32/mdvlcraft_arcane_sustenance.png"
       }
     },
     "rewards": [
@@ -11443,7 +11443,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/technique/mdvlcraft_silent_appraisal.png"
+        "texture": "mdvlcraft:textures/gui/astro/technique/32/mdvlcraft_silent_appraisal.png"
       }
     },
     "rewards": [
@@ -11474,7 +11474,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/technique/mdvlcraft_blind_investment.png"
+        "texture": "mdvlcraft:textures/gui/astro/technique/32/mdvlcraft_blind_investment.png"
       }
     },
     "rewards": [
@@ -11505,7 +11505,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/technique/mdvlcraft_bird_strike.png"
+        "texture": "mdvlcraft:textures/gui/astro/technique/32/mdvlcraft_bird_strike.png"
       }
     },
     "rewards": [
@@ -11536,7 +11536,7 @@
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/technique/mdvlcraft_controlled_collapse.png"
+        "texture": "mdvlcraft:textures/gui/astro/technique/32/mdvlcraft_controlled_collapse.png"
       }
     },
     "rewards": [

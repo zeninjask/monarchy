@@ -11,7 +11,30 @@
 - Despair has its own Astrologer icon (`tools/astro_theme.py`); Cursed Blast's icon and mana/cooldown config are
   gone.
 
+### Astrologer icons: Minecraft pixel size
+
+- Every Astrologer icon is redrawn as Minecraft-style pixel art: **one texture pixel per GUI pixel** at the size
+  it is shown, solid pixels only (no soft glow or half-transparent edges), a dark one-pixel outline and the
+  starlight colours. Before, every skill-tree icon was 32x32 and was shrunk to 24 or 12 pixels on most nodes,
+  and the race and class icons were 32x32 items shown at 16, so they looked finer than the rest of the game.
+  - Skill trees: 32x32 on the big spell/technique/skill nodes, 24x24 on the normal nodes, 12x12 on the small
+    bonus nodes (a bonus used on both gets both sizes). The trees open fully zoomed in, which is 1:1.
+  - Tree tabs, races and classes: 16x16, the size of an item.
+  - Node frames were already 1:1 and are unchanged.
+- `tools/astro_theme.py` now redraws every icon from its original art (`tools/astro_sources.json`, recovered
+  from the trees as they were before the Astrologer look) on every run, so the result no longer depends on
+  earlier runs; `tools/astro_origins.py` uses the same pixel renderer. Icons now live under
+  `textures/gui/astro/<kind>/<px>/`; the list is `docs/astrologer-icons.csv`, all of them on
+  `docs/astrologer-icons.png`.
+
 ### Races (Origins)
+
+- **Shadow**: *Fragile* takes 3 max health instead of 8.
+- **Night vision from races works again** (Shadow, and the toggled night vision of Dwarf and Arachnae).
+  BadOptimizations only redraws the lightmap when the vanilla Night Vision *effect* (or gamma, dimension, game
+  time...) changes, so an Origins night-vision *power* was ignored until the next refresh, and never shown while
+  the day cycle is stopped. Its lightmap caching is off (`config/badoptimizations.txt`), which is vanilla
+  behaviour.
 
 - **Shadow**: *Behind You* (teleport behind the creature you look at) was on vanilla's *Save Hotbar Activator* key,
   which is unbound, so it could never be used. It is now on the Origins primary key (**G**).

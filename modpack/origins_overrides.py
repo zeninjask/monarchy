@@ -175,6 +175,11 @@ origin('origins-plus-plus:raptus', remove=['origins-plus-plus:raptus/light_armor
        description='Descendants of the great raptors, these creatures can be found hunting in packs or resting.')
 origin('origins-plus-plus:rat', remove=['origins-plus-plus:rat/nocturnal_eyes', 'origins-plus-plus:rat/slow_swimmer', 'origins-plus-plus:rat/one_block_height'],
        name='Ratfolk', description='A quick critter of the night. You hunt and appear filthy to others.')
+# Fragile took 8 health (4 hearts); Shadows only lose 3
+fragile = src('origins-plus-plus', 'powers', 'shadow/fragile')
+fragile['modifier']['value'] = -3.0
+fragile['description'] = 'You have 3 less health than a human.'
+power('origins-plus-plus:shadow/fragile', fragile)
 # Behind You was on the vanilla "Save Hotbar Activator" key, which is unbound: use the Origins primary key (G)
 behind = src('origins-plus-plus', 'powers', 'shadow/behind_you')
 behind['key'] = {'key': 'key.origins.primary_active', 'continuous': False}

@@ -1,0 +1,11 @@
+{
+  "type": "origins:attribute",
+  "modifier": {
+    "attribute": "minecraft:generic.max_health",
+    "value": -3.0,
+    "operation": "addition"
+  },
+  "update_health": true,
+  "description": "You have 3 less health than a human.",
+  "loading_priority": 100
+}
