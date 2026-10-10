@@ -1,5 +1,23 @@
 # MDVLCraft changelog
 
+## Unreleased (Binder 0.7.8)
+
+### Respec
+
+- The MDVLCraft menu has a new **Respec** button with two choices:
+  - **Reset Skill Tree**: pick one of your classes (the one or two you have) and every skill in its tree is
+    removed, with all the points spent on them given back to spend again. The tree keeps its level.
+  - **Change Class**: pick one of your classes, then any class you don't have. The old class is removed (its
+    skills, level and tab) and the new one takes its place on the Classes tab, starting at the old class's level
+    less a quarter, rounded down (Level 16 becomes 12, Level 7 becomes 5). Its points are yours to spend.
+  - Each choice asks "Are you sure?" first. Afterwards the tree opens so you can spend the points, and a chat
+    message says what changed.
+- Binder: `client/RespecScreen`, `skills/Respec`, `network/RespecPacket` (network protocol 5, so the client and
+  server Binder must match).
+- Tested on the test server: resetting Knight (Level 16, three skills taken) gave back all its points (17 left)
+  and kept Level 16. Changing Knight (Level 16) to Ice gave Ice at Level 12 with 13 points; Knight's tab was gone;
+  the Classes tab still had 2 of 2 points spent; the Status page showed Holy + Ice as *Crystal Priest*.
+
 ## 1.9.17 (Binder 0.7.8)
 
 Packs built (`python3 modpack/build_mrpack.py 1.9.17`).

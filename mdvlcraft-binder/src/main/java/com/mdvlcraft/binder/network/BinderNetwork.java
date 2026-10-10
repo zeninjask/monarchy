@@ -10,9 +10,9 @@ import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 public final class BinderNetwork {
-    private static final String PROTOCOL = "4";
+    private static final String PROTOCOL = "5";
     private static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
-        ResourceLocation.fromNamespaceAndPath("mdvlcraft", "main"), () -> "4", "4"::equals, "4"::equals
+        ResourceLocation.fromNamespaceAndPath("mdvlcraft", "main"), () -> PROTOCOL, PROTOCOL::equals, PROTOCOL::equals
     );
 
     private BinderNetwork() {
@@ -62,6 +62,9 @@ public final class BinderNetwork {
             TechniqueCooldownsPacket::decode,
             TechniqueCooldownsPacket::handle,
             Optional.of(NetworkDirection.PLAY_TO_CLIENT)
+        );
+        CHANNEL.registerMessage(
+            id++, RespecPacket.class, RespecPacket::encode, RespecPacket::decode, RespecPacket::handle, Optional.of(NetworkDirection.PLAY_TO_SERVER)
         );
     }
 

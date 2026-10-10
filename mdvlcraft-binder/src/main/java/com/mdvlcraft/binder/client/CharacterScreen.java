@@ -1,6 +1,7 @@
 package com.mdvlcraft.binder.client;
 
 import com.mdvlcraft.binder.mixin.puffish.SkillsClientModAccessor;
+import com.mdvlcraft.binder.skills.Respec;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.player.ClientMagicData;
 import java.lang.reflect.Method;
@@ -242,20 +243,12 @@ public class CharacterScreen extends Screen {
         return row(g, x, width, y, label, format.apply(player.getAttributeValue(attribute)));
     }
 
-    /** Archetypes in the order the class names are keyed by (modpack/class_combo_names.py). */
-    private static final List<String> ARCHETYPES = List.of("knight", "samurai", "berzerker", "holy", "flame", "lightning",
-        "necromancy", "ice", "water", "assassin", "phantom", "scout", "thief", "wanderer", "stalker", "druid", "cursed");
-
     /**
      * The player's class: the archetype's name with one picked, the name of the combination with two (Knight and
      * Holy: Paladin), "n/a" with none.
      */
     private static String className() {
-        List<ClientCategoryData> picked = ((SkillsClientModAccessor) (Object) SkillsClientMod.getInstance()).mdvlcraft$screenData()
-            .streamCategories()
-            .filter(c -> !c.getConfig().id().equals(CLASSES) && c.hasExperience())
-            .sorted(Comparator.comparingInt(c -> ARCHETYPES.indexOf(c.getConfig().id().getPath())))
-            .toList();
+        List<ClientCategoryData> picked = pickedArchetypes();
         if (picked.isEmpty()) {
             return "n/a";
         }
@@ -265,6 +258,15 @@ public class CharacterScreen extends Screen {
         String key = "screen.mdvlcraft.class." + picked.get(0).getConfig().id().getPath() + "." + picked.get(1).getConfig().id().getPath();
         return I18n.exists(key) ? I18n.get(key)
             : picked.get(0).getConfig().title().getString() + " / " + picked.get(1).getConfig().title().getString();
+    }
+
+    /** The archetypes the player has picked (their tabs are visible), in skill-tree order. */
+    static List<ClientCategoryData> pickedArchetypes() {
+        return ((SkillsClientModAccessor) (Object) SkillsClientMod.getInstance()).mdvlcraft$screenData()
+            .streamCategories()
+            .filter(c -> !c.getConfig().id().equals(CLASSES) && c.hasExperience())
+            .sorted(Comparator.comparingInt(c -> Respec.ARCHETYPES.indexOf(c.getConfig().id().getPath())))
+            .toList();
     }
 
     /** The highest-level archetype the player has picked (its tab is visible), if any. */

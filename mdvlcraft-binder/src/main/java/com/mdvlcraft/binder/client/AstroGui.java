@@ -43,6 +43,8 @@ public final class AstroGui {
     /** A star-chart button: a navy plate with a gold rim that brightens on hover. */
     public static class Button extends AbstractButton {
         private final Runnable action;
+        /** Moves the label right, to make room for something drawn at the button's left (an icon). */
+        protected int labelOffset;
 
         public Button(int x, int y, int w, int h, Component label, Runnable action) {
             super(x, y, w, h, label);
@@ -60,7 +62,7 @@ public final class AstroGui {
             g.fill(this.getX(), this.getY(), this.getX() + this.width, this.getY() + this.height, hot ? 0xF0263064 : 0xF0141A3C);
             frame(g, this.getX(), this.getY(), this.width, this.height, hot ? HEADING : GOLD);
             int colour = !this.active ? MUTED : hot ? HEADING : LABEL;
-            g.drawCenteredString(Minecraft.getInstance().font, this.getMessage(), this.getX() + this.width / 2,
+            g.drawCenteredString(Minecraft.getInstance().font, this.getMessage(), this.getX() + this.width / 2 + this.labelOffset,
                 this.getY() + (this.height - 8) / 2, colour);
         }
 
