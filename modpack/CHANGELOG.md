@@ -2,7 +2,23 @@
 
 ## Unreleased (Binder 0.7.8)
 
+### Status screen: Class names
+
+- The Status page's **Archetype** row is now **Class**. With one archetype it shows that archetype (e.g. *Knight*);
+  with two it shows the name chosen for the pair, e.g. Knight + Holy is **Crusader**, Samurai + Ice is **Kuraokami's
+  Blade**, Assassin + Phantom is **Reaper**. 123 of the 136 pairs have names. The rest (Phantom +, Wanderer +, and
+  the Thief + pairs) show both archetypes, e.g. *Phantom / Thief*, until they are chosen. The Level, Experience
+  and Next Level rows are unchanged (they follow your highest archetype).
+- The names are in `docs/Class-Combo-Names.md` (with the three options for each pair), `modpack/class_combo_names.py`
+  (`PICKS`) and the Binder's lang file (`screen.mdvlcraft.class.<first>.<second>`, archetypes in skill-tree order).
+- Tested: Knight + Holy shows *Class: Crusader*; Phantom + Thief shows *Class: Phantom / Thief*.
+
 ### Fixes
+
+- **Litematica (Forgematica) no longer opens on M**, the MDVLCraft menu key. Its hotkeys all used M (M on its own
+  for its main menu, M + another key for the rest), so pressing M opened both menus. They now use **N** instead
+  (N for the Litematica menu, N + C for its settings, and so on; `config/forgematica.json`, client packs only).
+  Tested: M opens only the MDVLCraft menu.
 
 - **Night vision from races really works now** (Shadow, and Dwarf's and Arachnae's toggles). The real cause:
   Alex's Caves (installed only for T.O Magic 'n Extras) replaces the whole lightmap update with its own copy for

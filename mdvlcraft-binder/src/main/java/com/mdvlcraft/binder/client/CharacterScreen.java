@@ -118,8 +118,7 @@ public class CharacterScreen extends Screen {
         int y = 46;
         y = row(g, left, colW, y, Component.translatable("screen.mdvlcraft.character.level"),
             archetype.map(a -> String.valueOf(a.getCurrentLevel())).orElse("n/a"));
-        y = row(g, left, colW, y, Component.translatable("screen.mdvlcraft.character.archetype"),
-            archetype.map(a -> a.getConfig().title().getString()).orElse("n/a"));
+        y = row(g, left, colW, y, Component.translatable("screen.mdvlcraft.character.class"), className());
         y += 6;
         y = row(g, left, colW, y, Component.translatable("screen.mdvlcraft.character.experience"),
             archetype.map(a -> String.valueOf(a.getCurrentExperience())).orElse("n/a"));
@@ -241,6 +240,31 @@ public class CharacterScreen extends Screen {
         String shortName = "screen.mdvlcraft.character.short." + ResourceLocation.parse(id).getPath();
         Component label = I18n.exists(shortName) ? Component.translatable(shortName) : Component.translatable(attribute.getDescriptionId());
         return row(g, x, width, y, label, format.apply(player.getAttributeValue(attribute)));
+    }
+
+    /** Archetypes in the order the class names are keyed by (modpack/class_combo_names.py). */
+    private static final List<String> ARCHETYPES = List.of("knight", "samurai", "berzerker", "holy", "flame", "lightning",
+        "necromancy", "ice", "water", "assassin", "phantom", "scout", "thief", "wanderer", "stalker", "druid", "cursed");
+
+    /**
+     * The player's class: the archetype's name with one picked, the name of the combination with two (Knight and
+     * Holy: Paladin), "n/a" with none.
+     */
+    private static String className() {
+        List<ClientCategoryData> picked = ((SkillsClientModAccessor) (Object) SkillsClientMod.getInstance()).mdvlcraft$screenData()
+            .streamCategories()
+            .filter(c -> !c.getConfig().id().equals(CLASSES) && c.hasExperience())
+            .sorted(Comparator.comparingInt(c -> ARCHETYPES.indexOf(c.getConfig().id().getPath())))
+            .toList();
+        if (picked.isEmpty()) {
+            return "n/a";
+        }
+        if (picked.size() == 1) {
+            return picked.get(0).getConfig().title().getString();
+        }
+        String key = "screen.mdvlcraft.class." + picked.get(0).getConfig().id().getPath() + "." + picked.get(1).getConfig().id().getPath();
+        return I18n.exists(key) ? I18n.get(key)
+            : picked.get(0).getConfig().title().getString() + " / " + picked.get(1).getConfig().title().getString();
     }
 
     /** The highest-level archetype the player has picked (its tab is visible), if any. */
