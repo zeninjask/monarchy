@@ -34,6 +34,14 @@
     creatures that are after you. Animals, villagers, recruits, pets and players are left alone.
   - Tested on the test server: a tap sent the double 11 blocks to a husk and it stayed there; a 2-second hold
     swapped the player and double; a cow and a villager next to the double were not hurt.
+  - **The double deals half your damage.** Its hits run through your own attack, so they used to land at exactly
+    the moment of your own swing, while the target was still in its hurt cooldown, and mostly did nothing. Its
+    hits now skip that cooldown and are halved. Tested: with an iron sword (6 damage) each of the double's hits on
+    a husk dealt 3.
+- **Hasty Casting** (Samurai, Epic Fight mover skill) now also **halves the cast time of spells** that charge up
+  (continuous spells keep their channel time), as well as the faster movement while casting. Binder
+  `mixin/irons/AbstractSpellCastTimeMixin`; tooltip and skill-tree text updated. Tested: Fireball took 41 ticks to
+  cast without it and 21 with it.
 - Simple Voice Chat's "Press **Not bound** to set up" hint (its key now opens from the menu) now reads "Open Voice
   Chat from the MDVLCraft menu to set it up" (MDVLCraft-Astrologer-UI resource pack).
 

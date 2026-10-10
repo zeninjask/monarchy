@@ -11,6 +11,7 @@
     "RecipeManagerMixin",
     "ServerAdvancementManagerMixin",
     "irons.SpellSelectionManagerMixin",
+    "irons.AbstractSpellCastTimeMixin",
     "epicfight.ParryingSkillMixin",
     "epicfight.ParryingSkillAccessor",
     "epicfight.ActionAnimationMixin",

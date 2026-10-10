@@ -1525,7 +1525,7 @@
   },
   "hasty_casting": {
     "title": "Hasty Casting",
-    "description": "Teaches Hasty Casting, an Epic Fight Mobility skill: much faster movement while casting spells. Equip it in the Combat Skills box of the abilities screen",
+    "description": "Teaches Hasty Casting, an Epic Fight Mobility skill: spells take half as long to cast, and much faster movement while casting. Equip it in the Combat Skills box of the abilities screen",
     "icon": {
       "type": "texture",
       "data": {

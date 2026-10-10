@@ -30,6 +30,7 @@ public final class DoppelgangerSetup {
         modBus.addListener(DoppelgangerSetup::onAttributes);
         modBus.addListener(DoppelgangerSetup::onEntityPatches);
         modBus.addListener(DoppelgangerSetup::onCommonSetup);
+        net.minecraftforge.common.MinecraftForge.EVENT_BUS.addListener(net.minecraftforge.eventbus.api.EventPriority.HIGHEST, DoppelgangerPatch::onLivingHurt);
     }
 
     private static void onAttributes(EntityAttributeCreationEvent event) {

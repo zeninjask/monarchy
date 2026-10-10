@@ -8,6 +8,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingTickEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import yesman.epicfight.api.animation.Animator;
 import yesman.epicfight.api.animation.AnimationManager.AnimationAccessor;
 import yesman.epicfight.api.animation.types.StaticAnimation;
@@ -24,6 +25,17 @@ import yesman.epicfight.world.damagesource.EpicFightDamageSource;
 public class DoppelgangerPatch extends HumanoidMobPatch<DoppelgangerEntity> {
     /** Without an Epic Fight lock-on, the double goes after whatever the owner hit in the last 5 s. */
     private static final int RECENT_HIT_TICKS = 100;
+    /** The double deals this share of what its owner's same hit would. */
+    static final float DAMAGE_SHARE = 0.5F;
+    /** True while a hit of the double's is being dealt (it runs through the owner's attack). */
+    private static final ThreadLocal<Boolean> DOUBLE_HIT = ThreadLocal.withInitial(() -> Boolean.FALSE);
+
+    /** Halves the damage of the double's hits (they are dealt as the owner's, so they would hit as hard). */
+    static void onLivingHurt(LivingHurtEvent event) {
+        if (DOUBLE_HIT.get()) {
+            event.setAmount(event.getAmount() * DAMAGE_SHARE);
+        }
+    }
 
     public DoppelgangerPatch() {
         super(Factions.NEUTRAL);
@@ -88,6 +100,17 @@ public class DoppelgangerPatch extends HumanoidMobPatch<DoppelgangerEntity> {
             || !this.mayHit(target, owner)) {
             return AttackResult.missed(0.0F);
         }
-        return owner != null ? owner.attack(damageSource, target, hand) : super.attack(damageSource, target, hand);
+        if (owner == null) {
+            return super.attack(damageSource, target, hand);
+        }
+        // The double swings at the same moment as its owner, so the target is usually still in its hurt cooldown
+        // from the owner's own hit: clear it so the double's (half-strength) hit lands too.
+        target.invulnerableTime = 0;
+        DOUBLE_HIT.set(Boolean.TRUE);
+        try {
+            return owner.attack(damageSource, target, hand);
+        } finally {
+            DOUBLE_HIT.set(Boolean.FALSE);
+        }
     }
 }
