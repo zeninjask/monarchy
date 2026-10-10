@@ -9,7 +9,7 @@ import org.objectweb.asm.tree.*;
 /**
  * Rewrites a T.O Magic 'n Extras 5.5.0 jar, built for an older L_Ender's Cataclysm and Iron's Spells, so it
  * links against Cataclysm 3.31 and Iron's Spells 3.16, and registers Violent Skreech without Alex's Mobs. Usage (ASM 9 on the class path):
- *   java -cp asm.jar:asm-tree.jar:asm-commons.jar tools/PatchTravelOptics.java in.jar out.jar
+ *   java -cp asm.jar:asm-tree.jar:asm-commons.jar tools/PatchTravelOptics.java in.jar out.jar [tools/silence.ogg]
  */
 public class PatchTravelOptics {
     static final String C = "com/github/L_Ender/cataclysm/";
@@ -46,12 +46,23 @@ public class PatchTravelOptics {
             "skreecher_clap", "entity.warden.sonic_boom",
             "alexsmobs:skulk_boom", "minecraft:sonic_boom"));
 
+    // music for content the pack disables (the Nightwarden boss, the Eldritch Abyssamorph disc): 13 MB
+    // the pack does not need to ship, replaced by a short silent clip so the sound events stay valid
+    static final Set<String> SILENCED = Set.of(
+        "assets/traveloptics/sounds/nightwarden_boss/makai_symphony_dragon_slayer_full.ogg",
+        "assets/traveloptics/sounds/nightwarden_boss/nightwarden_main_loop.ogg",
+        "assets/traveloptics/sounds/eldritch_abyssamorph.ogg");
+
     public static void main(String[] args) throws IOException {
+        byte[] silence = Files.readAllBytes(Path.of(args.length > 2 ? args[2] : "tools/silence.ogg"));
         int changed = 0;
         try (ZipInputStream in = new ZipInputStream(new FileInputStream(args[0]));
              ZipOutputStream out = new ZipOutputStream(new FileOutputStream(args[1]))) {
             for (ZipEntry e; (e = in.getNextEntry()) != null; ) {
                 byte[] data = in.readAllBytes();
+                if (SILENCED.contains(e.getName())) {
+                    data = silence;
+                }
                 if (e.getName().endsWith(".class")) {
                     byte[] patched = patch(data);
                     if (patched != data) {

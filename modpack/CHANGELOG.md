@@ -149,6 +149,9 @@ client test:
   name starts with full-width brackets, which failed to open on the test system and can on Windows
   systems that do not use UTF-8.
 - Distant Horizons no longer posts mod-compatibility notes in chat on every join.
+- **Smaller packs** (34 MB to about 22 MB): the patched T.O Magic jar no longer carries 13 MB of music for
+  content the pack disables (the Nightwarden boss themes and the Eldritch Abyssamorph music disc); those
+  three tracks are a short silent clip (`mdvlcraft-binder/tools/silence.ogg`).
 
 - Remaining warnings come from mods themselves (client-only classes probed on the server, optional
   integrations for mods not installed, Medieval Origins powers for races that are not on offer) and do
