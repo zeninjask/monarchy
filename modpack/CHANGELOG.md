@@ -4,6 +4,13 @@
 
 Source changes only: the packs have not been built yet.
 
+### Curios slots
+
+- `docs/Curios-Slots.md` lists every Curios slot in the pack, which items go in each, and which are switched
+  off. Only Ring (2) and Necklace (1) are on: the Iron's Spells override in
+  `kubejs/data/irons_spellbooks/curios/entities/iss_entities.json` uses `"replace": true`, which removes every
+  other mod's player slots. Nothing is changed yet.
+
 ### True Herobrine
 
 - **True Herobrine 1.1** added (client and server). Herobrine appears now and then in the Overworld above
