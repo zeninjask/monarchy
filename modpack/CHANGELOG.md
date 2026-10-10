@@ -1,6 +1,9 @@
 # MDVLCraft changelog
 
-## Unreleased (Binder 0.7.8)
+## 1.9.16 (Binder 0.7.8)
+
+Packs built (`python3 modpack/build_mrpack.py 1.9.16`). Not yet tested in game: the pixel-art icons, Despair, the
+Origins fixes and the 75% render scale.
 
 ### Skill trees
 
