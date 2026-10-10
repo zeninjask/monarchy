@@ -1,5 +1,21 @@
 # MDVLCraft changelog
 
+## Unreleased (Binder 0.7.8)
+
+### Fixes
+
+- **Night vision from races really works now** (Shadow, and Dwarf's and Arachnae's toggles). The real cause:
+  Alex's Caves (installed only for T.O Magic 'n Extras) replaces the whole lightmap update with its own copy for
+  its "biome ambient light colouring", and that copy has no Origins night-vision hook. (It is meant to step aside
+  when Distant Horizons is installed, but does not.) Its ambient light and colouring are off
+  (`config/alexscaves-client.toml`); its cave biomes are switched off in this pack anyway. Tested on the test
+  server: as Shadow with no potion, the lightmap is now the same as with the Night Vision potion (before, the
+  power changed nothing). Turning BadOptimizations' lightmap caching off (1.9.16) stays: it would still delay
+  night-vision powers.
+- Shadow's *Behind You* tested: G teleports you behind the creature you look at, then the 10 s cooldown bar shows.
+- Simple Voice Chat's "Press **Not bound** to set up" hint (its key now opens from the menu) now reads "Open Voice
+  Chat from the MDVLCraft menu to set it up" (MDVLCraft-Astrologer-UI resource pack).
+
 ## 1.9.16 (Binder 0.7.8)
 
 Packs built (`python3 modpack/build_mrpack.py 1.9.16`). Not yet tested in game: the pixel-art icons, Despair, the

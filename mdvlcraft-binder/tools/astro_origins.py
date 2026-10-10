@@ -453,6 +453,7 @@ UI_PACK = PACK / 'client-overrides/resourcepacks/MDVLCraft-Astrologer-UI.zip'
 # other mods' text that must win over the mod's own lang file (the skill trees open from the MDVLCraft menu only)
 LANG = {
     'puffish_skills': {'chat.puffish_skills.new_point': 'You have a new skill point. Assign it from the Skills page of the MDVLCraft menu.'},
+    'voicechat': {'message.voicechat.set_up': 'Open Voice Chat from the MDVLCraft menu to set it up'},
 }
 
 
