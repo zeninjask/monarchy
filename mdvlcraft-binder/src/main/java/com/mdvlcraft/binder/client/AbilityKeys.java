@@ -35,7 +35,7 @@ public final class AbilityKeys {
     static void logConflicts(Minecraft minecraft) {
         for (KeyMapping mine : ALL) {
             Arrays.stream(minecraft.options.keyMappings)
-                .filter(other -> other != mine && other.same(mine))
+                .filter(other -> other != mine && other.same(mine) && !RemovedKeys.NAMES.contains(other.getName()))
                 .forEach(
                     other -> MDVLBinder.LOGGER
                         .warn("Key {} ({}) is also bound to {}", new Object[]{mine.getName(), mine.getKey().getName(), other.getName()})
