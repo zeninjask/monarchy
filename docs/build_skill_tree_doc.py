@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
-"""Build docs/MDVLCraft-Skill-Trees*.pdf from the Binder's skill-tree data, in four styles: classic,
-astrologer (matching the in-game skill screen), manuscript and fieldguide.
+"""Build docs/MDVLCraft-Skill-Trees.pdf from the Binder's skill-tree data.
 
 Every bonus, spell, technique and Epic Fight skill in each archetype tree, added up over the whole
 tree. Run from the repository root:  python3 docs/build_skill_tree_doc.py <pack version>
 Needs the pack's mod jars in mdvlcraft-binder/libs/modpack (for spell and skill names), and
 Chromium (or Chrome) to print the PDF.
 """
-import base64, collections, html, json, re, subprocess, sys, zipfile
+import collections, html, json, re, subprocess, sys, zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -168,41 +167,24 @@ def main():
 <div class=cols><table class=info><tr><th>Spells</th><td>{cell(t['spells'])}</td></tr><tr><th>Techniques</th><td>{cell(t['techniques'])}</td></tr><tr><th>Epic Fight skills</th><td>{cell(t['ef'])}</td></tr></table>
 <table class=bonus><tr><th>Bonus</th><th class=n>Total</th></tr>{bonus_rows}</table></div></section>""")
     chrome = next((c for c in CHROMES if Path(c).exists()), None)
-    for style, css in STYLES.items():
-        doc = render(style, css, rows, spokes, pages, heads)
-        stem = 'MDVLCraft-Skill-Trees' + ('' if style == 'classic' else f'-{style}')
-        out_html = ROOT / f'docs/{stem}.html'
-        out_html.write_text(doc)
-        if chrome is None:
-            print(f'no Chromium found; open docs/{stem}.html in a browser and print it to PDF')
-            continue
-        subprocess.run([chrome, '--headless', '--no-sandbox', '--disable-gpu', '--no-pdf-header-footer',
-                        '--print-to-pdf=' + str(ROOT / f'docs/{stem}.pdf'), out_html.as_uri()],
-                       check=True, capture_output=True)
-        print(f'wrote docs/{stem}.pdf')
+    out_html = ROOT / 'docs/MDVLCraft-Skill-Trees.html'
+    out_html.write_text(render(rows, spokes, pages, heads))
+    if chrome is None:
+        print('no Chromium found; open docs/MDVLCraft-Skill-Trees.html in a browser and print it to PDF')
+        return
+    subprocess.run([chrome, '--headless', '--no-sandbox', '--disable-gpu', '--no-pdf-header-footer',
+                    '--print-to-pdf=' + str(ROOT / 'docs/MDVLCraft-Skill-Trees.pdf'), out_html.as_uri()],
+                   check=True, capture_output=True)
+    print('wrote docs/MDVLCraft-Skill-Trees.pdf')
 
 
-def icon_uri(arch, style):
-    """The archetype's tab icon: the Astrologer's star icon for that style, the plain one otherwise."""
-    path = RES / 'assets/mdvlcraft/textures/gui' / ('astro/tab' if style == 'astrologer' else 'icons/tab') / f'{arch}.png'
-    if not path.exists():
-        return ''
-    return 'data:image/png;base64,' + base64.b64encode(path.read_bytes()).decode()
-
-
-def render(style, css, rows, spokes, pages, heads):
+def render(rows, spokes, pages, heads):
     e = html.escape
-    if style == 'astrologer':
-        def add_icon(m):
-            uri = icon_uri(m.group(1).lower(), style)
-            return f"<h2><img class=ico src='{uri}' alt=''>{m.group(1)}" if uri else m.group(0)
-        pages = [re.sub(r"<h2>(\w+)", add_icon, pg, count=1) for pg in pages]
     return f"""<!doctype html><html><head><meta charset=utf-8><title>MDVLCraft Skill Trees</title><style>
 @page {{ size: A4 landscape; margin: 12mm 14mm; }}
 table {{ border-collapse: collapse; }} .n {{ text-align: right; }} .page {{ page-break-before: always; }}
 .cols {{ display: flex; gap: 14px; align-items: flex-start; }} .info {{ width: 48%; }} .bonus {{ width: 40%; }}
-img.ico {{ width: 22px; height: 22px; image-rendering: pixelated; vertical-align: -5px; margin-right: 6px; }}
-{css}
+{CSS}
 </style></head><body>
 <h1>MDVLCraft skill trees</h1>
 <p>Version {e(VERSION)}. Every bonus, spell, technique and Epic Fight skill in each archetype tree, added up over the <b>whole</b> tree. Players pick 2 archetypes; each tree gives 1 point to start and 1 per level, with no level cap. Percentages add to the base; Max Health is in half-hearts. Spells and techniques go on the ability wheel; Epic Fight skills are equipped in the Combat Skills box of the abilities screen.</p>
@@ -219,9 +201,7 @@ img.ico {{ width: 22px; height: 22px; image-rendering: pixelated; vertical-align
 </body></html>"""
 
 
-STYLES = {
-    # the original look
-    'classic': """
+CSS = """
 body { font-family: 'DejaVu Sans', sans-serif; font-size: 8.5pt; color: #222; margin: 0; }
 h1 { font-size: 18pt; margin: 0 0 4px; } h2 { font-size: 12pt; margin: 0 0 4px; } h3 { font-size: 11pt; margin: 10px 0 4px; }
 p { margin: 0 0 6px; color: #444; } .page { padding-left: 10px; }
@@ -229,49 +209,7 @@ td, th { border: 1px solid #cfd3da; padding: 3px 5px; vertical-align: top; text-
 th { background: #eef0f4; font-weight: bold; }
 .tag { color: white; border-radius: 3px; padding: 0 4px; font-size: 7pt; font-weight: bold; }
 .overview td, .overview th { font-size: 7.5pt; } .info th { width: 70px; } .desc { font-size: 8pt; }
-""",
-    # night-blue star chart, matching the in-game skill screen
-    'astrologer': """
-html, body { background: #0a0e24; }
-body { font-family: 'Carlito', 'Liberation Sans', sans-serif; font-size: 9pt; color: #d6e0f5; margin: 0;
-  background-image: radial-gradient(#ffffff55 0.6px, transparent 0.8px), radial-gradient(#9fb8ff33 0.6px, transparent 0.8px);
-  background-size: 37px 41px, 23px 29px; background-position: 0 0, 11px 17px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-h1, h2, h3 { font-family: 'Caladea', 'Liberation Serif', serif; color: #f2e3b8; letter-spacing: 0.04em; font-weight: normal; }
-h1 { font-size: 22pt; margin: 0 0 4px; } h2 { font-size: 15pt; margin: 0 0 6px; } h3 { font-size: 12pt; margin: 12px 0 4px; }
-p { margin: 0 0 6px; color: #b9c6e4; } .page { padding: 4px 0 0 12px; }
-td, th { border: 1px solid #2a3560; padding: 3px 6px; vertical-align: top; text-align: left; }
-th { background: #141b3c; color: #f2e3b8; font-weight: normal; letter-spacing: 0.03em; }
-td { background: #0d1330cc; }
-.tag { color: #0a0e24; border-radius: 8px; padding: 0 6px; font-size: 7pt; font-weight: bold; }
-.overview td, .overview th { font-size: 7.5pt; } .info th { width: 80px; } .desc { font-size: 8.5pt; }
-""",
-    # parchment and rubric, like an illuminated manuscript
-    'manuscript': """
-html, body { background: #f1e6c8; }
-body { font-family: 'Bitstream Charter', 'Liberation Serif', serif; font-size: 9pt; color: #2b2116; margin: 0;
-  -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-h1, h2, h3 { font-family: 'Bitstream Charter', serif; color: #8a1c14; font-weight: bold; }
-h1 { font-size: 22pt; margin: 0 0 4px; border-bottom: 2px solid #b8902f; padding-bottom: 4px; }
-h2 { font-size: 15pt; margin: 0 0 6px; border-bottom: 1px solid #b8902f; } h3 { font-size: 12pt; margin: 12px 0 4px; }
-p { margin: 0 0 6px; } .desc::first-letter { font-size: 22pt; color: #8a1c14; float: left; line-height: 1; padding-right: 4px; font-weight: bold; }
-.page { padding: 2px 0 0 12px; border-left-width: 3px !important; }
-td, th { border: 1px solid #c9b17a; padding: 3px 6px; vertical-align: top; text-align: left; }
-th { background: #e6d5a8; color: #5a1610; } td { background: #f7eed6; }
-.tag { color: #fdf6e3; border-radius: 0; padding: 0 5px; font-size: 7pt; font-variant: small-caps; }
-.overview td, .overview th { font-size: 7.5pt; } .info th { width: 80px; font-variant: small-caps; } .desc { font-size: 9pt; }
-""",
-    # a clean, modern field guide with class colour bands
-    'fieldguide': """
-body { font-family: 'Inter', 'Liberation Sans', sans-serif; font-size: 8pt; color: #1d2330; margin: 0; }
-h1 { font-size: 20pt; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 4px; }
-h2 { font-size: 14pt; font-weight: 700; margin: 0 0 6px; } h3 { font-size: 10pt; text-transform: uppercase; letter-spacing: 0.08em; color: #5a6478; margin: 12px 0 4px; }
-p { margin: 0 0 6px; color: #4a5263; } .page { padding: 8px 0 0 14px; border-left-width: 10px !important; }
-td, th { border-bottom: 1px solid #e3e6ec; padding: 3px 6px; vertical-align: top; text-align: left; }
-th { font-weight: 600; color: #5a6478; font-size: 7pt; text-transform: uppercase; letter-spacing: 0.05em; }
-.tag { color: white; border-radius: 10px; padding: 1px 7px; font-size: 6.5pt; font-weight: 600; }
-.overview td, .overview th { font-size: 7.5pt; } .info th { width: 80px; } .desc { font-size: 8.5pt; color: #2b3240; }
-""",
-}
+"""
 
 
 if __name__ == '__main__':
