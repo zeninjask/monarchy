@@ -530,5 +530,9 @@
   "mdvlcraft:thief/astral_sense": {
     "spell": "traveloptics:astral_sense",
     "level": 1
+  },
+  "mdvlcraft:monk/haste": {
+    "spell": "irons_spellbooks:haste",
+    "level": 2
   }
 }

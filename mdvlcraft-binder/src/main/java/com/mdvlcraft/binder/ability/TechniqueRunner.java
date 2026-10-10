@@ -96,6 +96,27 @@ final class TechniqueRunner {
             } else {
                 MagicData magic = MagicData.getPlayerMagicData(player);
                 int cost = cost(player, technique);
+                if (technique.custom()) {
+                    if (!player.isCreative() && magic.getMana() < cost) {
+                        player.connection
+                            .send(
+                                new ClientboundSetActionBarTextPacket(
+                                    Component.translatable("ui.irons_spellbooks.cast_error_mana", new Object[]{technique.displayName()})
+                                        .withStyle(ChatFormatting.RED)
+                                )
+                            );
+                        return false;
+                    }
+                    if (!MonkArts.cast(player, technique)) {
+                        return false;
+                    }
+                    if (!player.isCreative()) {
+                        magic.setMana(magic.getMana() - cost);
+                        PacketDistributor.sendToPlayer(player, new SyncManaPacket(magic));
+                    }
+                    TechniqueCooldowns.start(player, technique);
+                    return true;
+                }
                 if (!player.isCreative()) {
                     if (magic.getMana() < cost) {
                         player.connection
@@ -134,6 +155,7 @@ final class TechniqueRunner {
                 }
 
                 Runnable execute = () -> AbilitysProcedure.execute(player.level(), player.getX(), player.getY(), player.getZ(), player);
+                MonkArts.noteCast(player, technique);  // before the cast: Heavy Blow lands during it
                 if (technique.weaponFree()) {
                     WeaponFreeCasts.run(execute);
                 } else {

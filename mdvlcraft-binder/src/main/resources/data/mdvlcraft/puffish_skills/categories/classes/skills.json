@@ -11,13 +11,13 @@
     "definition": "knight"
   },
   "samurai": {
-    "x": -133,
-    "y": -133,
+    "x": -157,
+    "y": -102,
     "definition": "samurai"
   },
   "berzerker": {
-    "x": -29,
-    "y": -185,
+    "x": -102,
+    "y": -157,
     "definition": "berzerker"
   },
   "mage": {
@@ -107,5 +107,10 @@
     "x": 185,
     "y": -29,
     "definition": "water"
+  },
+  "monk": {
+    "definition": "monk",
+    "x": -29,
+    "y": -185
   }
 }

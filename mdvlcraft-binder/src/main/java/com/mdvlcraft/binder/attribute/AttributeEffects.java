@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import com.mdvlcraft.binder.combat.KatanaWeapons;
+import com.mdvlcraft.binder.monk.Fists;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.damagesource.DamageSource;
@@ -65,7 +66,11 @@ public final class AttributeEffects {
         LivingEntity target = event.getEntity();
         DamageSource source = event.getSource();
         if (source.getEntity() instanceof ServerPlayer attacker && isMelee(source, attacker)) {
-            event.setAmount(event.getAmount() * (float)(1.0 + meleeBonus(attacker, target)));
+            float amount = event.getAmount();
+            if (Fists.unarmed(attacker)) {
+                amount += (float)value(attacker, BinderAttributes.UNARMED_DAMAGE);
+            }
+            event.setAmount(amount * (float)(1.0 + meleeBonus(attacker, target)));
         }
         // Epic Fight turns arrow damage into its own damage source and applies its armour negation
         // after this event, when armour is taken off the damage
@@ -100,6 +105,8 @@ public final class AttributeEffects {
             bonus += value(attacker, BinderAttributes.DAGGER_DAMAGE);
         } else if (category == WeaponCategories.SWORD && attacker.getOffhandItem().isEmpty()) {
             bonus += value(attacker, BinderAttributes.RAPIER_DAMAGE);
+        } else if (Fists.fisted(attacker)) {
+            bonus += value(attacker, BinderAttributes.FIST_MASTERY);
         }
 
         Vec3 facing = Vec3.directionFromRotation(0.0F, target.getYRot());

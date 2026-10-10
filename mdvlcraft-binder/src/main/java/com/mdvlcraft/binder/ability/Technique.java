@@ -20,7 +20,16 @@ public enum Technique implements Ability {
     SILENT_APPRAISAL("silent_appraisal", 113, 20, 15, false, "mdvlcraft:textures/gui/icons/ability/silent_appraisal.png"),
     BLIND_INVESTMENT("blind_investment", 115, 15, 15, false, "mdvlcraft:textures/gui/icons/ability/blind_investment.png"),
     BIRD_STRIKE("bird_strike", 116, 20, 15, false, "mdvlcraft:textures/gui/icons/ability/bird_strike.png"),
-    CONTROLLED_COLLAPSE("controlled_collapse", 117, 40, 40, false, "mdvlcraft:textures/gui/icons/ability/controlled_collapse.png");
+    CONTROLLED_COLLAPSE("controlled_collapse", 117, 40, 40, false, "mdvlcraft:textures/gui/icons/ability/controlled_collapse.png"),
+    // Monk: Cursed Fate's melee arts, no weapon needed
+    HEAVY_BLOW("heavy_blow", 8, 15, 5, false, "mdvlcraft:textures/gui/icons/ability/heavy_blow.png"),
+    BARRAGE("barrage", 9, 20, 8, true, "mdvlcraft:textures/gui/icons/ability/barrage.png"),
+    UPPERCUT("uppercut", 10, 15, 9, false, "mdvlcraft:textures/gui/icons/ability/uppercut.png"),
+    FOLLOW_UP_PUNCH("follow_up_punch", 11, 20, 15, false, "mdvlcraft:textures/gui/icons/ability/follow_up_punch.png"),
+    LEAPING_CRUSH("leaping_crush", 63, 30, 12, false, "mdvlcraft:textures/gui/icons/ability/leaping_crush.png"),
+    // Monk: the Binder's own (abilityId -1, see MonkArts)
+    FOCUS("focus", -1, 30, 30, false, "mdvlcraft:textures/gui/icons/ability/focus.png"),
+    KNOCKOUT("knockout", -1, 25, 20, false, "mdvlcraft:textures/gui/icons/ability/knockout.png");
 
     private final ResourceLocation id;
     final int abilityId;
@@ -55,7 +64,12 @@ public enum Technique implements Ability {
     }
 
     boolean weaponFree() {
-        return this == BLITZ || this == SURPRISE_ATTACK;
+        return this == BLITZ || this == SURPRISE_ATTACK || this == LEAPING_CRUSH;
+    }
+
+    /** Run by the Binder itself rather than Cursed Fate. */
+    boolean custom() {
+        return this.abilityId < 0;
     }
 
     boolean projection() {

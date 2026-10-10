@@ -18,7 +18,7 @@ import net.puffish.skillsmod.api.SkillsAPI;
  */
 public final class Respec {
     /** The archetypes in skill-tree order (also the order the class names are keyed by). */
-    public static final List<String> ARCHETYPES = List.of("knight", "samurai", "berzerker", "holy", "flame", "lightning",
+    public static final List<String> ARCHETYPES = List.of("knight", "samurai", "berzerker", "monk", "holy", "flame", "lightning",
         "necromancy", "ice", "water", "assassin", "phantom", "scout", "thief", "wanderer", "stalker", "druid", "cursed");
 
     private Respec() {

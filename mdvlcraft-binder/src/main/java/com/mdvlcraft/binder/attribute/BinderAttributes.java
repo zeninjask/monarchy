@@ -29,6 +29,14 @@ public final class BinderAttributes {
     public static final RegistryObject<Attribute> TECHNIQUE_EFFICIENCY = fraction("technique_efficiency", 0.9);
     /** Share of the armour that arrows and bolts the player shoots ignore. */
     public static final RegistryObject<Attribute> ARROW_PENETRATION = fraction("arrow_penetration", 1.0);
+    /** Monk: extra damage on melee hits with an empty main hand, added before the percentage bonuses. */
+    public static final RegistryObject<Attribute> UNARMED_DAMAGE = ATTRIBUTES.register(
+        "unarmed_damage", () -> new RangedAttribute("attribute.mdvlcraft.unarmed_damage", 0.0, 0.0, 20.0).setSyncable(true)
+    );
+    /** Monk: share of extra damage on hits with an empty hand or a glove, and on the Monk's Cursed Fate melee arts. */
+    public static final RegistryObject<Attribute> FIST_MASTERY = fraction("fist_mastery", 5.0);
+    /** Monk: 1 or more lets Parry (Absolute Deflection), which every class has, be raised with an empty hand or a glove. */
+    public static final RegistryObject<Attribute> UNARMED_PARRY = fraction("unarmed_parry", 1.0);
     /** 1 or more: Poison and Hunger cannot be applied to the player. */
     public static final RegistryObject<Attribute> AFFLICTION_IMMUNITY = fraction("affliction_immunity", 1.0);
 

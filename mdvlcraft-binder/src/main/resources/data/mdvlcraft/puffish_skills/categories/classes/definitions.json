@@ -529,5 +529,28 @@
     },
     "size": 1.5,
     "cost": 1
+  },
+  "monk": {
+    "title": "Monk",
+    "description": "Unarmed martial arts: fists, gloves and ki. Key: Focus (Black Flash), Knockout, Parry: Absolute Deflection.",
+    "extra_description": "Opens the Knight tab. You can pick 2 archetypes in total.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/astro/archetype/24/monk.png"
+      }
+    },
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_warrior_goal_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_warrior_goal_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_warrior_goal_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_warrior_goal_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_warrior_goal_excluded.png"
+      }
+    },
+    "size": 1.5,
+    "cost": 1
   }
 }

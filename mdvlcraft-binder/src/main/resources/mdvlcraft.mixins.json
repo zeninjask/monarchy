@@ -61,7 +61,8 @@
     "OptionsAccessor",
     "KeyMappingAccessor",
     "epicfight.SkillBookScreenMixin",
-    "efcompat.ArmatureBinderMixin"
+    "efcompat.ArmatureBinderMixin",
+    "invincible.InputManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

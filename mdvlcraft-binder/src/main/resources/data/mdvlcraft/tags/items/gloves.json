@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    {"id": "epicfight:glove", "required": false},
+    {"id": "cataclysm:gauntlet_of_guard", "required": false},
+    {"id": "cataclysm:gauntlet_of_bulwark", "required": false},
+    {"id": "cataclysm:gauntlet_of_maelstrom", "required": false},
+    {"id": "cataclysm:sticky_gloves", "required": false},
+    {"id": "alexscaves:galena_gauntlet", "required": false},
+    {"id": "traveloptics:gauntlet_of_extinction", "required": false},
+    {"id": "traveloptics:gauntlet_of_extinction_level_one", "required": false},
+    {"id": "traveloptics:gauntlet_of_extinction_level_two", "required": false},
+    {"id": "traveloptics:gauntlet_of_extinction_level_three", "required": false}
+  ]
+}

@@ -1,5 +1,6 @@
 package com.mdvlcraft.binder.combat;
 
+import com.mdvlcraft.binder.ability.MonkArts;
 import com.mdvlcraft.binder.config.BinderConfig;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -23,7 +24,8 @@ public final class TechniqueScaling {
     @SubscribeEvent
     public static void onHurt(LivingHurtEvent event) {
         if (event.getSource().getEntity() instanceof ServerPlayer caster
-            && event.getSource().typeHolder().unwrapKey().map(key -> key.location().getNamespace().equals("cursedfate")).orElse(false)) {
+            && event.getSource().typeHolder().unwrapKey().map(key -> key.location().getNamespace().equals("cursedfate")).orElse(false)
+            && !MonkArts.artActive(caster)) {  // the Monk's arts scale with the Monk's punch instead
             event.setAmount(event.getAmount() * factor(caster, event));
         }
     }

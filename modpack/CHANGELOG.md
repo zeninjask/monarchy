@@ -2,6 +2,51 @@
 
 ## Unreleased (Binder 0.7.8)
 
+### New archetype: Monk (Warrior)
+
+The fourth Warrior archetype: unarmed martial arts. It sits on the Classes tab after Berzerker (the four Warrior
+archetypes are now spaced evenly along the Warrior arc). The tree has Berzerker's shape (383 nodes) with its own
+stats and arts (`mdvlcraft-binder/tools/monk_tree.py` builds it).
+
+- **Fists on par with weapons**: up to +7.1 **Unarmed Damage** (empty main hand; also any item that is not a
+  weapon, like a block or food, so picking something up does not cost the bonus; and Nightfall's Feral Claws) and
+  up to +90% **Fist Damage** (bare hands, claws and
+  gloves: Epic Fight's Glove, Cataclysm's gauntlets, Alex's Caves' Galena Gauntlet, T.O's Gauntlet of Extinction;
+  `#mdvlcraft:gloves`). Fully built, a bare-handed punch hits about as hard as a mastered weapon class (tested: 13.6
+  on a husk). Other stats: attack speed (+32.5%), movement speed (+23.5%), stun armour, a little less health and
+  armour than Berzerker.
+- **Arts** (ability wheel):
+  - **Heavy Blow**, **Barrage** (hold), **Uppercut**, **Follow Up Punch** and **Leaping Crush**: Cursed Fate's melee
+    arts, no weapon needed. Their own damage is tiny (built for Cursed Fate's mastery), so they hit as a multiple of
+    the Monk's own punch instead (Heavy Blow and Leaping Crush 2x, Uppercut and Follow Up Punch 1.5x, each Barrage
+    punch 0.35x), and grow with the tree. Tested: Heavy Blow 27.2, a Barrage about 18 in all.
+  - **Focus**: your next strike within 10 s (a punch, a kick or an art) is a guaranteed **Black Flash**: 2.5x
+    damage, a short stun, Cursed Fate's Black Flash sound and sparks. Tested: a 13.6 punch became 34.9.
+  - **Knockout**: a straight punch at the creature in reach: 1.5x damage and **Blackout** (T.O Magic 'n Extras: its
+    magic is suppressed) for 6 s. Tested: 19.7 damage and Blackout applied.
+  - **Haste** (Iron's, level 2).
+- **Empty-Hand Deflection**: every class has Parry (Absolute Deflection), Guard and Parrying, but only with a weapon;
+  this Monk node lets the equipped one be raised with bare hands, Feral Claws or a glove (`mdvlcraft:unarmed_parry`).
+  Tested with three hits from the front: a Monk guarding bare-handed or with claws took no damage (with Absolute
+  Deflection, Guard and Parrying alike); without the node the same guard took 8.75 damage, as unguarded.
+- **Epic Fight skills**: Shooting Style (kicks with an empty hand), Precise Roll, Inner Growth, Meditation, Mindset,
+  Heart Shield, Instant Heal II. Little overlap with the other Warriors (no Combat Mastery, Stamina Pillager,
+  Technician or Swordmaster).
+- Respec, the Status page and the class names know the Monk. Its 17 pair names are not chosen yet (see
+  `docs/Class-Combo-Names.md`, 137-153); until then the Status page shows e.g. *Monk / Holy*.
+
+### Feral Claws
+
+- Nightfall's **Feral Claws** (`efn:nf_claw`) are now very rare loot: 2% of jungle temple chests
+  (`minecraft:chests/jungle_temple`, which YUNG's Better Jungle Temples also uses for most of its chests) and 3% of
+  YUNG's jungle temple treasure chests. Added by a new loot modifier (`mdvlcraft:add_item`), so Epic Knights' and
+  YUNG's own loot stay. Tested: 7 claws in 400 vanilla-table rolls, 8 in 400 treasure rolls.
+- For a Monk they count as bare hands (unarmed damage and fist damage) and can raise the unarmed guard and parry.
+  Their own combo moveset used to take right click as combo input, which kept any guard from being raised while
+  holding them; for a Monk the Guard key now goes to the guard (`mixin/invincible/InputManagerMixin`). They are a
+  netherite-tier weapon (9 attack damage), so a fully built Monk hits about twice as hard with them as bare-handed
+  (tested: 27 per hit against 13.6).
+
 ### Docs
 
 - `docs/Archetype-Ideas.md`: what the installed mods offer that no tree uses yet (72 spells, about 25 Epic Fight

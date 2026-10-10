@@ -1,0 +1,6 @@
+{
+  "replace": false,
+  "values": [
+    {"id": "efn:nf_claw", "required": false}
+  ]
+}

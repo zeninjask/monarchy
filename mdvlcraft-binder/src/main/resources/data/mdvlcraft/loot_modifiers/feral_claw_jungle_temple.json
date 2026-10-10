@@ -1,0 +1,11 @@
+{
+  "type": "mdvlcraft:add_item",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/jungle_temple"
+    }
+  ],
+  "item": "efn:nf_claw",
+  "chance": 0.02
+}

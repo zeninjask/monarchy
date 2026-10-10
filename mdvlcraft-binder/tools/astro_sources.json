@@ -59,6 +59,12 @@
    "texture": "mdvlcraft:textures/gui/icons/class/mage.png"
   }
  },
+ "archetype/monk": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/archetype/monk.png"
+  }
+ },
  "archetype/necromancy": {
   "type": "texture",
   "data": {
@@ -335,6 +341,12 @@
    "texture": "mdvlcraft:textures/gui/icons/attribute/mdvlcraft_dodge_efficiency.png"
   }
  },
+ "bonus/mdvlcraft_fist_mastery": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/mdvlcraft_fist_mastery.png"
+  }
+ },
  "bonus/mdvlcraft_greatsword_damage": {
   "type": "texture",
   "data": {
@@ -387,6 +399,18 @@
   "type": "texture",
   "data": {
    "texture": "mdvlcraft:textures/gui/icons/attribute/mdvlcraft_technique_efficiency.png"
+  }
+ },
+ "bonus/mdvlcraft_unarmed_damage": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/attribute/mdvlcraft_unarmed_damage.png"
+  }
+ },
+ "bonus/mdvlcraft_unarmed_parry": {
+  "type": "texture",
+  "data": {
+   "texture": "efn:textures/gui/skills/guard/efn_parry.png"
   }
  },
  "bonus/minecraft_generic_armor": {
@@ -659,6 +683,12 @@
    "texture": "minecraft:textures/mob_effect/strength.png"
   }
  },
+ "skill/dodge_parry_reward_heal2": {
+  "type": "texture",
+  "data": {
+   "texture": "minecraft:textures/mob_effect/regeneration.png"
+  }
+ },
  "skill/efn_parry_master": {
   "type": "texture",
   "data": {
@@ -905,6 +935,18 @@
    "texture": "wom:textures/gui/skills/dodge/ender_step.png"
   }
  },
+ "skill/wom_heart_shield": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/passive/heart_shield.png"
+  }
+ },
+ "skill/wom_inner_growth": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/passive/inner_growth.png"
+  }
+ },
  "skill/wom_lethal_focus": {
   "type": "texture",
   "data": {
@@ -915,6 +957,18 @@
   "type": "texture",
   "data": {
    "texture": "wom:textures/gui/skills/passive/manipulator.png"
+  }
+ },
+ "skill/wom_meditation": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/passive/meditation.png"
+  }
+ },
+ "skill/wom_mindset": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/passive/mindset.png"
   }
  },
  "skill/wom_natural_sprinter": {
@@ -929,6 +983,12 @@
    "texture": "wom:textures/gui/skills/passive/pain_anticipation.png"
   }
  },
+ "skill/wom_precise_roll": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/dodge/precise_roll.png"
+  }
+ },
  "skill/wom_punishment_kick": {
   "type": "texture",
   "data": {
@@ -939,6 +999,12 @@
   "type": "texture",
   "data": {
    "texture": "wom:textures/gui/skills/dodge/shadow_step.png"
+  }
+ },
+ "skill/wom_shooting_style": {
+  "type": "texture",
+  "data": {
+   "texture": "wom:textures/gui/skills/identity/shooting_style.png"
   }
  },
  "skill/wom_soul_protection": {
@@ -1631,6 +1697,12 @@
    "texture": "minecraft:textures/mob_effect/saturation.png"
   }
  },
+ "technique/mdvlcraft_barrage": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/ability/barrage.png"
+  }
+ },
  "technique/mdvlcraft_bird_strike": {
   "type": "texture",
   "data": {
@@ -1685,16 +1757,46 @@
    "texture": "mdvlcraft:textures/gui/icons/ability/doppelganger.png"
   }
  },
+ "technique/mdvlcraft_focus": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/ability/focus.png"
+  }
+ },
  "technique/mdvlcraft_follow_up_kick": {
   "type": "item",
   "data": {
    "item": "minecraft:leather_boots"
   }
  },
+ "technique/mdvlcraft_follow_up_punch": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/ability/follow_up_punch.png"
+  }
+ },
  "technique/mdvlcraft_gravity_stomp": {
   "type": "texture",
   "data": {
    "texture": "efn:textures/gui/skills/efn_arts/stomp.png"
+  }
+ },
+ "technique/mdvlcraft_heavy_blow": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/ability/heavy_blow.png"
+  }
+ },
+ "technique/mdvlcraft_knockout": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/ability/knockout.png"
+  }
+ },
+ "technique/mdvlcraft_leaping_crush": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/ability/leaping_crush.png"
   }
  },
  "technique/mdvlcraft_malevolent_shrine": {
@@ -1743,6 +1845,12 @@
   "type": "item",
   "data": {
    "item": "minecraft:ender_eye"
+  }
+ },
+ "technique/mdvlcraft_uppercut": {
+  "type": "texture",
+  "data": {
+   "texture": "mdvlcraft:textures/gui/icons/ability/uppercut.png"
   }
  }
 }

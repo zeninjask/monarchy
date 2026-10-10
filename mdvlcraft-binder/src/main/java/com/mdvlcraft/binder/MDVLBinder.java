@@ -12,6 +12,8 @@ import com.mdvlcraft.binder.config.BinderConfig;
 import com.mdvlcraft.binder.content.DisabledContentSetup;
 import com.mdvlcraft.binder.content.OriginIcon;
 import com.mdvlcraft.binder.doppelganger.DoppelgangerSetup;
+import com.mdvlcraft.binder.monk.UnarmedParry;
+import com.mdvlcraft.binder.content.AddItemModifier;
 import com.mdvlcraft.binder.epicskill.EpicSkillReward;
 import com.mdvlcraft.binder.integration.CataclysmIntegration;
 import com.mdvlcraft.binder.integration.EpicFightIntegration;
@@ -42,6 +44,8 @@ public final class MDVLBinder {
         BinderAttributes.register(modBus);
         BinderEffects.register(modBus);
         DoppelgangerSetup.register(modBus);
+        UnarmedParry.register(modBus);
+        AddItemModifier.register(modBus);
         modBus.addListener(MDVLBinder::onCommonSetup);
         if (FMLEnvironment.dist == Dist.CLIENT) {
             ClientContentSetup.register(modBus);

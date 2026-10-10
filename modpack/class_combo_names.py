@@ -1,6 +1,6 @@
 """Three candidate class names for every pair of archetypes (any two of the 17 can be picked together).
 The chosen names go into the Binder's Status screen ("Class: <name>")."""
-ARCHETYPES = ['knight', 'samurai', 'berzerker', 'holy', 'flame', 'lightning', 'necromancy', 'ice', 'water', 'assassin',
+ARCHETYPES = ['knight', 'samurai', 'berzerker', 'monk', 'holy', 'flame', 'lightning', 'necromancy', 'ice', 'water', 'assassin',
               'phantom', 'scout', 'thief', 'wanderer', 'stalker', 'druid', 'cursed']
 NAMES = {
     ('knight', 'samurai'): ['Warlord', 'Blademaster', 'Shogun'],
@@ -139,6 +139,24 @@ NAMES = {
     ('stalker', 'druid'): ['Wild Hunter', 'Thorn Archer', 'Sylvan Archer'],
     ('stalker', 'cursed'): ['Hexbow', 'Doom Hunter', 'Cursed Marksman'],
     ('druid', 'cursed'): ['Witch', 'Dark Druid', 'Blighted Shaman'],
+    # Monk (added after the first 136 were picked)
+    ('knight', 'monk'): ['Iron Monk', 'Temple Guardian', 'Bastion Fist'],
+    ('samurai', 'monk'): ['Warrior Monk', 'Zen Blade', 'Ronin Monk'],
+    ('berzerker', 'monk'): ['Brawler', 'Pit Fighter', 'Rage Fist'],
+    ('monk', 'holy'): ['Warrior Priest', 'Ascetic', 'Sun Fist'],
+    ('monk', 'flame'): ['Fire Fist', 'Ember Monk', 'Phoenix Palm'],
+    ('monk', 'lightning'): ['Thunder Fist', 'Storm Monk', 'Raijin Palm'],
+    ('monk', 'necromancy'): ['Death Fist', 'Grave Monk', 'Soul Breaker'],
+    ('monk', 'ice'): ['Frost Fist', 'Glacial Monk', 'Winter Palm'],
+    ('monk', 'water'): ['Flowing Fist', 'Tide Monk', 'River Palm'],
+    ('monk', 'assassin'): ['Silent Fist', 'Shadow Monk', 'Pressure Point'],
+    ('monk', 'phantom'): ['Drunken Master', 'Ghost Fist', 'Mist Walker'],
+    ('monk', 'scout'): ['Swift Fist', 'Wind Palm', 'Courier Monk'],
+    ('monk', 'thief'): ['Street Fighter', 'Sly Fist', 'Cutpurse Monk'],
+    ('monk', 'wanderer'): ['Wandering Monk', 'Vagabond Fist', 'Road Monk'],
+    ('monk', 'stalker'): ['Tiger Fist', 'Hunter Monk', 'Hawk Palm'],
+    ('monk', 'druid'): ['Crane Style', 'Grove Monk', 'Beast Fist'],
+    ('monk', 'cursed'): ['Black Flash', 'Cursed Fist', 'Hex Fist'],
 }
 
 if __name__ == '__main__':
@@ -170,11 +188,15 @@ PICKS = {
 }
 
 
+# Monk pairs, picked separately: {(first, second): 1-3 or a custom name}. Pairs not here show "<first> / <second>".
+MONK_PICKS = {}
+
+
 def chosen():
     """{(first, second): name} for every pair that has been picked."""
-    out = {}
+    out = {pair: pick if isinstance(pick, str) else NAMES[pair][pick - 1] for pair, pick in MONK_PICKS.items()}
     for first, picks in PICKS.items():
-        pairs = [p for p in NAMES if p[0] == first]
+        pairs = [p for p in NAMES if p[0] == first and 'monk' not in p]
         assert len(picks) == len(pairs), (first, len(picks), len(pairs))
         for pair, pick in zip(pairs, picks):
             out[pair] = pick if isinstance(pick, str) else NAMES[pair][pick - 1]
