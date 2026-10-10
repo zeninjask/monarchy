@@ -1,17 +1,19 @@
 # MDVLCraft changelog
 
-## Unreleased (Binder 0.7.8)
+## 1.9.17 (Binder 0.7.8)
+
+Packs built (`python3 modpack/build_mrpack.py 1.9.17`).
 
 ### Status screen: Class names
 
 - The Status page's **Archetype** row is now **Class**. With one archetype it shows that archetype (e.g. *Knight*);
   with two it shows the name chosen for the pair, e.g. Knight + Holy is **Crusader**, Samurai + Ice is **Kuraokami's
-  Blade**, Assassin + Phantom is **Reaper**. 123 of the 136 pairs have names. The rest (Phantom +, Wanderer +, and
-  the Thief + pairs) show both archetypes, e.g. *Phantom / Thief*, until they are chosen. The Level, Experience
-  and Next Level rows are unchanged (they follow your highest archetype).
+  Blade**, Necromancy + Assassin is **Soulblade**, Assassin + Phantom is **Reaper**. All 136 pairs have names. The
+  Level, Experience and Next Level rows are unchanged (they follow your highest archetype).
 - The names are in `docs/Class-Combo-Names.md` (with the three options for each pair), `modpack/class_combo_names.py`
   (`PICKS`) and the Binder's lang file (`screen.mdvlcraft.class.<first>.<second>`, archetypes in skill-tree order).
-- Tested: Knight + Holy shows *Class: Crusader*; Phantom + Thief shows *Class: Phantom / Thief*.
+- Tested: Knight + Holy shows *Class: Crusader*. (A pair without a name would show both archetypes, e.g.
+  *Phantom / Thief*; none are left.)
 
 ### Fixes
 

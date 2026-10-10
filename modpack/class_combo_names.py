@@ -150,7 +150,6 @@ if __name__ == '__main__':
     print(len(pairs), 'pairs; missing', missing, 'extra', extra, 'duplicate names', dupes)
 
 # The chosen names: per first archetype, one entry per pair in NAMES order (1-3 = option A-C, or a custom name).
-# Groups not chosen yet show "<first> / <second>" in game until they are filled in.
 PICKS = {
     'knight': [3, 2, 3, 1, 2, 1, 1, 2, 3, 3, 2, 1, 1, 3, 2, 3],
     'samurai': [1, 3, 3, 1, 1, "Kuraokami's Blade", 1, 1, 3, 1, 2, 1, 3, 1, 3],
@@ -158,11 +157,14 @@ PICKS = {
     'holy': [1, 2, 2, 3, 1, 2, 1, 2, 3, 3, 1, 2, 3],
     'flame': [3, 3, 3, 3, 1, 1, 2, 3, 3, 3, 3, 3],
     'lightning': [1, 3, 2, 2, 2, 3, 3, 1, 1, 2, 1],
-    'necromancy': [2, 2, 1, 1, 1, 1, 1, 2, 3, 3],
+    'necromancy': [2, 2, 'Soulblade', 1, 1, 1, 1, 2, 3, 3],
     'ice': [3, 2, 3, 1, 3, 3, 2, 1, 2],
     'water': [1, 2, 2, 2, 2, 2, 2, 1],
     'assassin': ['Reaper', 2, 1, 1, 2, 2, 2],
+    'phantom': [1, 2, 2, 2, 2, 2],
     'scout': [3, 2, 2, 3, 3],
+    'thief': [1, 1, 2, 1],
+    'wanderer': [3, 1, 3],
     'stalker': [3, 3],
     'druid': [2],
 }

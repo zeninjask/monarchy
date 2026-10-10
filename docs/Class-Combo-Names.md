@@ -1,8 +1,6 @@
 # Class names for archetype combinations
 
-On the Status screen, "Archetype" is now "Class". A player with one archetype shows that archetype's name (e.g. *Class: Knight*). A player with two shows the chosen name for the pair (e.g. *Class: Crusader* for Knight + Holy). A pair with no chosen name yet shows both archetypes (e.g. *Class: Phantom / Thief*). The chosen names live in `modpack/class_combo_names.py` (`PICKS`) and the Binder's `en_us.json` (`screen.mdvlcraft.class.<first>.<second>`).
-
-Still to choose: the Phantom + and Wanderer + pairs, and the Thief + pairs (four pairs, three picks given).
+On the Status screen, "Archetype" is now "Class". A player with one archetype shows that archetype's name (e.g. *Class: Knight*). A player with two shows the chosen name for the pair (e.g. *Class: Crusader* for Knight + Holy). The chosen names live in `modpack/class_combo_names.py` (`PICKS`) and the Binder's `en_us.json` (`screen.mdvlcraft.class.<first>.<second>`).
 
 ## Knight +
 
@@ -121,7 +119,7 @@ Still to choose: the Phantom + and Wanderer + pairs, and the Thief + pairs (four
 | ---: | --- | --- | --- | --- | --- |
 | 82 | Necromancy + Ice | Lich | Winter Revenant | Frost Necromancer | **Winter Revenant** |
 | 83 | Necromancy + Water | Drowned King | Abysscaller | Sea Wraith | **Abysscaller** |
-| 84 | Necromancy + Assassin | Reaper | Soulblade | Grim Shade | **Reaper** |
+| 84 | Necromancy + Assassin | Reaper | Soulblade | Grim Shade | **Soulblade** |
 | 85 | Necromancy + Phantom | Wraith | Specter | Banshee | **Wraith** |
 | 86 | Necromancy + Scout | Carrion Crow | Ghoul Rider | Death's Courier | **Carrion Crow** |
 | 87 | Necromancy + Thief | Grave Robber | Body Snatcher | Tomb Raider | **Grave Robber** |
@@ -173,12 +171,12 @@ Still to choose: the Phantom + and Wanderer + pairs, and the Thief + pairs (four
 
 | # | Combination | A | B | C | Chosen |
 | ---: | --- | --- | --- | --- | --- |
-| 116 | Phantom + Scout | Windwalker | Blinkrunner | Ghost Runner | *not chosen yet* |
-| 117 | Phantom + Thief | Phantom Thief | Trickster | Gentleman Thief | *not chosen yet* |
-| 118 | Phantom + Wanderer | Vagabond | Poltergeist | Ghost Walker | *not chosen yet* |
-| 119 | Phantom + Stalker | Ghost Archer | Phantom Hunter | Spectral Bow | *not chosen yet* |
-| 120 | Phantom + Druid | Fey Blade | Sylph | Spirit Druid | *not chosen yet* |
-| 121 | Phantom + Cursed | Doppelganger | Hollow | Cursed Specter | *not chosen yet* |
+| 116 | Phantom + Scout | Windwalker | Blinkrunner | Ghost Runner | **Windwalker** |
+| 117 | Phantom + Thief | Phantom Thief | Trickster | Gentleman Thief | **Trickster** |
+| 118 | Phantom + Wanderer | Vagabond | Poltergeist | Ghost Walker | **Poltergeist** |
+| 119 | Phantom + Stalker | Ghost Archer | Phantom Hunter | Spectral Bow | **Phantom Hunter** |
+| 120 | Phantom + Druid | Fey Blade | Sylph | Spirit Druid | **Sylph** |
+| 121 | Phantom + Cursed | Doppelganger | Hollow | Cursed Specter | **Hollow** |
 
 ## Scout +
 
@@ -194,18 +192,18 @@ Still to choose: the Phantom + and Wanderer + pairs, and the Thief + pairs (four
 
 | # | Combination | A | B | C | Chosen |
 | ---: | --- | --- | --- | --- | --- |
-| 127 | Thief + Wanderer | Swindler | Vagrant | Peddler | *not chosen yet* |
-| 128 | Thief + Stalker | Outlaw | Poacher | Bandit Archer | *not chosen yet* |
-| 129 | Thief + Druid | Fox | Magpie | Greenwood Outlaw | *not chosen yet* |
-| 130 | Thief + Cursed | Soul Thief | Jinx | Hex Thief | *not chosen yet* |
+| 127 | Thief + Wanderer | Swindler | Vagrant | Peddler | **Swindler** |
+| 128 | Thief + Stalker | Outlaw | Poacher | Bandit Archer | **Outlaw** |
+| 129 | Thief + Druid | Fox | Magpie | Greenwood Outlaw | **Magpie** |
+| 130 | Thief + Cursed | Soul Thief | Jinx | Hex Thief | **Soul Thief** |
 
 ## Wanderer +
 
 | # | Combination | A | B | C | Chosen |
 | ---: | --- | --- | --- | --- | --- |
-| 131 | Wanderer + Stalker | Frontiersman | Trapper | Woodsman | *not chosen yet* |
-| 132 | Wanderer + Druid | Hermit | Beastwalker | Hedge Druid | *not chosen yet* |
-| 133 | Wanderer + Cursed | Exile | Outcast | Cursed Pilgrim | *not chosen yet* |
+| 131 | Wanderer + Stalker | Frontiersman | Trapper | Woodsman | **Woodsman** |
+| 132 | Wanderer + Druid | Hermit | Beastwalker | Hedge Druid | **Hermit** |
+| 133 | Wanderer + Cursed | Exile | Outcast | Cursed Pilgrim | **Cursed Pilgrim** |
 
 ## Stalker +
 
