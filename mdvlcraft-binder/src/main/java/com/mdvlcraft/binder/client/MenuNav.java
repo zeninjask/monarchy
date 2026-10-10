@@ -15,7 +15,7 @@ import com.mdvlcraft.binder.MDVLBinder;
 public final class MenuNav {
     private static Screen pendingParent;
     private static Screen target;
-    private static Screen backTo;
+    private static AstroGui.Button back;
 
     private MenuNav() {
     }
@@ -27,6 +27,18 @@ public final class MenuNav {
                 Minecraft.getInstance().setScreen(s);
             }
         });
+    }
+
+    /** Opens a screen that was handed the menu as its parent and so already has its own Back to it (Xaero's settings). */
+    public static void openOwnBack(Supplier<Screen> screen) {
+        try {
+            Screen s = screen.get();
+            if (s != null) {
+                Minecraft.getInstance().setScreen(s);
+            }
+        } catch (RuntimeException e) {
+            MDVLBinder.LOGGER.warn("MDVLCraft menu could not open a screen", e);
+        }
     }
 
     /** Runs code that opens a screen itself (e.g. the skill trees); the screen it opens gets the Back button. */
@@ -71,21 +83,42 @@ public final class MenuNav {
         }
     }
 
-    /** Adds the Back button to a screen opened from the menu (also after a resize, which rebuilds its widgets). */
+    /**
+     * Places the Back button on a screen opened from the menu (also after a resize). It is drawn and clicked through
+     * Forge's screen events rather than added as a widget, because some screens (the skill trees) draw and handle
+     * clicks themselves and never reach their widgets.
+     */
     static void onScreenInit(ScreenEvent.Init.Post event) {
         Screen screen = event.getScreen();
         if (screen instanceof MenuScreen) {
             target = null;
-            backTo = null;
+            back = null;
         }
         if (pendingParent != null && !(screen instanceof MenuScreen) && !(screen instanceof CharacterScreen)) {
             target = screen;
-            backTo = pendingParent;
+            Screen parent = pendingParent;
+            back = new AstroGui.Button(0, 0, 64, 18, Component.translatable("screen.mdvlcraft.menu.back"),
+                () -> Minecraft.getInstance().setScreen(parent));
         }
-        if (screen == target && backTo != null) {
-            Screen parent = backTo;
-            event.addListener(new AstroGui.Button(6, screen.height - 24, 64, 18, Component.translatable("screen.mdvlcraft.menu.back"),
-                () -> Minecraft.getInstance().setScreen(parent)));
+        if (screen == target && back != null) {
+            back.setPosition(6, screen.height - 24);
+        }
+    }
+
+    static void onScreenRender(ScreenEvent.Render.Post event) {
+        if (event.getScreen() == target && back != null) {
+            event.getGuiGraphics().pose().pushPose();
+            event.getGuiGraphics().pose().translate(0.0F, 0.0F, 400.0F);
+            back.render(event.getGuiGraphics(), event.getMouseX(), event.getMouseY(), event.getPartialTick());
+            event.getGuiGraphics().pose().popPose();
+        }
+    }
+
+    static void onMouseClicked(ScreenEvent.MouseButtonPressed.Pre event) {
+        if (event.getScreen() == target && back != null && event.getButton() == 0 && back.isMouseOver(event.getMouseX(), event.getMouseY())) {
+            back.playDownSound(Minecraft.getInstance().getSoundManager());
+            back.onPress();
+            event.setCanceled(true);
         }
     }
 }

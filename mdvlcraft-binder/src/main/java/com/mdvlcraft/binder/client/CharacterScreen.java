@@ -18,6 +18,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.resources.language.I18n;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -222,7 +223,12 @@ public class CharacterScreen extends Screen {
     }
 
     private int row(GuiGraphics g, int x, int width, int y, Component label, String value) {
-        g.drawString(this.font, label, x + 4, y, LABEL, false);
+        int room = width - 4 - this.font.width(value) - 4;
+        String text = label.getString();
+        if (this.font.width(text) > room) {
+            text = this.font.plainSubstrByWidth(text, room - this.font.width(".")) + ".";
+        }
+        g.drawString(this.font, text, x + 4, y, LABEL, false);
         g.drawString(this.font, value, x + width - this.font.width(value), y, VALUE, false);
         return y + 11;
     }
@@ -232,7 +238,9 @@ public class CharacterScreen extends Screen {
         if (attribute == null || player.getAttribute(attribute) == null) {
             return y;
         }
-        return row(g, x, width, y, Component.translatable(attribute.getDescriptionId()), format.apply(player.getAttributeValue(attribute)));
+        String shortName = "screen.mdvlcraft.character.short." + ResourceLocation.parse(id).getPath();
+        Component label = I18n.exists(shortName) ? Component.translatable(shortName) : Component.translatable(attribute.getDescriptionId());
+        return row(g, x, width, y, label, format.apply(player.getAttributeValue(attribute)));
     }
 
     /** The highest-level archetype the player has picked (its tab is visible), if any. */

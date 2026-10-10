@@ -164,5 +164,8 @@
   "screen.mdvlcraft.menu.world_map_settings": "World Map Settings",
   "screen.mdvlcraft.menu.minimap_settings": "Minimap Settings",
   "screen.mdvlcraft.menu.back": "Back",
-  "screen.mdvlcraft.menu.close": "Close"
+  "screen.mdvlcraft.menu.close": "Close",
+  "screen.mdvlcraft.character.short.mana_regen": "Mana Regen",
+  "screen.mdvlcraft.character.short.generic.knockback_resistance": "Knockback Res.",
+  "screen.mdvlcraft.character.short.generic.movement_speed": "Speed"
 }

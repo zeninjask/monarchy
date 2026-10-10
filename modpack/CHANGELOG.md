@@ -8,9 +8,11 @@
   Astrologer look: **Status**, **Abilities**, **Skills** (Pufferfish skill trees), **Advancements**, **Origin**,
   **Brewing** (Ars Elixirum collection), **Recruits ›** (a page with **Claim Map** and **Faction**), **Voice Chat**
   and **Map ›** (a page with **World Map Settings** and **Minimap Settings**). Claim Map works in the Overworld only,
-  as before. A button greys out when its mod is missing.
-- Every page has a **Back** button, and so does every screen opened from the menu (bottom left; the Xaero settings
-  screens' own Done also returns to the menu). Esc still closes everything; pressing the menu key again closes it.
+  as before. A button greys out when its mod is missing. Tested in game: every button opens its screen and Back
+  returns to the menu page it came from.
+- Every page has a **Back** button, and so does every screen opened from the menu (bottom left). The Back is drawn
+  and clicked through Forge's screen events, so it also works on screens that draw themselves (the skill trees,
+  Better Advancements). The Xaero settings screens use their own Back, which returns to the menu. Esc still closes everything; pressing the menu key again closes it.
 - The keys these screens used to have are **removed from the game**, not just unbound: they are gone from the
   Controls list and from the key lookup, so the menu is the only way in. Removed: Advancements, Pufferfish
   *Open Skills*, Origins *View Origin*, Ars Elixirum *Collection*, Recruits *Faction screen* and *Map screen*,
@@ -34,6 +36,7 @@
   - **Defence / Dmg Negation**: armour and the share of a 10-damage hit stopped (Physical), Armor Toughness, and
     the share stopped of Projectile, Fire, Blast and Fall hits (armour and protection enchantments, using Apothic
     Attributes' formulas), Knockback Resistance, Dodge Chance.
+  - Labels too long for their row are shortened (Mana Regen, Knockback Res.) so they never run into the value.
   - Made by `client/CharacterScreen.java`; the astrolabe by `tools/astro_character.py`.
 - Apothic Attributes' attributes button next to the player in the inventory is off
   (`Enable Attributes GUI=false` in `config/attributeslib.cfg`).

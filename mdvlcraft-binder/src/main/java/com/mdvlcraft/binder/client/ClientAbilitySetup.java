@@ -23,6 +23,8 @@ public final class ClientAbilitySetup {
         MinecraftForge.EVENT_BUS.addListener(AbilityKeys::onClientTick);
         MinecraftForge.EVENT_BUS.addListener(RemovedKeys::onClientTick);
         MinecraftForge.EVENT_BUS.addListener(MenuNav::onScreenInit);
+        MinecraftForge.EVENT_BUS.addListener(MenuNav::onScreenRender);
+        MinecraftForge.EVENT_BUS.addListener(MenuNav::onMouseClicked);
         MinecraftForge.EVENT_BUS.addListener(ClientAbilitySetup::onLoggingOut);
         MinecraftForge.EVENT_BUS.addListener(SlateGui::onTooltipColour);
         MinecraftForge.EVENT_BUS.addListener(SpellPreviews::onClientTick);

@@ -74,10 +74,10 @@ public class MenuScreen extends Screen {
                     MenuNav.exists("com.talhanation.recruits.client.gui.faction.FactionMainScreen")));
             }
             case MAP -> {
-                doors.add(new Door("world_map_settings", () -> MenuNav.open(this,
+                doors.add(new Door("world_map_settings", () -> MenuNav.openOwnBack(
                     MenuNav.makeWithParent("xaero.map.gui.GuiWorldMapSettings", this)),
                     MenuNav.exists("xaero.map.gui.GuiWorldMapSettings")));
-                doors.add(new Door("minimap_settings", () -> MenuNav.open(this,
+                doors.add(new Door("minimap_settings", () -> MenuNav.openOwnBack(
                     MenuNav.makeWithParent("xaero.common.gui.GuiMinimapMain", this)),
                     MenuNav.exists("xaero.common.gui.GuiMinimapMain")));
             }
@@ -97,6 +97,9 @@ public class MenuScreen extends Screen {
         for (int i = 0; i < doors.size(); i++) {
             Door door = doors.get(i);
             int x = this.panelX + 20 + (i % columns) * (BUTTON_W + 10);
+            if (columns > 1 && i == doors.size() - 1 && i % columns == 0) {
+                x = this.panelX + (this.panelW - BUTTON_W) / 2;  // a lone last button sits in the middle
+            }
             int y = this.panelY + 40 + (i / columns) * (BUTTON_H + 6);
             String more = door.key().equals("recruits") || door.key().equals("map") ? "  ›" : "";
             AstroGui.Button button = new AstroGui.Button(x, y, BUTTON_W, BUTTON_H,
