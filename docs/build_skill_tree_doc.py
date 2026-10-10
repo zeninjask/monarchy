@@ -2,7 +2,7 @@
 """Build docs/MDVLCraft-Skill-Trees.pdf from the Binder's skill-tree data.
 
 Every bonus, spell, technique and Epic Fight skill in each archetype tree, added up over the whole
-tree. Run from the repository root:  python3 docs/build_skill_tree_doc.py <pack version>
+tree, one page per class. Run from the repository root:  python3 docs/build_skill_tree_doc.py <pack version>
 Needs the pack's mod jars in mdvlcraft-binder/libs/modpack (for spell and skill names), and
 Chromium (or Chrome) to print the PDF.
 """
@@ -127,48 +127,54 @@ def class_rewards():
     return extra
 
 
+CORE = ['Max Mana', 'Mana Regen', 'Max Health', 'Natural Regeneration', 'Armor', 'Cooldown Reduction',
+        'Movement Speed', 'Attack Damage', 'Max Stamina', 'Stamina Regen']
+HEADS = ['Max<br>Mana', 'Mana<br>Regen', 'Max<br>Health', 'Health<br>Regen', 'Armor', 'Cooldown<br>Red.',
+         'Move<br>Speed', 'Attack<br>Dmg', 'Max<br>Stamina', 'Stamina<br>Regen']
+
+
 def main():
     data = {a: tree(a) for c in CLASSES.values() for a in c[2]}
-    extra = class_rewards()
-    for a, skills in extra.items():
+    for a, skills in class_rewards().items():
         data[a]['ef'] += skills
-    def val(a, name):
-        for n, text, _, _ in data[a]['bonuses']:
-            if n == name:
-                return text
-        return '–'
-    cols = ['Max Mana', 'Mana Regen', 'Max Health', 'Natural Regeneration', 'Armor', 'Cooldown Reduction', 'Movement Speed', 'Attack Damage', 'Max Stamina', 'Stamina Regen']
-    heads = ['Max<br>Mana', 'Mana<br>Regen', 'Max<br>Health', 'Health<br>Regen', 'Armor', 'Cooldown<br>Red.', 'Move<br>Speed', 'Attack<br>Dmg', 'Max<br>Stamina', 'Stamina<br>Regen']
     e = html.escape
-    rows = []
+
+    def tag(cid):
+        name, colour, _ = CLASSES[cid]
+        return f"<span class=tag style='background:{colour}'>{name}</span>"
+
+    def lst(items):
+        return e(', '.join(items)) if items else '–'
+
+    # bonuses every archetype of a class has at the same total are listed once, above the class's sheet
+    shared = {cid: set.intersection(*[{(b[0], b[1]) for b in data[a]['bonuses']} for a in archs])
+              for cid, (_, _, archs) in CLASSES.items()}
+    rows, pages = [], []
     for cid, (cname, colour, archs) in CLASSES.items():
         for a in archs:
             t = data[a]
-            rows.append(f"<tr><td><b>{a.title()}</b></td><td><span class=tag style='background:{colour}'>{cname}</span></td><td class=n>{t['skills']}</td><td class=n>{t['cost']}</td>"
-                        + ''.join(f"<td class=n>{val(a, c)}</td>" for c in cols)
-                        + f"<td class=n>{len(t['spells'])}</td><td class=n>{len(t['techniques'])}</td><td class=n>{len(t['ef'])}</td></tr>")
-    # class spokes: bonuses every archetype of a class shares at the same total, that not every archetype has
-    every = set.intersection(*[{b[0] for b in data[a]['bonuses']} for a in data])
-    spokes = []
-    for cid, (cname, colour, archs) in CLASSES.items():
-        common = set.intersection(*[{(b[0], b[1]) for b in data[a]['bonuses']} for a in archs])
-        items = sorted(f'{n} {v}' for n, v in common if n not in every)
-        spokes.append(f"<tr><td><span class=tag style='background:{colour}'>{cname}</span></td><td>{e(', '.join(items)) or '–'}</td></tr>")
-    pages = []
-    for cid, (cname, colour, archs) in CLASSES.items():
-        for a in archs:
-            t = data[a]
-            def cell(items):
-                return e(', '.join(items)) if items else '–'
-            bonus_rows = ''.join(f"<tr><td>{e(n)}</td><td class=n>{e(v)}</td></tr>" for n, v, _, _ in t['bonuses'])
-            pages.append(f"""<section class=page style='border-left:6px solid {colour}'>
-<h2>{a.title()} <span class=tag style='background:{colour}'>{cname}</span></h2>
-<p class=desc>{e(DESCRIPTIONS[a])}<br>{t['skills']} skills, {t['cost']} points to unlock everything.</p>
-<div class=cols><table class=info><tr><th>Spells</th><td>{cell(t['spells'])}</td></tr><tr><th>Techniques</th><td>{cell(t['techniques'])}</td></tr><tr><th>Epic Fight skills</th><td>{cell(t['ef'])}</td></tr></table>
-<table class=bonus><tr><th>Bonus</th><th class=n>Total</th></tr>{bonus_rows}</table></div></section>""")
+            t['abilities'] = t['spells'] + t['techniques']
+            t['core'] = {n: v for n, v, _, _ in t['bonuses'] if n in CORE}
+            t['own'] = [(n, v) for n, v, _, _ in t['bonuses'] if (n, v) not in shared[cid] and n not in CORE]
+            rows.append(f"<tr><td><b>{a.title()}</b></td><td>{tag(cid)}</td><td class=n>{t['skills']}</td><td class=n>{t['cost']}</td>"
+                        + ''.join(f"<td class=n>{t['core'].get(c, '–')}</td>" for c in CORE)
+                        + f"<td class=n>{len(t['abilities'])}</td><td class=n>{len(t['ef'])}</td></tr>")
+        common = sorted(f'{n} {v}' for n, v in shared[cid] if n not in CORE)
+        head = ''.join(f"<th>{a.title()}<br><span class=meta>{data[a]['skills']} skills · {data[a]['cost']} pts</span></th>" for a in archs)
+
+        def row(label, fn):
+            return f"<tr><th class=rh>{label}</th>{''.join(f'<td>{fn(a, data[a])}</td>' for a in archs)}</tr>"
+        pages.append(f"""<section class=page><h2>{tag(cid)} {cname}</h2>
+<p class=shared>Every {cname} archetype: {e(', '.join(common)) or '–'}</p>
+<table class=sheet><tr><th></th>{head}</tr>
+{row('Role', lambda a, t: e(DESCRIPTIONS[a].split('. ')[0].rstrip('.') + '.'))}
+{row('Abilities', lambda a, t: lst(t['abilities']))}
+{row('Epic Fight', lambda a, t: lst(t['ef']))}
+{row('Bonuses', lambda a, t: '<br>'.join(e(f'{n} {v}') for n, v in t['own']) or '–')}
+</table></section>""")
     chrome = next((c for c in CHROMES if Path(c).exists()), None)
     out_html = ROOT / 'docs/MDVLCraft-Skill-Trees.html'
-    out_html.write_text(render(rows, spokes, pages, heads))
+    out_html.write_text(render(rows, pages))
     if chrome is None:
         print('no Chromium found; open docs/MDVLCraft-Skill-Trees.html in a browser and print it to PDF')
         return
@@ -178,25 +184,20 @@ def main():
     print('wrote docs/MDVLCraft-Skill-Trees.pdf')
 
 
-def render(rows, spokes, pages, heads):
+def render(rows, pages):
     e = html.escape
     return f"""<!doctype html><html><head><meta charset=utf-8><title>MDVLCraft Skill Trees</title><style>
-@page {{ size: A4 landscape; margin: 12mm 14mm; }}
+@page {{ size: A4 landscape; margin: 10mm 12mm; }}
 table {{ border-collapse: collapse; }} .n {{ text-align: right; }} .page {{ page-break-before: always; }}
-.cols {{ display: flex; gap: 14px; align-items: flex-start; }} .info {{ width: 48%; }} .bonus {{ width: 40%; }}
 {CSS}
 </style></head><body>
 <h1>MDVLCraft skill trees</h1>
-<p>Version {e(VERSION)}. Every bonus, spell, technique and Epic Fight skill in each archetype tree, added up over the <b>whole</b> tree. Players pick 2 archetypes; each tree gives 1 point to start and 1 per level, with no level cap. Percentages add to the base; Max Health is in half-hearts. Spells and techniques go on the ability wheel; Epic Fight skills are equipped in the Combat Skills box of the abilities screen.</p>
-<h3>Overview</h3>
-<table class=overview><tr><th>Archetype</th><th>Class</th><th>Skills</th><th>Cost</th>{''.join(f'<th>{h}</th>' for h in heads)}<th>Spells</th><th>Techn.</th><th>EF<br>skills</th></tr>{''.join(rows)}</table>
-<section class=page><h3>Class bonuses</h3>
-<p>Every archetype of a class has all of its class's bonuses below (whole-tree totals). Every archetype also has the core bonuses (health, speed, mana and so on); both are included in each archetype's totals.</p>
-<table><tr><th>Class</th><th>Shared by every archetype of the class</th></tr>{''.join(spokes)}</table>
-<h3>Everyone</h3>
-<p>Every player knows Guard, Parrying, Parry – Absolute Deflection and the souls-like dodge and step (in place of Roll and Step), and starts with the souls-like dodge equipped. Assassin, Phantom, Scout and Thief also teach Precise Parry when picked in the Classes tab. Epic Fight skills never need another skill learned first.</p>
-<p>On first joining, players also pick a race (Origins: Human, Feline, Merling, Arachnae, Dwarf, Wood Elf, Hobgoblin, Siren, Half-Ogre, Sharkfolk, Kirin, Saurusfolk, Ratfolk, Shadow or Sporeling, all at normal player size) and a class (Origins: Classes). Races and classes are separate from the archetype trees.</p>
-</section>
+<p>Version {e(VERSION)}. Totals for the <b>whole</b> tree. Pick 2 archetypes; each tree gives 1 point to start and 1 per level, with no level cap.
+Percentages add to the base; Max Health is in half-hearts. Abilities (spells and techniques) go on the ability wheel; Epic Fight skills go in the
+Combat Skills box of the abilities screen. Core stats are in this table only; bonuses shared by a whole class are listed once, at the top of its page.</p>
+<table class=overview><tr><th>Archetype</th><th>Class</th><th>Skills</th><th>Cost</th>{''.join(f'<th>{h}</th>' for h in HEADS)}<th>Abilities</th><th>EF<br>skills</th></tr>{''.join(rows)}</table>
+<p class=foot>Everyone knows Guard, Parrying, Parry – Absolute Deflection and the souls-like dodge and step; Assassin, Phantom, Scout and Thief also get
+Precise Parry. Players also pick a race and a class (Origins) on first joining; these are separate from the archetype trees.</p>
 {''.join(pages)}
 </body></html>"""
 
@@ -208,7 +209,9 @@ p { margin: 0 0 6px; color: #444; } .page { padding-left: 10px; }
 td, th { border: 1px solid #cfd3da; padding: 3px 5px; vertical-align: top; text-align: left; }
 th { background: #eef0f4; font-weight: bold; }
 .tag { color: white; border-radius: 3px; padding: 0 4px; font-size: 7pt; font-weight: bold; }
-.overview td, .overview th { font-size: 7.5pt; } .info th { width: 70px; } .desc { font-size: 8pt; }
+.overview td, .overview th { font-size: 7.5pt; } .meta { font-size: 7pt; color: #777; font-weight: normal; }
+p.shared { margin: 0 0 6px; } p.foot { margin-top: 8px; } .page { padding-left: 0; }
+table.sheet { width: 100%; table-layout: fixed; } table.sheet th.rh { width: 64px; } table.sheet td { font-size: 7.4pt; }
 """
 
 

@@ -7,11 +7,10 @@ chunks and reloads cleanly; the client was tested on the test server (Herobrine,
 
 ### Skill tree document
 
-- Four new layouts to choose from, in the same style as `docs/MDVLCraft-Skill-Trees.pdf` (19 pages), in
-  `docs/layouts/` (made by `docs/build_skill_tree_layouts.py`): **A** one page per class with its archetypes side
-  by side (5 pages), **B** two archetypes per page (10), **C** one ability table plus a bonus matrix per class
-  (4), **D** four archetype cards per page (6). Summaries are one line, class-wide bonuses are listed once per
-  class and the core stats only in the overview.
+- New layout for `docs/MDVLCraft-Skill-Trees.pdf` (layout A of the four offered), same style: the overview
+  table, then one page per class with its archetypes side by side (5 pages instead of 19). Spells and
+  techniques are listed together as Abilities; summaries are one line, class-wide bonuses are listed once at
+  the top of the class's page and the core stats only in the overview.
 - Negative bonuses showed as "+-60%" (Thief's Anvil Repair Cost); now "-60%".
 
 ### Mods added
