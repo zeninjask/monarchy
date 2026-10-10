@@ -1,9 +1,9 @@
 # Curios slots in MDVLCraft
 
-Players currently have only **2 Ring** slots and **1 Necklace** slot. All other slots are switched off by
+Players currently have **2 Ring** slots, **1 Necklace** slot and **1 Head** slot (Head turned on in 1.9.13). All other slots are switched off by
 `modpack/overrides/kubejs/data/irons_spellbooks/curios/entities/iss_entities.json` (carried over from the
 1.9.9 sources). Because it uses `"replace": true`, it replaces every other mod's list of player slots with just
-`ring` and `necklace`. This was checked in game on a test server: with the file removed, players get every slot
+`ring`, `necklace` and `head`. This was checked in game on a test server: with the file removed, players get every slot
 below.
 
 Mark each slot **keep off** or **turn on**. Turning a slot on gives every player that many slots of it.
@@ -17,7 +17,6 @@ Mark each slot **keep off** or **turn on**. Turning a slot on gives every player
 | Bracelet | 2 | T.O Magic | Azure Ignition Bracelet, Cryostorm Bracelet, Hydrocharge Bracelet, Nightstalker's Band |
 | Charm | 1 | T.O Magic | Bottled Raincloud and the ten Echoes (Aqua, Blood, Eldritch, Ender, Evocation, Fire, Holy, Ice, Lightning, Nature) |
 | Belt | 1 | T.O Magic | Elytra-Jetpack Component, Pocket Black Hole |
-| Head | 1 | L_Ender's Cataclysm | Aptrgangr Head, Draugr Head, Kobolediator Skull |
 | Hands | 2 | L_Ender's Cataclysm, Map Atlases | Blazing Grips, Chitin Claw, Sticky Gloves (Cataclysm); Atlas (Map Atlases: an atlas here works without holding it) |
 | Rings (Cataclysm) | 2 | L_Ender's Cataclysm | Ring of Grudged (a separate slot from the Iron's/T.O ring slot) |
 | Waist | 1 | L_Ender's Cataclysm | Belt of Beginner, Belt of Monstrosity |
@@ -29,6 +28,7 @@ Mark each slot **keep off** or **turn on**. Turning a slot on gives every player
 | Slot | Slots per player | Items that go in it |
 | --- | --- | --- |
 | Ring | 2 | Iron's Spells: Ring of Affinity, Signet of the Betrayer, Ring of Expediency, Ring of Recovery, Emerald Stoneplate Ring, Ring of Expulsion, Fireward Ring, Frostward Ring, Ring of Invisibility, Ring of the Lurker, Ring of Mana, Poisonward Ring, Silver Ring, Ring of Visibility, Wicked Bone Ring; T.O Magic: Aetherial Despair Ring, Firestorm Ring |
+| Head | 1 | Cataclysm: Aptrgangr Head, Draugr Head, Kobolediator Skull |
 | Necklace | 1 | Iron's Spells: Amethyst Resonance Charm, Amulet of Concentration, Conjurer's Talisman, Greater Conjurer's Talisman, Amulet of Warding, Heavy Chain, Amulet of Teleportation; T.O Magic: Amulet Of Spectral Shift, Energy Unbound Necklace, Sigil of the Spider Sorcerer; Cataclysm: Berserker Soul Amulet, Vitality Ankh |
 
 ## Not used by any item

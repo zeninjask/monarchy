@@ -29,6 +29,7 @@
     "naoyaaddon.ToggleProjectionStylePacketMixin",
     "epicfight.ColliderMixin",
     "wom.ReuseableEventsMixin",
+    "villagerecruits.CityPlanManagerMixin",
     "villagerecruits.VillageAutoBuilderMixin",
     "villagerecruits.VillageBuilderManagerMixin",
     "efn.EFNParryingSkillMixin",

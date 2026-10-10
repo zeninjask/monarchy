@@ -4,5 +4,5 @@
   "continueOnRestart": false,
   "forceLoadExistingChunks": false,
   "silent": false,
-  "updateInterval": 1
+  "updateInterval": 30
 }

@@ -4,10 +4,46 @@
 
 Source changes only: the packs have not been built yet.
 
+### Server log review (logs of 7–9 October)
+
+The live server was still on 1.9.9 (Binder 0.7.1) plus You Shall Not Spawn, Necronomicon and No Mob Farm
+added by hand. Every crash and watchdog shutdown in these logs (recruits swinging a Golem Heart, Tu Di Gong's
+structure search) was already fixed in 1.9.10; updating the server fixes them. One start failed because You
+Shall Not Spawn was present without Necronomicon, and several joins were refused because the player's client
+had a different Library of Exile version from the server (client and server packs out of step).
+
+Fixed:
+
+- **Nether log spam (470,000 warnings, "Empty height range: biased[...]").** WWOO changes the Overworld lava
+  springs to stop 194 blocks below the top of the world; in the Nether (128 blocks of terrain) that range is
+  empty, so every generated Nether chunk logged warnings, also from Distant Horizons' generator threads. The
+  springs now stop at Y 125, the same height as before in the Overworld (`kubejs/data/minecraft/worldgen/
+  placed_feature/spring_lava*.json`). Test: 441 new Nether chunks, 3,592 warnings before, none after.
+- **Villages re-planned every 5 seconds forever** (2,000 log lines an hour). When a planned plot overlaps a
+  village's tower, Village Recruits generates the whole city plan again, which can overlap again (and a built
+  plot always does), so it repeated endlessly, re-saving each time. Built plots no longer count and unbuilt
+  plots still overlapping after a re-plan are dropped, so a village is re-planned at most once (Binder
+  `CityPlanManagerMixin`).
+- **Mobs and containers in 13 structures spawning empty.** L_Ender's Cataclysm (Deepling, Deepling Brute,
+  Deepling Priest, Koboleton, Drowned Host with sword or trident, the occupied desert village, the desert site)
+  and Iron's Spells (four Catacombs rooms, the Pyromancer tower basement) save items in the format of newer
+  Minecraft versions, which 1.20.1 cannot read: the mobs lost their weapons and armour and item frames,
+  chests and spawners came out empty. The Binder ships converted copies (made with
+  `mdvlcraft-binder/tools/fix_structure_items.py`). Test: a Deepling now holds its coral spear and a Drowned
+  Host wears its chainmail (both empty-handed before).
+- **Chunky** reports progress every 30 seconds instead of every second (22,850 lines during pre-generation).
+- **Curios: Head slot** turned on for players (Ring 2, Necklace 1, Head 1).
+
+Left as they are (harmless or not fixable from the pack): item frames in YUNG's structures logging "Hanging
+entity at invalid position" while chunks generate, Lithostitched's empty template pool notice, Kill Cam
+re-writing its FOV setting on every start (a rounding bug in the mod), Village Recruits' debug output and its
+aircraft altitude notice, Streams Reflowing's terrain statistics, ModernFix skipping a mount event for
+Striders, and "moved too quickly" during lag.
+
 ### Curios slots
 
 - `docs/Curios-Slots.md` lists every Curios slot in the pack, which items go in each, and which are switched
-  off. Only Ring (2) and Necklace (1) are on: the Iron's Spells override in
+  off. Ring (2) and Necklace (1) were on (Head added below): the Iron's Spells override in
   `kubejs/data/irons_spellbooks/curios/entities/iss_entities.json` uses `"replace": true`, which removes every
   other mod's player slots. Nothing is changed yet.
 
