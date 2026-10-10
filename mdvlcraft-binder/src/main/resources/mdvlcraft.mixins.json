@@ -53,6 +53,7 @@
     "epicfight.AnimationEventMixin",
     "efn.EFNKeyMappingsMixin",
     "puffish.ConnectionBatchedRendererMixin",
+    "puffish.SkillsClientModAccessor",
     "epicfight.SkillBookScreenMixin",
     "efcompat.ArmatureBinderMixin"
   ],

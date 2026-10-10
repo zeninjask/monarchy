@@ -18,7 +18,8 @@ public final class AbilityKeys {
     public static final KeyMapping OPEN_ABILITIES = key("open_abilities", 91);
     public static final KeyMapping WHEEL = key("ability_wheel", 96);
     public static final KeyMapping CAST = key("cast_ability", 280);
-    private static final List<KeyMapping> ALL = List.of(OPEN_ABILITIES, WHEEL, CAST);
+    public static final KeyMapping CHARACTER = key("character", 90);
+    private static final List<KeyMapping> ALL = List.of(OPEN_ABILITIES, WHEEL, CAST, CHARACTER);
     private static boolean castDown;
 
     private AbilityKeys() {
@@ -52,6 +53,10 @@ public final class AbilityKeys {
 
             while (WHEEL.consumeClick()) {
                 minecraft.setScreen(new WheelScreen());
+            }
+
+            while (CHARACTER.consumeClick()) {
+                minecraft.setScreen(new CharacterScreen());
             }
 
             boolean tapped = false;

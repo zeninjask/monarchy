@@ -1,5 +1,24 @@
 # MDVLCraft changelog
 
+## Unreleased (Binder 0.7.6)
+
+### Character screen (not yet tested in game)
+
+- New **Character Status** screen (key Z, rebindable), laid out like Elden Ring's Status page in the skill trees'
+  Astrologer look (night sky, gold frame, a faint astrolabe):
+  - **Level / Archetype / Experience / Next Level In**: the highest-level picked archetype (by level, then
+    experience); "n/a" until an archetype is picked.
+  - **Attributes**: Attack Damage, Attack Speed, Crit Chance, Crit Damage, Life Steal, Spell Power, Cooldown
+    Reduction, Mana Regen, Movement Speed.
+  - **Base Stats**: HP, Mana and Stamina (current / max), Poise (Epic Fight stun armour), Luck.
+  - **Attack Power (DPS)**: every weapon on the hotbar, as attack damage x attack speed with that weapon in hand.
+  - **Defence / Dmg Negation**: armour and the share of a 10-damage hit stopped (Physical), Armor Toughness, and
+    the share stopped of Projectile, Fire, Blast and Fall hits (armour and protection enchantments, using Apothic
+    Attributes' formulas), Knockback Resistance, Dodge Chance.
+  - Made by `client/CharacterScreen.java`; the astrolabe by `tools/astro_character.py`.
+- Apothic Attributes' attributes button next to the player in the inventory is off
+  (`Enable Attributes GUI=false` in `config/attributeslib.cfg`).
+
 ## 1.9.14 (Binder 0.7.6)
 
 Packs built (`python3 modpack/build_mrpack.py 1.9.14`). A fresh install of the server pack boots, pre-generates chunks
