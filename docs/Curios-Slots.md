@@ -17,7 +17,7 @@ Mark each slot **keep off** or **turn on**. Turning a slot on gives every player
 | Bracelet | 2 | T.O Magic | Azure Ignition Bracelet, Cryostorm Bracelet, Hydrocharge Bracelet, Nightstalker's Band |
 | Charm | 1 | T.O Magic | Bottled Raincloud and the ten Echoes (Aqua, Blood, Eldritch, Ender, Evocation, Fire, Holy, Ice, Lightning, Nature) |
 | Belt | 1 | T.O Magic | Elytra-Jetpack Component, Pocket Black Hole |
-| Hands | 2 | L_Ender's Cataclysm, Map Atlases | Blazing Grips, Chitin Claw, Sticky Gloves (Cataclysm); Atlas (Map Atlases: an atlas here works without holding it) |
+| Hands | 2 | L_Ender's Cataclysm | Blazing Grips, Chitin Claw, Sticky Gloves |
 | Rings (Cataclysm) | 2 | L_Ender's Cataclysm | Ring of Grudged (a separate slot from the Iron's/T.O ring slot) |
 | Waist | 1 | L_Ender's Cataclysm | Belt of Beginner, Belt of Monstrosity |
 | Feet | 1 | L_Ender's Cataclysm | Sturdy Boots |

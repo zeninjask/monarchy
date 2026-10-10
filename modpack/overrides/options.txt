@@ -125,8 +125,8 @@ key_key.invincible.key2:key.mouse.right
 key_key.invincible.key3:key.keyboard.unknown
 key_key.invincible.key4:key.keyboard.unknown
 key_key.combat_evolution.execution:key.mouse.right
-key_gui.xaero_open_map:key.keyboard.m
-key_gui.xaero_open_settings:key.keyboard.right.bracket
+key_gui.xaero_open_map:key.keyboard.f
+key_gui.xaero_open_settings:key.keyboard.unknown
 key_gui.xaero_world_map_server_settings:key.keyboard.unknown
 key_gui.xaero_map_zoom_in:key.keyboard.unknown
 key_gui.xaero_map_zoom_out:key.keyboard.unknown
@@ -151,10 +151,6 @@ key_key.toggleSelectedItemTooltips:key.keyboard.unknown
 key_key.toggleCarriedItemTooltips:key.keyboard.unknown
 key_key.cycleLeft:key.keyboard.unknown
 key_key.cycleRight:key.keyboard.unknown
-key_key.map_atlases.open_minimap:key.keyboard.keypad.7
-key_key.map_atlases.zoom_out_minimap:key.keyboard.keypad.subtract
-key_key.map_atlases.zoom_in_minimap:key.keyboard.keypad.add
-key_key.map_atlases.place_pin:key.keyboard.end
 key_key.epicfight.show_tooltip:key.keyboard.left.shift
 key_key.epicfight.switch_mode:key.keyboard.y
 key_key.epicfight.dodge:key.keyboard.left.alt
@@ -190,9 +186,9 @@ key_gui.xaero_minimap_settings:key.keyboard.unknown
 key_gui.xaero_minimap_server_profiles:key.keyboard.unknown
 key_gui.xaero_zoom_in:key.keyboard.unknown
 key_gui.xaero_zoom_out:key.keyboard.unknown
-key_gui.xaero_new_waypoint:key.keyboard.comma
-key_gui.xaero_waypoints_key:key.keyboard.semicolon
-key_gui.xaero_enlarge_map:key.keyboard.z
+key_gui.xaero_new_waypoint:key.keyboard.unknown
+key_gui.xaero_waypoints_key:key.keyboard.unknown
+key_gui.xaero_enlarge_map:key.keyboard.unknown
 key_gui.xaero_toggle_map:key.keyboard.unknown
 key_gui.xaero_toggle_waypoints:key.keyboard.unknown
 key_gui.xaero_toggle_map_waypoints:key.keyboard.unknown
@@ -216,9 +212,9 @@ key_key.efn.summoned_sword:key.keyboard.unknown
 key_key.efn.zansetsu_input_switch:key.keyboard.unknown
 key_key.efn.angel:key.keyboard.unknown
 key_key.efn.demon:key.keyboard.unknown
-key_key.p1nero_ec.skill_1:key.keyboard.1
-key_key.p1nero_ec.skill_2:key.keyboard.2
-key_key.p1nero_ec.skill_3:key.keyboard.3
+key_key.p1nero_ec.skill_1:key.keyboard.unknown
+key_key.p1nero_ec.skill_2:key.keyboard.unknown
+key_key.p1nero_ec.skill_3:key.keyboard.unknown
 key_key.mdvlcraft.open_abilities:key.keyboard.world.2
 key_key.mdvlcraft.ability_wheel:key.keyboard.tab
 key_key.mdvlcraft.cast_ability:key.keyboard.r
@@ -255,10 +251,33 @@ key_key.shouldersurfing.swap_shoulder:key.keyboard.j
 key_key.backpacked.open_management:key.keyboard.unknown
 key_key.astikorcartsredux.action:key.keyboard.c
 key_key.astikorcartsredux.slow:key.keyboard.unknown
-key_siegemachines.machine_use:key.keyboard.f
+key_siegemachines.machine_use:key.mouse.right
 key_siegemachines.machine_inventory:key.keyboard.x
 key_Siege fire command key:key.keyboard.keypad.1
 key_Ram swing command key:key.keyboard.keypad.2
 key_Ram jump command key:key.keyboard.keypad.3
 key_Ladder dismount command key:key.keyboard.keypad.4
 key_Siege command screen:key.keyboard.keypad.5
+key_key.dynamic_fps.toggle_forced:key.keyboard.unknown
+key_key.dynamic_fps.toggle_disabled:key.keyboard.unknown
+key_key.shouldersurfing.adjust_camera_in:key.keyboard.up
+key_key.shouldersurfing.adjust_camera_out:key.keyboard.down
+key_key.shouldersurfing.adjust_camera_up:key.keyboard.page.up
+key_key.shouldersurfing.adjust_camera_down:key.keyboard.page.down
+key_key.shouldersurfing.toggle_first_person:key.keyboard.unknown
+key_key.shouldersurfing.toggle_third_person_front:key.keyboard.unknown
+key_key.shouldersurfing.toggle_third_person_back:key.keyboard.unknown
+key_key.shouldersurfing.toggle_camera_coupling:key.keyboard.unknown
+key_key.shouldersurfing.toggle_x_offset_presets:key.keyboard.unknown
+key_key.shouldersurfing.toggle_y_offset_presets:key.keyboard.unknown
+key_key.shouldersurfing.toggle_z_offset_presets:key.keyboard.unknown
+key_key.shouldersurfing.enter_first_person:key.keyboard.unknown
+key_key.shouldersurfing.enter_third_person_front:key.keyboard.unknown
+key_key.shouldersurfing.enter_third_person_back:key.keyboard.unknown
+key_key.shouldersurfing.enter_shoulder_surfing:key.keyboard.unknown
+key_placebo.toggleTrails:key.keyboard.keypad.9
+key_placebo.toggleWings:key.keyboard.keypad.8
+key_gui.xaero_toggle_tracked_players:key.keyboard.unknown
+key_key.backpack:key.keyboard.b
+key_siegemachines.ladder_climb:key.keyboard.space
+key_keybind.invmove.toggleMove:key.keyboard.unknown

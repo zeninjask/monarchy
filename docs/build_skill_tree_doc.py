@@ -184,6 +184,68 @@ def main():
     print('wrote docs/MDVLCraft-Skill-Trees.pdf')
 
 
+ORIGIN_JARS = ('origins-forge-', 'Medieval Origins Revival-', 'origins-plus-plus-', 'origins-classes-forge-')
+OVERRIDES = ROOT / 'modpack/overrides/kubejs/data'
+
+
+def origin_jars():
+    """The origin mods' jars the client pack actually ships (the cache may hold older versions too)."""
+    shipped = {Path(f['path']).name for f in json.load(open(ROOT / 'modpack/client.modrinth.index.json'))['files']}
+    return [zipfile.ZipFile(LIBS / n) for n in sorted(shipped) if n.startswith(ORIGIN_JARS) and (LIBS / n).exists()]
+
+
+def origin_data(jars, ns, kind, path):
+    """A datapack file as the pack sees it: the pack's own override first, else the mod's file."""
+    over = OVERRIDES / ns / kind / f'{path}.json'
+    if over.exists():
+        return json.loads(over.read_text())
+    for z in jars:
+        name = f'data/{ns}/{kind}/{path}.json'
+        if name in z.namelist():
+            return json.loads(z.read(name))
+    return None
+
+
+def text(value, key):
+    """An origin or power name/description: a literal, a translation key, a text component, or the lang key."""
+    if isinstance(value, dict):
+        value = value.get('text') or value.get('translate', '')
+    if isinstance(value, str) and value:
+        return clean(LANG.get(value, value))
+    return clean(LANG.get(key, ''))
+
+
+def origins_section():
+    jars = origin_jars()
+    def table(layer_ns, layer, title):
+        lay = origin_data(jars, layer_ns, 'origin_layers', layer)
+        rows = []
+        for oid in lay['origins']:
+            ns, path = oid.split(':')
+            d = origin_data(jars, ns, 'origins', path)
+            if not d:
+                continue
+            name = text(d.get('name'), f'origin.{ns}.{path}.name') or path.replace('_', ' ').title()
+            powers = []
+            for pid in d.get('powers', []):
+                pns, ppath = pid.split(':')
+                pd = origin_data(jars, pns, 'powers', ppath)
+                if not pd or pd.get('hidden'):
+                    continue
+                key = f'power.{pns}.{ppath}'
+                pname = text(pd.get('name'), key + '.name')
+                pdesc = text(pd.get('description'), key + '.description')
+                if pname:
+                    powers.append(f"<b>{html.escape(pname)}</b> {html.escape(pdesc)}")
+            rows.append((name, powers))
+        rows.sort(key=lambda r: r[0].lower())
+        body = ''.join(f"<tr><td class=oname><b>{html.escape(n)}</b></td><td>{'<br>'.join(ps) or '–'}</td></tr>" for n, ps in rows)
+        return f"<h3>{title}</h3><table class=origins><tr><th>{title.rstrip('s') if title != 'Classes' else 'Class'}</th><th>Powers</th></tr>{body}</table>"
+    return (f"<section class=page><h2>Origins</h2><p>Picked on first joining, separately from the archetype trees: one race and one class. "
+            f"Everyone is normal player size.</p>{table('origins', 'origin', 'Races')}</section>"
+            f"<section class=page>{table('origins-classes', 'class', 'Classes')}</section>")
+
+
 def render(rows, pages):
     e = html.escape
     return f"""<!doctype html><html><head><meta charset=utf-8><title>MDVLCraft Skill Trees</title><style>
@@ -199,6 +261,7 @@ Combat Skills box of the abilities screen. Core stats are in this table only; bo
 <p class=foot>Everyone knows Guard, Parrying, Parry – Absolute Deflection and the souls-like dodge and step; Assassin, Phantom, Scout and Thief also get
 Precise Parry. Players also pick a race and a class (Origins) on first joining; these are separate from the archetype trees.</p>
 {''.join(pages)}
+{origins_section()}
 </body></html>"""
 
 
@@ -212,6 +275,7 @@ th { background: #eef0f4; font-weight: bold; }
 .overview td, .overview th { font-size: 7.5pt; } .meta { font-size: 7pt; color: #777; font-weight: normal; }
 p.shared { margin: 0 0 6px; } p.foot { margin-top: 8px; } .page { padding-left: 0; }
 table.sheet { width: 100%; table-layout: fixed; } table.sheet th.rh { width: 64px; } table.sheet td { font-size: 7.4pt; }
+table.origins { width: 100%; } table.origins td { font-size: 7.2pt; } td.oname { width: 90px; }
 """
 
 

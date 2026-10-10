@@ -1,0 +1,10 @@
+{
+  "powers": [],
+  "icon": {
+    "item": "minecraft:ink_sac",
+    "tag": "{CustomModelData:369}"
+  },
+  "order": 1,
+  "impact": 2,
+  "loading_priority": 100
+}

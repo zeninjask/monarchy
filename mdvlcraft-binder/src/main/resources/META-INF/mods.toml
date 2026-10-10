@@ -4,7 +4,7 @@ license="All Rights Reserved"
 
 [[mods]]
 modId="mdvlcraft"
-version="0.7.4"
+version="${file.jarVersion}"
 displayName="MDVLCraft Binder"
 authors="MDVLCraft"
 description='''Glue mod for the MDVLCraft modpack: class and archetype skill trees, ability wheel, and control over Iron's Spells and Cursed Fate content.'''

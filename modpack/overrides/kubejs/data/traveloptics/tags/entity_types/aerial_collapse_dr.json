@@ -1,0 +1,81 @@
+{
+  "replace": true,
+  "values": [
+    {
+      "id": "minecraft:ender_dragon",
+      "required": false
+    },
+    {
+      "id": "minecraft:wither",
+      "required": false
+    },
+    {
+      "id": "cataclysm:ender_guardian",
+      "required": false
+    },
+    {
+      "id": "cataclysm:maledictus",
+      "required": false
+    },
+    {
+      "id": "cataclysm:the_leviathan",
+      "required": false
+    },
+    {
+      "id": "cataclysm:ignis",
+      "required": false
+    },
+    {
+      "id": "cataclysm:the_harbinger",
+      "required": false
+    },
+    {
+      "id": "cataclysm:netherite_monstrosity",
+      "required": false
+    },
+    {
+      "id": "cataclysm:ancient_remnant",
+      "required": false
+    },
+    {
+      "id": "cataclysm:ancient_ancient_remnant",
+      "required": false
+    },
+    {
+      "id": "alexscaves:luxtructosaurus",
+      "required": false
+    },
+    {
+      "id": "alexscaves:tremorzilla",
+      "required": false
+    },
+    {
+      "id": "iceandfire:ice_dragon",
+      "required": false
+    },
+    {
+      "id": "iceandfire:fire_dragon",
+      "required": false
+    },
+    {
+      "id": "iceandfire:lightning_dragon",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:void_worm",
+      "required": false
+    },
+    {
+      "id": "mowziesmobs:frostmaw",
+      "required": false
+    },
+    {
+      "id": "mowziesmobs:umvuthi",
+      "required": false
+    },
+    {
+      "id": "mowziesmobs:ferrous_wroughtnaut",
+      "required": false
+    }
+  ]
+}

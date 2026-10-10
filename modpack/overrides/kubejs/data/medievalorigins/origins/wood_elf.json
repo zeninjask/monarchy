@@ -2,7 +2,6 @@
   "loading_priority": 100,
   "powers": [
     "medievalorigins:wood_elf/archer",
-    "medievalorigins:wood_elf/empowered_shot",
     "medievalorigins:wood_elf/empowered_shot_apotheosis",
     "medievalorigins:wood_elf/eagle_eyed",
     "medievalorigins:wood_elf/steward",

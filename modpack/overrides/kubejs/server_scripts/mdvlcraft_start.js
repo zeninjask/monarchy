@@ -4,12 +4,6 @@ PlayerEvents.loggedIn(event => {
   const player = event.player
   const data = player.persistentData
 
-  // One Map Atlas per player, once. An atlas with no data gets Map Atlases' free empty maps when first carried.
-  if (!data.getBoolean('mdvlcraft_starting_atlas')) {
-    data.putBoolean('mdvlcraft_starting_atlas', true)
-    player.give('map_atlases:atlas')
-  }
-
   // A Book and Quill for notes, once.
   if (!data.getBoolean('mdvlcraft_starting_book')) {
     data.putBoolean('mdvlcraft_starting_book', true)

@@ -1796,6 +1796,10 @@
       [
         "damage_reflection_7",
         "footing_4"
+      ],
+      [
+        "stance",
+        "blink"
       ]
     ]
   }

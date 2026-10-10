@@ -19,6 +19,35 @@ def write(ns, kind, path, data):
     p.write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     written.append(p)
 
+def pack_mod_ids():
+    import re, zipfile
+    ids = set()
+    for jar in (Path(__file__).resolve().parent.parent / 'mdvlcraft-binder/libs/modpack').glob('*.jar'):
+        try:
+            toml = zipfile.ZipFile(jar).read('META-INF/mods.toml').decode('utf-8', 'replace')
+        except (KeyError, zipfile.BadZipFile):
+            continue
+        ids.update(re.findall(r'^\s*\[\[mods\]\][^\[]*?modId\s*=\s*"([^"]+)"', toml, re.M | re.S))
+    return ids
+
+PACK_MODS = pack_mod_ids()
+
+def condition_holds(c):
+    """Evaluate a power file's forge:conditions (mod_loaded / not / and / or) against the pack's mods."""
+    if isinstance(c, list):
+        return all(condition_holds(x) for x in c)
+    t = c.get('type')
+    if t == 'forge:mod_loaded': return c['modid'] in PACK_MODS
+    if t == 'forge:not': return not condition_holds(c['value'])
+    if t == 'forge:and': return all(condition_holds(x) for x in c['values'])
+    if t == 'forge:or': return any(condition_holds(x) for x in c['values'])
+    return True
+
+def power_loads(p):
+    ns, path = p.split(':')
+    hits = glob.glob(str(X / '*' / 'data' / ns / 'powers' / (path + '.json')))
+    return bool(hits) and condition_holds(json.load(open(hits[0])).get('forge:conditions', []))
+
 def origin(oid, remove=(), add=(), name=None, description=None, drop_upgrades=False):
     ns, path = oid.split(':')
     d = src(ns, 'origins', path)
@@ -28,7 +57,7 @@ def origin(oid, remove=(), add=(), name=None, description=None, drop_upgrades=Fa
     # drop powers from mods the pack does not have (each would log a warning)
     powers = [p for p in powers if p.split(':')[0] in ('origins', 'medievalorigins', 'origins-plus-plus', 'origins-classes', 'mdvlcraft')]
     # and powers that only exist with other mods (e.g. Wood Elf's Zenith archery power)
-    powers = [p for p in powers if p.startswith('mdvlcraft:') or glob.glob(str(X / '*' / 'data' / p.split(':')[0] / 'powers' / (p.split(':')[1] + '.json')))]
+    powers = [p for p in powers if p.startswith('mdvlcraft:') or power_loads(p)]
     d['powers'] = powers + list(add)
     d['loading_priority'] = PRIORITY
     if name: d['name'] = name
@@ -36,9 +65,20 @@ def origin(oid, remove=(), add=(), name=None, description=None, drop_upgrades=Fa
     if drop_upgrades: d.pop('upgrades', None)
     write(ns, 'origins', path, d)
 
+REACH = 'reach-entity-attributes:reach'  # not in this pack; Forge's own block reach does the same job
+
+def use_forge_reach(node):
+    """Swap the Reach Entity Attributes reach attribute (and its tooltip name) for Forge's block reach."""
+    if isinstance(node, dict):
+        return {k: ('forge:block_reach' if v == REACH else 'forge.block_reach' if v == 'attribute.name.generic.reach-entity-attributes.reach'
+                    else use_forge_reach(v)) for k, v in node.items()}
+    if isinstance(node, list):
+        return [use_forge_reach(v) for v in node]
+    return node
+
 def power(pid, data):
     ns, path = pid.split(':')
-    data = dict(data); data['loading_priority'] = PRIORITY
+    data = use_forge_reach(dict(data)); data['loading_priority'] = PRIORITY
     write(ns, 'powers', path, data)
 
 # ---------------------------------------------------------------- the race list
@@ -52,6 +92,16 @@ assert 'origins:human' in layer['origins']
 layer.update({'replace': True, 'origins': ALLOWED, 'loading_priority': PRIORITY})
 write('origins', 'origin_layers', 'origin', layer)
 write('medievalorigins', 'origin_layers', 'magic_subclasses', {'replace': True, 'enabled': False, 'origins': [], 'loading_priority': PRIORITY})
+
+# Medieval Origins races that are not on offer: no powers, so they do not log the powers they cannot load
+for f in sorted(glob.glob(str(X / '*' / 'data' / 'medievalorigins' / 'origins' / '*.json'))):
+    oid = 'medievalorigins:' + Path(f).stem
+    if oid not in ALLOWED:
+        d = json.load(open(f)); d.update({'powers': [], 'loading_priority': PRIORITY})
+        d.pop('upgrades', None)
+        write('medievalorigins', 'origins', Path(f).stem, d)
+
+power('medievalorigins:dwarf/mythril_resonance', src('medievalorigins', 'powers', 'dwarf/mythril_resonance'))
 
 # ---------------------------------------------------------------- Origins
 power('mdvlcraft:feline/soft_landing', {

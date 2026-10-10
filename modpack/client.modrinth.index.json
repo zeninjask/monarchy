@@ -2181,21 +2181,6 @@
       "fileSize": 156696
     },
     {
-      "path": "mods/map_atlases-1.20-6.0.20.jar",
-      "hashes": {
-        "sha1": "d20b4bde9d5c75eaa99c430aff78840ecb145fb1",
-        "sha512": "4a29ace459eae30d125714ccd9203740972f67641c9918e9a49b9d40fad53fd68c8822ee749a442019b16899947ba1b18154afa187ecd4e94f4ee365fa8cc5cb"
-      },
-      "env": {
-        "client": "required",
-        "server": "required"
-      },
-      "downloads": [
-        "https://cdn.modrinth.com/data/4hwXMFif/versions/Zcz2vXIl/map_atlases-1.20-6.0.20.jar"
-      ],
-      "fileSize": 746226
-    },
-    {
       "path": "mods/memoryleakfix-forge-1.17+-1.1.5.jar",
       "hashes": {
         "sha1": "9f60142dd94631800386a16a4ad70ad9e84cd78a",

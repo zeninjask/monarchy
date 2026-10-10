@@ -361,7 +361,7 @@ def main():
             defn = defs[placed['definition']]
             kind, name = subject(cat, node, defn)
             icon = defn['icon']
-            if kind == 'spell':  # draw spells from the spell's own icon, whatever the node showed
+            if kind == 'spell' and not (OUT_ICONS / kind / f'{name}.png').exists():  # draw new spells from the spell's own icon
                 ns, spell = name.split('_', 1) if name.startswith('traveloptics_') else ('irons_spellbooks', name[len('irons_spellbooks_'):])
                 icon = {'type': 'texture', 'data': {'texture': f'{ns}:textures/gui/spell_icons/{spell}.png'}}
             prev = subjects.get((kind, name))
@@ -374,7 +374,9 @@ def main():
     for (kind, name), icon in sorted(subjects.items()):
         out = OUT_ICONS / kind / f'{name}.png'
         out.parent.mkdir(parents=True, exist_ok=True)
-        star_icon(source_image(icon), kind, f'{kind}/{name}').save(out)
+        # already drawn on an earlier run: redrawing an astro icon from itself would change it, so keep it
+        if not (out.exists() and 'mdvlcraft:textures/gui/astro/' in json.dumps(icon)):
+            star_icon(source_image(icon), kind, f'{kind}/{name}').save(out)
         made[(kind, name)] = f'mdvlcraft:textures/gui/astro/{kind}/{name}.png'
     # point every node at its icon
     rows = []
@@ -424,8 +426,12 @@ def main():
         _, family, kind, state = f.stem.split('_')
         astrolabe(Image.open(f).width, kind, state, FAMILY_TINT[family]).save(f)
     sky_tile().save(skills_gui / 'astro_sky.png')
-    for chrome in ('window.png', 'tabs.png'):
-        restyle_chrome(skills_gui / chrome)
+    # the window and tab strip are recoloured in place, so only once (tools/.astro_chrome_done marks it)
+    marker = Path(__file__).with_name('.astro_chrome_done')
+    if not marker.exists():
+        for chrome in ('window.png', 'tabs.png'):
+            restyle_chrome(skills_gui / chrome)
+        marker.write_text('window.png and tabs.png already restyled\n')
     # report
     with open(REPORT / 'icons.csv', 'w', newline='') as fh:
         w = csv.writer(fh)

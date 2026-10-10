@@ -13159,5 +13159,36 @@
       }
     },
     "size": 2.0
+  },
+  "blink": {
+    "title": "Blink",
+    "description": "Unlocks Blink (Level 2) (4 mana, 3 s cooldown) on the ability wheel. Hold the Ponder key (W) here to preview it",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "mdvlcraft:textures/gui/astro/spell/traveloptics_blink.png"
+      }
+    },
+    "rewards": [
+      {
+        "type": "mdvlcraft:ability",
+        "data": {
+          "ability": "traveloptics:blink",
+          "level": 2
+        }
+      }
+    ],
+    "cost": 2,
+    "frame": {
+      "type": "texture",
+      "data": {
+        "locked": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_locked.png",
+        "available": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_available.png",
+        "affordable": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_affordable.png",
+        "unlocked": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_unlocked.png",
+        "excluded": "mdvlcraft:textures/gui/skills/frame_warrior_challenge_excluded.png"
+      }
+    },
+    "size": 2.0
   }
 }

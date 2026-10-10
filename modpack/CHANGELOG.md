@@ -1,5 +1,58 @@
 # MDVLCraft changelog
 
+## 1.9.14 (Binder 0.7.6)
+
+Source changes only: the packs have not been built yet.
+
+### Requested changes
+
+- **Races and classes are listed alphabetically** in the race and class pickers (Origins sorted them by impact,
+  then by each mod's own order). Binder `ChooseOriginScreenMixin`.
+- **No natural Village Recruits villages**, in both packs: the tower village no longer replaces vanilla villages
+  in new chunks (`kubejs/data/minecraft/worldgen/structure_set/villages.json`, Village Recruits' own "no natural
+  villages" set), and towers already generated in existing chunks no longer found a village
+  (`naturalVillagesEnabled = false` in `config/village_recruits/politics.toml`). Vanilla villages are unchanged.
+- **Shaders are off by default** (`enableShaders=false` in `config/oculus.properties`; MakeUp UltraFast stays
+  selected, so turning shaders on in the video settings uses it).
+- **Your key bindings are the default** in both client packs (from the options.txt you sent): ability wheel Tab,
+  abilities screen on the second extra key, siege machine use right mouse, Xaero world map F, Ares HUD F1, and so on.
+- **Map Atlases removed** (client and server), with its configs, its first-join atlas and its keys.
+- **Fantasy Armor wears out** (`enableDurability = true`).
+- **Recruits deal normal damage to players.** Village Recruits halved recruit damage to players (a quarter from
+  guns) and capped one hit at 25% of max health, and Recruits Epic Fight Compat halved it again; all of that is
+  off (`config/village_recruits/military.toml`, `defaultconfigs/recruits_epicfight_compat-server.toml`). An
+  existing world keeps its own copy of the second file in `world/serverconfig`, which has to be edited by hand.
+- **Samurai has Blink II again** (T.O Magic's Blink, linked from Stance where it was before), with an
+  Astrologer icon like every other spell.
+- **Skill tree document**: a new Origins part lists every race and class in the game, alphabetically, with
+  each one's powers.
+
+### Fixed (from the client log of 10 October)
+
+- 44 client-side config files the pack never shipped (Shoulder Surfing, Horseman, Origins, Alex's Caves, Farmer's
+  Delight, Moonlight, Falling Leaves, Dynamic FPS and others) are now in `client-overrides/config`, so the
+  first start no longer rewrites them with warnings. `vix-client.toml` was for a different VIX version and is
+  replaced by the one VIX 1.1.0 writes.
+- **Indestructible**: `replace_health_bar` is 0 (the setting that can crash with Epic Fight).
+- **Broken tags**: four T.O Magic entity tags named Cataclysm mobs that no longer exist, and five common tags from
+  the Sounds mod named 1.21 items; a tag with one missing entry fails completely (for example T.O's Spectral
+  Blink and Spectral Shift blacklists and the shared `c:foods` tag were empty). Replacements in `kubejs/data` keep
+  every entry but make each one optional.
+- **Medieval Siege Machines' advancements** all failed to load (icons and item checks in the 1.20.5 format);
+  1.20.1 copies are in `kubejs/data/siegemachines/advancements`.
+- **Origins**: Wood Elf listed an archery power that only loads without Apothic Attributes (the pack has it, so
+  the Apothic version is used); Dwarf's Mythril Resonance and Hobgoblin's Greedy used a reach attribute from a mod
+  that is not in the pack (now Forge's own block reach); the 13 Medieval Origins races that are not on offer
+  no longer list powers they cannot load. `origins_overrides.py` now evaluates the mods' load conditions.
+- The Binder reported itself as 0.7.4 whatever its version (`mods.toml` now takes the jar's version).
+- `tools/astro_theme.py` can be re-run safely: icons it already made and the restyled window are kept instead of
+  being redrawn from themselves.
+
+Left as they are (in the mods themselves): missing sounds and models in several mods, animations Epic Fight
+cannot read in two Epic Fight add-ons, recipes for items that do not exist (Cataclysm, Naoya's add-on), the
+original Medieval Origins files of the races that are not on offer, Distant Horizons' own "mapTest" setting, and
+mods probing for optional integrations.
+
 ## 1.9.13 (Binder 0.7.5)
 
 Packs built (`python3 modpack/build_mrpack.py 1.9.13`). A fresh install of the server pack boots, pre-generates

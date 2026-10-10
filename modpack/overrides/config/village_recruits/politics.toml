@@ -816,7 +816,7 @@
 	#option exists as well (it works on an already generated world,
 	#and can be toggled at any time).
 	#
-	naturalVillagesEnabled = true
+	naturalVillagesEnabled = false
 	#May a village founded at NIGHT come into existence without waiting
 	#for dawn? Default: true
 	#

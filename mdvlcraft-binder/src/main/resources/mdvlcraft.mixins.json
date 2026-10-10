@@ -40,6 +40,7 @@
     "wom.ShootingStyleSkillMixin"
   ],
   "client": [
+    "origins.ChooseOriginScreenMixin",
     "cursedfate.CursedfateModKeyMappingsMixin",
     "irons.KeyMappingsMixin",
     "WeaponTypeReloadListenerMixin",

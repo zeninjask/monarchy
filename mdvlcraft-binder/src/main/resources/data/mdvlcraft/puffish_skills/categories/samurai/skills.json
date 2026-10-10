@@ -2009,5 +2009,10 @@
     "x": -160,
     "y": -737,
     "definition": "parry_master"
+  },
+  "blink": {
+    "x": -320,
+    "y": 316,
+    "definition": "blink"
   }
 }

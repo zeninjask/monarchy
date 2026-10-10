@@ -1,0 +1,53 @@
+{
+  "replace": true,
+  "values": [
+    {
+      "id": "cataclysm:ignis",
+      "required": false
+    },
+    {
+      "id": "cataclysm:netherite_ministrosity",
+      "required": false
+    },
+    {
+      "id": "cataclysm:netherite_monstrosity",
+      "required": false
+    },
+    {
+      "id": "cataclysm:old_netherite_monstrosity",
+      "required": false
+    },
+    {
+      "id": "cataclysm:ignited_berserker",
+      "required": false
+    },
+    {
+      "id": "cataclysm:ignited_revenant",
+      "required": false
+    },
+    {
+      "id": "alexscaves:luxtructosaurus",
+      "required": false
+    },
+    {
+      "id": "irons_spellbooks:pyromancer",
+      "required": false
+    },
+    {
+      "id": "minecraft:blaze",
+      "required": false
+    },
+    {
+      "id": "minecraft:magma_cube",
+      "required": false
+    },
+    {
+      "id": "minecraft:strider",
+      "required": false
+    },
+    {
+      "id": "iceandfire:fire_dragon",
+      "required": false
+    }
+  ]
+}

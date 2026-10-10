@@ -1,0 +1,12 @@
+{
+  "allowMovement": {
+    "io.github.apace100.origins.screen.ChooseOriginScreen": true,
+    "io.github.apace100.origins.screen.WaitForNextLayerScreen": true,
+    "dev.obscuria.elixirum.client.screen.alchemy.pages.recent.RecentlyBrewedScreen": true,
+    "xaero.common.gui.GuiMinimapMain": true,
+    "net.minecraft.client.gui.screens.PauseScreen": true
+  },
+  "hideBackground": {
+    "dev.obscuria.elixirum.client.screen.alchemy.pages.recent.RecentlyBrewedScreen": true
+  }
+}

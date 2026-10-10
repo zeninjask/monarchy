@@ -295,19 +295,19 @@
 	#Reduce the damage that real players take from recruit NPCs. When
 	#disabled, players take full damage. Default: true
 	#
-	playerDamageReductionEnabled = true
+	playerDamageReductionEnabled = false
 	#Multiplier applied to damage dealt to a player by a recruit using a
 	#melee weapon, bow or crossbow. 0.5 = players take half damage.
 	#Default: 0.5
 	#
 	#Range: 0.0 ~ 1.0
-	playerDamageFromRecruitsMult = 0.5
+	playerDamageFromRecruitsMult = 1.0
 	#Multiplier applied to damage dealt to a player by a recruit wielding a
 	#gun/musket (MusketMod weapons). 0.25 = players take a quarter of the
 	#damage. Default: 0.25
 	#
 	#Range: 0.0 ~ 1.0
-	playerDamageFromGunRecruitsMult = 0.25
+	playerDamageFromGunRecruitsMult = 1.0
 	#Cap the damage a real player can take from a SINGLE recruit hit to a
 	#fraction of the player's MAX health, so recruits can't one-shot a
 	#player (works with mods that raise max HP: the cap scales with the
@@ -316,7 +316,7 @@
 	#elites — which hit players harder — produce noticeably more knockback.
 	#Default: true
 	#
-	playerDamageHpCapEnabled = true
+	playerDamageHpCapEnabled = false
 	#Maximum damage a single recruit hit may deal to a player, as a
 	#fraction of the player's MAX health. 0.25 = at most 25% of max HP per
 	#hit (5 damage at 20 HP, 10 damage at 40 HP). The excess is turned into

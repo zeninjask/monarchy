@@ -3,7 +3,7 @@
 [general]
 	#Damage multiplier for recruit attacks hitting players (e.g. 0.5 = 50% damage reduction)
 	#Range: 0.05 ~ 2.0
-	playerDamageMultiplier = 0.5
+	playerDamageMultiplier = 1.0
 	#Number of consecutive swings before a recruit enters fatigue state
 	#Range: 1 ~ 20
 	fatigueSwingThreshold = 4
