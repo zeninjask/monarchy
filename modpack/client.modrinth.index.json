@@ -3064,6 +3064,21 @@
         "https://cdn.modrinth.com/data/HVnmMxH1/versions/Bqen1mJX/ComplementaryReimagined_r5.9.3.zip"
       ],
       "fileSize": 553397
+    },
+    {
+      "path": "mods/TrueHerobrine_1.1+1.20.1.jar",
+      "hashes": {
+        "sha1": "b266adeb6fc50f7086abdf446555667fd444780f",
+        "sha512": "686540dbe151e9969517736e82a8f319591a9bbf5ebf8d97b83d421afce6f8a292f074001096fbb67b93ac58e9714264061562477fcf09069cf210c91378cdff"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/pY1lnc0y/versions/SQkr6joO/TrueHerobrine_1.1%2B1.20.1.jar"
+      ],
+      "fileSize": 1272845
     }
   ],
   "dependencies": {

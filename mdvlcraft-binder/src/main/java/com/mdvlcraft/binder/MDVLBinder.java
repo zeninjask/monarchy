@@ -4,6 +4,7 @@ import com.mdvlcraft.binder.ability.AbilityReward;
 import com.mdvlcraft.binder.attribute.BinderAttributes;
 import com.mdvlcraft.binder.client.ClientAbilitySetup;
 import com.mdvlcraft.binder.client.ClientContentSetup;
+import com.mdvlcraft.binder.client.HerobrineRender;
 import com.mdvlcraft.binder.combat.BinderEffects;
 import com.mdvlcraft.binder.compat.issponder.PreviewCasts;
 import com.mdvlcraft.binder.config.BinderConfig;
@@ -42,6 +43,7 @@ public final class MDVLBinder {
         if (FMLEnvironment.dist == Dist.CLIENT) {
             ClientContentSetup.register(modBus);
             ClientAbilitySetup.register(modBus);
+            HerobrineRender.register(modBus);
         }
 
         EpicFightIntegration.register(modBus, forgeBus);

@@ -1,5 +1,21 @@
 # MDVLCraft changelog
 
+## 1.9.13 (Binder 0.7.5)
+
+Source changes only: the packs have not been built yet.
+
+### True Herobrine
+
+- **True Herobrine 1.1** added (client and server). Herobrine appears now and then in the Overworld above
+  Y 60, watches from a distance and vanishes when a player comes within 25 blocks or after 2 minutes; he does
+  not break or place blocks. The mod's defaults are shipped in `config/True Herobrine.toml`.
+- Herobrine is drawn with the pack's own skin (`assets/mdvlcraft/textures/entity/herobrine.png`) on the full
+  wide-arm player model, so the jacket, sleeve and trouser layers show; the mod's own model only has the hat
+  layer. The mod's glowing eyes are kept and sit on the skin's eyes. Done by the Binder
+  (`client/HerobrineRender.java`), which loads after True Herobrine and replaces its renderer, so the mod's
+  jar is used unmodified. Tested on a dedicated server with a client: the skin, the outer layers and the
+  glowing eyes render correctly.
+
 ## 1.9.12 (Binder 0.7.4)
 
 Source changes only: the packs have not been built or tested in game yet.
