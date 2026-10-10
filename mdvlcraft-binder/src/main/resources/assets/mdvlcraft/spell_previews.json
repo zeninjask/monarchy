@@ -443,9 +443,9 @@
     "spell": "traveloptics:lava_bomb",
     "level": 2
   },
-  "mdvlcraft:ice/cursed_blast": {
-    "spell": "traveloptics:cursed_blast",
-    "level": 1
+  "mdvlcraft:ice/despair": {
+    "spell": "traveloptics:despair",
+    "level": 5
   },
   "mdvlcraft:ice/halberd_horizon": {
     "spell": "traveloptics:halberd_horizon",

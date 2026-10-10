@@ -1,5 +1,33 @@
 # MDVLCraft changelog
 
+## Unreleased (Binder 0.7.8)
+
+### Skill trees
+
+- **Ice**: Cursed Blast is replaced by **Despair** (T.O Magic 'n Extras, Level 5: an ice axe blade that pierces
+  everything in its path, recast up to 4 times; 54 mana, 13.5 s cooldown with the pack's T.O scaling of 0.6x mana
+  and 0.75x cooldown), same place and cost (3 points). Halberd Horizon stays.
+- **Water**: Cursed Blast and Halberd Horizon removed.
+- Despair has its own Astrologer icon (`tools/astro_theme.py`); Cursed Blast's icon and mana/cooldown config are
+  gone.
+
+### Races (Origins)
+
+- **Shadow**: *Behind You* (teleport behind the creature you look at) was on vanilla's *Save Hotbar Activator* key,
+  which is unbound, so it could never be used. It is now on the Origins primary key (**G**).
+- **Kirin**: *Climb* was switched on with the same unbound key (and Kirin's G and H are taken), so it never worked.
+  Kirin now climbs walls whenever they walk into them.
+- **No diet restrictions**: Arachnae, Sharkfolk, Kirin and Saurusfolk lose *Carnivore* (meat only), and the Wood Elf
+  loses *Steward*, which made them vegetarian. Their descriptions no longer mention it. No class has a diet
+  restriction.
+
+### Other
+
+- The new-skill-point chat message now says to assign it from the Skills page of the MDVLCraft menu (it named the
+  removed skill-tree key, which showed as unbound). Set in the MDVLCraft-Astrologer-UI resource pack.
+- **Client (Performance)** renders the 3D world at 75% resolution with smooth upscaling (RenderScale,
+  `config/renderscale.json5`); the HUD and menus stay sharp. The regular client stays at 100%.
+
 ## 1.9.15 (Binder 0.7.7)
 
 Packs built (`python3 modpack/build_mrpack.py 1.9.15`). The menu, every screen it opens and the Status screen were

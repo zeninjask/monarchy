@@ -128,12 +128,13 @@ origin('origins:merling', remove=['origins:water_breathing', 'origins:air_from_p
        description='These natural inhabitants of the ocean breathe water as easily as air.')
 
 # ---------------------------------------------------------------- Medieval Origins Revival
-origin('medievalorigins:arachnae', remove=['medievalorigins:arachnae/brittle'],
-       description='-§l Overview§r: \n§o§2+ Poison, Crowd Control\n+ Wall Climbing§r\n§o§6• Carnivore§r\n§o§c- Hunger, Health§r\nA grotesque amalgamation of spider and human, with venomous fangs and bristled feet yet the ability to walk upright and wield weaponry.')
+origin('medievalorigins:arachnae', remove=['medievalorigins:arachnae/brittle', 'origins:carnivore'],  # no diet restrictions in this pack
+       description='-§l Overview§r: \n§o§2+ Poison, Crowd Control\n+ Wall Climbing§r\n§o§c- Hunger, Health§r\nA grotesque amalgamation of spider and human, with venomous fangs and bristled feet yet the ability to walk upright and wield weaponry.')
 origin('medievalorigins:dwarf', remove=['medievalorigins:dwarf/darkness_dweller', 'medievalorigins:dwarf/potent_brew', 'medievalorigins:dwarf/miniature'],
        description='-§l Overview§r: \n§o§2+ Mining, Caving§r\n§o§c- Can\'t swim§r\n§lDwarves§r are practical, stocky, and prideful. They excel at mining and living underground. Rock and stone, brother.')
-origin('medievalorigins:wood_elf', remove=['medievalorigins:wood_elf/forest_vision', 'medievalorigins:wood_elf/elegant', 'medievalorigins:wood_elf/towering'],
-       description='-§l Overview§r: \n§o§2+ Ranged Bonuses, Speed§r\n§o§6• Vegetarian§r\n§o§c- Melee Damage§r\n§lWood Elves§r are a wise, long-lived race who live in harmony with the Earth. They are quick with a sword and bow.')
+origin('medievalorigins:wood_elf', remove=['medievalorigins:wood_elf/forest_vision', 'medievalorigins:wood_elf/elegant', 'medievalorigins:wood_elf/towering',
+                                          'medievalorigins:wood_elf/steward'],  # Steward made them vegetarian
+       description='-§l Overview§r: \n§o§2+ Ranged Bonuses, Speed§r\n§o§c- Melee Damage§r\n§lWood Elves§r are a wise, long-lived race who live in harmony with the Earth. They are quick with a sword and bow.')
 greedy = src('medievalorigins', 'powers', 'goblin/greedy')
 for key in ('golden_weapon_boosts', 'golden_weapon_boosts_offhand'):
     mods = [m for m in greedy[key]['modifiers'] if m['attribute'] != 'minecraft:generic.attack_damage']
@@ -156,17 +157,28 @@ origin('medievalorigins:ogre', remove=['medievalorigins:ogre/gargantuan', 'medie
        description='-§l Overview§r: \n§o§2+ Axe Bonuses, Health §r\n§o§c- Hunger §r\n§lHalf-Ogres§r carry the blood of the large, short-tempered and brutish Ogres. They are human-sized, but keep much of their raw strength and toughness.')
 
 # ---------------------------------------------------------------- Origins++
-origin('origins-plus-plus:land_shark', remove=['origins-plus-plus:land-shark/fins'], name='Sharkfolk',
+origin('origins-plus-plus:land_shark', remove=['origins-plus-plus:land-shark/fins', 'origins:carnivore'], name='Sharkfolk',
        description='A ferocious predator at home in both water and land.')
 exhaustion = src('origins-plus-plus', 'powers', 'kirin/exhaustion')
 exhaustion['exhaustion'] = exhaustion['exhaustion'] / 2
 exhaustion['description'] = 'You get hungry a little faster.'
 power('origins-plus-plus:kirin/exhaustion', exhaustion)
-origin('origins-plus-plus:kirin', remove=['origins-plus-plus:kirin/dislike_of_water', 'origins-plus-plus:kirin/cat_size'])
-origin('origins-plus-plus:raptus', remove=['origins-plus-plus:raptus/light_armor', 'origins-plus-plus:raptus/small'], name='Saurusfolk',
+# Climb was toggled with the vanilla "Save Hotbar Activator" key, which is unbound (and Kirin's two Origins keys are
+# taken by Jump Boost and Unrivaled Speed), so it could never be switched on: climb walls whenever you walk into them
+climb = src('origins-plus-plus', 'powers', 'kirin/climb')
+del climb['toggle']
+for key in ('hold_condition', 'condition'):
+    climb['climbing'][key]['conditions'] = [c for c in climb['climbing'][key]['conditions'] if c.get('type') != 'origins:power_active']
+power('origins-plus-plus:kirin/climb', climb)
+origin('origins-plus-plus:kirin', remove=['origins-plus-plus:kirin/dislike_of_water', 'origins-plus-plus:kirin/cat_size', 'origins:carnivore'])
+origin('origins-plus-plus:raptus', remove=['origins-plus-plus:raptus/light_armor', 'origins-plus-plus:raptus/small', 'origins:carnivore'], name='Saurusfolk',
        description='Descendants of the great raptors, these creatures can be found hunting in packs or resting.')
 origin('origins-plus-plus:rat', remove=['origins-plus-plus:rat/nocturnal_eyes', 'origins-plus-plus:rat/slow_swimmer', 'origins-plus-plus:rat/one_block_height'],
        name='Ratfolk', description='A quick critter of the night. You hunt and appear filthy to others.')
+# Behind You was on the vanilla "Save Hotbar Activator" key, which is unbound: use the Origins primary key (G)
+behind = src('origins-plus-plus', 'powers', 'shadow/behind_you')
+behind['key'] = {'key': 'key.origins.primary_active', 'continuous': False}
+power('origins-plus-plus:shadow/behind_you', behind)
 origin('origins-plus-plus:shadow', remove=['origins-plus-plus:shadow/cloud', 'origins-plus-plus:shadow/sun_weakness',
                                            'origins-plus-plus:shadow/no_food', 'origins-plus-plus:shadow/hunger'])
 origin('origins-plus-plus:sporeling', remove=['origins-plus-plus:sporeling/light_armor', 'origins-plus-plus:sporeling/small'], drop_upgrades=True,

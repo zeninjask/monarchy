@@ -13398,21 +13398,21 @@
     "size": 0.75,
     "extra_description": "Twig bonus (every archetype has a few of these)."
   },
-  "cursed_blast": {
-    "title": "Cursed Blast",
-    "description": "Unlocks Cursed Blast (Level 1) (120 mana, 4.5 s cooldown) on the ability wheel. Hold the Ponder key (W) here to preview it",
+  "despair": {
+    "title": "Despair",
+    "description": "Unlocks Despair (Level 5) (54 mana, 13.5 s cooldown) on the ability wheel. Hold the Ponder key (W) here to preview it",
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "mdvlcraft:textures/gui/astro/spell/traveloptics_cursed_blast.png"
+        "texture": "mdvlcraft:textures/gui/astro/spell/traveloptics_despair.png"
       }
     },
     "rewards": [
       {
         "type": "mdvlcraft:ability",
         "data": {
-          "ability": "traveloptics:cursed_blast",
-          "level": 1
+          "ability": "traveloptics:despair",
+          "level": 5
         }
       }
     ],

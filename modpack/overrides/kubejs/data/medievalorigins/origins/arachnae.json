@@ -7,7 +7,6 @@
     "medievalorigins:arachnae/web_slinger",
     "medievalorigins:arachnae/bottomless_stomach",
     "medievalorigins:arachnae/fragile_exoskeleton",
-    "origins:carnivore",
     "origins:master_of_webs",
     "origins:arthropod"
   ],
@@ -17,5 +16,5 @@
   },
   "impact": 2,
   "order": 1,
-  "description": "-§l Overview§r: \n§o§2+ Poison, Crowd Control\n+ Wall Climbing§r\n§o§6• Carnivore§r\n§o§c- Hunger, Health§r\nA grotesque amalgamation of spider and human, with venomous fangs and bristled feet yet the ability to walk upright and wield weaponry."
+  "description": "-§l Overview§r: \n§o§2+ Poison, Crowd Control\n+ Wall Climbing§r\n§o§c- Hunger, Health§r\nA grotesque amalgamation of spider and human, with venomous fangs and bristled feet yet the ability to walk upright and wield weaponry."
 }

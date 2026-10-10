@@ -252,11 +252,11 @@ spell,traveloptics_blackout,mdvlcraft:textures/gui/astro/spell/traveloptics_blac
 spell,traveloptics_blood_howl,mdvlcraft:textures/gui/astro/spell/traveloptics_blood_howl.png,1,berzerker,Blood Howl
 spell,traveloptics_bubble_spray,mdvlcraft:textures/gui/astro/spell/traveloptics_bubble_spray.png,1,water,Bubble Spray
 spell,traveloptics_coral_barrage,mdvlcraft:textures/gui/astro/spell/traveloptics_coral_barrage.png,1,water,Coral Barrage
-spell,traveloptics_cursed_blast,mdvlcraft:textures/gui/astro/spell/traveloptics_cursed_blast.png,2,ice water,Cursed Blast
 spell,traveloptics_cursed_revenants,mdvlcraft:textures/gui/astro/spell/traveloptics_cursed_revenants.png,1,necromancy,Cursed Revenants
+spell,traveloptics_despair,mdvlcraft:textures/gui/astro/spell/traveloptics_despair.png,1,ice,Despair
 spell,traveloptics_flood_slash,mdvlcraft:textures/gui/astro/spell/traveloptics_flood_slash.png,1,water,Flood Slash
 spell,traveloptics_floodgate,mdvlcraft:textures/gui/astro/spell/traveloptics_floodgate.png,1,water,Floodgate
-spell,traveloptics_halberd_horizon,mdvlcraft:textures/gui/astro/spell/traveloptics_halberd_horizon.png,2,ice water,Halberd Horizon
+spell,traveloptics_halberd_horizon,mdvlcraft:textures/gui/astro/spell/traveloptics_halberd_horizon.png,1,ice,Halberd Horizon
 spell,traveloptics_hydroshot,mdvlcraft:textures/gui/astro/spell/traveloptics_hydroshot.png,2,water,Torrent (Hydroshot VI) | Undertow
 spell,traveloptics_jet_steam,mdvlcraft:textures/gui/astro/spell/traveloptics_jet_steam.png,1,water,Jet Steam
 spell,traveloptics_lava_bomb,mdvlcraft:textures/gui/astro/spell/traveloptics_lava_bomb.png,1,flame,Lava Bomb

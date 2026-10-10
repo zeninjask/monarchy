@@ -4,7 +4,6 @@
     "medievalorigins:wood_elf/archer",
     "medievalorigins:wood_elf/empowered_shot_apotheosis",
     "medievalorigins:wood_elf/eagle_eyed",
-    "medievalorigins:wood_elf/steward",
     "medievalorigins:wood_elf/graceful",
     "medievalorigins:wood_elf/gear_spawn",
     "medievalorigins:wood_elf/spell_power"
@@ -15,5 +14,5 @@
   },
   "impact": 1,
   "order": 0,
-  "description": "-§l Overview§r: \n§o§2+ Ranged Bonuses, Speed§r\n§o§6• Vegetarian§r\n§o§c- Melee Damage§r\n§lWood Elves§r are a wise, long-lived race who live in harmony with the Earth. They are quick with a sword and bow."
+  "description": "-§l Overview§r: \n§o§2+ Ranged Bonuses, Speed§r\n§o§c- Melee Damage§r\n§lWood Elves§r are a wise, long-lived race who live in harmony with the Earth. They are quick with a sword and bow."
 }
