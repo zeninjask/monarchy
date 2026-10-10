@@ -4,8 +4,8 @@
   modpack/client.modrinth.index.json   mods downloaded by the launcher (client pack)
   modpack/server.modrinth.index.json   the same for the server pack
   modpack/overrides/                   files both packs ship (config, kubejs, ...)
-  modpack/client-overrides/            files only the client pack ships
-  modpack/server-overrides/            files only the server pack ships
+  modpack/client-overrides/            files only the client pack ships (replacing shared copies of the same name)
+  modpack/server-overrides/            files only the server pack ships (replacing shared copies of the same name)
   modpack/client-performance.json      the Client (Performance) pack: the client pack minus the index
                                        entries listed under "remove" ...
   modpack/client-performance-overrides/ ... plus these files, which replace the client pack's own copies
@@ -82,16 +82,15 @@ def build(side: str, version: str, binder: Path) -> Path:
     DIST.mkdir(exist_ok=True)
     target = DIST / f"MDVLCraft-{version}-{side}.mrpack"
     written = set()
-    replaced = set()
+    # override layers in order; a file in a later layer replaces the same file in an earlier one
+    layers = [PACK / "overrides", PACK / "client-overrides" if performance else PACK / f"{side}-overrides"]
     if performance:
-        own = PACK / "client-performance-overrides"
-        replaced = {"overrides/" + p.relative_to(own).as_posix() for p in own.rglob("*") if p.is_file()}
+        layers.append(PACK / "client-performance-overrides")
+    names = [{"overrides/" + f.relative_to(layer).as_posix() for f in layer.rglob("*") if f.is_file()} for layer in layers]
     with zipfile.ZipFile(target, "w") as archive:
         add(archive, "modrinth.index.json", (json.dumps(index, indent=2) + "\n").encode())
-        add_tree(archive, PACK / "overrides", "overrides/", written, replaced)
-        add_tree(archive, PACK / "client-overrides" if performance else PACK / f"{side}-overrides", "overrides/", written, replaced)
-        if performance:
-            add_tree(archive, own, "overrides/", written)
+        for i, layer in enumerate(layers):
+            add_tree(archive, layer, "overrides/", written, set().union(*names[i + 1:]))
         add_tree(archive, PACK / "mods", "overrides/mods/", written)
         add(archive, f"overrides/mods/{binder.name}", binder.read_bytes())
     return target

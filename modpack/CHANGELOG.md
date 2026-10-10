@@ -2,7 +2,50 @@
 
 ## 1.9.13 (Binder 0.7.5)
 
-Source changes only: the packs have not been built yet.
+Packs built (`python3 modpack/build_mrpack.py 1.9.13`). A fresh install of the server pack boots, pre-generates
+chunks and reloads cleanly; the client was tested on the test server (Herobrine, Fantasy Armor in battle mode).
+
+### Mods added
+
+- **Fantasy Armor (Medieval Series) 1.2.4** (client and server). Checked with Epic Fight: its 29 armour sets are
+  GeckoLib models with the standard armour bones, which Epic Fight's built-in GeckoLib support puts on its
+  animated body, and the author ships a separate cape for Epic Fight (shown by default). Tested in game in
+  battle mode: the Dragonslayer set follows the body through a sword swing. Its armour is indestructible by
+  default (`enableDurability = false` in `config/fantasy_armor-common.toml`), left as the mod ships it.
+- **Medieval Siege Machines 1.39** (mortar, culverin, trebuchet, catapult, ballista, battering ram, siege
+  ladder), with **Recruits Siege Compatibility 2.1.0**, which lets recruit bowmen aim and fire ranged siege
+  engines (command keys below). Recruits may also mount the machines (`MountWhitelist`).
+- **AstikorCarts Redux 1.2.5** (supply cart, animal cart, hand cart, plough, seed drill, reaper).
+- **No Mob Farm 1.6.6** (server only; it was already on the live server). Slows spawns at places where many
+  mobs die in a short time and stops iron golem and raid farming; defaults kept
+  (`server-overrides/config/nomobfarm.properties`).
+- Ars Elixirum was already in the pack (since 1.9.12).
+- No known incompatibilities were found for these with the pack's mods; every new mod's config is shipped so
+  the first start does not log "is not correct" warnings. Server boots cleanly with all five.
+
+### Config review
+
+- **Key conflicts from the new mods**, fixed in both client packs' default `options.txt` (new installs):
+  cart attach/detach C (was R, the ability cast key), cart slow unbound (was Z, Xaero's map zoom), siege
+  machine inventory X (was I, the Recruits command screen), siege machine use stays F and Map Atlases' minimap
+  toggle moves to keypad 7, the siege command keys (fire, ram swing, ram jump, ladder dismount, command screen)
+  move to keypad 1–5 (were M, J, K, L, B: world map, swap shoulder, skills, advancements, backpack). The
+  Client (Performance) pack's `options.txt` was also missing 9 of the key changes made in 1.9.12; both packs
+  now have the same key bindings.
+- **Does It Tick** froze every entity more than 64 blocks from a player, including recruits on patrol,
+  village workers and builders, Village Recruits' forced-loaded battles, siege machines and carts. Their mods
+  are now whitelisted (`config/does_it_tick-common.toml`).
+- **Entity Culling** no longer skips ticks of carts and siege machines that are out of view (a pulled cart
+  behind the player jittered), as it already did for boats.
+- **Distant Horizons on the server** (`server-overrides/config/DistantHorizons.toml`, server pack only): 2
+  generation threads at half duty (it scaled with the host's cores and competed with the main thread), and
+  clients can request LOD generation up to 256 chunks away instead of 4,096 (the pack's clients use 128).
+- **Item merging**: ServerCore, Get It Together Drops and Village Recruits all merged dropped items; ServerCore's
+  merge radius is back to vanilla so the two dedicated mods do the job.
+- **Chunky** resumes an unfinished pre-generation after a restart.
+- **Client (Performance) pack**: fewer Streams Reflowing water particles (100 per tick within 32 blocks,
+  none on vanilla water) and lighter Sound Physics ray tracing (16 rays, 2 bounces).
+- `build_mrpack.py`: a client- or server-only override now replaces the shared file of the same name.
 
 ### Server log review (logs of 7–9 October)
 

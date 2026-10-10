@@ -46,7 +46,7 @@
 	#Mount Whitelist
 	#	(takes effect after restart)
 	#	ONLY Entities in this list can be mounted by a recruit, for example: ["minecraft:boat", "smallships:cog", ...]
-	MountWhitelist = ["minecraft:camel", "minecraft:mule", "minecraft:donkey", "minecraft:horse", "minecraft:llama", "minecraft:pig", "minecraft:boat", "minecraft:minecart", "smallships:cog", "smallships:brigg", "smallships:galley", "smallships:drakkar", "siegeweapons:catapult", "siegeweapons:ballista", "alekiships:compartment_empty"]
+	MountWhitelist = ["minecraft:camel", "minecraft:mule", "minecraft:donkey", "minecraft:horse", "minecraft:llama", "minecraft:pig", "minecraft:boat", "minecraft:minecart", "smallships:cog", "smallships:brigg", "smallships:galley", "smallships:drakkar", "siegemachines:mortar", "siegemachines:culverin", "siegemachines:catapult", "siegemachines:ballista", "siegemachines:trebuchet", "siegemachines:battering_ram", "alekiships:compartment_empty"]
 	#
 	#The amount of currency required to hire a recruit.
 	#	(takes effect after restart)

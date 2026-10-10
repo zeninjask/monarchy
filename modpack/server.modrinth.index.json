@@ -2569,6 +2569,81 @@
         "https://cdn.modrinth.com/data/pY1lnc0y/versions/SQkr6joO/TrueHerobrine_1.1%2B1.20.1.jar"
       ],
       "fileSize": 1272845
+    },
+    {
+      "path": "mods/fantasy_armor-forge-1.2.4-1.20.1.jar",
+      "hashes": {
+        "sha1": "546cf8e9e7d047792c01f66e8c50d1e475fd1aad",
+        "sha512": "8337b0d3a1bd7296f716d8652e66aaf48a87a6011e7d497c7616c1cc85f4e263f1243bcef03c6453c7e4e253ec30f816a8a87980835d4eaf18c0c6a137ea87d9"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/oVmpjYQ5/versions/U65HntTA/fantasy_armor-forge-1.2.4-1.20.1.jar"
+      ],
+      "fileSize": 544856
+    },
+    {
+      "path": "mods/nomobfarm-forge-1.6.6.jar",
+      "hashes": {
+        "sha1": "f4eca3557540f67e7d9e914df88d96a83e005111",
+        "sha512": "2757c6836656b59c1e848f48364072da0477cf27756b1af38c98d2a3e2be0b3ceb3f2d502c8e48378d10aee9252d1ad5a54553a22da662a6729b510791bc2c0f"
+      },
+      "env": {
+        "client": "unsupported",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/Pqq824CC/versions/Vpw9AAwp/nomobfarm-forge-1.6.6.jar"
+      ],
+      "fileSize": 39803
+    },
+    {
+      "path": "mods/siege-machines-1.20.1-forge-1.39.jar",
+      "hashes": {
+        "sha1": "0b18809ea67014f527984fd07ca01c444beab03c",
+        "sha512": "43e020903314aaca3c724798191191369a8e3251406313959344083f2dabcb23a99332f93d0288b3680ed4346746a350511c3238f356dd6d2ea8c5388150f3b8"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/ctnEXZ5V/versions/SKVsjLd8/siege-machines-1.20.1-forge-1.39.jar"
+      ],
+      "fileSize": 1973951
+    },
+    {
+      "path": "mods/astikorcartsredux-1.2.5.jar",
+      "hashes": {
+        "sha1": "77a95e6f367d286d903ea2bc2aa7145f2ec7108f",
+        "sha512": "f844b6992e87f1ca139ad1277cffa7c8f15a6523c536d16abc67b1fcca1663aea0572020f69ad0439b6834b6cda3d4bf72af72e40c54ed00ff5e8d420aaa662b"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/mnLFouB0/versions/I8Wr3Oid/astikorcartsredux-1.2.5.jar"
+      ],
+      "fileSize": 530548
+    },
+    {
+      "path": "mods/Recruits-Siege-Compatibility-2.1.0.jar",
+      "hashes": {
+        "sha1": "562c502cac57f4e6c437a99c7c6888e364446405",
+        "sha512": "9e6a1d8d48696d5a7efde75e38ba7c24ece60e379467f1d965a1ae833b989c59315cb302936da687a7edbd28fcf87c938941b3d2b56abdfcecd38eb7fbe0c826"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/S2QXTTBv/versions/gzquw7m2/Recruits%20Siege%20Compatibility-2.1.0.jar"
+      ],
+      "fileSize": 77665
     }
   ],
   "dependencies": {

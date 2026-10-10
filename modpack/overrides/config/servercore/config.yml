@@ -15,7 +15,7 @@ features:
   # The radius in blocks that experience orbs will merge at.
   xp-merge-radius: 2.0
   # The radius in blocks that items will merge at.
-  item-merge-radius: 1.5
+  item-merge-radius: 0.5
   lobotomize-villagers:
     # Makes villagers tick less often if they are stuck in a 1x1 space.
     enabled: true

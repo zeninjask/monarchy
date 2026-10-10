@@ -151,7 +151,7 @@ key_key.toggleSelectedItemTooltips:key.keyboard.unknown
 key_key.toggleCarriedItemTooltips:key.keyboard.unknown
 key_key.cycleLeft:key.keyboard.unknown
 key_key.cycleRight:key.keyboard.unknown
-key_key.map_atlases.open_minimap:key.keyboard.f
+key_key.map_atlases.open_minimap:key.keyboard.keypad.7
 key_key.map_atlases.zoom_out_minimap:key.keyboard.keypad.subtract
 key_key.map_atlases.zoom_in_minimap:key.keyboard.keypad.add
 key_key.map_atlases.place_pin:key.keyboard.end
@@ -253,3 +253,12 @@ key_key.shouldersurfing.adjust_camera_left:key.keyboard.unknown
 key_key.shouldersurfing.adjust_camera_right:key.keyboard.unknown
 key_key.shouldersurfing.swap_shoulder:key.keyboard.j
 key_key.backpacked.open_management:key.keyboard.unknown
+key_key.astikorcartsredux.action:key.keyboard.c
+key_key.astikorcartsredux.slow:key.keyboard.unknown
+key_siegemachines.machine_use:key.keyboard.f
+key_siegemachines.machine_inventory:key.keyboard.x
+key_Siege fire command key:key.keyboard.keypad.1
+key_Ram swing command key:key.keyboard.keypad.2
+key_Ram jump command key:key.keyboard.keypad.3
+key_Ladder dismount command key:key.keyboard.keypad.4
+key_Siege command screen:key.keyboard.keypad.5
