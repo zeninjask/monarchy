@@ -111,7 +111,7 @@ def tree(cat):
     for a, v in totals.items():
         name = names.get(a, a.split(':')[1].replace('_', ' ').title())
         pct = percent.get(a, False)
-        bonuses.append((name, f"+{fmt(v * 100)}%" if pct else f"+{fmt(v)}", a, v * (100 if pct else 1)))
+        bonuses.append((name, f"{'+' if v >= 0 else ''}{fmt(v * 100)}%" if pct else f"{'+' if v >= 0 else ''}{fmt(v)}", a, v * (100 if pct else 1)))
     bonuses.sort()
     return {'skills': len(skills), 'cost': cost, 'bonuses': bonuses, 'spells': list(dict.fromkeys(spells)),
             'techniques': list(dict.fromkeys(techniques)), 'ef': list(dict.fromkeys(ef))}

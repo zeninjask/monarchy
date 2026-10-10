@@ -5,6 +5,15 @@
 Packs built (`python3 modpack/build_mrpack.py 1.9.13`). A fresh install of the server pack boots, pre-generates
 chunks and reloads cleanly; the client was tested on the test server (Herobrine, Fantasy Armor in battle mode).
 
+### Skill tree document
+
+- Four new layouts to choose from, in the same style as `docs/MDVLCraft-Skill-Trees.pdf` (19 pages), in
+  `docs/layouts/` (made by `docs/build_skill_tree_layouts.py`): **A** one page per class with its archetypes side
+  by side (5 pages), **B** two archetypes per page (10), **C** one ability table plus a bonus matrix per class
+  (4), **D** four archetype cards per page (6). Summaries are one line, class-wide bonuses are listed once per
+  class and the core stats only in the overview.
+- Negative bonuses showed as "+-60%" (Thief's Anvil Repair Cost); now "-60%".
+
 ### Mods added
 
 - **Fantasy Armor (Medieval Series) 1.2.4** (client and server). Checked with Epic Fight: its 29 armour sets are
