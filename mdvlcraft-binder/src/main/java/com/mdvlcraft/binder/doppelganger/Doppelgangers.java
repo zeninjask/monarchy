@@ -1,7 +1,6 @@
 package com.mdvlcraft.binder.doppelganger;
 
 import com.hm.efn.client.sound.EFNSounds;
-import com.hm.efn.registries.EFNMobEffectRegistry;
 import com.mdvlcraft.binder.util.Teleports;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.network.SyncManaPacket;
@@ -23,7 +22,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
@@ -45,9 +43,9 @@ import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
 import yesman.epicfight.world.entity.eventlistener.PlayerEventListener.EventType;
 
 /**
- * The Doppelganger ability. Casting it summons the double (1 mana per second while it is out);
- * casting it again while looking at a creature teleports the caster behind that creature, like
- * Yamato's Trick; sneak-casting dismisses the double.
+ * The Doppelganger ability. Casting it summons the double (1 mana per second while it is out). While it is out,
+ * tapping the key sends the double (not you) behind the creature you look at, where it keeps fighting it; holding
+ * the key for 2 seconds swaps your place with the double's; sneak-casting dismisses it.
  */
 @EventBusSubscriber(
     modid = "mdvlcraft"
@@ -58,7 +56,10 @@ public final class Doppelgangers {
     private static final int UPKEEP_MANA = 1;
     private static final double TELEPORT_RANGE = 24.0;
     private static final double TELEPORT_BEHIND = 1.0;
+    private static final int SWAP_HOLD_TICKS = 40;
     private static final Map<UUID, DoppelgangerEntity> ACTIVE = new HashMap<>();
+    /** Server tick each owner pressed the key while the double was out; -1 once a hold has swapped. */
+    private static final Map<UUID, Integer> HELD = new HashMap<>();
 
     private Doppelgangers() {
     }
@@ -72,12 +73,23 @@ public final class Doppelgangers {
         } else if (clone == null) {
             summon(player);
         } else {
-            LivingEntity target = lookedAt(player);
-            if (target == null) {
-                actionBar(player, Component.translatable("ability.mdvlcraft.doppelganger.no_target"));
-            } else {
-                teleportBehind(player, target);
-            }
+            // decided on release (a tap sends the double) or after 2 s of holding (swap places)
+            HELD.put(player.getUUID(), player.server.getTickCount());
+        }
+    }
+
+    /** The key was let go: a tap (shorter than the swap hold) sends the double behind the creature you look at. */
+    public static void release(ServerPlayer player) {
+        Integer start = HELD.remove(player.getUUID());
+        DoppelgangerEntity clone = active(player);
+        if (start == null || start < 0 || clone == null) {
+            return;
+        }
+        LivingEntity target = lookedAt(player);
+        if (target == null) {
+            actionBar(player, Component.translatable("ability.mdvlcraft.doppelganger.no_target"));
+        } else {
+            sendBehind(player, clone, target);
         }
     }
 
@@ -112,6 +124,7 @@ public final class Doppelgangers {
 
     private static void dismiss(ServerPlayer player, DoppelgangerEntity clone) {
         ACTIVE.remove(player.getUUID());
+        HELD.remove(player.getUUID());
         stopMirroring(player);
         if (!clone.isRemoved()) {
             effects(player.serverLevel(), clone.position(), EFNSounds.DOPPELGANGER_CLOSE.get());
@@ -164,30 +177,56 @@ public final class Doppelgangers {
         return hit != null && hit.getEntity() instanceof LivingEntity living ? living : null;
     }
 
-    private static void teleportBehind(ServerPlayer player, LivingEntity target) {
-        Vec3 spot = Teleports.spotBehind(player, target, TELEPORT_BEHIND);
+    private static void sendBehind(ServerPlayer player, DoppelgangerEntity clone, LivingEntity target) {
+        Vec3 spot = Teleports.spotBehind(clone, target, TELEPORT_BEHIND);
         if (spot == null) {
             actionBar(player, Component.translatable("ability.mdvlcraft.doppelganger.no_room"));
             return;
         }
         ServerLevel level = player.serverLevel();
-        level.sendParticles(ParticleTypes.REVERSE_PORTAL, player.getX(), player.getY() + 0.5, player.getZ(), 15, 0.3, 0.3, 0.3, 0.1);
-        float yaw = target.getYHeadRot();
-        player.teleportTo(level, spot.x, spot.y, spot.z, yaw, player.getXRot());
-        player.setDeltaMovement(Vec3.ZERO);
-        player.hurtMarked = true;
+        level.sendParticles(ParticleTypes.REVERSE_PORTAL, clone.getX(), clone.getY() + 0.5, clone.getZ(), 15, 0.3, 0.3, 0.3, 0.1);
+        clone.moveTo(spot.x, spot.y, spot.z, target.getYHeadRot(), clone.getXRot());
+        clone.setDeltaMovement(Vec3.ZERO);
+        clone.sendAfter(target);
         level.sendParticles(ParticleTypes.REVERSE_PORTAL, spot.x, spot.y + 0.5, spot.z, 15, 0.3, 0.3, 0.3, 0.1);
         level.playSound(null, spot.x, spot.y, spot.z, SoundEvents.ENDERMAN_TELEPORT, SoundSource.PLAYERS, 0.7F, 1.2F);
-        // hang in the air for a moment, like Yamato's Trick
-        player.addEffect(new MobEffectInstance(EFNMobEffectRegistry.VERTICALSTOP.get(), 10, 1, false, false, false));
+    }
+
+    /** Owner and double trade places (and facing). */
+    private static void swap(ServerPlayer player, DoppelgangerEntity clone) {
+        ServerLevel level = player.serverLevel();
+        Vec3 mine = player.position();
+        float myYaw = player.getYRot();
+        float myPitch = player.getXRot();
+        Vec3 theirs = clone.position();
+        level.sendParticles(ParticleTypes.REVERSE_PORTAL, mine.x, mine.y + 1.0, mine.z, 20, 0.3, 0.5, 0.3, 0.1);
+        level.sendParticles(ParticleTypes.REVERSE_PORTAL, theirs.x, theirs.y + 1.0, theirs.z, 20, 0.3, 0.5, 0.3, 0.1);
+        player.teleportTo(level, theirs.x, theirs.y, theirs.z, clone.getYRot(), clone.getXRot());
+        player.setDeltaMovement(Vec3.ZERO);
+        player.hurtMarked = true;
+        clone.moveTo(mine.x, mine.y, mine.z, myYaw, myPitch);
+        clone.setDeltaMovement(Vec3.ZERO);
+        clone.holdPosition();
+        level.playSound(null, theirs.x, theirs.y, theirs.z, SoundEvents.ENDERMAN_TELEPORT, SoundSource.PLAYERS, 0.7F, 0.8F);
+        level.playSound(null, mine.x, mine.y, mine.z, SoundEvents.ENDERMAN_TELEPORT, SoundSource.PLAYERS, 0.7F, 0.8F);
     }
 
     @SubscribeEvent
     public static void onServerTick(ServerTickEvent event) {
-        if (event.phase != Phase.END || ACTIVE.isEmpty()) {
+        if (event.phase != Phase.END || ACTIVE.isEmpty() && HELD.isEmpty()) {
             return;
         }
         MinecraftServer server = event.getServer();
+        for (Entry<UUID, Integer> held : HELD.entrySet()) {
+            if (held.getValue() >= 0 && server.getTickCount() - held.getValue() >= SWAP_HOLD_TICKS) {
+                held.setValue(-1);  // the release that follows does nothing
+                ServerPlayer player = server.getPlayerList().getPlayer(held.getKey());
+                DoppelgangerEntity clone = player == null ? null : active(player);
+                if (clone != null) {
+                    swap(player, clone);
+                }
+            }
+        }
         boolean upkeep = server.getTickCount() % UPKEEP_INTERVAL_TICKS == 0;
         Iterator<Entry<UUID, DoppelgangerEntity>> entries = ACTIVE.entrySet().iterator();
         while (entries.hasNext()) {
@@ -246,6 +285,7 @@ public final class Doppelgangers {
     public static void onServerStopping(ServerStoppingEvent event) {
         ACTIVE.values().forEach(Entity::discard);
         ACTIVE.clear();
+        HELD.clear();
     }
 
     private static void effects(ServerLevel level, Vec3 at, SoundEvent sound) {

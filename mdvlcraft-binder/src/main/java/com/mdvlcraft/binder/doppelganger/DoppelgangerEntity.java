@@ -38,8 +38,16 @@ public class DoppelgangerEntity extends PathfinderMob {
     private static final double FLANK_DISTANCE = 2.0;
     private static final double CATCH_UP_DISTANCE = 15.0;
     private static final EquipmentSlot[] SLOTS = EquipmentSlot.values();
+    /** How long a double sent after a creature keeps after it, and how long it stays put after a swap. */
+    private static final int SENT_TICKS = 300;
+    private static final int HOLD_TICKS = 60;
+    private static final double SENT_CATCH_UP_DISTANCE = 40.0;
     private int side = 1;
     private int sideCheck;
+    @Nullable
+    private LivingEntity sentTarget;
+    private int sentTicks;
+    private int holdTicks;
 
     public DoppelgangerEntity(EntityType<? extends DoppelgangerEntity> type, Level level) {
         super(type, level);
@@ -71,6 +79,27 @@ public class DoppelgangerEntity extends PathfinderMob {
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(OWNER, Optional.empty());
+    }
+
+    /** Sent behind a creature: fight it (and stay near it rather than at the owner's side) for a while. */
+    void sendAfter(LivingEntity target) {
+        this.sentTarget = target;
+        this.sentTicks = SENT_TICKS;
+        this.holdTicks = 0;
+    }
+
+    /** After swapping places with the owner: stay where the owner was for a moment. */
+    void holdPosition() {
+        this.holdTicks = HOLD_TICKS;
+    }
+
+    /** The creature the double was sent after, while that still applies. */
+    @Nullable
+    LivingEntity sentTarget() {
+        if (this.sentTarget != null && (!this.sentTarget.isAlive() || this.sentTicks <= 0 || this.sentTarget.level() != this.level())) {
+            this.sentTarget = null;
+        }
+        return this.sentTarget;
     }
 
     void setOwner(Player owner) {
@@ -106,6 +135,14 @@ public class DoppelgangerEntity extends PathfinderMob {
             return;
         }
         this.copyGear(owner);
+        if (this.sentTicks > 0) {
+            this.sentTicks--;
+        }
+        if (this.holdTicks > 0) {
+            this.holdTicks--;
+            this.setDeltaMovement(Vec3.ZERO);
+            return;
+        }
         this.follow(owner);
     }
 
@@ -164,7 +201,8 @@ public class DoppelgangerEntity extends PathfinderMob {
         this.setShiftKeyDown(owner.isShiftKeyDown());
         this.setSprinting(owner.isSprinting());
         this.setNoGravity(busy);
-        if (this.distanceTo(owner) > CATCH_UP_DISTANCE) {
+        if (this.distanceTo(owner) > (this.sentTarget() != null ? SENT_CATCH_UP_DISTANCE : CATCH_UP_DISTANCE)) {
+            this.sentTarget = null;
             this.teleportTo(owner.getX(), owner.getY(), owner.getZ());
         }
     }

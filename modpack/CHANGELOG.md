@@ -21,6 +21,19 @@
   give up, which could not be changed on its own. It is now its own key, **Give Up (hold, while bleeding out)**
   under *MDVLCraft* in Controls, default **Z** (free since the old Character Status key went). The on-screen hint
   names it. Binder `mixin/playerrevive/ReviveEventClientMixin`. Tested: holding Z for the set time gives up.
+- **Curios: Talisman slot turned on** (1 slot) for Cataclysm's Unbreakable Skull, which only fits there (Cataclysm
+  sets the slot to 0; raised to 1 in `kubejs/data/cataclysm/curios/slots/talisman.json`). The Head slot is
+  unchanged: it takes only the Aptrgangr Head, Draugr Head and Kobolediator Skull. Tested: the skull goes in the
+  Talisman slot and is refused by the Head slot. `docs/Curios-Slots.md` updated.
+- **Doppelganger** (Phantom):
+  - Tapping the key while the double is out now sends **only the double** behind the creature you look at; it
+    keeps fighting that creature (up to 15 s, or until it dies or you get 40 blocks away) instead of snapping back
+    to your side. You no longer teleport.
+  - **Holding the key for 2 seconds swaps your place with the double's.**
+  - The double no longer hits everything near it when it copies your swings: only its target, monsters, and
+    creatures that are after you. Animals, villagers, recruits, pets and players are left alone.
+  - Tested on the test server: a tap sent the double 11 blocks to a husk and it stayed there; a 2-second hold
+    swapped the player and double; a cow and a villager next to the double were not hurt.
 - Simple Voice Chat's "Press **Not bound** to set up" hint (its key now opens from the menu) now reads "Open Voice
   Chat from the MDVLCraft menu to set it up" (MDVLCraft-Astrologer-UI resource pack).
 

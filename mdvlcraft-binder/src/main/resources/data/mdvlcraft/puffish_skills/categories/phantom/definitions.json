@@ -14031,7 +14031,7 @@
       }
     },
     "size": 2.0,
-    "extra_description": "Summons a double of yourself that fights beside you and copies your attacks. Cast again while looking at an enemy to teleport behind it; sneak and cast to dismiss the double."
+    "extra_description": "Summons a double of yourself that fights beside you and copies your attacks. Tap again while looking at an enemy to send the double behind it; hold for 2 seconds to swap places with the double; sneak and cast to dismiss it."
   },
   "blackout": {
     "title": "Blackout",

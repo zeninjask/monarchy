@@ -59,6 +59,7 @@ public final class AbilityActions {
 
     public static void release(ServerPlayer player) {
         TechniqueRunner.release(player);
+        Doppelgangers.release(player);
     }
 
     private static void castSpell(ServerPlayer player, AbstractSpell spell, int level) {
