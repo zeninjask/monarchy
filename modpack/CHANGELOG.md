@@ -1,6 +1,8 @@
 # MDVLCraft changelog
 
-## Unreleased (Binder 0.7.8)
+## 1.9.18 (Binder 0.7.8)
+
+Packs built (`python3 modpack/build_mrpack.py 1.9.18`).
 
 ### Respec
 
