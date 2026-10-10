@@ -127,6 +127,29 @@ chunks/s on 4 cores), reloaded datapacks (no KubeJS errors) and checked TPS (20,
 - T.O Magic's Abyssal Ruins loot addition referenced an unregistered item and failed to load; it is
   emptied (T.O's structures and items are off anyway).
 - Hobgoblin's Greedy no longer references a Dig Speed attribute this Origins build lacks.
+- **Server now exits after `stop`.** Once a player had joined, a mod's thread pool kept the Java process
+  alive after the world was saved, so restart scripts and hosts saw a hung server. The Binder now waits 15
+  seconds after a dedicated server has fully stopped, logs which threads are still running and exits.
+
+Client test (joined the test server with the client pack): the race picker (Alternate Origin GUI) lists
+exactly the 15 races, renamed ones show their new names, Xaero's fair-play minimap and world map load,
+and armour was checked in Epic Fight battle mode, including mid-attack: Cursed Fate (Fallen Sorcerer,
+Shinjuku Gojo, Sorcerer Killer, Blessed, Prestigious, Brotherly Curse, Crow Sorcerer, feminine Jujutsu),
+Epic Knights (Knight, Gothic) and Cataclysm (Ignitium) all render on the animated body. Fixed from the
+client test:
+
+- **Key conflicts from the new mods**: Y opened Xaero's minimap settings as well as switching Epic Fight
+  mode, R opened Ars Elixirum's collection as well as casting abilities, Left Alt was both Epic Fight dodge
+  and Shoulder Surfing free look. New defaults: Ars Elixirum collection N, Origins active powers G and H,
+  view race ' (apostrophe), Xaero new waypoint , (comma) and waypoint list ; (semicolon), Shoulder
+  Surfing swap shoulder J, Map Atlases pin End; Xaero minimap settings (use ]), Shoulder Surfing free look
+  and camera nudges, Backpacked management, T.O armour abilities and Alex's Caves' special ability are
+  unbound. Only affects new installs (options.txt is a default).
+- **BD&Hill resource pack** is now saved as `BDHill-Reforge-the-Sword-Edge-2.0_1.20.1.zip`: its original
+  name starts with full-width brackets, which failed to open on the test system and can on Windows
+  systems that do not use UTF-8.
+- Distant Horizons no longer posts mod-compatibility notes in chat on every join.
+
 - Remaining warnings come from mods themselves (client-only classes probed on the server, optional
   integrations for mods not installed, Medieval Origins powers for races that are not on offer) and do
   not affect play.
