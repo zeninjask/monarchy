@@ -37,7 +37,9 @@
     "efn.YamatoInnateMixin",
     "efn.RuinsGreatSwordInnateMixin",
     "efn.MeenLanceInnateMixin",
-    "wom.ShootingStyleSkillMixin"
+    "wom.ShootingStyleSkillMixin",
+    "calio.HolderCodecMixin",
+    "calio.CalioCodecHelperMixin"
   ],
   "client": [
     "origins.ChooseOriginScreenMixin",

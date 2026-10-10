@@ -137,6 +137,10 @@ def describe(jar: Path) -> tuple[dict[str, str | None], set[str]]:
     return provided, required - provided.keys()
 
 
+# jar-in-jar libraries of optional mods the Binder patches (Calio, inside Origins)
+COMPAT_NESTED_PREFIXES = ("calio-",)
+
+
 def dependency_closure() -> tuple[list[str], list[str]]:
     """Jars from the pack the Binder needs, and every jar nested inside them
     (extracted to libs/nested so the Binder can compile against them)."""
@@ -169,6 +173,15 @@ def dependency_closure() -> tuple[list[str], list[str]]:
                 if name.startswith("META-INF/jarjar/") and name.endswith(".jar"):
                     NESTED.mkdir(parents=True, exist_ok=True)
                     target = name.rsplit("/", 1)[1]
+                    (NESTED / target).write_bytes(archive.read(name))
+                    nested_jars.append(target)
+    # Libraries nested in optional mods that the Binder's compat code compiles against
+    for jar in sorted(OUT.glob("*.jar")):
+        with zipfile.ZipFile(jar) as archive:
+            for name in archive.namelist():
+                target = name.rsplit("/", 1)[1]
+                if name.startswith("META-INF/jarjar/") and target.startswith(COMPAT_NESTED_PREFIXES):
+                    NESTED.mkdir(parents=True, exist_ok=True)
                     (NESTED / target).write_bytes(archive.read(name))
                     nested_jars.append(target)
     if missing:

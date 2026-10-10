@@ -1,6 +1,24 @@
 # MDVLCraft changelog
 
-## Unreleased (Binder 0.7.6)
+## 1.9.15 (Binder 0.7.7)
+
+Packs built (`python3 modpack/build_mrpack.py 1.9.15`). The menu, every screen it opens and the Status screen were
+tested on the test server, as were 7 rejoins (5 after a kick, 1 after a disconnect, 1 after a server restart).
+
+### Rejoin fix
+
+- Joining a server could fail with *"Internal Exception: java.lang.NullPointerException: null value in entry:
+  _hostile_when_hit=null"* (seen on the first reconnect after the server restarted; the next try worked). Origins'
+  library Calio decodes powers on the network thread and creates registry holders for "multiple" powers' sub-powers
+  while the main thread is resetting and filling the same registry; the two race on the registry's map and a
+  holder can come back null. The Binder now creates those holders under the lock the main thread already holds
+  while it fills the registry (`compat/CalioHolders.java`, mixins `calio.HolderCodecMixin` and
+  `calio.CalioCodecHelperMixin`). `tools/fetch_mods.py` now also extracts Calio from the Origins jar so the
+  Binder compiles against it.
+
+### Keys
+
+- The menu key defaults to **M** and Xaero's world map to **F** (`options.txt` in both client packs).
 
 ### MDVLCraft menu
 
