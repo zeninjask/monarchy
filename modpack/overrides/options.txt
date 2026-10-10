@@ -211,6 +211,7 @@ key_key.p1nero_ec.skill_3:key.keyboard.unknown
 key_key.mdvlcraft.menu:key.keyboard.m
 key_key.mdvlcraft.ability_wheel:key.keyboard.tab
 key_key.mdvlcraft.cast_ability:key.keyboard.r
+key_key.mdvlcraft.give_up:key.keyboard.z
 soundCategory_master:0.5
 soundCategory_music:1.0
 soundCategory_record:1.0

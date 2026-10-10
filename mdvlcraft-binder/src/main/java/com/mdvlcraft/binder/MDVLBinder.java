@@ -6,6 +6,7 @@ import com.mdvlcraft.binder.client.ClientAbilitySetup;
 import com.mdvlcraft.binder.client.ClientContentSetup;
 import com.mdvlcraft.binder.client.HerobrineRender;
 import com.mdvlcraft.binder.combat.BinderEffects;
+import com.mdvlcraft.binder.compat.HerobrineLook;
 import com.mdvlcraft.binder.compat.issponder.PreviewCasts;
 import com.mdvlcraft.binder.config.BinderConfig;
 import com.mdvlcraft.binder.content.DisabledContentSetup;
@@ -51,6 +52,7 @@ public final class MDVLBinder {
         EpicFightIntegration.register(modBus, forgeBus);
         PreviewCasts.register();
         CataclysmIntegration.register(modBus, forgeBus);
+        HerobrineLook.register();
     }
 
     private static void onCommonSetup(FMLCommonSetupEvent event) {

@@ -13,6 +13,14 @@
   power changed nothing). Turning BadOptimizations' lightmap caching off (1.9.16) stays: it would still delay
   night-vision powers.
 - Shadow's *Behind You* tested: G teleports you behind the creature you look at, then the 10 s cooldown bar shows.
+- **True Herobrine now turns his head to follow you.** His only look AI was vanilla's look-at-player goal: it
+  starts on a 2% chance per tick, stops after 2-4 seconds and needs a clear line of sight, which the trees he
+  stands among nearly always block, so he stared straight ahead. The Binder now points his head at the nearest
+  player every tick (`compat/HerobrineLook.java`). Tested: his head turns to face the player as they move round him.
+- **PlayerRevive's give-up key is rebindable**: while bleeding out you used to hold the attack key (left click) to
+  give up, which could not be changed on its own. It is now its own key, **Give Up (hold, while bleeding out)**
+  under *MDVLCraft* in Controls, default **Z** (free since the old Character Status key went). The on-screen hint
+  names it. Binder `mixin/playerrevive/ReviveEventClientMixin`. Tested: holding Z for the set time gives up.
 - Simple Voice Chat's "Press **Not bound** to set up" hint (its key now opens from the menu) now reads "Open Voice
   Chat from the MDVLCraft menu to set it up" (MDVLCraft-Astrologer-UI resource pack).
 

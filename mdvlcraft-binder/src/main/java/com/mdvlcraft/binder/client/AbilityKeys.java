@@ -18,7 +18,9 @@ public final class AbilityKeys {
     public static final KeyMapping MENU = key("menu", 77);
     public static final KeyMapping WHEEL = key("ability_wheel", 96);
     public static final KeyMapping CAST = key("cast_ability", 280);
-    private static final List<KeyMapping> ALL = List.of(MENU, WHEEL, CAST);
+    /** PlayerRevive's "hold to give up" while bleeding out (it used the attack key; see mixin.playerrevive). */
+    public static final KeyMapping GIVE_UP = key("give_up", 90);
+    private static final List<KeyMapping> ALL = List.of(MENU, WHEEL, CAST, GIVE_UP);
     private static boolean castDown;
 
     private AbilityKeys() {
