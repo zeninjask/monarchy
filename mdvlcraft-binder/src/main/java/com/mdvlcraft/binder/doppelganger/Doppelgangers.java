@@ -1,6 +1,8 @@
 package com.mdvlcraft.binder.doppelganger;
 
 import com.hm.efn.client.sound.EFNSounds;
+import com.mdvlcraft.binder.ability.AbilityGrants;
+import com.mdvlcraft.binder.ability.DoppelgangerAbility;
 import com.mdvlcraft.binder.util.Teleports;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.network.SyncManaPacket;
@@ -94,6 +96,14 @@ public final class Doppelgangers {
     }
 
     @Nullable
+    /** Sends the double away when its ability is no longer granted (a respec took it). */
+    public static void dismissIfUngranted(ServerPlayer player) {
+        DoppelgangerEntity clone = active(player);
+        if (clone != null && AbilityGrants.level(player, DoppelgangerAbility.INSTANCE) == 0) {
+            dismiss(player, clone);
+        }
+    }
+
     private static DoppelgangerEntity active(ServerPlayer player) {
         DoppelgangerEntity clone = ACTIVE.get(player.getUUID());
         if (clone != null && clone.isRemoved()) {

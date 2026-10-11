@@ -188,8 +188,13 @@ PICKS = {
 }
 
 
-# Monk pairs, picked separately: {(first, second): 1-3 or a custom name}. Pairs not here show "<first> / <second>".
-MONK_PICKS = {}
+# Monk pairs, picked separately: {(first, second): 1-3 or a custom name}.
+MONK_PICKS = {
+    ('knight', 'monk'): 2, ('samurai', 'monk'): 3, ('berzerker', 'monk'): 1, ('monk', 'holy'): 1,
+    ('monk', 'flame'): 3, ('monk', 'lightning'): 3, ('monk', 'necromancy'): 1, ('monk', 'ice'): 1,
+    ('monk', 'water'): 1, ('monk', 'assassin'): 2, ('monk', 'phantom'): 'Unseen Palm', ('monk', 'scout'): 1,
+    ('monk', 'thief'): 3, ('monk', 'wanderer'): 1, ('monk', 'stalker'): 3, ('monk', 'druid'): 3, ('monk', 'cursed'): 2,
+}
 
 
 def chosen():

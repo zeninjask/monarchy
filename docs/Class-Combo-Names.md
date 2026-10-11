@@ -218,24 +218,24 @@ On the Status screen, "Archetype" is now "Class". A player with one archetype sh
 | ---: | --- | --- | --- | --- | --- |
 | 136 | Druid + Cursed | Witch | Dark Druid | Blighted Shaman | **Dark Druid** |
 
-## Monk + (new archetype, choose these)
+## Monk +
 
 | # | Combination | A | B | C | Chosen |
 | ---: | --- | --- | --- | --- | --- |
-| 137 | Knight + Monk | Iron Monk | Temple Guardian | Bastion Fist | *not chosen yet* |
-| 138 | Samurai + Monk | Warrior Monk | Zen Blade | Ronin Monk | *not chosen yet* |
-| 139 | Berzerker + Monk | Brawler | Pit Fighter | Rage Fist | *not chosen yet* |
-| 140 | Monk + Holy | Warrior Priest | Ascetic | Sun Fist | *not chosen yet* |
-| 141 | Monk + Flame | Fire Fist | Ember Monk | Phoenix Palm | *not chosen yet* |
-| 142 | Monk + Lightning | Thunder Fist | Storm Monk | Raijin Palm | *not chosen yet* |
-| 143 | Monk + Necromancy | Death Fist | Grave Monk | Soul Breaker | *not chosen yet* |
-| 144 | Monk + Ice | Frost Fist | Glacial Monk | Winter Palm | *not chosen yet* |
-| 145 | Monk + Water | Flowing Fist | Tide Monk | River Palm | *not chosen yet* |
-| 146 | Monk + Assassin | Silent Fist | Shadow Monk | Pressure Point | *not chosen yet* |
-| 147 | Monk + Phantom | Drunken Master | Ghost Fist | Mist Walker | *not chosen yet* |
-| 148 | Monk + Scout | Swift Fist | Wind Palm | Courier Monk | *not chosen yet* |
-| 149 | Monk + Thief | Street Fighter | Sly Fist | Cutpurse Monk | *not chosen yet* |
-| 150 | Monk + Wanderer | Wandering Monk | Vagabond Fist | Road Monk | *not chosen yet* |
-| 151 | Monk + Stalker | Tiger Fist | Hunter Monk | Hawk Palm | *not chosen yet* |
-| 152 | Monk + Druid | Crane Style | Grove Monk | Beast Fist | *not chosen yet* |
-| 153 | Monk + Cursed | Black Flash | Cursed Fist | Hex Fist | *not chosen yet* |
+| 137 | Knight + Monk | Iron Monk | Temple Guardian | Bastion Fist | **Temple Guardian** |
+| 138 | Samurai + Monk | Warrior Monk | Zen Blade | Ronin Monk | **Ronin Monk** |
+| 139 | Berzerker + Monk | Brawler | Pit Fighter | Rage Fist | **Brawler** |
+| 140 | Monk + Holy | Warrior Priest | Ascetic | Sun Fist | **Warrior Priest** |
+| 141 | Monk + Flame | Fire Fist | Ember Monk | Phoenix Palm | **Phoenix Palm** |
+| 142 | Monk + Lightning | Thunder Fist | Storm Monk | Raijin Palm | **Raijin Palm** |
+| 143 | Monk + Necromancy | Death Fist | Grave Monk | Soul Breaker | **Death Fist** |
+| 144 | Monk + Ice | Frost Fist | Glacial Monk | Winter Palm | **Frost Fist** |
+| 145 | Monk + Water | Flowing Fist | Tide Monk | River Palm | **Flowing Fist** |
+| 146 | Monk + Assassin | Silent Fist | Shadow Monk | Pressure Point | **Shadow Monk** |
+| 147 | Monk + Phantom | Drunken Master | Ghost Fist | Mist Walker | **Unseen Palm** |
+| 148 | Monk + Scout | Swift Fist | Wind Palm | Courier Monk | **Swift Fist** |
+| 149 | Monk + Thief | Street Fighter | Sly Fist | Cutpurse Monk | **Cutpurse Monk** |
+| 150 | Monk + Wanderer | Wandering Monk | Vagabond Fist | Road Monk | **Wandering Monk** |
+| 151 | Monk + Stalker | Tiger Fist | Hunter Monk | Hawk Palm | **Hawk Palm** |
+| 152 | Monk + Druid | Crane Style | Grove Monk | Beast Fist | **Beast Fist** |
+| 153 | Monk + Cursed | Black Flash | Cursed Fist | Hex Fist | **Cursed Fist** |

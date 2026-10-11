@@ -7,6 +7,7 @@ import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
 import io.redspace.ironsspellbooks.api.spells.CastSource;
 import io.redspace.ironsspellbooks.api.spells.CastType;
 import io.redspace.ironsspellbooks.api.util.Utils;
+import java.util.List;
 import java.util.Optional;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -55,6 +56,18 @@ public final class AbilityActions {
                 }
             }
         }
+    }
+
+    /** After a respec: empties the wheel slots whose ability is no longer granted and dismisses an ungranted double. */
+    public static void dropUngranted(ServerPlayer player) {
+        List<Optional<ResourceLocation>> wheel = Loadout.get(player);
+        for (int slot = 0; slot < wheel.size(); slot++) {
+            Optional<ResourceLocation> id = wheel.get(slot);
+            if (id.isPresent() && id.flatMap(Ability::byId).map(a -> AbilityGrants.level(player, a) == 0).orElse(true)) {
+                Loadout.set(player, slot, Optional.empty());
+            }
+        }
+        Doppelgangers.dismissIfUngranted(player);
     }
 
     public static void release(ServerPlayer player) {

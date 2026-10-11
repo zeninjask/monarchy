@@ -1,5 +1,6 @@
 package com.mdvlcraft.binder.skills;
 
+import com.mdvlcraft.binder.ability.AbilityActions;
 import java.util.List;
 import java.util.Optional;
 import net.minecraft.network.chat.Component;
@@ -33,7 +34,8 @@ public final class Respec {
             return;
         }
         tab(archetype).ifPresent(tab -> {
-            tab.resetSkills(player);
+            tab.resetSkills(player);  // locks every skill of the tree, which takes back its rewards (stats, abilities, Epic Fight skills)
+            AbilityActions.dropUngranted(player);
             player.displayClientMessage(Component.translatable("message.mdvlcraft.respec.reset", title(archetype)), false);
             tab.openScreen(player);
         });
@@ -56,6 +58,7 @@ public final class Respec {
         newTab.get().erase(player);   // a clean new tab, whatever was left from before
         newNode.get().unlock(player); // shows the new tab
         newTab.get().getExperience().ifPresent(e -> e.setLevel(player, level));
+        AbilityActions.dropUngranted(player);
         player.displayClientMessage(Component.translatable("message.mdvlcraft.respec.changed", title(from), title(to), level), false);
         newTab.get().openScreen(player);
     }

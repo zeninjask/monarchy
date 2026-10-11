@@ -1,6 +1,9 @@
 # MDVLCraft changelog
 
-## Unreleased (Binder 0.7.8)
+## 1.9.19 (Binder 0.7.8)
+
+Packs built (`python3 modpack/build_mrpack.py 1.9.19`). The Monk and Feral Claw changes were tested on the test
+server; the Respec wheel clean-up was checked in the code only.
 
 ### New archetype: Monk (Warrior)
 
@@ -32,8 +35,18 @@ stats and arts (`mdvlcraft-binder/tools/monk_tree.py` builds it).
 - **Epic Fight skills**: Shooting Style (kicks with an empty hand), Precise Roll, Inner Growth, Meditation, Mindset,
   Heart Shield, Instant Heal II. Little overlap with the other Warriors (no Combat Mastery, Stamina Pillager,
   Technician or Swordmaster).
-- Respec, the Status page and the class names know the Monk. Its 17 pair names are not chosen yet (see
-  `docs/Class-Combo-Names.md`, 137-153); until then the Status page shows e.g. *Monk / Holy*.
+- Respec, the Status page and the class names know the Monk. Its pair names (`docs/Class-Combo-Names.md`,
+  137-153): Knight + Monk **Temple Guardian**, Samurai **Ronin Monk**, Berzerker **Brawler**, Holy **Warrior
+  Priest**, Flame **Phoenix Palm**, Lightning **Raijin Palm**, Necromancy **Death Fist**, Ice **Frost Fist**, Water
+  **Flowing Fist**, Assassin **Shadow Monk**, Phantom **Unseen Palm**, Scout **Swift Fist**, Thief **Cutpurse
+  Monk**, Wanderer **Wandering Monk**, Stalker **Hawk Palm**, Druid **Beast Fist**, Cursed **Cursed Fist**.
+
+### Respec
+
+- Resetting a tree or changing class already takes back everything the tree gave (Pufferfish locks every skill and
+  re-runs its rewards: stats, abilities and Epic Fight skills are removed; a skill the other class also gives stays).
+  Now it also empties the ability-wheel slots whose ability is gone, and dismisses the Doppelganger if it was out.
+  Checked in the code (`skills/Respec`, `AbilityActions.dropUngranted`).
 
 ### Feral Claws
 
